@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+.amlignore
+.amltmp
+.ipynb_aml_checkpoints/
