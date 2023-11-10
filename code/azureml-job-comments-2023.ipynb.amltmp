@@ -1,0 +1,202 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# Running a Spark Job on AzureML\n"
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Create a client connection to the AzureML workspace"
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from azure.ai.ml import MLClient, spark, Input, Output\n",
+        "from azure.identity import DefaultAzureCredential\n",
+        "from azure.ai.ml.entities import UserIdentityConfiguration\n",
+        "\n",
+        "azureml_client = MLClient.from_config(\n",
+        "    credential=DefaultAzureCredential()\n",
+        ")"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": "Found the config file in: /config.json\n"
+        }
+      ],
+      "execution_count": 1,
+      "metadata": {
+        "gather": {
+          "logged": 1699633274231
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Define the Job\n",
+        "\n",
+        "The following cell defines the job. It is an object of [Spark Class](https://learn.microsoft.com/en-us/python/api/azure-ai-ml/azure.ai.ml.entities.spark?view=azure-python) that contains the required information to run a job:\n",
+        "\n",
+        "- The cluster size\n",
+        "- The script to run\n",
+        "- The parameters for the script\n",
+        "\n",
+        "In the example below, we are using the `pyspark-script-job.py` script which is parametrized. As you can see, the parameters are the following:\n",
+        "\n",
+        "- `platform`: which can be `azureml` or `sagemaker`. This script is designed to be able to run on both platforms.\n",
+        "- `input_object_store_base_url`: Here you will use a base URL of the `s3://<BUCKETNAME>/` form for Sagemaker, or `wasbs://<CONTAINER-NAME>@<STORAGE-ACCOUNT>.blob.core.windows.net/` or `azureml://datastores/workspaceblobstore/paths/` for AzureML. **Don't forget the trailing slash /.**\n",
+        "- `input_path`: The path to read from\n",
+        "- `output_object_store_base_url`: Here you will use a base URL of the `s3://<BUCKETNAME>/` form for Sagemaker, or `wasbs://<CONTAINER-NAME>@<STORAGE-ACCOUNT>.blob.core.windows.net/` or `azureml://datastores/workspaceblobstore/paths/` for AzureML. **Don't forget the trailing slash /.**\n",
+        "- `output_path`: The path to write to\n",
+        "- `subreddits`: a comma separated string of subreddit names\n",
+        "\n",
+        "This job receives the object store location for the raw data, in this case a single month. Then the job filters the original data and writes the filtered data out. This is designed to be used for either submissions or comments, not both.\n",
+        "\n",
+        "For more information about the parameters used in the job definition, [read the documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-submit-spark-jobs?view=azureml-api-2&tabs=sdk#submit-a-standalone-spark-job).\n",
+        "\n"
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "spark_job = spark(\n",
+        "    name=\"reddit-filter-comments-2023\",\n",
+        "    code=\"./\",\n",
+        "    entry={\"file\": \"pyspark-script-job.py\"},\n",
+        "    driver_cores=1,\n",
+        "    driver_memory=\"5g\",\n",
+        "    executor_cores=4,\n",
+        "    executor_memory=\"10g\",\n",
+        "    executor_instances=6,\n",
+        "    resources={\n",
+        "        \"instance_type\": \"Standard_E4S_V3\",\n",
+        "        \"runtime_version\": \"3.2.0\",\n",
+        "    },\n",
+        "    inputs={\n",
+        "        \"platform\": \"azureml\",\n",
+        "        \"input_object_store_base_url\": \"wasbs://bigdata@marckvnonprodblob.blob.core.windows.net/\",\n",
+        "        \"input_path\": \"reddit-parquet/comments/year=2023/month=*/\",\n",
+        "        \"output_object_store_base_url\": \"azureml://datastores/workspaceblobstore/paths/\",\n",
+        "        \"output_path\": \"filtered-comments/2023\",\n",
+        "        \"subreddits\": \"movies,television,anime,MovieSuggestions,televisionsuggestions,Animesuggest\"\n",
+        "    },\n",
+        "    identity=UserIdentityConfiguration(),\n",
+        "    args=\"--platform ${{inputs.platform}} --input_object_store_base_url ${{inputs.input_object_store_base_url}} --input_path ${{inputs.input_path}} --output_object_store_base_url ${{inputs.output_object_store_base_url}} --output_path ${{inputs.output_path}} --subreddits ${{inputs.subreddits}}\"\n",
+        ")"
+      ],
+      "outputs": [],
+      "execution_count": 2,
+      "metadata": {
+        "gather": {
+          "logged": 1699633296372
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Submit the job"
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "job_object = azureml_client.jobs.create_or_update(spark_job)"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": "Class AutoDeleteSettingSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.\nClass AutoDeleteConditionSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.\nClass BaseAutoDeleteSettingSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.\nClass IntellectualPropertySchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.\nClass ProtectionLevelSchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.\nClass BaseIntellectualPropertySchema: This is an experimental class, and may change at any time. Please see https://aka.ms/azuremlexperimental for more information.\n\u001b[32mUploading code (0.55 MBs): 100%|██████████| 551928/551928 [00:00<00:00, 2725822.49it/s]\n\u001b[39m\n\n"
+        }
+      ],
+      "execution_count": 3,
+      "metadata": {
+        "gather": {
+          "logged": 1699633301329
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## Get the Job Studio URL"
+      ],
+      "metadata": {}
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "studio_url = job_object.studio_url\n",
+        "print(studio_url)"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "https://ml.azure.com/runs/reddit-filter-comments-2023?wsid=/subscriptions/eccec620-0403-4f08-9535-0f93c5a0e1dc/resourcegroups/project-rg/workspaces/group-34-aml&tid=fd571193-38cb-437b-bb55-60f28d67b643\n"
+        }
+      ],
+      "execution_count": 4,
+      "metadata": {
+        "gather": {
+          "logged": 1699633301938
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "kernel_info": {
+      "name": "python310-sdkv2"
+    },
+    "kernelspec": {
+      "name": "python310-sdkv2",
+      "language": "python",
+      "display_name": "Python 3.10 - SDK v2"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.10.11",
+      "mimetype": "text/x-python",
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "pygments_lexer": "ipython3",
+      "nbconvert_exporter": "python",
+      "file_extension": ".py"
+    },
+    "microsoft": {
+      "ms_spell_check": {
+        "ms_spell_check_language": "en"
+      },
+      "host": {
+        "AzureML": {
+          "notebookHasBeenCompleted": true
+        }
+      }
+    },
+    "nteract": {
+      "version": "nteract-front-end@1.0.0"
+    },
+    "orig_nbformat": 4,
+    "vscode": {
+      "interpreter": {
+        "hash": "6aeff17a1aa7735c2f7cb3a6d691fe1b4d4c3b8d2d650f644ad0f24e1b8e3f3f"
+      }
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 2
+}
