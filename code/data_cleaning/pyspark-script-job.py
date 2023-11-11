@@ -4,6 +4,9 @@ import logging
 import pandas as pd
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, count, when, length, expr, to_timestamp, hour, dayofweek, dayofmonth, month, year
+from pyspark.sql.window import Window
+from pyspark.sql.functions import row_number
+from pyspark.sql import functions as F
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -86,9 +89,26 @@ df_datetime = df_filtered.groupBy(["subreddit", "day_of_month", "month", "year"]
 # df_eda_1.to_csv(f"{output_complete_path}/datetime_counts_eda.csv")
 df_datetime.write.mode("overwrite").csv(f"{output_complete_path}/datetime_counts_eda.csv", header=True)
 
+# Group by 'author' and 'subreddit' and count the occurrences
 author_counts = df.groupBy(['author', 'subreddit']).count()
-top_authors = author_counts.orderBy(col('count').desc()).limit(11)
-top_authors.write.mode("overwrite").csv(f"{output_complete_path}/author_eda.csv", header=True)
+
+# Create a window partitioned by 'subreddit' and ordered by the count in descending order
+windowSpec = Window.partitionBy('subreddit').orderBy(col('count').desc())
+
+# Add a row number for each row within the partition
+author_ranked = author_counts.withColumn("rank", row_number().over(windowSpec))
+
+# Filter to get the top 11 authors for each subreddit
+top_authors_each_subreddit = author_ranked.filter(col('rank') <= 11)
+top_authors_pd = top_authors_each_subreddit.toPandas()
+filtered_authors = top_authors_pd[top_authors_pd["subreddit"].isin(["anime", "television", "movies"])]
+filtered_authors = filtered_authors[~filtered_authors["author"].isin(["[deleted]"])]
+filtered_authors.to_csv(f"{CSV_DIR}/author_eda.csv")
+
+# Group by 'day_of_month' and 'subreddit', then calculate the average count
+day_of_month_avg = df.groupBy(["day_of_month", "subreddit"]).agg(F.avg("score").alias("average_score"))
+day_of_month_pd = day_of_month_avg.toPandas()
+day_of_month_pd.to_csv(f"{CSV_DIR}/day_of_month_avg_eda.csv")
 
 # Stop Spark session
 spark.stop()
