@@ -1,0 +1,47 @@
+project:
+  type: website
+
+website:
+  search: false
+  #title: "index"
+  
+  navbar:
+    logo: shop-removebg-preview.png
+    left:
+      - href: /index.html#background
+        text: Background
+      - href: /index.html#introduction
+        text: Introduction
+      - href: /index.html#data-overview
+        text: Data
+      - href: /index.html#analysis
+        text: Analysis
+      - href: /index.html#methods
+        text: Methods
+      - href: /index.html#conclusion
+        text: Conclusion
+      - href: /index.html#references
+        text: References
+      - href: /authors.html
+        text: Authors
+    right:
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/anly503/spring2023-project-team-20/tree/main/code
+          - text: Data
+            url:  https://github.com/anly503/spring2023-project-team-20/tree/main/data
+
+resources: 
+    - "*.html"
+    - "*.js"
+    - "*.css"
+    
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    
+editor: visual
+

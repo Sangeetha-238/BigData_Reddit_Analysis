@@ -1,0 +1,4 @@
+.output {
+    color: green;
+    background-color: black;
+  }
