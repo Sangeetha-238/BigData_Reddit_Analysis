@@ -1,0 +1,588 @@
+---
+format:
+  html:
+    embed-resources: true
+    self-contained: true
+    smooth-scroll: true
+    page-layout: full
+    css: styles.css
+metadata:
+  backgroundcolor: "#e2dacc"
+execute:
+  echo: true
+---
+
+```{=html}
+<br/>
+<h1  style="font-family: Serif; text-align: center; font-size: 1.86rem; color:#633923;"><b>From Bean to Cup: Exploring the Global Coffee Market Through Data Science</b></h1>
+<h4  style="text-align: center; font-size: larger; font-weight: 500;color:#633923;font-family: Serif;font-size: 15px;margin-top:0rem;">By: Brendan Baker (bsb79), Samiksha Thikekar (st1140), Natalie Smith (nls73), Brian Wimmer (bcw66)</h4>
+<p></p>
+<p></p>
+```
+
+```{=html}
+<h2 style="font-family: Serif; text-align: center; font-size: 1.5em; color:#633923;margin-top:1.5rem;"><b>BACKGROUND</b></h2>
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Let's look at some facts about the history of coffee, its origins and spread, and the popularity of coffee in America.</p>
+```
+
+```{=html}
+<!-- ****************SLIDER CODE***************** -->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: none;
+  margin-left:0px;
+  margin-right:0px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #633923;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #633923;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #633923;
+  opacity:0.4;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #633923;
+  opacity:1;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 100s;
+}
+
+@keyframes fade {
+  from {opacity: 1}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+</head>
+
+<body>
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 4</div>
+  <img src="slider-1.png" style="width:100%">
+  <div class="text">Fact 1</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 4</div>
+  <img src="slider-2.png" style="width:100%">
+  <div class="text">Fact 2</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 4</div>
+  <img src="slider-3.png" style="width:100%">
+  <div class="text">Fact 3</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">4 / 4</div>
+  <img src="slider-4.png" style="width:100%">
+  <div class="text">Fact 4</div>
+</div>
+
+<!-- <div class="mySlides fade"> -->
+<!--   <div class="numbertext">5 / 5</div> -->
+<!--   <img src="slider-5.png" style="width:100%"> -->
+<!--   <div class="text">Fact 5</div> -->
+<!-- </div> -->
+
+</div>
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <!-- <span class="dot"></span> -->
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 6000); // Change image every 2 seconds
+}
+</script>
+
+</body>
+```
+```{=html}
+<h2 style="font-family: Serif; text-align: center; font-size: 1.5em; color:#633923;"><b>INTRODUCTION</b></h2>
+```
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">The global coffee market is a massive industry that is constantly evolving. Coffee is the second most traded commodity in the world after oil, and is consumed by billions of people daily. In recent years, the popularity of coffee has grown tremendously, leading to a significant increase in its global market size. Even in the U.S. alone, coffee consumption has increased by over 49% in the last 30 years.</p>
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Through this project, we will wanted to explore the changing state of the coffee market both domestically in the U.S. and around the world. To achieve this, we analyzed consumption, demand, imports and exports, favorite coffee chains, and the specialty coffee market to get a better understanding of the global coffee market.</p>
+```
+
+```{=html}
+
+<h2 style="font-family: Serif; text-align: center; font-size: 1.5em; color:#633923;"><b>DATA OVERVIEW</b></h2>
+```
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">In order to tell our story, we sought data from sources that represented different phases of the coffee lifecycle. Beginning our journey with the coffee bean, we examined which countries distribute the most coffee using data from the International Coffee Organization (ICO). The ICO dataset records the amount of coffee imported and exported from all participating countries from 1990-2019. To help understand where coffee is consumed the most after it is distributed, we used another ICO dataset that provides information on which countries consume the most coffee. We also utilized data from NationMaster, a source of international market trend data, to determine which countries exhibit the greatest demand for coffee. Concluding our analysis with coffee retailers, we used data from Statista to explore which coffee retailers are most popular in each US state. We also used this data to see which countries have the most stores from the most popular US coffee chain, Starbucks. Finally, we used data from the Institute for Coffee Quality to develop insights on the specialty coffee market and production. All data can be accessed from our github repository, which is linked in the top right corner.</p>
+```
+
+```{=html}
+<!-- <style>
+  .coffee-consumption-1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+</style> -->
+<!-- <h4 style="font-family: serif; text-align: center; font-size: 30px; color:#633923;">Domestic consumption of coffee for different countries from 1990 to 2019 (in thousand 60kg bags)</h4> -->
+<div> 
+<figure style="width: 100%;">
+  <object data="dt1_consumption.html" width="100%" height="500"></object>
+  <figcaption style="color:#633923; text-align:center;"><b>Table-1: Domestic consumption of coffee for different countries from 1990 to 2019 (in thousand 60kg bags)</b></figcaption>
+</figure>
+</div>
+```
+
+```{=html}
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Table-1 shows the data used for the choropleth map. Each row displays information for a specific country, coffee type, the consumption for each of the specified years, and the total consumption. There is also functionality to display a certain numbers of entries, as well as to search for a specific country. Search for a specific country and see if the information is listed!</p>
+```
+
+```{=html}
+<!-- <style>
+  .coffee-consumption-1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+</style> -->
+<!-- <h4 style="font-family: serif; text-align: center; font-size: 30px; color:#633923;">Import and export of coffee for different countries from 1990 to 2019 (in thousand 60kg bags) </h4> -->
+
+
+
+<p></p>
+<div> 
+<figure style="width: 100%;">
+  <object data="dt2_import_export.html" width="100%" height="500"></object>
+  <figcaption style="color:#633923; text-align:center;"><b>Table-2: Import and export of coffee for different countries from 1990 to 2019 (in thousand 60kg bags)</b> </figcaption>
+</figure>
+</div>
+```
+
+```{=html}
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Table-2 shows the data used for the import/export line plots. Each row displays information for a specific country, the continent, the value of imported or exported coffee for each year, and the transaction type. There is functionality to display a certain number of entries, as well as to search for a specific country. See if your home country is listed in the data!</p>
+```
+
+
+```{=html}
+
+<h2 style="font-family: Serif; text-align: center; font-size: 1.5em; color:#633923;"><b>ANALYSIS</b></h2>
+```
+
+```{=html}
+
+<h4 style="font-family: serif; text-align: center; font-size: 30px; color:#633923;"><b>What Does Coffee Demand Look Like in Different Countries?</b></h4>
+
+```
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">In order to understand how the global coffee market has changed over time, we wanted to examine how global coffee demand has changed through time. Coffee demand analysis can help experts in the coffee business and decision-makers in making wise choices that support growth and maximize profits while meeting customer demand, as different countries around the world drink more coffee than others.
+</p>
+```
+
+```{=html}
+<div> 
+<figure style="width:100%;">
+  <IMG SRC="demand_plot.gif" style="width: 100%;height: 700px;">
+  <figcaption style="color:#633923; text-align:center;"><b>Figure-1: Top 10 Countries by Average Coffee Demand (INNOVATIVE VIEW)</b></figcaption>
+</figure>
+</div>
+```
+<br>
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Although coffee is extremely popular worldwide, there are certain countries that have a much higher demand than others. As seen below, the U.S. leads this coffee demand with an average of 1,417 thousand metric tons of coffee beans each year, followed by Brazil and Germany. While South America exports much of its own coffee as well as imports it, the U.S. is pretty much solely an importer, as will be seen in later plots.</p>
+```
+
+
+
+
+```{=html}
+<!-- <style>
+  .coffee-consumption-1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+</style> -->
+
+<h4 style="font-family: serif; text-align: center; font-size: 30px; color:#633923;"><b>How has Coffee Consumption Changed Around the World Over the Years?</b></h4>
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">With countries demanding more and more coffee each year, their respective total consumption is also seeing rapid growth. According to Joe’s Garage Coffee, Americans drink over 400 million s of it every single day and it is the second most consumed drink in the US. Clearly the United States is fueled by coffee - which can be seen both in demand and consumption. The plot below shows just how much coffee is being consumed each year around the globe.</p>
+
+
+<style>
+#2a2f0551-5cde-4059-b078-b6583bbbb126.plotly-graph-div.js-plotly-plot {
+  margin-left: 90px;
+}
+</style>
+<div>
+<figure>
+<object data="coffee_consumption2.html" width="1300" height="620"></object>
+<figcaption style="color:#633923; margin-left: 148px;"><b>Figure-2: Coffee Consumption by Continent (1990-2019)</b></figcaption>
+</figure>
+</div>
+```
+
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">The choropleth map displays total coffee consumption (in thousand 60kg bags) by continent and year. Functionality of the plot includes 1) a dropdown menu to select for a specific continent or all continents, 2) a slider bar to select a certain year, and 3) a tooltip when hovering over each country that displays the country code and total consumption for that period. Sliding the bar from 1990 through 2019, we can see that coffee consumption has increased globally over the years - especially for the US, as well as European and Asian countries. Most recently, the US (1.64B thousand 60kg bags), Brazil (1.32B), Japan (453M), and Germany (520.2M) are the largest coffee consumers in the world for 2019.</p>
+```
+
+
+
+```{=html}
+<!-- <h4 style="font-family: serif; text-align: center; font-size: 30px; color:#633923;"><b>Coffee Chains Around the World</b></h4> -->
+
+<h4 style="font-family: serif; text-align: center; font-size: 30px; color:#633923;"><b>Coffee Chain Popularity in the U.S. and Around the World</b></h4>
+```
+
+
+```{=html}
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Although many like to brew their own coffee at home, a very large population of consumers around the world choose to wait in line at a coffee shop for their morning cup.</p> 
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">The most popular coffee shop, both in the United States and worldwide, is Starbucks, which boasts tens of thousands of locations worldwide and in a variety of different countries. Starbucks makes up a large portion of the coffee consumption market and, according to their website, buys around 3% of the total coffee supply grown around the world, with sources from more than 30 different countries.</p>
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Hover over the coffee cup and bar plot to see the number of Starbucks locations per country!</p>
+
+```
+<br>
+
+```{=html}
+<style>
+  .container {
+    position: relative;
+  }
+  
+  .html-object {
+    position: absolute;
+    top: 60px;
+    left: 65px;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  
+  .container .html-object {
+    display: flex;
+  }
+  
+  .hover-content {
+   display: block;
+}
+  
+  .image {
+    float: left;
+    margin-left: 0px;
+  }
+  
+  <!-- .image img { -->
+  <!--   width: 150px; -->
+  <!--   height: 150px; -->
+  <!-- } -->
+  
+  .image bar-object{
+  position: absolute;
+  top: 0px;
+  left: 80px;
+  <!-- width: 100%; -->
+  <!-- height: 100%; -->
+  display: none;
+}
+  
+  .wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+
+</style>
+<figure style="margin-left:93px;">
+<div class="wrapper">
+
+<div class="container">
+  <img class="cup" src="../img/cup3.png" alt="cup" />
+  <div class="html-object">
+    <object data="starbucks_country.html" width="178" height="180"></object>
+  </div>
+</div>
+<div class="bar-object">
+  <object data="country_bar.html" width="500" height="300"></object>
+</div>
+</div>
+<figcaption style="color:#633923; text-align:center;"><b>Figure-3: Number of Starbucks Locations Around the World</b></figcaption>
+
+
+</figure>
+```
+
+<br>
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">As expected, some countries with high demand for coffee in general, like the United States, Canada, and Japan, are included in the list of the top 12 countries with the most Starbucks locations around the world. However, more interesting are the countries that do not make the list of the top 10 countries with the highest coffee demand around the world but happen to make the list of the countries with the greatest number of Starbucks locations. China, despite its large population, does not rank in the top 10 countries with the greatest demand for coffee, but has the second greatest number of Starbucks locations at 6,019, second to the United States' 15,873 locations and counting.
+</p>
+```
+
+
+
+```{=html}
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">As seen by the United States leading in demand and consumption of coffee grown around the world, it is unsurprising that coffee chains are a ubiquitous, important staple of everyday American life. Although Starbucks is the most popular coffee chain worldwide and in the United States, different states and regions of the country have their own personal favorite spots and loyalty to certain iconic coffee brands that they believe to be better than the rest.</p>
+
+
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Hover over the map below to see more information on each state and its favorite coffee chain! If you're from any of these states, are you surprised by the results? </p>
+```
+
+
+```{=html}
+<div>
+<figure style="margin-left:138px">
+  <object data="coffee_map.html" width="800" height="500"></object>
+  <figcaption style="color:#633923; text-align:center;"><b>Figure-4: Most Popular Coffee Chain in Each U.S. State</b></figcaption>
+</figure>
+</div>
+```
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">As seen in Figure-4, while the West and South prefer Starbucks, Florida and the Northeast favor Dunkin Donuts while a few states in the Midwest prefer Caribou Coffee. Interstingly enough, the most popular coffee shop in West Virginia is not even a coffee shop at all, but rather a popular convenience store, Sheetz, that happens to be more popular than Starbucks, Dunkin' Donuts, or any other coffee purveyor in the state. Daylight Donuts, the favorite coffee shop of Oklahoma, is not a coffee shop either, but rather a large donut chain that spans across the U.S. with over 950 locations and growing.</p>
+```
+
+```{=html}
+<h4 style="font-family: serif; text-align: center; font-size: 30px; color:#633923;"><b>Coffee Quality and the Specialty Coffee Market</b></h4>
+
+```
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Although America runs on coffee and each state has their own special and favorite brand, the US is importing nearly all of its coffee beans to supply the coffee-drinking population. These beans are sourced and produced around the globe, with some countries leading the way in global coffee production. Among them, Brazil is the largest worldwide producer of coffee, which can be viewed in the plot below. Next time you visit your favorite coffee shop, ask the barista where the beans were sourced and see if they are from one of the top six coffee producers!</p>
+```
+
+```{=html}
+<div> 
+<figure style="margin-left=45px;">
+  <object data="top6_consumption.html" width="1200" height="700"></object>
+  <figcaption style="color:#633923; text-align:center;"><b>Figure-5: Top 6 Coffee Producers: Production Over Time (1995-2019)</b></figcaption>
+  </figure>
+</div>
+```
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">The line plot displays the top six countries for total coffee consumption over time. Countries included are Brazil, Colombia, Costa Rica, Indonesia, Mexico, and Vietnam. When you enter a coffee shop to buy beans, chances are they were sourced from one of these countries. For example, Starbucks typically displays the coffee origin on their coffee bags for customers to pick their favorite type. From the plot, we can see coffee production has relatively remained unchanged for Mexico and Costa Rica in the past 25 years. Indonesia and Colombia have seen some grown in coffee consumption, but not nearly as much as Vietnam and Brazil. Brazil leads the world in coffee production in 2019, producing 3888 thousand metric tons. Looking forward to the future, it will be interesting to see if Brazil still prospers in coffee production, or if other countries will begin taking up some of that market share.</p>
+
+```
+
+
+```{=html}
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">The rise of coffee popularity and a greater demand for increased volume of production around the world is not solely the result of increasing popularity of the biggest coffee chains on the market. In fact, according to Achilles Coffee Roasters based out of Solana Beach, California, the “third-wave”, specialty coffee market has grown tremendously in the last decade, as more and more people begin to treat coffee less as simply a means of ingesting caffeine in the morning and more as an interesting, enriching hobby to sink countless hours into. Because of this, demand has not only grown for coffee in general, but for especially <i>good</i> coffee.</p>
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">But, what exactly constitutes a "good" cup of coffee? According to the Institute of Coffee Quality, specialty coffee beans are scored on a number of attributes that distinguish them from the non-specialty market. Even within the specialty market, coffee beans are categorized into “Very Good”, “Excellent”, and “Outstanding” categories based on their scores, which impact their price and prestige among coffee aficionados.</p>
+```
+
+```{=html}
+<div> 
+<figure>
+  <object data="coffee_radar.html" width="1000" height="700"></object>
+  <figcaption style="color:#633923; text-align:center;"><b>Figure-6: Average Quality Scores for Each Category of Coffee Bean</b></figcaption>
+</figure>
+</div>
+```
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">In Figure-6, we can see what the average scores of coffees that fall into the four distinct categories are. These metrics of aftertaste, flavor, aroma, balance, body, and acidity are ranked on a scale from 0 to 10, with values closer to 10 indicating a higher quality of a specific coffee variant in each metric. On average, coffees in the highest tier of "Outstanding" outperform coffees considered "Below Specialty Quality" by at least 1 to 2 entire points in each metric.</p>
+```
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">There is a raging argument among coffee lovers and experts about which nation makes the finest coffee. Every nation has a distinctive coffee culture, tradition, and flavor. The answer to the question of which nation produces the greatest coffee beans is debatable and depends on individual taste and preferences. As an illustration, some people could love the fruity and floral aromas of Ethiopian coffee, while others might favor the richer and better-balanced Colombian variety.</p>
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">However, the Institute for Coffee Quality's "Total Cup Points" that are awarded to coffee variants from different countries and are based off of scores for a coffee's aroma, flavor, balance, and other metrics, aim to set a more quantitative standard for what separates mass produced coffee from truly unique, specialty beans.</p>
+```
+
+```{=html}
+<figure style="margin-left:133px;">
+<img class="cup" src="coffee_qual_country_plot.png" width="900px" alt="qual" />
+<figcaption style="color:#633923; margin-left:100px"><b>Figure-7: Average Coffee Quality Scores by Country of Origin</b></figcaption>
+</figure>
+```
+
+```{=html}
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Of all coffee growing countries, Ethiopia consistently produces the highest scoring and most prestigous coffee beans on the market.
+
+All coffee-growing regions of Ethiopia produce beans that are rated in the two highest tiers of "Excellent" and "Outstanding" in quality. Additionally, the Guji-Hambela region of the country is the only region in the world producing coffee beans ranked as "Outstanding" due to its incredibly unique aroma, flavor, body, and other metrics that make its beans unlike any other coffee on Earth.</p>
+
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Even within Ethiopia, specific regions are known for producing unique coffee variants that perform extremely well in coffee quality grading year after year.</p>
+```
+
+
+```{=html}
+<div> 
+<figure>
+  <object data="coffee_treemap.html" width="124%" height="500px"></object>
+  <figcaption style="color:#633923; text-align:center;"><b>Figure-8: Category and Count of Coffee Variants for Coffee-Growing Regions in Ethiopia</b></figcaption>
+</figure>
+</div>
+```
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Of the ten distinct regions in Ethiopia considered, the region of Guji-Hambela contains the the only coffee variant out of all beans from all countries listed in Figure-7 that managed to score an "Outstanding" from the Institute for Coffee Quality. This is an incredible achievement, and is absolutely the type of coffee that could turn a casual coffee drinker into a full-blown "coffee snob".</p>
+```
+
+
+
+```{=html}
+
+<h4 style="font-family: serif; text-align: center; font-size: 30px; color:#633923;"><b>Which countries import and export the most coffee?  Has this changed over time? </b></h4>
+```
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Now that we’ve examined where the top quality coffee comes from, let’s see which countries actually export and import the most coffee. While we’ve already established that some of the highest quality coffee comes from Ethiopia, we can see from Figure-9 that it doesn’t export that much coffee in terms of volume. Even amongst African countries, they are only the third greatest exporter.  Brazil and Vietnam, the top two exporters, are ranked moderate in terms of their coffee quality. As a result, coffee from countries that demonstrate exceptional quality may be more expensive due to its scarcity.</p> 
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">We can also see regional trends in this plot: Europe for example, only imports coffee and does not have any exporting countries.  The largest importer of coffee is the United States, which is the only country listed in the Western Hemisphere that is an importer and not an exporter.  Generally, countries with more tropical climates are more prolific producers of coffee, likely due to the ideal climate for growing coffee.  It should be noted that many of the largest importers and exporters are countries with large populations, so this should also be considered when examining the factors contributing to the level of import or export.</p>
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">Most countries’ trends have increased over time, reflecting growing populations and markets.  Some countries have changed rankings during this period, however, and these can likely be attributed to social, economic, and political factors related to the specific country in question.</p>
+```
+
+```{=html}
+<div>
+<figure>
+ <object data="coffee_import_export.html" width="1200" height="860"></object>
+ <figcaption style="color:#633923; text-align:center;"><b>Figure-9: Import and Export of Coffee by Country and Continent Over Time (1990-2019) (LINKED VIEW)</b></figcaption>
+ </figure>
+</div>
+```
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">The above figure depicts the amount of coffee imported and exported by each country on record between 1990 and 2019.  The user can mouse over a line on the plot to reveal further information about which country is represented.  On the top left panel shows the exports and the top right shows the imports over time for each country in 1,000 kilogram bags.  The histogram on the bottom displays the total amount of coffee imported or exported by that country during the time period.  The user can select a range from the histogram on the bottom to display only those countries on the above charts to facilitate easier comparison between countries with similar export amounts.  A dropdown menu at the bottom allows filtering by continent.</br>
+</p>
+```
+<br>
+
+
+
+```{=html}
+
+<h2 style="font-family: Serif; text-align: center; font-size: 1.5em; color:#633923;"><b>METHODS</b></h2>
+
+<p style="font-family: serif; text-align: left; font-size: 20px; color:#633923;"><a href="methods.html">Click here</a> to view more details on our design process and methodology.</p>
+```
+
+
+```{=html}
+
+<h2 style="font-family: Serif; text-align: center; font-size: 1.5em; color:#633923;"><b>CONCLUSION</b></h2>
+```
+
+
+```{=html}
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">An overall takeaway from this analysis is that the United States, while not an exporter, is the greatest consumer of coffee in the world, as seen by the country leading in imports and demand and hosting the highest number of locations for the most popular coffee chain worldwide. In terms of coffee chains themselves in the United States, Starbucks, as expected, leads the pack and dominates the West and South, while Dunkin’ Donuts is the favorite of the Northeast.</p>
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">In contrast to the United States, Germany, and Italy, among other countries, Brazil, Vietnam, and Colombia are the leaders in exporting mass amounts of coffee to supply the rest of the world. Brazil is particularly unique, acting as both the leading exporter of coffee and placing second in overall coffee demand worldwide.</p>
+
+<p style="font-family: serif; text-align: justify; font-size: 20px; color:#633923;">However, not all producers of coffee serve the same markets. While some of the biggest exporters of coffee beans around the world may serve the large, chain coffee market, other countries seem to find their niche in the "third-wave", specialty coffee market. Ethiopia, in particular, is known for its prestigious, high quality coffee, and is the only coffee-growing country whose beans have scored in the highest "Outstanding" category according to the standards set by the Institute of Coffee Quality.</p>
+
+```
+
+
+```{=html}
+
+<h2 style="font-family: Serif; text-align: center; font-size: 1.5em; color:#633923;"><b>REFERENCES</b></h2>
+```
+ 
+
+```{=html}
+
+<p style="font-family: serif; text-align: left; font-size: 20px; color:#633923;">[1] 10 largest coffee shops in the United States in 2023. ScrapeHero. Retrieved from <a href="https://www.scrapehero.com/location-reports/10-largest-coffee-shops-in-the-usa/" target=“_blank”>https://www.scrapehero.com/location-reports/10-largest-coffee-shops-in-the-usa</a></p>
+
+
+<p style="font-family: serif; text-align: left; font-size: 20px; color:#633923;">[2] Historical data on the Global Coffee Trade. International Coffee Organization. Retrieved from <a href="https://www.ico.org/new_historical.asp" target=“_blank”>https://www.ico.org/new_historical.asp</a></p>
+
+
+<p style="font-family: serif; text-align: left; font-size: 20px; color:#633923;">[3] How many people drink coffee? 11 coffee drinking statistics. Joe's Garage Coffee. (2023, April 26). Retrieved from <a href="https://joesgaragecoffee.com/blog/coffee-drinking-statistics/" target=“_blank”>https://joesgaragecoffee.com/blog/coffee-drinking-statistics/</a></p>
+
+<p style="font-family: serif; text-align: left; font-size: 20px; color:#633923;">[4] Institute, C. Q., &amp; Inc., E. Home - Q coffee system. Home - Q Coffee System. Retrieved from <a href="https://database.coffeeinstitute.org/"target=“_blank”>https://database.coffeeinstitute.org</a></p>
+
+<p style="font-family: serif; text-align: left; font-size: 20px; color:#633923;">[5] NationMaster. Top countries for coffee production - source OECD. NationMaster.com. Retrieved from <a href="https://www.nationmaster.com/nmx/ranking/coffee-production"target=“_blank”>https://www.nationmaster.com/nmx/ranking/coffee-production</a></p>
+
+<p style="font-family: serif; text-align: left; font-size: 20px; color:#633923;">[6] NationMaster. Top countries for coffee demand. NationMaster.com. Retrieved from <a href="https://www.nationmaster.com/nmx/ranking/coffee-demand" target=“_blank”>https://www.nationmaster.com/nmx/ranking/coffee-demand</a></p>
+
+<p style="font-family: serif; text-align: left; font-size: 20px; color:#633923;">[7] Published by Statista Research Department, & 29, N. (2022, November 29). Countries with the most Starbucks stores worldwide 2022. Statista. Retrieved from <a href="https://www.statista.com/statistics/306915/countries-with-the-largest-number-of-starbucks-stores-worldwide/" target=“_blank”>https://www.statista.com/statistics/306915/countries-with-the-largest-number-of-starbucks-stores-worldwide/</a></p>
+
+<p style="font-family: serif; text-align: left; font-size: 20px; color:#633923;">[8] Responsibly grown and Fair Trade Coffee: Starbucks Coffee Company. Retrieved from <a href="https://www.starbucks.com/responsibility/sourcing/coffee/" target=“_blank”>https://www.starbucks.com/responsibility/sourcing/coffee/</a></p>
+
+<p style="font-family: serif; text-align: left; font-size: 20px; color:#633923;">[9] What is the third wave coffee movement?: Achilles Coffee Roasters. Achilles Coffee Roasters San Diego. Retrieved from <a href="https://achillescoffeeroasters.com/what-is-the-third-wave-coffee-movement/" target=“_blank”>https://achillescoffeeroasters.com/what-is-the-third-wave-coffee-movement/</a></p>
+
+```

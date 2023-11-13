@@ -1,0 +1,86 @@
+---
+title: "Reddit Project "
+title-block-banner: img/hero_photo.png
+author:
+  - Samiksha Rajendra Thikekar (st1140)
+  - Ramdayal Nirmal Rewaria (rr1220)
+  - Sangeetha Kanithahalli Ramesh (sk2224)
+format:
+  html:
+    toc: false
+    page-layout: full
+metadata:
+  backgroundcolor: "#F2F6F7"
+---
+
+### Introduction
+
+Reddit serves as a colossal online gathering where people, each with unique backgrounds, share stories, photos, and ideas within specialized communities known as subreddits. Users actively shape the platform by voting on content, creating a dynamic and human-driven experience that mirrors the diversity of our online world.
+
+Venturing into Reddit's expansive digital realm, our exploration takes us deep into the heart of entertainment discussions. Our focal point is the dedicated subreddit for all things entertainment, where users converge to share, analyze, and celebrate the multifaceted cultural and media landscape. Tasked with revealing the hidden gems within, we utilize a curated subset of the Reddit Archive dataset, encapsulating the spirit of discussions from January to March 2023.
+
+Within the entertainment subreddit, we don't merely observe trends; instead, we're immersed in a vibrant tapestry of discussions. Our analysis aims to uncover the rhythms—echoing trends in popular media and subtle nuances defining user sentiments through a fusion of data science techniques, vivid visualizations, natural language processing and machine learning.
+
+![](img/intro.gif){width="30%" fig-align="center"}
+
+For the purpose of this project, the analysis is performed on the subreddits : r/anime, r/television, r/televisionsuggestions, r/movies, r/Animesuggest, r/MovieSuggestions. 
+
+* **r/anime:** This subreddit is dedicated to anime-related discussions, encompassing a wide range of topics, including reviews, recommendations, and general discourse about the anime medium.
+* **r/television:** This subreddit caters to discussions about television shows, spanning various genres and formats. Users engage in conversations about current and past TV series, share recommendations, and discuss industry news.
+* **r/televisionsuggestions:** As a subreddit dedicated explicitly to TV show recommendations, this community serves as a hub for users seeking and providing suggestions for what to watch next.
+* **r/movies:** This subreddit covers a wide range of topics related to films, including discussions about specific movies, industry news, and analyses of cinematic techniques.
+* **r/Animesuggest:** Similar to r/televisionsuggestions but for anime, this subreddit is dedicated to helping users discover new anime titles based on their preferences.
+* **r/MovieSuggestions:** Serving as a space specifically for movie recommendations, this subreddit is an ideal place for users seeking personalized suggestions for their next film to watch.
+
+By targeting these specific subreddits, the analysis aims to uncover patterns, trends, and user sentiments unique to each community. This focused approach allows for a more nuanced understanding of the entertainment discussions taking place within these distinct corners of the Reddit platform.
+
+### Data Overview
+
+Diving into a whopping 412 GB of posts and 918 GB of comments, the dataset is like a big storybook with 109 million entries. It's carefully organized by simplifying things—removing some details, changing time info to something we can understand, and putting it in a format that's easy to explore, like preparing a canvas before painting. Now, it's all set up and ready for us to start looking through and discovering what's inside.
+
+### Objective
+
+Our mission is clear: to decipher the language of entertainment discussions on Reddit, extracting findings that resonate with both seasoned enthusiasts and those new to the subject matter. We will focus on the first two objectives --- revealing what the data says and interpreting its significance by providing answers to the following questions.
+
+1. `Bussiness Goal:` Optimize content strategy by understanding peak engagement times. Knowing when users are most active can guide when to post for maximum visibility and interaction.
+
+   `Teachnical Proposal:` Using EDA, we will conduct a time series analysis on the hour_of_day and day_of_week_str data for each subreddit. By aggregating post frequencies based on these time variables, we can visualize trends and identify peak activity periods. This analysis will provide insights into the most favorable times to post content on each subreddit, helping optimize the content strategy for enhanced user interaction and visibility.
+
+2. `Bussiness Goal:` Identifying key contributors to help recognize influential users and understand their content preferences. This insight is valuable for community management and targeted marketing strategies.
+
+    `Teachnical Proposal:` Using EDA, analyze author data to quantify post frequency and engagement (likes, comments). Apply statistical measures to highlight top contributors and content analysis to understand the themes and types of their posts.
+
+3. `Bussiness Goal:` This seeks to understand how the content influences user engagement, guiding content creators on the most engaging content.
+
+    `Teachnical Proposal:` Using EDA, we will compare the average score and number of comments between posts with different content using statistical methods.
+
+4. `Bussiness Goal:` To Understand popular themes that can guide content creation and marketing strategies, ensuring alignment with audience interests.
+
+    `Teachnical Proposal:` Applying NLP techniques like topic modeling or keyword extraction to the titles and selftext of high-engagement posts. This analysis will identify prevalent themes and topics in popular content.
+
+5. `Bussiness Goal:` Gauging the overall sentiment of posts in each subreddit to inform tone and messaging strategies for engaging with these communities effectively.
+
+    `Teachnical Proposal:` Performing sentiment analysis on the title and selftext of posts. This involves using NLP tools to classify content into sentiment categories (positive, negative, neutral) and comparing these across subreddits.
+
+6. `Bussiness Goal:` Identifying unique lexicon can aid in creating more relatable and targeted content for each subreddit community.
+
+    `Teachnical Proposal:`Use TF-IDF analysis to distinguish words and phrases that are uniquely prevalent in each subreddit. This helps in understanding the distinctive language style of each community.
+
+7. `Bussiness Goal:` Understanding how sentiment affects engagement can help in tailoring content for better reception and interaction.
+
+    `Teachnical Proposal:` Combine sentiment analysis results with engagement metrics (score, comments) to explore correlations. This involves statistical analysis to determine if there's a significant relationship between sentiment and user engagement.
+
+8. `Bussiness Goal:` This prediction model can guide content creators in optimizing their posts for higher engagement, leading to increased visibility and interaction.
+
+    `Teachnical Proposal:` Developing a predictive model using features like post length, presence of media, time of posting, and NLP-derived text features. Machine learning techniques like regression or classification can be employed to forecast engagement levels.
+
+9. `Bussiness Goal:` Predicting posting time based on content can assist in understanding user behavior patterns and content preferences at different times.
+
+    `Teachnical Proposal:` Creating a model to predict the likely time of posting using features extracted from post content and style. This involves applying classification algorithms to correlate content features with posting times.
+
+10. `Bussiness Goal:` Efficiently categorizing posts can aid in content moderation and ensure appropriate audience targeting.
+
+    `Teachnical Proposal:` Use text data and other relevant features to train a classification model that can distinguish between adult-oriented and general audience content. This involves using NLP techniques for feature extraction and applying classifiers like SVM or logistic regression.
+
+
+

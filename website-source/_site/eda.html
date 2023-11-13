@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.246">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Exploratory Data Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./eda.html" aria-current="page">
+ <span class="menu-text">EDA</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exploratory Data Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Exploratory Data Analysis (EDA) plays a pivotal role in our project focused on unraveling the dynamics of the Entertainment subreddit within the vast landscape of Reddit. Think of this page as a magnifying glass, focusing on the intricacies of the colossal dataset. Each entry is a chapter in the evolving story, carefully organized for exploration, much like preparing a canvas before an artist begins to paint.</p>
+<p>Join us on this analytical odyssey where every data point is a clue, and every visualization is a window into the nuanced landscape of the Entertainment subreddit. The EDA page is where we decode the language of data, bringing you closer to the stories that lie beneath the surface of this dynamic digital community. Welcome to the realm of Exploratory Data Analysis, where understanding the data is the key to unlocking the richness of our Reddit exploration.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/eda.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<section id="number-of-missing-values-in-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="number-of-missing-values-in-the-data">Number of missing values in the data</h3>
+<p>This table represents a summary of missing values in a dataset extracted from Reddit. Each row corresponds to a different feature in the dataset, and the ‘Missing Values’ column quantifies the absence of data entries for each feature.</p>
+<p>Columns such as ‘author’, ‘title’, ‘selftext’, ‘created_utc’, ‘num_comments’, ‘score’, ‘over_18’, ‘pinned’, and ‘locked’ show complete data with zero missing values, suggesting they are mandatory fields within the platform’s post submission process.</p>
+<p>In contrast, a significant number of missing values are observed in the ‘disable_comments’, ‘distinguished’, and ‘media’ columns. This could indicate that these fields are not always applicable or are frequently left blank. For instance, ‘distinguished’ could denote a special status assigned to certain posts, which would naturally be less common. Similarly, ‘media’ might be optional or applicable only for certain types of posts.</p>
+<p>This table is important for understanding the dataset’s structure and quality, and it underlines the need for thorough data cleaning and validation steps before any reliable analysis can be performed.</p>
+
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="table_missing_values.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Table-1: Count of missing values of all the columns for submissions dataset</figcaption>
+</figure>
+</div>
+</section>
+<section id="analysing-the-extracted-submissions-in-subreddits" class="level3">
+<h3 class="anchored" data-anchor-id="analysing-the-extracted-submissions-in-subreddits">Analysing the extracted submissions in subreddits</h3>
+<p>This bar chart provides a comparative analysis of post counts across various entertainment-related subreddits. The ‘anime’ subreddit has the highest number of posts, with over 400,000 entries, indicative of a very active community with a strong interest in anime-related content. This is followed by the ‘movies’ subreddit, which also boasts a high level of activity with more than 380,000 posts. Both ‘anime’ and ‘movies’ subreddits significantly outpace the ‘television’ subreddit in terms of post counts, suggesting a comparatively higher user engagement in the former topics.</p>
+<p>Looking at subreddits dedicated to suggestions within these categories (AnimeSuggestions, MovieSuggestions, and televisionsuggestions), there is a clear indication that there is a substantial interest in community-driven recommendations for anime, as the ‘AnimeSuggestions’ subreddit has a higher post count than both ‘MovieSuggestions’ and ‘televisionsuggestions’. The ‘MovieSuggestions’ subreddit has a moderate number of posts, while ‘televisionsuggestions’ has the least, reflecting lower user engagement for television recommendations on this platform.</p>
+<p>These differences in post counts may reflect varying degrees of popularity, user engagement, and possibly the availability of content in each entertainment medium. The data suggests that within this online community, users are more likely to seek and share recommendations for anime and movies rather than television shows.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/subreddit_counts_analysis.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure-1: Count of each subreddit in the dataset from 2021-2023</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="time-series-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="time-series-analysis">Time-series Analysis</h3>
+<section id="what-is-the-general-trend-of-posts-from-2021-2023" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-the-general-trend-of-posts-from-2021-2023">What is the general trend of posts from 2021-2023?</h4>
+<p>The time-related plots depicting the distribution of posts across the subreddits ‘anime’, ‘movies’, and ‘television’ from 2021 to 2023 reveal a discernible downward trajectory in user engagement and post counts. While the ‘anime’ subreddit shows a pronounced peak, indicative of a temporary surge in activity, it is followed by a significant decline. This pattern suggests that sustaining high engagement levels over time may be challenging, even when punctuated by periods of heightened activity.</p>
+<p>In parallel, the ‘movies’ and ‘television’ subreddits exhibit a more gradual decline, implying a slow yet consistent decrease in the number of posts and interactions. This could point to a broader trend of diminishing user participation or could reflect a diversification of discussions across newer platforms or different online communities.</p>
+<p>The overarching decline across all three subreddits raises questions about the factors influencing these changes. The possibility of shifting platform dynamics, evolving content consumption patterns, or the rise of alternative entertainment forums could be contributing to this trend. It indicates a potential shift in the digital landscape where traditional subreddit forums may no longer command the same level of attention as before.</p>
+<p>This insight suggests an opportunity for subreddit administrators and content creators to re-evaluate their engagement strategies. Exploring innovative content delivery, leveraging interactive media, or tapping into emerging trends could potentially reverse the decline in post counts. As digital platforms continue to evolve, so must the strategies to captivate and maintain active user communities.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="time_series_eda.html" width="100%" height="500"></object>
+  <figcaption class="figure-caption">Figure-2: This graph illustrates the normalized post count trends across three subreddits (anime, movies, and television) over a span of two years, from January 2021 to April 2023. The peaks and troughs indicate fluctuations in user engagement and post frequency within these online communities.</figcaption>
+</figure>
+</div>
+</section>
+<section id="how-are-scores-affected-by-posting-on-different-days-of-the-month" class="level4">
+<h4 class="anchored" data-anchor-id="how-are-scores-affected-by-posting-on-different-days-of-the-month">How are scores affected by posting on different days of the month?</h4>
+<p>The line chart titled “Average Score by Day of Month Across Subreddits” offers a detailed visual of how user engagement varies throughout the month within the subreddits of ‘movies’, ‘anime’, and ‘television’. The ‘movies’ subreddit demonstrates the highest variance in average scores, suggesting that certain days of the month may align with the release of popular content, leading to spikes in user interaction and high-scoring posts. In contrast, ‘anime’ and ‘television’ subreddits exhibit a more consistent pattern of engagement, with less pronounced peaks and troughs.</p>
+<p>The trend across all three subreddits does not show a clear cyclical pattern that could be associated with specific days of the month, indicating that post scores are more likely influenced by content availability and user interest rather than the time of the month. The relative stability in ‘anime’ and ‘television’ subreddits could imply a steady production of content that resonates with the audience, leading to a more uniform level of engagement.</p>
+<p>This insight into user behavior could be harnessed by content creators and marketers to strategically time their posts to coincide with peak engagement periods identified within the ‘movies’ subreddit. Moreover, the consistent engagement in the ‘anime’ and ‘television’ subreddits suggests a reliable and dedicated audience base, which could be attractive to advertisers and collaborators looking for stable platforms to promote their products or services. Overall, understanding these engagement patterns is crucial for optimizing content delivery and maintaining a vibrant and interactive online community.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="avg_score_eda.html" width="100%" height="500"></object>
+  <figcaption class="figure-caption">Figure-3:Average score of posts submitted on different days of the month from 2021-2023</figcaption>
+</figure>
+</div>
+</section>
+<section id="analysis-of-the-number-of-posts-during-the-week" class="level4">
+<h4 class="anchored" data-anchor-id="analysis-of-the-number-of-posts-during-the-week">Analysis of the number of posts during the week</h4>
+<p>The sunburst chart provides a vivid depiction of the distribution of posts across days of the week and hours of the day for the subreddits ‘anime’, ‘movies’, and ‘television’. It reveals the time-specific activity patterns within these communities. For the ‘anime’ subreddit, there’s a notable concentration of activity during certain hours, which may correspond to peak times when users are most active or when new content is typically released. The ‘movies’ subreddit shows a more spread out activity throughout the week, suggesting a consistent level of engagement without significant peaks or troughs.</p>
+<p>This visual suggests that the ‘television’ subreddit has its own unique pattern of user interaction, potentially reflecting the airing schedule of popular shows or weekly events that drive discussions. Understanding these patterns can help content creators and moderators to optimize their engagement strategies by scheduling posts and discussions during high-activity windows to maximize visibility and interaction.</p>
+<p>Overall, these insights highlight the importance of timing in online community engagement. For marketers and content creators, aligning content releases with these observed peaks could enhance user engagement. For platform moderators, it could inform the scheduling of events or AMAs (Ask Me Anything sessions) to ensure higher participation rates. Additionally, this data could assist in the strategic placement of advertisements, ensuring they reach the most active audience segments.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="sunburst_eda.html" width="100%" height="500"></object>
+  <figcaption class="figure-caption">Figure-4: Number of posts during the week for the subreddits</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="user-engagement-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="user-engagement-analysis">User Engagement Analysis</h3>
+<section id="comparative-analysis-of-post-engagement-by-length-and-score-in-entertainment-related-subreddits" class="level4">
+<h4 class="anchored" data-anchor-id="comparative-analysis-of-post-engagement-by-length-and-score-in-entertainment-related-subreddits">Comparative Analysis of Post Engagement by Length and Score in Entertainment-Related Subreddits</h4>
+<p>This scatter plot illustrates the engagement dynamics of Reddit posts, comparing post length to user engagement across subreddits dedicated to anime, movies, and television. Each dot represents an individual post, with its size corresponding to the score, which is a proxy for the post’s popularity or engagement level.</p>
+<p>A cursory analysis reveals a dense clustering of posts with scores under 10,000 across all subreddits, with post lengths predominantly falling below 2000 characters. This suggests that shorter posts are more common, regardless of the subreddit category. Interestingly, there is a visible trend where posts with higher scores tend to have shorter lengths, indicating that more concise posts may resonate better with the audience or are more likely to be engaged with.</p>
+<p>The larger-sized dots, indicating posts with exceptionally high scores, are predominantly short and are scattered across all three subreddits. This may indicate that highly engaging posts, which are likely to go viral or hit the front page of Reddit, tend to be succinct.</p>
+<p>This insight can inform content creators and marketers about optimal post lengths for audience engagement in different entertainment categories on Reddit.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="engagement_eda.html" width="100%" height="500"></object>
+  <figcaption class="figure-caption">Figure-5: Correlation between post lengths and scores within anime, movies, and television subreddits on Reddit.</figcaption>
+</figure>
+</div>
+</section>
+<section id="top-reddit-authors-by-comment-engagement-in-the-subreddit-discussion" class="level4">
+<h4 class="anchored" data-anchor-id="top-reddit-authors-by-comment-engagement-in-the-subreddit-discussion">Top Reddit Authors by Comment Engagement in the subreddit Discussion</h4>
+<p>The table presents a ranking of authors by the comment volume on their posts in the movie, television and anime subreddits. High comment counts generally indicate that an author’s contributions are well-received, sparking active discussions among the subreddit’s users. This level of engagement typically reflects the community’s interest and the value they find in the content shared by the author.</p>
+<p>The table not only identifies the most engaging authors in the subreddits but also underscores the importance of creating content that encourages community participation. The data provides valuable insights into user engagement and could be leveraged to understand better what types of posts cultivate active discussions in online communities.</p>
+
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="table_top_comments.html" width="100%" height="500"></object>
+  <figcaption class="figure-caption">Table-2: Ranks of authors from a subreddit based on the number of comments their posts receive, highlighting the most engaging content creators</figcaption>
+</figure>
+</div>
+</section>
+<section id="leading-content-creators-based-on-top-comments" class="level4">
+<h4 class="anchored" data-anchor-id="leading-content-creators-based-on-top-comments">Leading Content Creators based on top Comments</h4>
+<p>The bar chart presents the post counts attributed to the ten most active authors within the subreddits “movies, anime, and television”. These counts are a direct indicator of the quantity of content contributed by individual authors rather than the quality or engagement level of the posts.</p>
+<p>The presence of active contributors can be vital for fostering community engagement and providing a steady stream of content for discussion. On the other hand, the steep drop in post counts after the third author indicates that there is less parity in content contribution among the top authors. The remaining seven authors in the list show a relatively lower level of activity, with post counts ranging from moderate to minimal. This disparity suggests that a small group of authors may dominate the conversation or content within this subreddit.</p>
+<p>The movies subreddit appears to have a few highly active authors who contribute a significant portion of the content. This concentration of activity might influence the diversity of topics and perspectives presented within the community.</p>
+<p>In the television subreddit, the distribution of post counts among the top ten authors reveals a significant skew, with ‘MarvelsGrantMan136’ and ‘Neo2199’ being the most active. This pattern suggests that the television subreddit may rely on a small group of dedicated individuals for a substantial portion of its content, which could potentially influence the scope and variety of discussions within the community.</p>
+<p>Contrastingly, the anime subreddit presents a unique scenario where bots, rather than human authors, are the primary content contributors. Interestingly, despite—or perhaps because of—the automated nature of their posts, these bot-generated discussions are engaging the community to a greater extent than typical human-authored posts on the platform. This could be attributed to the bots providing timely, consistently formatted, and relevant content that resonates well with the subreddit’s audience.</p>
+<p>The high engagement with bot posts in the anime subreddit may also reflect the community’s preference for structured information, such as regular updates on anime releases, episode discussions, and well-organized recommendation lists. These automated posts may fulfill the community’s needs more effectively than the more varied human contributions found in other subreddits.</p>
+<p>In light of this, the anime subreddit stands out as a unique case study in community engagement on social platforms, showcasing that automated systems, when well-tuned to the audience’s preferences, can play a pivotal role in fostering active online communities. This insight challenges the conventional wisdom that the most engaging content must be human-generated and highlights the potential for bots to contribute meaningfully to online discourse in interest-specific forums.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="Top 10 authors (with top comments).html" width="100%" height="500"></object>
+  <figcaption class="figure-caption">Figure-6: This bar chart ranks the top 10 authors in the subreddit based on the number of posts they have made and the top comments received</figcaption>
+</figure>
+</div>
+</section>
+<section id="top-reddit-posts-authors-by-scores-engagement-in-the-subreddit-discussion" class="level4">
+<h4 class="anchored" data-anchor-id="top-reddit-posts-authors-by-scores-engagement-in-the-subreddit-discussion">Top Reddit Posts Authors by Scores Engagement in the subreddit Discussion</h4>
+<p>The table shows a list from a subreddit, ranking the top 10 posts by score. For the movie subreddit, the highest-scoring post is an AMA with Tobey Maguire, indicating that interactive sessions with famous actors are highly valued in the community. This is further emphasized by the presence of another AMA with Keanu Reeves in the second position. The third highest post by Nicolas Cage suggests that personal engagement from actors or filmmakers garners significant attention.</p>
+<p>Posts regarding industry news and opinions, such as the win of Brendan Fraser at the Academy Awards and a call to prioritize voice actors over celebrities in animated features, reflect the community’s interest in both celebrating achievements and critiquing industry trends. A post about a ‘Dune’ sequel hints at the community’s enthusiasm for science fiction and blockbuster franchises.</p>
+<p>Notably, there is a discussion on diversity in casting, pointing towards a conscious reflection on representation in movies. The list also shows a mix of content authors, from individual users to likely official accounts like “lionsgate,” indicating a blend of community-driven content and industry participation in the subreddit.</p>
+<p>For the television subreddit, The most popular post highlights a public figure, LeVar Burton, expressing his desire to become the new host of “Jeopardy!”, which is indicative of the community’s interest in show hostings and personalities associated with them. This is further emphasized by another post where Burton encourages the producers of “Jeopardy!” to consider him for the role, showcasing the community’s support for his candidacy.</p>
+<p>Other posts indicate strong community interest in television show news and updates, like the revival of “Futurama” and a potential third season for “Mindhunter.” The active engagement in these topics suggests that news about television series renewals and continuations is particularly resonant with the audience.</p>
+<p>These posts reflect a community that is deeply engaged with the television industry, from show developments and castings to the achievements and remembrances of beloved television figures. The scores provide insight into what type of content the community values and discusses most, which includes industry news, show developments, and the accomplishments and milestones of individuals in television.</p>
+<p>Moving to the anime, The top post is about the death of Kentaro Miura, the creator of “Berserk,” which underscores the impact that influential figures in the anime industry have on the community. The high score indicates that news about significant personalities, especially those who have made a profound impact on the genre, resonates deeply with the audience.</p>
+<p>Several posts relate to announcements of new seasons for popular anime series like “The Devil is a Part-Timer,” “Spice and Wolf,” and “Konosuba.” This suggests that the subreddit is a hub for fans to discuss and share their excitement about continuing series and new developments within their favorite anime.</p>
+<p>There is also a post about a prediction tournament for “Best Girl,” a common discussion topic in anime communities where fans vote for their favorite female characters. The popularity of such a post indicates that interactive and participatory events are engaging for the community members.</p>
+
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="table_top_score.html" width="100%" height="300"></object>
+  <figcaption class="figure-caption">Table-3: Ranks of authors from a subreddit based on the Scores their posts receive, highlighting the most engaging content creators</figcaption>
+</figure>
+</div>
+</section>
+<section id="leading-content-creators-based-on-top-scores" class="level4">
+<h4 class="anchored" data-anchor-id="leading-content-creators-based-on-top-scores">Leading Content Creators based on top Scores</h4>
+<p>The bar chart depicts the top 10 authors by post count within the anime, movies, and television subreddits, with a specific focus on those receiving the highest scores, which could be indicative of the popularity of the posts.</p>
+<p>‘AutoLovepon’ leads in the anime subreddit with an exceptionally high post count, indicating a significant impact on the community, likely due to consistent, high-quality content, which could be automated. In the movies subreddit, ‘MarvelsGrantMan136’ dominates but is followed by a group of authors with notable contributions, reflecting a community with diverse yet influential voices. The television subreddit shows ‘MarvelsGrantMan136’ leading, with a narrower margin over ‘chanma50’, suggesting a broader spread of engagement across various authors. These patterns highlight different engagement dynamics, with a single dominant presence in anime and a more varied influence among authors in the movies and television subreddits, offering insights into community preferences and influencer identification.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="top10_authorscore_postcount_eda.html" width="100%" height="500"></object>
+  <figcaption class="figure-caption">Figure-7: This bar chart ranks the top 10 authors in the subreddit based on the number of posts they have made and the top scores received</figcaption>
+</figure>
+</div>
+</section>
+<section id="authors-with-the-highest-number-of-posts" class="level4">
+<h4 class="anchored" data-anchor-id="authors-with-the-highest-number-of-posts">Authors with the highest number of posts</h4>
+<p>The bar chart provides an overview of the top 10 active authors in the anime, movies, and television subreddits, showing a clear disparity in activity levels across these categories.</p>
+<p>For the movies subreddit, the top author has an exceptionally high post count, exceeding 20,000, which is significantly higher than the subsequent authors. This could imply a central role in the subreddit, possibly as a source of extensive information or regular discussion threads. However, the drop in post counts among the following authors is stark, indicating a less concentrated field of active contributors and suggesting a more varied source of content within the community.</p>
+<p>In the television subreddit, the post counts among the top authors are more evenly distributed, with ‘MarvelsGrantMan136’ leading but with a smaller margin compared to the leaders in the anime and movies subreddits. This indicates a more balanced contribution from the top authors, which could result in a diverse range of discussions and viewpoints being represented in the subreddit.</p>
+<p>Moving to the anime subreddit, the leading author, presumably a bot named ‘AutoLovepon’, has a post count that far exceeds that of any human contributor, with over 6000 posts. This suggests a high level of automation in content generation, which is indicative of a structured and consistent posting strategy, possibly catering to the demand for updates, recommendations, or scheduled discussion threads. Given the nature of bot-generated content, this level of activity might provide a streamlined experience for users seeking information without the variability of human-authored posts.</p>
+<p>In conclusion, these engagement models reflect the unique cultural dynamics of each subreddit, providing valuable insights for content creators, moderators, and marketers on how to approach each community effectively.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="Top_author_post.html" width="100%" height="500"></object>
+  <figcaption class="figure-caption">Figure-8: This bar chart ranks the top 10 authors in the subreddit based on the number of posts they have made</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="conclusion-for-engagement-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion-for-engagement-analysis">Conclusion for Engagement Analysis:</h3>
+<p>The comparative analysis of the post counts from the top authors across the anime, movies, and television subreddits reveals distinct patterns of community engagement and content contribution. In the anime subreddit, the dominance of the bot ‘AutoLovepon’ highlights a preference for structured, automated content, which contrasts sharply with the human-driven contributions in the movies and television subreddits. In movies, a few authors, particularly ‘MarvelsGrantMan136’, contribute a majority of the content, suggesting a central role in driving discussions and shaping the subreddit’s narrative. Conversely, the television subreddit demonstrates a more balanced distribution of post counts among the top authors, indicating a diverse range of discussions and viewpoints. These patterns underscore the varying dynamics of online communities and the different roles that authors, whether human or automated, play in shaping the content and discussions within these digital spaces. This analysis not only provides insights into the unique characteristics of each subreddit but also underscores the importance of understanding audience preferences and engagement styles when creating or moderating content in online communities.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content 2023 by [Project Team 34] <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Made with <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/gu-dsan6000/fall-2023-reddit-project-team-34">View the source at GitHub</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>
