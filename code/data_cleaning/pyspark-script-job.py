@@ -7,6 +7,8 @@ from pyspark.sql.functions import col, count, when, length, expr, to_timestamp, 
 from pyspark.sql.window import Window
 from pyspark.sql.functions import row_number
 from pyspark.sql import functions as F
+from pyspark.sql.functions import desc
+from pyspark.sql.functions import rank
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -109,6 +111,30 @@ filtered_authors.to_csv(f"{CSV_DIR}/author_eda.csv")
 day_of_month_avg = df.groupBy(["day_of_month", "subreddit"]).agg(F.avg("score").alias("average_score"))
 day_of_month_pd = day_of_month_avg.toPandas()
 day_of_month_pd.to_csv(f"{CSV_DIR}/day_of_month_avg_eda.csv")
+
+# Filter the DataFrame for the subreddit 'anime', 'movies', and 'television'
+filtered_df = df.filter(df.subreddit.isin('movies', 'anime', 'television'))
+
+# Select columns for Plotly DataFrame
+df_score = filtered_df.select(["subreddit", "title","num_comments", "selftext","author","score"])
+
+# Define a window spec partitioned by 'subreddit' and ordered by 'score' in descending order
+windowSpec = Window.partitionBy('subreddit').orderBy(col('score').desc())
+
+# Add a rank column based on the window spec
+ranked_df = df_score.withColumn('rank', rank().over(windowSpec))
+
+# Filter to keep only the top 20 rows for each subreddit
+top_20_each_subreddit = ranked_df.filter(col('rank') <= 20)
+df_top_20_pd = top_20_each_subreddit.toPandas()
+df_top_20_pd.to_csv(f"{CSV_DIR}/top_20_score_eda.csv")
+
+df_top_10_pd = df_top_20_pd[df_top_20_pd["rank"] < 11]
+top_score_authors = list(df_top_10_pd[["subreddit", "author"]].drop_duplicates()["author"].unique())
+df_top_score_authors_all_posts = df.filter(df.author.isin(top_score_authors)).groupBy("author").count()
+df_top_score_authors_all_posts_pd = df_top_score_authors_all_posts.toPandas()
+df_final = df_top_10_pd.merge(df_top_score_authors_all_posts_pd, how="left", on="author")
+df_final.to_csv(f"{CSV_DIR}/top_author_score_postcount_eda.csv")
 
 # Stop Spark session
 spark.stop()
