@@ -1,0 +1,37 @@
+/* css styles */
+/* ==================NAV BAR===============*/
+.navbar-dark {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #989a9c;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: black;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+    color: #FF4301;
+}
+
+/*===================COMMON CSS ===========================*/
+.quarto-title, h3, h1, h2,h4{
+  text-align: center;
+  color:#FF4301;
+  font-family: "RedditSans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+p {
+      text-align: justify;
+}
+
+
+code {
+  color:#FF4301;
+}
+
+ul {
+    text-align: justify;
+}

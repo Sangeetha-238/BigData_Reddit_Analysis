@@ -6,11 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Samiksha Rajendra Thikekar (st1140)">
 <meta name="author" content="Ramdayal Nirmal Rewaria (rr1220)">
+<meta name="author" content="Samiksha Rajendra Thikekar (st1140)">
 <meta name="author" content="Sangeetha Kanithahalli Ramesh (sk2224)">
 
-<title>Reddit Project</title>
+<title>Analysis on Entertainment Reddits</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,7 +90,7 @@ background-size: cover;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page">
-      <h1 class="title">Reddit Project</h1>
+      <h1 class="title">Analysis on Entertainment Reddits</h1>
                       </div>
   </div>
     
@@ -100,8 +100,8 @@ background-size: cover;
       <div>
       <div class="quarto-title-meta-heading">Authors</div>
       <div class="quarto-title-meta-contents">
-               <p>Samiksha Rajendra Thikekar (st1140) </p>
                <p>Ramdayal Nirmal Rewaria (rr1220) </p>
+               <p>Samiksha Rajendra Thikekar (st1140) </p>
                <p>Sangeetha Kanithahalli Ramesh (sk2224) </p>
             </div>
     </div>
@@ -145,31 +145,34 @@ background-size: cover;
 <section id="data-overview" class="level3">
 <h3 class="anchored" data-anchor-id="data-overview">Data Overview</h3>
 <p>Diving into a whopping 412 GB of posts and 918 GB of comments, the dataset is like a big storybook with 109 million entries. It’s carefully organized by simplifying things—removing some details, changing time info to something we can understand, and putting it in a format that’s easy to explore, like preparing a canvas before painting. Now, it’s all set up and ready for us to start looking through and discovering what’s inside.</p>
+<p>External dataset: For a comprehensive analysis, data from Netflix’s top movies and shows will be incorporated to draw insightful comparisons with the Reddit analysis. This multi-dimensional approach aims to explore the viewing preferences, engagement patterns, and sentiment dynamics across both platforms, providing a nuanced understanding of user behavior in the realms of online streaming and social media interaction.</p>
+<p>The data provides a curated list of the highest-rated movies and TV shows on Netflix for each year, ensuring a minimum threshold of votes and emphasizing IMDb score as a key metric for ranking.</p>
+<p><a href="https://data.world/gonzandrobles/netflix-movies-and-series">Data Source</a></p>
 </section>
 <section id="objective" class="level3">
 <h3 class="anchored" data-anchor-id="objective">Objective</h3>
 <p>Our mission is clear: to decipher the language of entertainment discussions on Reddit, extracting findings that resonate with both seasoned enthusiasts and those new to the subject matter. We will focus on the first two objectives — revealing what the data says and interpreting its significance by providing answers to the following questions.</p>
 <ol type="1">
-<li><p><code>Bussiness Goal:</code> Optimize content strategy by understanding peak engagement times. Knowing when users are most active can guide when to post for maximum visibility and interaction.</p>
-<p><code>Teachnical Proposal:</code> Using EDA, we will conduct a time series analysis on the hour_of_day and day_of_week_str data for each subreddit. By aggregating post frequencies based on these time variables, we can visualize trends and identify peak activity periods. This analysis will provide insights into the most favorable times to post content on each subreddit, helping optimize the content strategy for enhanced user interaction and visibility.</p></li>
-<li><p><code>Bussiness Goal:</code> Identifying key contributors to help recognize influential users and understand their content preferences. This insight is valuable for community management and targeted marketing strategies.</p>
-<p><code>Teachnical Proposal:</code> Using EDA, analyze author data to quantify post frequency and engagement (likes, comments). Apply statistical measures to highlight top contributors and content analysis to understand the themes and types of their posts.</p></li>
-<li><p><code>Bussiness Goal:</code> This seeks to understand how the content influences user engagement, guiding content creators on the most engaging content.</p>
-<p><code>Teachnical Proposal:</code> Using EDA, we will compare the average score and number of comments between posts with different content using statistical methods.</p></li>
-<li><p><code>Bussiness Goal:</code> To Understand popular themes that can guide content creation and marketing strategies, ensuring alignment with audience interests.</p>
-<p><code>Teachnical Proposal:</code> Applying NLP techniques like topic modeling or keyword extraction to the titles and selftext of high-engagement posts. This analysis will identify prevalent themes and topics in popular content.</p></li>
-<li><p><code>Bussiness Goal:</code> Gauging the overall sentiment of posts in each subreddit to inform tone and messaging strategies for engaging with these communities effectively.</p>
-<p><code>Teachnical Proposal:</code> Performing sentiment analysis on the title and selftext of posts. This involves using NLP tools to classify content into sentiment categories (positive, negative, neutral) and comparing these across subreddits.</p></li>
-<li><p><code>Bussiness Goal:</code> Identifying unique lexicon can aid in creating more relatable and targeted content for each subreddit community.</p>
-<p><code>Teachnical Proposal:</code>Use TF-IDF analysis to distinguish words and phrases that are uniquely prevalent in each subreddit. This helps in understanding the distinctive language style of each community.</p></li>
-<li><p><code>Bussiness Goal:</code> Understanding how sentiment affects engagement can help in tailoring content for better reception and interaction.</p>
-<p><code>Teachnical Proposal:</code> Combine sentiment analysis results with engagement metrics (score, comments) to explore correlations. This involves statistical analysis to determine if there’s a significant relationship between sentiment and user engagement.</p></li>
-<li><p><code>Bussiness Goal:</code> This prediction model can guide content creators in optimizing their posts for higher engagement, leading to increased visibility and interaction.</p>
-<p><code>Teachnical Proposal:</code> Developing a predictive model using features like post length, presence of media, time of posting, and NLP-derived text features. Machine learning techniques like regression or classification can be employed to forecast engagement levels.</p></li>
-<li><p><code>Bussiness Goal:</code> Predicting posting time based on content can assist in understanding user behavior patterns and content preferences at different times.</p>
-<p><code>Teachnical Proposal:</code> Creating a model to predict the likely time of posting using features extracted from post content and style. This involves applying classification algorithms to correlate content features with posting times.</p></li>
-<li><p><code>Bussiness Goal:</code> Efficiently categorizing posts can aid in content moderation and ensure appropriate audience targeting.</p>
-<p><code>Teachnical Proposal:</code> Use text data and other relevant features to train a classification model that can distinguish between adult-oriented and general audience content. This involves using NLP techniques for feature extraction and applying classifiers like SVM or logistic regression.</p></li>
+<li><p><code>Business Goal:</code> Optimize content strategy by understanding peak engagement times. Knowing when users are most active can guide when to post for maximum visibility and interaction.</p>
+<p><code>Technical Proposal:</code> Using EDA, we will conduct a time series analysis on the hour_of_day and day_of_week_str data for each subreddit. By aggregating post frequencies based on these time variables, we can visualize trends and identify peak activity periods. This analysis will provide insights into the most favorable times to post content on each subreddit, helping optimize the content strategy for enhanced user interaction and visibility.</p></li>
+<li><p><code>Business Goal:</code> Identifying key contributors to help recognize influential users and understand their content preferences. This insight is valuable for community management and targeted marketing strategies.</p>
+<p><code>Technical Proposal:</code> Using EDA, analyze author data to quantify post frequency and engagement (likes, comments). Apply statistical measures to highlight top contributors and content analysis to understand the themes and types of their posts.</p></li>
+<li><p><code>Business Goal:</code> This seeks to understand how the content influences user engagement, guiding content creators on the most engaging content.</p>
+<p><code>Technical Proposal:</code> Using EDA, we will compare the average score and number of comments between posts with different content using statistical methods.</p></li>
+<li><p><code>Business Goal:</code> To Understand popular themes that can guide content creation and marketing strategies, ensuring alignment with audience interests.</p>
+<p><code>Technical Proposal:</code> Applying NLP techniques like topic modeling or keyword extraction to the titles and selftext of high-engagement posts. This analysis will identify prevalent themes and topics in popular content.</p></li>
+<li><p><code>Business Goal:</code> Gauging the overall sentiment of posts in each subreddit to inform tone and messaging strategies for engaging with these communities effectively.</p>
+<p><code>Technical Proposal:</code> Performing sentiment analysis on the title and selftext of posts. This involves using NLP tools to classify content into sentiment categories (positive, negative, neutral) and comparing these across subreddits.</p></li>
+<li><p><code>Business Goal:</code> Identifying unique lexicon can aid in creating more relatable and targeted content for each subreddit community.</p>
+<p><code>Technical Proposal:</code>Use TF-IDF analysis to distinguish words and phrases that are uniquely prevalent in each subreddit. This helps in understanding the distinctive language style of each community.</p></li>
+<li><p><code>Business Goal:</code> Understanding how sentiment affects engagement can help in tailoring content for better reception and interaction.</p>
+<p><code>Technical Proposal:</code> Combine sentiment analysis results with engagement metrics (score, comments) to explore correlations. This involves statistical analysis to determine if there’s a significant relationship between sentiment and user engagement.</p></li>
+<li><p><code>Business Goal:</code> This prediction model can guide content creators in optimizing their posts for higher engagement, leading to increased visibility and interaction.</p>
+<p><code>Technical Proposal:</code> Developing a predictive model using features like post length, presence of media, time of posting, and NLP-derived text features. Machine learning techniques like regression or classification can be employed to forecast engagement levels.</p></li>
+<li><p><code>Business Goal:</code> Predicting posting time based on content can assist in understanding user behavior patterns and content preferences at different times.</p>
+<p><code>Technical Proposal:</code> Creating a model to predict the likely time of posting using features extracted from post content and style. This involves applying classification algorithms to correlate content features with posting times.</p></li>
+<li><p><code>Business Goal:</code> Efficiently categorizing posts can aid in content moderation and ensure appropriate audience targeting.</p>
+<p><code>Technical Proposal:</code> Use text data and other relevant features to train a classification model that can distinguish between adult-oriented and general audience content. This involves using NLP techniques for feature extraction and applying classifiers like SVM or logistic regression.</p></li>
 </ol>
 
 

@@ -1,9 +1,9 @@
 ---
-title: "Reddit Project "
+title: "Analysis on Entertainment Reddits"
 title-block-banner: img/hero_photo.png
 author:
-  - Samiksha Rajendra Thikekar (st1140)
   - Ramdayal Nirmal Rewaria (rr1220)
+  - Samiksha Rajendra Thikekar (st1140)
   - Sangeetha Kanithahalli Ramesh (sk2224)
 format:
   html:
@@ -38,49 +38,55 @@ By targeting these specific subreddits, the analysis aims to uncover patterns, t
 
 Diving into a whopping 412 GB of posts and 918 GB of comments, the dataset is like a big storybook with 109 million entries. It's carefully organized by simplifying things—removing some details, changing time info to something we can understand, and putting it in a format that's easy to explore, like preparing a canvas before painting. Now, it's all set up and ready for us to start looking through and discovering what's inside.
 
+External dataset: For a comprehensive analysis, data from Netflix's top movies and shows will be incorporated to draw insightful comparisons with the Reddit analysis. This multi-dimensional approach aims to explore the viewing preferences, engagement patterns, and sentiment dynamics across both platforms, providing a nuanced understanding of user behavior in the realms of online streaming and social media interaction.
+
+The data provides a curated list of the highest-rated movies and TV shows on Netflix for each year, ensuring a minimum threshold of votes and emphasizing IMDb score as a key metric for ranking. 
+
+[Data Source](https://data.world/gonzandrobles/netflix-movies-and-series)
+
 ### Objective
 
 Our mission is clear: to decipher the language of entertainment discussions on Reddit, extracting findings that resonate with both seasoned enthusiasts and those new to the subject matter. We will focus on the first two objectives --- revealing what the data says and interpreting its significance by providing answers to the following questions.
 
-1. `Bussiness Goal:` Optimize content strategy by understanding peak engagement times. Knowing when users are most active can guide when to post for maximum visibility and interaction.
+1. `Business Goal:` Optimize content strategy by understanding peak engagement times. Knowing when users are most active can guide when to post for maximum visibility and interaction.
 
-   `Teachnical Proposal:` Using EDA, we will conduct a time series analysis on the hour_of_day and day_of_week_str data for each subreddit. By aggregating post frequencies based on these time variables, we can visualize trends and identify peak activity periods. This analysis will provide insights into the most favorable times to post content on each subreddit, helping optimize the content strategy for enhanced user interaction and visibility.
+   `Technical Proposal:` Using EDA, we will conduct a time series analysis on the hour_of_day and day_of_week_str data for each subreddit. By aggregating post frequencies based on these time variables, we can visualize trends and identify peak activity periods. This analysis will provide insights into the most favorable times to post content on each subreddit, helping optimize the content strategy for enhanced user interaction and visibility.
 
-2. `Bussiness Goal:` Identifying key contributors to help recognize influential users and understand their content preferences. This insight is valuable for community management and targeted marketing strategies.
+2. `Business Goal:` Identifying key contributors to help recognize influential users and understand their content preferences. This insight is valuable for community management and targeted marketing strategies.
 
-    `Teachnical Proposal:` Using EDA, analyze author data to quantify post frequency and engagement (likes, comments). Apply statistical measures to highlight top contributors and content analysis to understand the themes and types of their posts.
+    `Technical Proposal:` Using EDA, analyze author data to quantify post frequency and engagement (likes, comments). Apply statistical measures to highlight top contributors and content analysis to understand the themes and types of their posts.
 
-3. `Bussiness Goal:` This seeks to understand how the content influences user engagement, guiding content creators on the most engaging content.
+3. `Business Goal:` This seeks to understand how the content influences user engagement, guiding content creators on the most engaging content.
 
-    `Teachnical Proposal:` Using EDA, we will compare the average score and number of comments between posts with different content using statistical methods.
+    `Technical Proposal:` Using EDA, we will compare the average score and number of comments between posts with different content using statistical methods.
 
-4. `Bussiness Goal:` To Understand popular themes that can guide content creation and marketing strategies, ensuring alignment with audience interests.
+4. `Business Goal:` To Understand popular themes that can guide content creation and marketing strategies, ensuring alignment with audience interests.
 
-    `Teachnical Proposal:` Applying NLP techniques like topic modeling or keyword extraction to the titles and selftext of high-engagement posts. This analysis will identify prevalent themes and topics in popular content.
+    `Technical Proposal:` Applying NLP techniques like topic modeling or keyword extraction to the titles and selftext of high-engagement posts. This analysis will identify prevalent themes and topics in popular content.
 
-5. `Bussiness Goal:` Gauging the overall sentiment of posts in each subreddit to inform tone and messaging strategies for engaging with these communities effectively.
+5. `Business Goal:` Gauging the overall sentiment of posts in each subreddit to inform tone and messaging strategies for engaging with these communities effectively.
 
-    `Teachnical Proposal:` Performing sentiment analysis on the title and selftext of posts. This involves using NLP tools to classify content into sentiment categories (positive, negative, neutral) and comparing these across subreddits.
+    `Technical Proposal:` Performing sentiment analysis on the title and selftext of posts. This involves using NLP tools to classify content into sentiment categories (positive, negative, neutral) and comparing these across subreddits.
 
-6. `Bussiness Goal:` Identifying unique lexicon can aid in creating more relatable and targeted content for each subreddit community.
+6. `Business Goal:` Identifying unique lexicon can aid in creating more relatable and targeted content for each subreddit community.
 
-    `Teachnical Proposal:`Use TF-IDF analysis to distinguish words and phrases that are uniquely prevalent in each subreddit. This helps in understanding the distinctive language style of each community.
+    `Technical Proposal:`Use TF-IDF analysis to distinguish words and phrases that are uniquely prevalent in each subreddit. This helps in understanding the distinctive language style of each community.
 
-7. `Bussiness Goal:` Understanding how sentiment affects engagement can help in tailoring content for better reception and interaction.
+7. `Business Goal:` Understanding how sentiment affects engagement can help in tailoring content for better reception and interaction.
 
-    `Teachnical Proposal:` Combine sentiment analysis results with engagement metrics (score, comments) to explore correlations. This involves statistical analysis to determine if there's a significant relationship between sentiment and user engagement.
+    `Technical Proposal:` Combine sentiment analysis results with engagement metrics (score, comments) to explore correlations. This involves statistical analysis to determine if there's a significant relationship between sentiment and user engagement.
 
-8. `Bussiness Goal:` This prediction model can guide content creators in optimizing their posts for higher engagement, leading to increased visibility and interaction.
+8. `Business Goal:` This prediction model can guide content creators in optimizing their posts for higher engagement, leading to increased visibility and interaction.
 
-    `Teachnical Proposal:` Developing a predictive model using features like post length, presence of media, time of posting, and NLP-derived text features. Machine learning techniques like regression or classification can be employed to forecast engagement levels.
+    `Technical Proposal:` Developing a predictive model using features like post length, presence of media, time of posting, and NLP-derived text features. Machine learning techniques like regression or classification can be employed to forecast engagement levels.
 
-9. `Bussiness Goal:` Predicting posting time based on content can assist in understanding user behavior patterns and content preferences at different times.
+9. `Business Goal:` Predicting posting time based on content can assist in understanding user behavior patterns and content preferences at different times.
 
-    `Teachnical Proposal:` Creating a model to predict the likely time of posting using features extracted from post content and style. This involves applying classification algorithms to correlate content features with posting times.
+    `Technical Proposal:` Creating a model to predict the likely time of posting using features extracted from post content and style. This involves applying classification algorithms to correlate content features with posting times.
 
-10. `Bussiness Goal:` Efficiently categorizing posts can aid in content moderation and ensure appropriate audience targeting.
+10. `Business Goal:` Efficiently categorizing posts can aid in content moderation and ensure appropriate audience targeting.
 
-    `Teachnical Proposal:` Use text data and other relevant features to train a classification model that can distinguish between adult-oriented and general audience content. This involves using NLP techniques for feature extraction and applying classifiers like SVM or logistic regression.
+    `Technical Proposal:` Use text data and other relevant features to train a classification model that can distinguish between adult-oriented and general audience content. This involves using NLP techniques for feature extraction and applying classifiers like SVM or logistic regression.
 
 
 
