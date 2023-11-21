@@ -114,22 +114,31 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="img/nlp_hero.png" class="img-fluid figure-img" style="width:50.0%"></p>
 </figure>
 </div>
-<p>This page talks about the technical nuisances involved in conducting natural language processing on the subreddit. The subreddit chosen for analysis in this part is r/anime, r/movies, r/Animesuggest, r/MovieSuggestions the objective is to make Our analysis was conducted using Pyspark. The first step involved was to check the lenght of comments and try to make sense out of them.</p>
-<section id="technical-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="technical-analysis">Technical Analysis</h3>
-<ol type="1">
-<li>Add external data</li>
-<li>Conduct your natural language processing work- basic data text checks/analysis on your data.
-<ol type="1">
-<li>What are the most common words overall or over time?</li>
-<li>What is the distribution of text lengths?</li>
-<li>What are important words according to TF-IDF?</li>
-</ol></li>
-</ol>
-<p>3.- Identify important keywords for your Reddit data and use regex searches to create at least two dummy variables to identify comments on particular topics. Regex is employed as one of the techniques to extract information from the text data, specifically for identifying movie names.</p>
-<ol start="4" type="1">
-<li>Clean your text data using johnsnowlabs sparkNLP. You must use at least five NLP cleaning procedures.</li>
-</ol>
+<p>This page outlines a technical proposal designed to address specific business goals by applying NLP methodologies to analyze and understand the content of subreddits. The primary objectives include uncovering popular themes and gauging sentiment.The subreddit chosen for analysis in this part is r/anime, r/movies, r/Animesuggest, r/MovieSuggestions.</p>
+<section id="technical-analysis-report" class="level3">
+<h3 class="anchored" data-anchor-id="technical-analysis-report">Technical Analysis Report</h3>
+<section id="comprehensive-analysis-report-on-reddit-discussions-unveiling-trends-in-movie-popularity" class="level4">
+<h4 class="anchored" data-anchor-id="comprehensive-analysis-report-on-reddit-discussions-unveiling-trends-in-movie-popularity">Comprehensive Analysis Report on Reddit Discussions: Unveiling Trends in Movie Popularity</h4>
+<p>This analysis aims to discern prevailing trends in Reddit discussions related to movies. The primary goal is to compile a dataset featuring the most talked-about movies on the platform. Subsequently, this dataset will be cross-referenced with our external review data, particularly from platforms like Rotten Tomatoes. The objective is to determine if movies generating the most buzz on Reddit also receive positive critical acclaim or exhibit differing evaluations.</p>
+<p>Key Steps:</p>
+<ul>
+<li><p>Extracting movie names from the reddit comment Submission</p></li>
+<li><p>To extract relevant information efficiently, we employed sophisticated text cleaning techniques. These included:</p></li>
+<li><p><strong>Document Assembler:</strong> Aggregated and organized the raw text data from Reddit comments, preparing it for further processing.</p></li>
+<li><p><strong>Sentence Detector:</strong> Segregated the text into distinct sentences, enhancing the granularity of our analysis.</p></li>
+<li><p><strong>BERT Embeddings:</strong> Utilized advanced BERT (Bidirectional Encoder Representations from Transformers) embeddings to capture contextualized representations of words, improving the accuracy of subsequent analyses.</p></li>
+<li><p><strong>Named Entity Recognition (NER):</strong> Applied NER techniques to identify entities within the text, specifically focusing on recognizing movie names mentioned in the comments. Using ORG and PERSON labels</p></li>
+<li><p><strong>NER Converter:</strong> Transformed the identified named entities, such as movie names, into a structured format suitable for dataset construction.</p></li>
+</ul>
+<p>After extracting initial movie names, we employed targeted regex pattern matching to capture additional titles:</p>
+<ul>
+<li><strong>Camel Casing Words:</strong> Identified and extracted movie titles written in Camel Case format.</li>
+<li><strong>Quoted Phrases:</strong> Recognized and extracted movie names enclosed within double quotes.</li>
+<li><strong>Capitalized Word Pairs:</strong> Extracted words between two capital-letter-starting words, facilitating retrieval of stylistically formatted movie titles.</li>
+<li><strong>Numeric Associations:</strong> Captured numeric values following movie mentions, linking numerical information like release years to specific titles.</li>
+<li><strong>Year in Parentheses:</strong> Identified words before the year mentioned within parentheses, aiding in the extraction of titles near their release years.</li>
+</ul>
+<p>Following this extraction, we refined the dataset by removing stop words based on element length. This meticulous process enhanced the accuracy and relevance of our dataset, ensuring a nuanced and precise analysis of movie discussions on Reddit.</p>
 <div class="cell" data-fig-width="11.5">
 <div class="cell-output-display">
 <div>
@@ -160,6 +169,21 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<p>In the subsequent phase, our focus shifted to conducting sentiment analysis on our external dataset, utilizing the Rotten Tomatoes movie review dataset. To ensure the data was well-prepared for sentiment analysis, we implemented a series of fundamental text cleaning processes. The key techniques applied included:</p>
+<ul>
+<li><strong>Document Assembler:</strong> Aggregated and organized the raw text data, preparing it for subsequent processing steps.</li>
+<li><strong>Tokenizer:</strong> Employed tokenization to break down the text into individual units, enhancing the granularity of our analysis.</li>
+<li><strong>Normalizer:</strong> Applied normalization techniques to standardize the text, ensuring consistent formatting and reducing variability.</li>
+<li><strong>Lemmatizer:</strong> Utilized lemmatization to transform words to their base or root form, enhancing the accuracy of sentiment analysis by considering the underlying meaning of words.</li>
+<li><strong>Stopwords Remover:</strong> Implemented a stopwords removal process to eliminate common words that do not contribute significantly to sentiment analysis, thereby focusing on more meaningful content.</li>
+</ul>
+<p>These text cleaning techniques collectively facilitated the creation of a refined and standardized dataset for sentiment analysis.</p>
+<p>For sentiment analysis, we employed two distinct sentiment models:</p>
+<ul>
+<li><strong>SentimentDL_use_twitter:</strong> This model leverages advanced deep learning techniques to discern sentiment, particularly tailored for the nuances and expressions commonly found in Twitter-like text.</li>
+<li><strong>ClassifierDL_use_emotion:</strong> Utilizing a classifier approach, this model gauges sentiment by understanding emotional nuances present in the text, providing a comprehensive analysis of sentiment with a focus on emotional context.</li>
+</ul>
+<p>By incorporating these advanced sentiment analysis models and employing meticulous text cleaning processes, we aimed to extract nuanced sentiment insights from the Rotten Tomatoes movie review dataset. This multi-faceted approach ensures a robust and comprehensive analysis of sentiment dynamics associated with the movies in our external dataset.</p>
 <div class="cell" data-fig-width="11.5">
 <div class="cell-output-display">
 <div>
@@ -178,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
   
  %% Add figure caption
   style caption fill:#F2F6F7,stroke:#F2F6F7,color:#747a7f;
-  caption[Figure-2: NLP Pipeline for External Data]
+  caption[Figure-2: NLP Pipeline for Data Cleaning]
 </pre>
 <div id="mermaid-tooltip-2" class="mermaidTooltip">
 
@@ -187,9 +211,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<ol start="5" type="1">
-<li>Build a sentiment model -using the sparkNLP framework -a table of summary statistics from any model(s) leveraged</li>
-</ol>
+</section>
 </section>
 <section id="executive-summary" class="level3">
 <h3 class="anchored" data-anchor-id="executive-summary">Executive summary</h3>

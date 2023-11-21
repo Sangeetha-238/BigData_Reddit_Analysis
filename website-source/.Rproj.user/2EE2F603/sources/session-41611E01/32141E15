@@ -3,7 +3,7 @@
     "path": "~/Documents/dsan6000/fall-2023-reddit-project-team-34/website-source/eda.qmd",
     "project_path": "eda.qmd",
     "type": "quarto_markdown",
-    "hash": "540255171",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1700505838044.0,
@@ -17,8 +17,8 @@
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "2:953",
-        "cursorPosition": "43,86",
-        "scrollLine": "38"
+        "cursorPosition": "47,5",
+        "scrollLine": "44"
     },
     "folds": "",
     "lastKnownWriteTime": 1700528429,
