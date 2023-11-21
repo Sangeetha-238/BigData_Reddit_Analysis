@@ -1,0 +1,72 @@
+---
+title: "Natural Language Processing"
+format:
+  html:
+    toc: false
+    page-layout: full
+metadata:
+  backgroundcolor: "#F2F6F7"
+---
+
+![](img/nlp_hero.png){width="50%" fig-align="center"}
+
+This page talks about the technical nuisances involved in conducting natural language processing on the subreddit. The subreddit chosen for analysis in this part is r/anime, r/movies, r/Animesuggest, r/MovieSuggestions the objective is to make  Our analysis was conducted using Pyspark. The first step involved was to check the lenght of comments and try to make sense out of them.
+
+### Technical Analysis
+1. Add external data
+2. Conduct your natural language processing work- basic data text checks/analysis on your data.
+      1. What are the most common words overall or over time?
+      2. What is the distribution of text lengths?
+      3.  What are important words according to TF-IDF?
+      
+3.- Identify important keywords for your Reddit data and use regex searches to create at least two dummy variables to identify comments on particular topics.
+Regex is employed as one of the techniques to extract information from the text data, specifically for identifying movie names.
+
+4. Clean your text data using johnsnowlabs sparkNLP. You must use at least five NLP cleaning procedures.
+```{mermaid}
+%%| fig-width: 11.5
+flowchart LR
+  A[Document Assembler] --> B[Sentence Detector]
+  B --> C[Tokenizer]
+  C --> D[BERT Embeddings]
+  D --> E[Named Entity Recognition]
+  E --> F[NER Converter]
+  
+  style A fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
+  style B fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
+  style C fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
+  style D fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
+  style E fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
+  style F fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
+ 
+  
+ %% Add figure caption
+  style caption fill:#F2F6F7,stroke:#F2F6F7,color:#747a7f;
+  caption[Figure-1: NLP Pipeline for Reddit Data]
+```
+
+```{mermaid}
+%%| fig-width: 11.5
+flowchart LR
+  A[Document Assembler] --> B[Tokenizer]
+  B --> C[Normalizer]
+  C --> D[Lemmatizer]
+  D --> E[Stopwords Remover]
+  
+  style A fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
+  style B fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
+  style C fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
+  style D fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
+  style E fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
+  
+ %% Add figure caption
+  style caption fill:#F2F6F7,stroke:#F2F6F7,color:#747a7f;
+  caption[Figure-2: NLP Pipeline for External Data]
+```
+
+5.  Build a sentiment model
+  -using the sparkNLP framework
+  -a table of summary statistics from any model(s) leveraged
+
+### Executive summary
+ 1-2 paragraphs on your NLP accomplishments - can include up to 2 images or tables, describe the high-level results, must be NON-TECHNICAL

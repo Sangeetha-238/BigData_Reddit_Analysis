@@ -9,6 +9,8 @@ website:
         text: Home
       - href: eda.qmd
         text: EDA
+      - href: nlp.qmd
+        text: NLP
       
   page-footer:
     left: |

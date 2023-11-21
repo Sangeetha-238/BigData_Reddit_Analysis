@@ -1,0 +1,31 @@
+{
+    "id": "32141E15",
+    "path": "~/Documents/dsan6000/fall-2023-reddit-project-team-34/website-source/eda.qmd",
+    "project_path": "eda.qmd",
+    "type": "quarto_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1700505838044.0,
+    "source_on_save": false,
+    "relative_order": 7,
+    "properties": {
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "source_window_id": "",
+        "Source": "Source",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "2:953",
+        "cursorPosition": "14,0",
+        "scrollLine": "4"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1700182957,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1700182957,
+    "read_only": false,
+    "read_only_alternatives": []
+}
