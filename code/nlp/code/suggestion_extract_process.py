@@ -58,17 +58,14 @@ def main():
 
     spark = SparkSession.builder \
     .appName("Spark NLP")\
-    .master("local[*]")\
     .config("spark.driver.memory","16G")\
     .config("spark.driver.maxResultSize", "0") \
     .config("spark.kryoserializer.buffer.max", "2000M")\
-    .config("spark.jars.packages", "com.johnsnowlabs.nlp:spark-nlp_2.12:5.1.3,org.apache.hadoop:hadoop-aws:3.2.2")\
-    .config(
-            "fs.s3a.aws.credentials.provider",
-            "com.amazonaws.auth.ContainerCredentialsProvider",
-    )\
+    .config("spark.jars.packages", "com.johnsnowlabs.nlp:spark-nlp_2.12:5.1.3")\
     .getOrCreate()
-    logger.info(f"spark version = {spark.version}")
+    
+    logger.info(f"Spark version: {spark.version}")
+    logger.info(f"sparknlp version: {sparknlp.version()}")
     
     # This is needed to save RDDs which is the only way to write nested Dataframes into CSV format
     sc = spark.sparkContext
@@ -85,6 +82,7 @@ def main():
     
     # DATA CLEANING
     comments_filtered = df_filtered.filter((df.body != '[deleted]') & (df.author != '[deleted]'))
+    comments_filtered_movies = comments_filtered.where(col("subreddit").isin("MovieSuggestions"))
 
     # Define the pipeline stages
     document_assembler = DocumentAssembler() \
@@ -125,6 +123,8 @@ def main():
     # Apply the pipeline to your DataFrame
     model = nlp_pipeline.fit(comments_filtered_movies)
     result = model.transform(comments_filtered_movies)
+    
+    print("NLP Pipeline Ran Succesfully!")
 
     # Define a UDF to filter and extract movie names
     def extract_movies(chunks):
@@ -163,10 +163,12 @@ def main():
     # Remove movie names from the 'body' text
     df_removed_movie_names = movies_df.withColumn("body_no_movies", remove_movie_names_udf(movies_df["body"], movies_df["movie_names"]))
 
-    # If you still want to use the regex method to supplement the NER extraction
+    # The regex method to supplement the NER extraction
     df_final = df_removed_movie_names.withColumn("additional_movie_names", extract_movie_names_regex_udf(df_removed_movie_names["body_no_movies"], df_removed_movie_names["movie_names"]))
 
     df_final = df_final.select("subreddit", "author", "body", "parent_id", "id", "created_utc", "score", "controversiality", "additional_movie_names")
+    
+    print("Movie Names Extracted")
     
     remove_stop_word_udf = udf(remove_stop_word_from_movie_names, ArrayType(StringType()))
 
@@ -178,14 +180,24 @@ def main():
     # Group by movie_name and count the occurrences
     df_frequency = df_flattened.groupBy("movie_name").agg(count("*").alias("frequency"))
     
+    print("Aggregation Done!")
+    
     # Sort the DataFrame by frequency in descending order and take the top 1000
     df_top_1000_movies = df_frequency.orderBy(desc("frequency")).limit(1000)
     
+    # df_top_1000_movies_pd = df_top_1000_movies.toPandas()
+    
     bucket = "project-group34"
     output_prefix_data_comments = "project/comments/"
-    s3_path = f"s3a://{bucket}/{output_prefix_data_comments}"
+    s3_path = f"s3a://{bucket}/{output_prefix_data_comments}" + args.col_name_for_filtering + "/"
+    
+    print(f"Writing to {s3_path}")
+    df_top_1000_movies.write.parquet(s3_path)
+    # Save the DataFrame in CSV format to S3
+    #df_top_1000_movies.write.option("header", "true").mode("overwrite").csv(s3_path)
+    print(f"Finished writing to {s3_path}")
 
-    df_top_1000_movies.write.mode("overwrite").parquet(f"{s3_path}/movie_suggestions/")
+    # df_top_1000_movies.to_csv(f"{s3_path}/movie_suggestions/{csv_name}")
     
     logger.info(f"all done...")
     
