@@ -18,6 +18,37 @@ This page outlines a technical proposal designed to address specific business go
 
 This analysis aims to discern prevailing trends in Reddit discussions related to movies. The primary goal is to compile a dataset featuring the most talked-about movies on the platform. Subsequently, this dataset will be cross-referenced with our external review data, particularly from platforms like Rotten Tomatoes. The objective is to determine if movies generating the most buzz on Reddit also receive positive critical acclaim or exhibit differing evaluations.
 
+Before delving into detailed text cleaning processes, we conducted a preliminary analysis encompassing both movie and anime-related Reddit communities. Our overarching goal is to ultimately provide insights on Movies, Anime, and TV shows. In this initial phase, we performed a word count analysis on submissions from both movie and anime Reddits. Below are the top words identified, accompanied by their respective counts:
+
+```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="word_count_table_movie.html" width="100%" height="400"></object>
+  <!-- <figcaption style=" text-align:center;">Table-1: Count of words for movies</figcaption> -->
+</figure>
+</div>
+```
+
+```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="word_count_table_anime.html" width="100%" height="400"></object>
+  <!-- <figcaption style=" text-align:center;">Table-2: Count of words for anime</figcaption> -->
+</figure>
+</div>
+```
+
+This initial exploration has revealed that discussions on Reddit heavily revolve around users' favorite anime and movies. To gain deeper insights, our next step involves analyzing the comments more comprehensively to extract the specific names of the most-discussed movies and anime. By doing so, we aim to identify the titles that resonate most strongly within the community, shedding light on the exceptionally popular content among Reddit users.
+
+In our analysis of Reddit comments related to movies, we initially employed TF-IDF vectorization on a DataFrame containing cleaned and tokenized text. While TF-IDF is a powerful technique for understanding the significance of words within individual documents relative to the entire dataset, its application in our specific context has revealed limitations.
+
+TF-IDF is inherently designed to highlight the importance of words in a document set, but its utility in extracting specific movie and anime references from Reddit comments appears to be constrained. Our objective is to identify and extract the most discussed or mentioned movie and anime titles, and for this purpose, alternative methods may prove more effective.
+
+Recognizing the unique nature of our analysis, we have decided to explore alternative approaches that directly cater to the extraction of movie and anime references from Reddit comments. This strategic shift is grounded in the understanding that while TF-IDF is valuable for certain tasks, it may not be the optimal choice for our current goal of pinpointing and analyzing explicit references to movies and anime in the Reddit data.
+
+By adopting alternative methods tailored to our specific objective, we aim to enhance the precision and relevance of our analysis, ensuring a more effective exploration of the most discussed titles within the Reddit community. This adaptive approach aligns our methodology with the intricacies of the content present in Reddit comments, optimizing our ability to uncover and analyze meaningful movie and anime references.
+
+
 Key Steps:
 
 - Extracting movie names from the reddit comment Submission
@@ -101,6 +132,3 @@ flowchart LR
   style caption fill:#F2F6F7,stroke:#F2F6F7,color:#747a7f;
   caption[Figure-2: NLP Pipeline for Data Cleaning]
 ```
-
-### Executive summary
- 1-2 paragraphs on your NLP accomplishments - can include up to 2 images or tables, describe the high-level results, must be NON-TECHNICAL
