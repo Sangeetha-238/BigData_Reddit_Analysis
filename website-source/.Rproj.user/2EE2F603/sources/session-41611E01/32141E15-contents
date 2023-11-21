@@ -41,7 +41,7 @@ Looking at subreddits dedicated to suggestions within these categories (AnimeSug
 
 These differences in post counts may reflect varying degrees of popularity, user engagement, and possibly the availability of content in each entertainment medium. The data suggests that within this online community, users are more likely to seek and share recommendations for anime and movies rather than television shows.
 
-![Figure-1: Count of each subreddit in the dataset from 2021-2023](img/subreddit_counts_analysis.png){width="100%" fig-align="center"}
+![Figure-1: Count of each subreddit in the dataset from 2021-2023](img/subreddit_count_analysis.png){width="100%" fig-align="center"}
 
 ### Time-series Analysis
 
