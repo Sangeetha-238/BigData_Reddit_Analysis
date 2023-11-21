@@ -87,6 +87,3 @@ Our mission is clear: to decipher the language of entertainment discussions on R
 10. `Business Goal:` Efficiently categorizing posts can aid in content moderation and ensure appropriate audience targeting.
 
     `Technical Proposal:` Use text data and other relevant features to train a classification model that can distinguish between adult-oriented and general audience content. This involves using NLP techniques for feature extraction and applying classifiers like SVM or logistic regression.
-
-
-
