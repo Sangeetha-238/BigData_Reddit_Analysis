@@ -10,19 +10,40 @@ metadata:
 
 ![](img/nlp_hero.png){width="50%" fig-align="center"}
 
-This page talks about the technical nuisances involved in conducting natural language processing on the subreddit. The subreddit chosen for analysis in this part is r/anime, r/movies, r/Animesuggest, r/MovieSuggestions the objective is to make  Our analysis was conducted using Pyspark. The first step involved was to check the lenght of comments and try to make sense out of them.
+This page outlines a technical proposal designed to address specific business goals by applying NLP methodologies to analyze and understand the content of subreddits. The primary objectives include uncovering popular themes and gauging sentiment.The subreddit chosen for analysis in this part is r/anime, r/movies, r/Animesuggest, r/MovieSuggestions.
 
-### Technical Analysis
-1. Add external data
-2. Conduct your natural language processing work- basic data text checks/analysis on your data.
-      1. What are the most common words overall or over time?
-      2. What is the distribution of text lengths?
-      3.  What are important words according to TF-IDF?
-      
-3.- Identify important keywords for your Reddit data and use regex searches to create at least two dummy variables to identify comments on particular topics.
-Regex is employed as one of the techniques to extract information from the text data, specifically for identifying movie names.
+### Technical Analysis Report
 
-4. Clean your text data using johnsnowlabs sparkNLP. You must use at least five NLP cleaning procedures.
+#### Comprehensive Analysis Report on Reddit Discussions: Unveiling Trends in Movie Popularity
+
+This analysis aims to discern prevailing trends in Reddit discussions related to movies. The primary goal is to compile a dataset featuring the most talked-about movies on the platform. Subsequently, this dataset will be cross-referenced with our external review data, particularly from platforms like Rotten Tomatoes. The objective is to determine if movies generating the most buzz on Reddit also receive positive critical acclaim or exhibit differing evaluations.
+
+Key Steps:
+
+- Extracting movie names from the reddit comment Submission
+
+- To extract relevant information efficiently, we employed sophisticated text cleaning techniques. These included:
+
+- **Document Assembler:** Aggregated and organized the raw text data from Reddit comments, preparing it for further processing.
+
+- **Sentence Detector:** Segregated the text into distinct sentences, enhancing the granularity of our analysis.
+
+- **BERT Embeddings:** Utilized advanced BERT (Bidirectional Encoder Representations from Transformers) embeddings to capture contextualized representations of words, improving the accuracy of subsequent analyses.
+
+- **Named Entity Recognition (NER):** Applied NER techniques to identify entities within the text, specifically focusing on recognizing movie names mentioned in the comments. Using ORG and PERSON labels
+
+- **NER Converter:** Transformed the identified named entities, such as movie names, into a structured format suitable for dataset construction.
+
+After extracting initial movie names, we employed targeted regex pattern matching to capture additional titles:
+
+- **Camel Casing Words:** Identified and extracted movie titles written in Camel Case format.
+- **Quoted Phrases:** Recognized and extracted movie names enclosed within double quotes.
+- **Capitalized Word Pairs:** Extracted words between two capital-letter-starting words, facilitating retrieval of stylistically formatted movie titles.
+- **Numeric Associations:** Captured numeric values following movie mentions, linking numerical information like release years to specific titles.
+- **Year in Parentheses:** Identified words before the year mentioned within parentheses, aiding in the extraction of titles near their release years.
+
+Following this extraction, we refined the dataset by removing stop words based on element length. This meticulous process enhanced the accuracy and relevance of our dataset, ensuring a nuanced and precise analysis of movie discussions on Reddit.
+
 ```{mermaid}
 %%| fig-width: 11.5
 flowchart LR
@@ -45,6 +66,23 @@ flowchart LR
   caption[Figure-1: NLP Pipeline for Reddit Data]
 ```
 
+In the subsequent phase, our focus shifted to conducting sentiment analysis on our external dataset, utilizing the Rotten Tomatoes movie review dataset. To ensure the data was well-prepared for sentiment analysis, we implemented a series of fundamental text cleaning processes. The key techniques applied included:
+
+- **Document Assembler:** Aggregated and organized the raw text data, preparing it for subsequent processing steps.
+- **Tokenizer:** Employed tokenization to break down the text into individual units, enhancing the granularity of our analysis.
+- **Normalizer:** Applied normalization techniques to standardize the text, ensuring consistent formatting and reducing variability.
+- **Lemmatizer:** Utilized lemmatization to transform words to their base or root form, enhancing the accuracy of sentiment analysis by considering the underlying meaning of words.
+- **Stopwords Remover:** Implemented a stopwords removal process to eliminate common words that do not contribute significantly to sentiment analysis, thereby focusing on more meaningful content.
+
+These text cleaning techniques collectively facilitated the creation of a refined and standardized dataset for sentiment analysis.
+
+For sentiment analysis, we employed two distinct sentiment models:
+
+- **SentimentDL_use_twitter:** This model leverages advanced deep learning techniques to discern sentiment, particularly tailored for the nuances and expressions commonly found in Twitter-like text.
+- **ClassifierDL_use_emotion:** Utilizing a classifier approach, this model gauges sentiment by understanding emotional nuances present in the text, providing a comprehensive analysis of sentiment with a focus on emotional context.
+
+By incorporating these advanced sentiment analysis models and employing meticulous text cleaning processes, we aimed to extract nuanced sentiment insights from the Rotten Tomatoes movie review dataset. This multi-faceted approach ensures a robust and comprehensive analysis of sentiment dynamics associated with the movies in our external dataset.
+
 ```{mermaid}
 %%| fig-width: 11.5
 flowchart LR
@@ -61,12 +99,8 @@ flowchart LR
   
  %% Add figure caption
   style caption fill:#F2F6F7,stroke:#F2F6F7,color:#747a7f;
-  caption[Figure-2: NLP Pipeline for External Data]
+  caption[Figure-2: NLP Pipeline for Data Cleaning]
 ```
-
-5.  Build a sentiment model
-  -using the sparkNLP framework
-  -a table of summary statistics from any model(s) leveraged
 
 ### Executive summary
  1-2 paragraphs on your NLP accomplishments - can include up to 2 images or tables, describe the high-level results, must be NON-TECHNICAL
