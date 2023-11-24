@@ -22,6 +22,7 @@ aws --region ${REGION} ecr get-login-password | docker login --username AWS --pa
 # create a Dockerfile
 echo FROM "${BASE_IMAGE}" > Dockerfile
 echo RUN /usr/local/bin/pip3 install spark-nlp==5.1.3 >> Dockerfile
+echo RUN /usr/local/bin/pip3 install nltk >> Dockerfile
 
 # Create the ECR repository if it does not already exist
 
