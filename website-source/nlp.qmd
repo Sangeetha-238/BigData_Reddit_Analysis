@@ -20,11 +20,20 @@ This analysis aims to discern prevailing trends in Reddit discussions related to
 
 Before delving into detailed text cleaning processes, we conducted a preliminary analysis encompassing both movie and anime-related Reddit communities. Our overarching goal is to ultimately provide insights on Movies, Anime, and TV shows. In this initial phase, we performed a word count analysis on submissions from both movie and anime Reddits. Below are the top words identified, accompanied by their respective counts:
 
+<!-- ```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="table_missing_values.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;">Table-1: Count of missing values of all the columns for submissions dataset</figcaption>
+</figure>
+</div>
+``` -->
+
 ```{=html}
 <div> 
 <figure style="width: 100%;">
-  <object data="word_count_table_movie.html" width="100%" height="400"></object>
-  <!-- <figcaption style=" text-align:center;">Table-1: Count of words for movies</figcaption> -->
+  <object data="word_count_table_movie.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;">Table-1: Count of words for movies</figcaption>
 </figure>
 </div>
 ```
@@ -32,8 +41,8 @@ Before delving into detailed text cleaning processes, we conducted a preliminary
 ```{=html}
 <div> 
 <figure style="width: 100%;">
-  <object data="word_count_table_anime.html" width="100%" height="400"></object>
-  <!-- <figcaption style=" text-align:center;">Table-2: Count of words for anime</figcaption> -->
+  <object data="word_count_table_anime.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;">Table-2: Count of words for anime</figcaption>
 </figure>
 </div>
 ```
@@ -75,27 +84,7 @@ After extracting initial movie names, we employed targeted regex pattern matchin
 
 Following this extraction, we refined the dataset by removing stop words based on element length. This meticulous process enhanced the accuracy and relevance of our dataset, ensuring a nuanced and precise analysis of movie discussions on Reddit.
 
-```{mermaid}
-%%| fig-width: 11.5
-flowchart LR
-  A[Document Assembler] --> B[Sentence Detector]
-  B --> C[Tokenizer]
-  C --> D[BERT Embeddings]
-  D --> E[Named Entity Recognition]
-  E --> F[NER Converter]
-  
-  style A fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style B fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style C fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style D fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style E fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style F fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
- 
-  
- %% Add figure caption
-  style caption fill:#F2F6F7,stroke:#F2F6F7,color:#747a7f;
-  caption[Figure-1: NLP Pipeline for Reddit Data]
-```
+![](img/NLP_Flowchart2.jpg){width="100%" fig-align="center"}
 
 In the subsequent phase, our focus shifted to conducting sentiment analysis on our external dataset, utilizing the Rotten Tomatoes movie review dataset. To ensure the data was well-prepared for sentiment analysis, we implemented a series of fundamental text cleaning processes. The key techniques applied included:
 
@@ -113,22 +102,3 @@ For sentiment analysis, we employed two distinct sentiment models:
 - **ClassifierDL_use_emotion:** Utilizing a classifier approach, this model gauges sentiment by understanding emotional nuances present in the text, providing a comprehensive analysis of sentiment with a focus on emotional context.
 
 By incorporating these advanced sentiment analysis models and employing meticulous text cleaning processes, we aimed to extract nuanced sentiment insights from the Rotten Tomatoes movie review dataset. This multi-faceted approach ensures a robust and comprehensive analysis of sentiment dynamics associated with the movies in our external dataset.
-
-```{mermaid}
-%%| fig-width: 11.5
-flowchart LR
-  A[Document Assembler] --> B[Tokenizer]
-  B --> C[Normalizer]
-  C --> D[Lemmatizer]
-  D --> E[Stopwords Remover]
-  
-  style A fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style B fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style C fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style D fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style E fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  
- %% Add figure caption
-  style caption fill:#F2F6F7,stroke:#F2F6F7,color:#747a7f;
-  caption[Figure-2: NLP Pipeline for Data Cleaning]
-```

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.246">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,9 +48,6 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -122,16 +119,24 @@ ul.task-list li input[type="checkbox"] {
 <p>This analysis aims to discern prevailing trends in Reddit discussions related to movies. The primary goal is to compile a dataset featuring the most talked-about movies on the platform. Subsequently, this dataset will be cross-referenced with our external review data, particularly from platforms like Rotten Tomatoes. The objective is to determine if movies generating the most buzz on Reddit also receive positive critical acclaim or exhibit differing evaluations.</p>
 <p>Before delving into detailed text cleaning processes, we conducted a preliminary analysis encompassing both movie and anime-related Reddit communities. Our overarching goal is to ultimately provide insights on Movies, Anime, and TV shows. In this initial phase, we performed a word count analysis on submissions from both movie and anime Reddits. Below are the top words identified, accompanied by their respective counts:</p>
 
+<!-- ```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="table_missing_values.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;">Table-1: Count of missing values of all the columns for submissions dataset</figcaption>
+</figure>
+</div>
+``` -->
 <div> 
 <figure style="width: 100%;" class="figure">
-  <object data="word_count_table_movie.html" width="100%" height="400"></object>
-  <!-- <figcaption style=" text-align:center;">Table-1: Count of words for movies</figcaption> -->
+  <object data="word_count_table_movie.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Table-1: Count of words for movies</figcaption>
 </figure>
 </div>
 <div> 
 <figure style="width: 100%;" class="figure">
-  <object data="word_count_table_anime.html" width="100%" height="400"></object>
-  <!-- <figcaption style=" text-align:center;">Table-2: Count of words for anime</figcaption> -->
+  <object data="word_count_table_anime.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Table-2: Count of words for anime</figcaption>
 </figure>
 </div>
 <p>This initial exploration has revealed that discussions on Reddit heavily revolve around users’ favorite anime and movies. To gain deeper insights, our next step involves analyzing the comments more comprehensively to extract the specific names of the most-discussed movies and anime. By doing so, we aim to identify the titles that resonate most strongly within the community, shedding light on the exceptionally popular content among Reddit users.</p>
@@ -158,35 +163,10 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Year in Parentheses:</strong> Identified words before the year mentioned within parentheses, aiding in the extraction of titles near their release years.</li>
 </ul>
 <p>Following this extraction, we refined the dataset by removing stop words based on element length. This meticulous process enhanced the accuracy and relevance of our dataset, ensuring a nuanced and precise analysis of movie discussions on Reddit.</p>
-<div class="cell" data-fig-width="11.5">
-<div class="cell-output-display">
-<div>
-<p>
-</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
-  A[Document Assembler] --&gt; B[Sentence Detector]
-  B --&gt; C[Tokenizer]
-  C --&gt; D[BERT Embeddings]
-  D --&gt; E[Named Entity Recognition]
-  E --&gt; F[NER Converter]
-  
-  style A fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style B fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style C fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style D fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style E fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style F fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
- 
-  
- %% Add figure caption
-  style caption fill:#F2F6F7,stroke:#F2F6F7,color:#747a7f;
-  caption[Figure-1: NLP Pipeline for Reddit Data]
-</pre>
-<div id="mermaid-tooltip-1" class="mermaidTooltip">
-
-</div>
-<p></p>
-</div>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/NLP_Flowchart2.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
 </div>
 <p>In the subsequent phase, our focus shifted to conducting sentiment analysis on our external dataset, utilizing the Rotten Tomatoes movie review dataset. To ensure the data was well-prepared for sentiment analysis, we implemented a series of fundamental text cleaning processes. The key techniques applied included:</p>
 <ul>
@@ -203,33 +183,6 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>ClassifierDL_use_emotion:</strong> Utilizing a classifier approach, this model gauges sentiment by understanding emotional nuances present in the text, providing a comprehensive analysis of sentiment with a focus on emotional context.</li>
 </ul>
 <p>By incorporating these advanced sentiment analysis models and employing meticulous text cleaning processes, we aimed to extract nuanced sentiment insights from the Rotten Tomatoes movie review dataset. This multi-faceted approach ensures a robust and comprehensive analysis of sentiment dynamics associated with the movies in our external dataset.</p>
-<div class="cell" data-fig-width="11.5">
-<div class="cell-output-display">
-<div>
-<p>
-</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-2">flowchart LR
-  A[Document Assembler] --&gt; B[Tokenizer]
-  B --&gt; C[Normalizer]
-  C --&gt; D[Lemmatizer]
-  D --&gt; E[Stopwords Remover]
-  
-  style A fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style B fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style C fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style D fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  style E fill:#fac3b6,stroke:#FF4301,stroke-width:1px;
-  
- %% Add figure caption
-  style caption fill:#F2F6F7,stroke:#F2F6F7,color:#747a7f;
-  caption[Figure-2: NLP Pipeline for Data Cleaning]
-</pre>
-<div id="mermaid-tooltip-2" class="mermaidTooltip">
-
-</div>
-<p></p>
-</div>
-</div>
-</div>
 
 
 </section>

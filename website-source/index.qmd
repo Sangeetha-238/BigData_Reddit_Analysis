@@ -27,10 +27,10 @@ For the purpose of this project, the analysis is performed on the subreddits : r
 
 * **r/anime:** This subreddit is dedicated to anime-related discussions, encompassing a wide range of topics, including reviews, recommendations, and general discourse about the anime medium.
 * **r/television:** This subreddit caters to discussions about television shows, spanning various genres and formats. Users engage in conversations about current and past TV series, share recommendations, and discuss industry news.
-* **r/televisionsuggestions:** As a subreddit dedicated explicitly to TV show recommendations, this community serves as a hub for users seeking and providing suggestions for what to watch next.
 * **r/movies:** This subreddit covers a wide range of topics related to films, including discussions about specific movies, industry news, and analyses of cinematic techniques.
 * **r/Animesuggest:** Similar to r/televisionsuggestions but for anime, this subreddit is dedicated to helping users discover new anime titles based on their preferences.
 * **r/MovieSuggestions:** Serving as a space specifically for movie recommendations, this subreddit is an ideal place for users seeking personalized suggestions for their next film to watch.
+* **r/televisionsuggestions:** As a subreddit dedicated explicitly to TV show recommendations, this community serves as a hub for users seeking and providing suggestions for what to watch next.
 
 By targeting these specific subreddits, the analysis aims to uncover patterns, trends, and user sentiments unique to each community. This focused approach allows for a more nuanced understanding of the entertainment discussions taking place within these distinct corners of the Reddit platform.
 
@@ -38,11 +38,12 @@ By targeting these specific subreddits, the analysis aims to uncover patterns, t
 
 Diving into a whopping 412 GB of posts and 918 GB of comments, the dataset is like a big storybook with 109 million entries. It's carefully organized by simplifying things—removing some details, changing time info to something we can understand, and putting it in a format that's easy to explore, like preparing a canvas before painting. Now, it's all set up and ready for us to start looking through and discovering what's inside.
 
-External dataset: For a comprehensive analysis, data from Netflix's top movies and shows will be incorporated to draw insightful comparisons with the Reddit analysis. This multi-dimensional approach aims to explore the viewing preferences, engagement patterns, and sentiment dynamics across both platforms, providing a nuanced understanding of user behavior in the realms of online streaming and social media interaction.
+External dataset: The project utilizes datasets from Kaggle's "Clapper: Massive Rotten Tomatoes Movies and Reviews" and "MyAnimeList" collections. These datasets offer a rich source of information for analyzing trends, preferences, and sentiments in the domain of movies and anime. This approach aims to delve into the intricacies of viewer engagement and sentiment patterns across diverse content genres, providing a comprehensive understanding of audience behavior in the entertainment industry.
 
-The data provides a curated list of the highest-rated movies and TV shows on Netflix for each year, ensuring a minimum threshold of votes and emphasizing IMDb score as a key metric for ranking. 
+The Rotten Tomatoes dataset offers a detailed compilation of movie reviews and ratings, while the MyAnimeList dataset provides insights into anime popularity and viewer preferences. Together, these datasets form a robust foundation for cross-platform analysis.
 
-[Data Source](https://data.world/gonzandrobles/netflix-movies-and-series)
+[Data Source 1](https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews)
+[Data Source 2](https://www.kaggle.com/datasets/azathoth42/myanimelist)
 
 ### Objective
 
