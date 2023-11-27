@@ -4,8 +4,6 @@ format:
   html:
     toc: false
     page-layout: full
-metadata:
-  backgroundcolor: "#F2F6F7"
 ---
 
 ![](img/nlp_hero.png){width="50%" fig-align="center"}
@@ -84,7 +82,7 @@ After extracting initial movie names, we employed targeted regex pattern matchin
 
 Following this extraction, we refined the dataset by removing stop words based on element length. This meticulous process enhanced the accuracy and relevance of our dataset, ensuring a nuanced and precise analysis of movie discussions on Reddit.
 
-![](img/NLP_Flowchart2.jpg){width="100%" fig-align="center"}
+![](img/NLPFlowchart.png){width="100%" fig-align="center"}
 
 In the subsequent phase, our focus shifted to conducting sentiment analysis on our external dataset, utilizing the Rotten Tomatoes movie review dataset. To ensure the data was well-prepared for sentiment analysis, we implemented a series of fundamental text cleaning processes. The key techniques applied included:
 

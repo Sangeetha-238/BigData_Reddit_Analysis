@@ -9,8 +9,6 @@ format:
   html:
     toc: false
     page-layout: full
-metadata:
-  backgroundcolor: "#F2F6F7"
 ---
 
 ### Introduction

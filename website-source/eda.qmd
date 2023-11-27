@@ -4,8 +4,6 @@ format:
   html:
     toc: false
     page-layout: full
-metadata:
-  backgroundcolor: "#F2F6F7"
 ---
 
 Exploratory Data Analysis (EDA) plays a pivotal role in our project focused on unraveling the dynamics of the Entertainment subreddit within the vast landscape of Reddit. Think of this page as a magnifying glass, focusing on the intricacies of the colossal dataset. Each entry is a chapter in the evolving story, carefully organized for exploration, much like preparing a canvas before an artist begins to paint.
