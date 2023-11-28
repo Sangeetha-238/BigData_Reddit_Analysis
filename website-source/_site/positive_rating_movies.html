@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}, "axis": {"labelFontSize": 14, "titleFontSize": 16}, "title": {"fontSize": 20}}, "data": {"name": "data-247555d781c12dc29318104bf6fe953d"}, "mark": {"type": "bar", "color": "#006400", "opacity": 0.5}, "encoding": {"tooltip": [{"field": "title", "type": "nominal"}, {"field": "rating", "type": "quantitative"}], "x": {"field": "rating", "scale": {"domain": [95, 99]}, "title": "Movie Rating", "type": "quantitative"}, "y": {"field": "title", "sort": "-x", "title": "Movie Title", "type": "nominal"}}, "height": 400, "title": "Movies with the Highest Positive Ratings", "width": 800, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-247555d781c12dc29318104bf6fe953d": [{"title": "Jim Allison: Breakthrough", "average_positive_score": 1.0, "average_negative_score": 8.53145166666667e-22, "num_reviews": 48, "normalized_positive_score": 48.0, "normalized_negative_score": 4.095096800000001e-20, "weighted_rating": 0.9809671839237104, "rank": 1, "rating": 98.09671839237105}, {"title": "Hava Nagila (The Movie)", "average_positive_score": 0.9867567089655171, "average_negative_score": 0.0132432877664241, "num_reviews": 116, "normalized_positive_score": 114.46377824, "normalized_negative_score": 1.5362213809052, "weighted_rating": 0.9789505983669412, "rank": 2, "rating": 97.89505983669412}, {"title": "Trifling Women", "average_positive_score": 0.9992484054545456, "average_negative_score": 0.000751598120182, "num_reviews": 44, "normalized_positive_score": 43.966929840000006, "normalized_negative_score": 0.0330703172880118, "weighted_rating": 0.9786921542506865, "rank": 3, "rating": 97.86921542506865}, {"title": "Blinky Bill the Movie", "average_positive_score": 0.9980725209090908, "average_negative_score": 0.0019274820155393, "num_reviews": 44, "normalized_positive_score": 43.91519092, "normalized_negative_score": 0.0848092086837319, "weighted_rating": 0.9776142600840194, "rank": 4, "rating": 97.76142600840194}, {"title": "Molly's Theory of Relativity", "average_positive_score": 0.999998057, "average_negative_score": 1.942951721449868e-06, "num_reviews": 40, "normalized_positive_score": 39.99992228, "normalized_negative_score": 7.771806885799472e-05, "weighted_rating": 0.9775049055462032, "rank": 5, "rating": 97.75049055462031}, {"title": "Blind Willow, Sleeping Woman", "average_positive_score": 1.0, "average_negative_score": 8.522315000009178e-23, "num_reviews": 32, "normalized_positive_score": 32.0, "normalized_negative_score": 2.727140800002937e-21, "weighted_rating": 0.9725081545564704, "rank": 6, "rating": 97.25081545564704}, {"title": "California Typewriter", "average_positive_score": 0.9936297735, "average_negative_score": 0.0063702265882423, "num_reviews": 40, "normalized_positive_score": 39.74519094, "normalized_negative_score": 0.2548090635296958, "weighted_rating": 0.9717155569098396, "rank": 7, "rating": 97.17155569098395}, {"title": "Half Magic", "average_positive_score": 0.9950310882352942, "average_negative_score": 0.0049689127917765, "num_reviews": 34, "normalized_positive_score": 33.831057, "normalized_negative_score": 0.1689430349204025, "weighted_rating": 0.969509225369288, "rank": 8, "rating": 96.9509225369288}, {"title": "Things Never Said", "average_positive_score": 0.9922669266666668, "average_negative_score": 0.0077330784471619, "num_reviews": 36, "normalized_positive_score": 35.72160936, "normalized_negative_score": 0.27839082409783, "weighted_rating": 0.9682975731008236, "rank": 9, "rating": 96.82975731008237}, {"title": "I'm Leaving Now", "average_positive_score": 0.9990313485714284, "average_negative_score": 0.0009686501978153, "num_reviews": 28, "normalized_positive_score": 27.97287776, "normalized_negative_score": 0.0271222055388308, "weighted_rating": 0.9682241038760292, "rank": 10, "rating": 96.82241038760291}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+---
+title: "coffee-demand"
+format: 
+  html:
+    embed-resources: true
+    self-contained: true
+    page-layout: full
+---
+
+## Data Pre-processing
+
+```{r}
+# Load the CSV file into a data frame
+coffee_demand_df <- read.csv("../data/combined_coffee_demand.csv")
+```
+
+```{r}
+library(dplyr)
+# Group the data frame by Country and calculate the mean of Thousand_Metric_Tons
+mean_demand <- coffee_demand_df %>%
+  group_by(Country) %>%
+  summarize(mean_TMT = mean(Thousand_Metric_Tons))%>%
+  arrange(desc(mean_TMT))
+# Get a data frame with only the top 10 records
+top_10_mean_demand <- mean_demand %>%
+  slice(1:10)
+```
+
+```{r, warning=FALSE, message=FALSE}
+library(magick)
+# download image
+urls <- paste0(
+  "../img/",
+  c("hot-beverage_2615", "hot-beverage_2615", "hot-beverage_2615", "hot-beverage_2615", "hot-beverage_2615", "hot-beverage_2615","hot-beverage_2615","hot-beverage_2615","hot-beverage_2615","hot-beverage_2615"),
+  ".png"
+)
+#lapply(urls, function(x) download.file(x, destfile = fs::path_file(x)))
+fn <- fs::path_file(urls)
+
+# Create a data frame with country-image mappings
+country_images <- tibble(
+  Country = c("US", "Brazil", "Germany", "Japan", "France", "Italy", "Philippines", "Canada", "Ethiopia", "Spain"),
+  mean_TMT = c(1417.0000,908.1667,532.6667,448.8333,356.3333,332.8333,283.0000,261.1667	,238.0000,212.5000),
+  label = gsub("\\.svg", ".png", fs::path_file(fn)),
+)
+country_images$label <- paste0("<img src='../img/hot-beverage_2615.png' width = '40'/>")
+```
+
+```{r}
+library(ggplot2)
+library(gganimate)
+library(rsvg)
+library(grid)
+library(tidyverse)
+library(ggtext)
+library(ggimage)
+library(png)
+
+#Image=image_read_svg("../img/coffee-mac.svg")
+# Convert the image to PNG format
+#image <- image_convert(Image, format = "png")
+# Save the PNG image
+#image_write(image, path = "../img/coffee-mac.png")
+# Read the png image
+#img <- readPNG("../img/coffee-machine.png")
+
+## transform the png to raster grobs
+img <- c(
+  US = "US<br><img src='../img/coffee-machine.png' width='55' />",
+  Brazil = "Brazil<br><img src='../img/coffee-machine.png' width='55' />",
+  Germany = "Germany<br><img src='../img/coffee-machine.png' width='55' />",
+  Japan = "Japan<br><img src='../img/coffee-machine.png' width='55' />",
+  France = "France<br><img src='../img/coffee-machine.png' width='55' />",
+  Italy = "Italy<br><img src='../img/coffee-machine.png' width='55' />",
+  Philippines = "Philippines<br><img src='../img/coffee-machine.png' width='55' />",
+  Canada = "Canada<br><img src='../img/coffee-machine.png' width='55' />",
+  Ethiopia = "Ethiopia<br><img src='../img/coffee-machine.png' width='55' />",
+  Spain = "Spain<br><img src='../img/coffee-machine.png' width='55' />"
+)
+
+demand_plot<-ggplot(country_images,aes(reorder(Country, -mean_TMT), mean_TMT)) +
+    geom_col(colour = "#633923",fill="#633923",position = "dodge2",width=0.06) +
+    coord_cartesian( ylim=c(1700,0), xlim=c(0.3,10.5),expand = FALSE) +
+  #scale_y_reverse()+
+    ggtext::geom_richtext(aes(label = label,),
+      label.colour = NA,
+      fill = NA, 
+      label.padding = unit(c(0, 0.25, -.3, 0.25), "lines")) +
+      scale_x_discrete(name = "Country",labels = img,position = "top") +
+    labs(x="Country",
+         y="Mean Coffee Demand (Thousand Metric Tons)",
+         #subtitle = "How do countries rank in coffee demand?",
+         
+         title="Top 10 countries by average coffee demand from 2014-2019",
+         )+
+    guides(fill = "none") +
+    theme_minimal()+
+    theme(plot.title = element_text(face = "bold",hjust = 0.5, size = 20, color = "Black"),
+          plot.subtitle = element_text(hjust = 0.5, size = 16,margin = margin(b = 10)),
+          axis.title.x = element_text(size = 13, margin = margin(b = 10), face = "bold"),
+          axis.text.x = element_text(size = 10.5),
+          axis.title.y = element_text(size = 13, face = "bold"),
+          axis.text.y=element_blank(),
+          axis.ticks.y=element_blank(),
+          axis.text.x.top = element_markdown(lineheight = 1.2),
+          panel.border = element_blank(),
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          panel.grid.major.y  = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          plot.background = element_rect(fill = '#e2dacc',colour='#e2dacc'),
+          panel.background = element_rect(fill = '#e2dacc',colour="#e2dacc"))+  
+    geom_text(aes(label = sprintf("%.2f", mean_TMT)), vjust = 5,size=3.5)+
+    transition_states(reorder(Country, -mean_TMT), wrap = TRUE) +
+    shadow_mark() +
+    enter_grow() +
+    enter_fade()+
+    exit_fade()
+# create the animation and save it as gif
+animate(demand_plot, fps=10, renderer = gifski_renderer(loop = TRUE), height = 500, width =800)
+gganimate::anim_save(anim_save("../website/demand_plot.gif",overwrite=TRUE))
+
+# Save the plot as a PNG file
+#ggsave("../img/coffee_demand.png", plot = demand_plot, width = 10, height = 9, dpi = 300)
+```
