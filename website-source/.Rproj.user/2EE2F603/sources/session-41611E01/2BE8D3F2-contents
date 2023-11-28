@@ -1,0 +1,138 @@
+---
+title: "coffee-demand"
+format: 
+  html:
+    embed-resources: true
+    self-contained: true
+    page-layout: full
+---
+
+## Data Pre-processing
+
+```{r}
+# Load the CSV file into a data frame
+coffee_demand_df <- read.csv("../../data/csv/anime_r.csv")
+coffee_demand_df
+```
+
+
+```{r}
+# Specific library
+library(UpSetR)
+
+
+# Dataset
+input <- c(
+  'Action and Adventure&Comedy and Slice of Life&Historical and Cultural&Science Fiction and Technology&Youth and School Life' = 9.00,
+  'Drama and Romance&Youth and School Life'=9.01,
+  'Comedy and Slice of Life&Drama and Romance&Historical and Cultural&Miscellaneous'=9.02,
+  'Action and Adventure&Drama and Romance&Science Fiction and Technology'=9.03,
+  'Action and Adventure&Drama and Romance&Fantasy and Supernatural&Horror and Thriller&Youth and School Life'=9.07,
+ 'Youth and School Life'=9.08,
+'Drama and Romance&Fantasy and Supernatural&Youth and School Life'=9.09,	
+'Action and Adventure&Fantasy and Supernatural&Youth and School Life'	=9.11,
+'Horror and Thriller&Science Fiction and Technology'=9.11,
+'Action and Adventure&Comedy and Slice of Life&Drama and Romance&Fantasy and Supernatural&Youth and School Life'=9.23
+)
+
+# Extract movie names
+movie_names <- c(
+  'Gintama',
+  'Koe no Katachi',
+  '3gatsu no Lion 2nd Season',
+  'Ginga Eiyuu Densetsu',
+  'Shingeki no Kyojin Season 3 Part 2',
+  'Quiz de Manabu Pinocchio no Koutsuu Ansen',
+  'Kimi no Na wa',
+  'Hunter x Hunter 2011',
+  'SteinsGate',
+  'Fullmetal Alchemist Brotherhood'
+)
+
+UpSetR::upset(fromExpression(input), 
+              nintersects = 11, 
+              nsets = 11, 
+              order.by = "freq", 
+              decreasing = T,
+              mb.ratio = c(0.6, 0.4),
+              number.angles = 0,
+              text.scale = 1.1, 
+              point.size = 2.8, 
+              line.size = 1,
+              set_size.show = TRUE,
+              )
+```
+```{r}
+dotdf <- read.csv("../../data/csv/anime_r_dot.csv")
+movie_names <- c(
+  'Gintama',
+  'Koe no Katachi',
+  '3gatsu no Lion 2nd Season',
+  'Ginga Eiyuu Densetsu',
+  'Shingeki no Kyojin Season 3 Part 2',
+  'Quiz de Manabu Pinocchio no Koutsuu Ansen',
+  'Kimi no Na wa',
+  'Hunter x Hunter 2011',
+  'SteinsGate',
+  'Fullmetal Alchemist Brotherhood'
+)
+dotdf_filter<-dotdf[dotdf$title %in% movie_names, ]
+dotdf_filter
+```
+```{r}
+p<-ggplot(dotdf_filter, aes(x=title, y=category)) + 
+  geom_dotplot(binaxis='y', stackdir='center')+
+ theme(axis.text.x = element_text(angle = 90),axis.title.x = element_blank(), axis.title.y = element_blank(), 
+        axis.text.y = element_blank(), axis.ticks.y = element_blank(),plot.margin = unit(c(1,-1,1,0), "mm"))+ 
+  coord_flip()
+p
+
+# Barplot
+q<-ggplot(coffee_demand_df, aes(x=Title, y=Score)) + 
+  geom_bar(stat = "identity") +
+  theme(axis.title.x = element_blank(), axis.title.y = element_blank(), 
+        axis.text.y = element_blank(), axis.ticks.y = element_blank(),plot.margin = unit(c(1,0,1,-1), "mm")) +
+   geom_text(aes(label=Title))+
+  coord_flip()
+q
+```
+```{r}
+library(grid)
+g.mid<-ggplot(coffee_demand_df,aes(x=1,y=Title))+geom_text(aes(label=Title))+
+  geom_segment(aes(x=0.94,xend=0.96,yend=Title))+
+  geom_segment(aes(x=1.04,xend=1.065,yend=Title))+
+  ggtitle("")+
+  ylab(NULL)+
+  scale_x_continuous(expand=c(0,0),limits=c(0.94,1.065))+
+  theme(axis.title=element_blank(),
+        panel.grid=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        panel.background=element_blank(),
+        axis.text.x=element_text(color=NA),
+        axis.ticks.x=element_line(color=NA),
+        plot.margin = unit(c(1,-1,1,-1), "mm"))
+g.mid
+```
+```{r}
+library(gridExtra)
+gg1 <- ggplot_gtable(ggplot_build(p))
+gg2 <- ggplot_gtable(ggplot_build(q))
+gg.mid <- ggplot_gtable(ggplot_build(g.mid))
+
+grid.arrange(gg1,gg.mid,gg2,ncol=3,widths=c(10/30,10/30,10/30))
+```
+```{r}
+library(ggplot2)
+
+ggplot(coffee_demand_df, aes(x = Title, y = Score)) +
+  geom_segment(aes(x = Title, xend = Title, y = 0, yend =Score),
+               color = "gray", lwd = 1) +
+  geom_point(size = 7.5, pch = 21, bg = 4, col = 1) +
+  geom_text(aes(label = y), color = "white", size = 3) +
+  scale_x_discrete(labels = paste0("G_", 1:10)) +
+  coord_flip() +
+  theme_minimal()
+```
+
+
