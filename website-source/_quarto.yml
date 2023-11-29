@@ -4,6 +4,7 @@ project:
 website:
   search: false
   navbar:
+    pinned: true
     left:
       - href: index.qmd
         text: Home
