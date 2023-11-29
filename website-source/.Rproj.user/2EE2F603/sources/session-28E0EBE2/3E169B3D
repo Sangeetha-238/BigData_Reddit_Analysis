@@ -1,14 +1,14 @@
 {
-    "id": "7AE3A7D9",
+    "id": "3E169B3D",
     "path": "~/Documents/dsan6000/fall-2023-reddit-project-team-34/website-source/index.qmd",
     "project_path": "index.qmd",
     "type": "quarto_markdown",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1701194144463.0,
+    "created": 1701289916621.0,
     "source_on_save": false,
-    "relative_order": 2,
+    "relative_order": 3,
     "properties": {
         "rmdVisualMode": "false",
         "rmdVisualWrapConfigured": "true",
@@ -18,7 +18,7 @@
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "2:414",
         "cursorPosition": "21,0",
-        "scrollLine": "0"
+        "scrollLine": "1"
     },
     "folds": "",
     "lastKnownWriteTime": 1701110287,
