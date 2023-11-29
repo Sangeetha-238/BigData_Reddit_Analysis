@@ -1,6 +1,0 @@
-"0","p<-ggplot(dotdf_filter, aes(x=title, y=category)) + "
-"0","  geom_dotplot(binaxis='y', stackdir='center')+"
-"0"," theme(axis.text.x = element_text(angle = 90),axis.title.x = element_blank(), axis.title.y = element_blank(), "
-"0","        axis.text.y = element_blank(), axis.ticks.y = element_blank(),plot.margin = unit(c(1,-1,1,0), ""mm""))+ "
-"0","  coord_flip()"
-"0","p"

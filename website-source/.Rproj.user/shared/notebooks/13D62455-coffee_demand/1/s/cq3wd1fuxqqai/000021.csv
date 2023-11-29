@@ -1,7 +1,0 @@
-"0","library(gridExtra)"
-"0","gg1 <- ggplot_gtable(ggplot_build(p))"
-"2","[38;5;232mBin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.[39m"
-"0","gg2 <- ggplot_gtable(ggplot_build(q))"
-"0","gg.mid <- ggplot_gtable(ggplot_build(g.mid))"
-"0",""
-"0","grid.arrange(gg1,gg.mid,gg2,ncol=3,widths=c(10/30,10/30,10/30))"
