@@ -24,7 +24,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -49,6 +48,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -111,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="img/nlp_hero.png" class="img-fluid figure-img" style="width:50.0%"></p>
 </figure>
 </div>
-<p>This page outlines a technical proposal designed to address specific business goals by applying NLP methodologies to analyze and understand the content of subreddits. The primary objectives include uncovering popular themes and gauging sentiment.The subreddit chosen for analysis in this part is r/anime, r/movies, r/Animesuggest, r/MovieSuggestions.</p>
+<p>This page outlines a technical proposal designed to address specific business goals by applying NLP methodologies to analyze and understand the content of subreddits. The primary objectives include uncovering popular themes and gauging sentiment. The subreddit chosen for analysis in this part is r/anime, r/movies, r/Animesuggest, r/MovieSuggestions.</p>
 <section id="technical-analysis-report" class="level3">
 <h3 class="anchored" data-anchor-id="technical-analysis-report">Technical Analysis Report</h3>
 <section id="comprehensive-analysis-report-on-reddit-discussions-unveiling-trends-in-movie-popularity" class="level4">
@@ -129,13 +129,13 @@ ul.task-list li input[type="checkbox"] {
 ``` -->
 <div> 
 <figure style="width: 100%;" class="figure">
-  <object data="word_count_table_movie.html" width="100%" height="500"></object>
+  <object data="word_count_table_movie.html" width="100%" height="300"></object>
   <figcaption style=" text-align:center;" class="figure-caption">Table-1: Count of words for movies</figcaption>
 </figure>
 </div>
 <div> 
 <figure style="width: 100%;" class="figure">
-  <object data="word_count_table_anime.html" width="100%" height="500"></object>
+  <object data="word_count_table_anime.html" width="100%" height="300"></object>
   <figcaption style=" text-align:center;" class="figure-caption">Table-2: Count of words for anime</figcaption>
 </figure>
 </div>
@@ -144,49 +144,16 @@ ul.task-list li input[type="checkbox"] {
 <p>TF-IDF is inherently designed to highlight the importance of words in a document set, but its utility in extracting specific movie and anime references from Reddit comments appears to be constrained. Our objective is to identify and extract the most discussed or mentioned movie and anime titles, and for this purpose, alternative methods may prove more effective.</p>
 <p>Recognizing the unique nature of our analysis, we have decided to explore alternative approaches that directly cater to the extraction of movie and anime references from Reddit comments. This strategic shift is grounded in the understanding that while TF-IDF is valuable for certain tasks, it may not be the optimal choice for our current goal of pinpointing and analyzing explicit references to movies and anime in the Reddit data.</p>
 <p>By adopting alternative methods tailored to our specific objective, we aim to enhance the precision and relevance of our analysis, ensuring a more effective exploration of the most discussed titles within the Reddit community. This adaptive approach aligns our methodology with the intricacies of the content present in Reddit comments, optimizing our ability to uncover and analyze meaningful movie and anime references.</p>
-<p>Key Steps:</p>
-<ul>
-<li><p>Extracting movie names from the reddit comment Submission</p></li>
-<li><p>To extract relevant information efficiently, we employed sophisticated text cleaning techniques. These included:</p></li>
-<li><p><strong>Document Assembler:</strong> Aggregated and organized the raw text data from Reddit comments, preparing it for further processing.</p></li>
-<li><p><strong>Sentence Detector:</strong> Segregated the text into distinct sentences, enhancing the granularity of our analysis.</p></li>
-<li><p><strong>BERT Embeddings:</strong> Utilized advanced BERT (Bidirectional Encoder Representations from Transformers) embeddings to capture contextualized representations of words, improving the accuracy of subsequent analyses.</p></li>
-<li><p><strong>Named Entity Recognition (NER):</strong> Applied NER techniques to identify entities within the text, specifically focusing on recognizing movie names mentioned in the comments. Using ORG and PERSON labels</p></li>
-<li><p><strong>NER Converter:</strong> Transformed the identified named entities, such as movie names, into a structured format suitable for dataset construction.</p></li>
-</ul>
-<p>After extracting initial movie names, we employed targeted regex pattern matching to capture additional titles:</p>
-<ul>
-<li><strong>Camel Casing Words:</strong> Identified and extracted movie titles written in Camel Case format.</li>
-<li><strong>Quoted Phrases:</strong> Recognized and extracted movie names enclosed within double quotes.</li>
-<li><strong>Capitalized Word Pairs:</strong> Extracted words between two capital-letter-starting words, facilitating retrieval of stylistically formatted movie titles.</li>
-<li><strong>Numeric Associations:</strong> Captured numeric values following movie mentions, linking numerical information like release years to specific titles.</li>
-<li><strong>Year in Parentheses:</strong> Identified words before the year mentioned within parentheses, aiding in the extraction of titles near their release years.</li>
-</ul>
-<p>Following this extraction, we refined the dataset by removing stop words based on element length. This meticulous process enhanced the accuracy and relevance of our dataset, ensuring a nuanced and precise analysis of movie discussions on Reddit.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/NLPFlowchart.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-<p>In the subsequent phase, our focus shifted to conducting sentiment analysis on our external dataset, utilizing the Rotten Tomatoes movie review dataset. To ensure the data was well-prepared for sentiment analysis, we implemented a series of fundamental text cleaning processes. The key techniques applied included:</p>
-<ul>
-<li><strong>Document Assembler:</strong> Aggregated and organized the raw text data, preparing it for subsequent processing steps.</li>
-<li><strong>Tokenizer:</strong> Employed tokenization to break down the text into individual units, enhancing the granularity of our analysis.</li>
-<li><strong>Normalizer:</strong> Applied normalization techniques to standardize the text, ensuring consistent formatting and reducing variability.</li>
-<li><strong>Lemmatizer:</strong> Utilized lemmatization to transform words to their base or root form, enhancing the accuracy of sentiment analysis by considering the underlying meaning of words.</li>
-<li><strong>Stopwords Remover:</strong> Implemented a stopwords removal process to eliminate common words that do not contribute significantly to sentiment analysis, thereby focusing on more meaningful content.</li>
-</ul>
-<p>These text cleaning techniques collectively facilitated the creation of a refined and standardized dataset for sentiment analysis.</p>
-<p>For sentiment analysis, we employed two distinct sentiment models:</p>
-<ul>
-<li><strong>SentimentDL_use_twitter:</strong> This model leverages advanced deep learning techniques to discern sentiment, particularly tailored for the nuances and expressions commonly found in Twitter-like text.</li>
-<li><strong>ClassifierDL_use_emotion:</strong> Utilizing a classifier approach, this model gauges sentiment by understanding emotional nuances present in the text, providing a comprehensive analysis of sentiment with a focus on emotional context.</li>
-</ul>
-<p>By incorporating these advanced sentiment analysis models and employing meticulous text cleaning processes, we aimed to extract nuanced sentiment insights from the Rotten Tomatoes movie review dataset. This multi-faceted approach ensures a robust and comprehensive analysis of sentiment dynamics associated with the movies in our external dataset.</p>
 </section>
 <section id="most-suggested-movies-on-reddit" class="level4">
 <h4 class="anchored" data-anchor-id="most-suggested-movies-on-reddit">Most Suggested Movies on Reddit</h4>
 <p>The social platform Reddit is a treasure trove of public opinion and preferences, particularly when it comes to movie recommendations. To extract the movies, we’ve implemented a data extraction and analysis pipeline to identify the most frequently suggested movies across various Reddit threads.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/RedditData_Flowchart.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure-1: Workflow Pipeline for Extracting Movie and Anime Suggestions from Reddit data</figcaption><p></p>
+</figure>
+</div>
 <section id="methodology" class="level5">
 <h5 class="anchored" data-anchor-id="methodology">Methodology:</h5>
 <ul>
@@ -196,13 +163,28 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Explode and Aggregate:</strong> The data was transformed through the “explode” operation, breaking down entries into individual suggestions. Aggregation techniques were then employed to count the occurrences of each movie title, providing a quantitative measure. We initiated the process by collecting Reddit posts from threads likely to contain movie suggestions. This involved utilizing Reddit’s API to fetch posts from subreddits renowned for movie discussions. Upon retrieval, the posts underwent a standard preprocessing stage, which included lowercasing, tokenization, and the removal of stop words and punctuation. This step was crucial to prepare the text data for more sophisticated natural language processing (NLP) tasks.</p></li>
 </ul>
 <p><code>Named Entity Recognition (NER)</code> The cleansed text data was then processed through a Named Entity Recognition (NER) model. NER is an NLP technique that automatically identifies and classifies key information in text, such as the names of people, places, and, pertinent to our task, movies. We utilized a pre-trained NER model tailored to recognize movie titles within a larger corpus.</p>
+<p><code>Text Processing Workflow</code> Document Structuring</p>
+<ul>
+<li>Document Assembler: The initial step involves converting each comment text into a structured document format. This process, facilitated by a Document Assembler, lays the foundation for a systematic and organized analysis.</li>
+<li>Sentence Segmentation:Sentence Detector: Following document structuring, the content is segmented into sentences using a Sentence Detector. This step is crucial for breaking down the textual information into manageable units, preparing it for more granular analysis.</li>
+<li>Tokenization: Tokenizer: Sentences are further deconstructed into individual tokens using a Tokenizer. This process is integral to understanding the intricacies of the text at a word level, facilitating a nuanced examination of user comments.</li>
+<li>Word Embeddings: Word Embeddings Model (glove_100d): To transform tokens into numerical vector representations, we employ a Word Embeddings Model, specifically glove_100d. This model captures semantic relationships between words, enabling a more profound analysis of the comment text.</li>
+<li>Named Entity Recognition (NER): NERDL Model (ner_dl): The identified vectors undergo Named Entity Recognition using an advanced NERDL model. This step involves classifying entities within the vectors, distinguishing elements such as persons, organizations, and locations, contributing to a richer understanding of the comment content.</li>
+<li>Entity Chunking: Identified entities are then intelligently grouped into coherent chunks using a NER Converter. This chunking process enhances the organization and structure of the information, revealing patterns and relationships within the identified entities.</li>
+<li>Suggestion Extraction: User Defined Function (UDF): Focusing on entities classified as “PERSON” and “ORG,” a User Defined Function (UDF) is applied to extract suggestions from the identified chunks. This step allows for the extraction of meaningful insights related to individuals and organizations mentioned in the comments.</li>
+</ul>
 <p><code>Pattern Matching</code> In parallel to NER, we employed pattern matching algorithms to capture movie mentions that might not be recognized by NER. Pattern matching utilized a combination of keyword searches and lexical patterns that are commonly associated with movie titles.</p>
+<ul>
+<li>Common Pattern Identification: Utilizing a Regex pattern (pattern = r’(?:“([^"]+)”|([A-Z][a-z](?:+(?:[a-z]++)[A-Z][a-z]))(?: )?)’), we embark on identifying common patterns within the dataset. This pattern is designed to capture both quoted phrases and properly formatted movie titles with their release years.</li>
+<li>Data Refinement using User Defined Functions (UDFs):Stopwords and Single-Letter,Movies Removal Stopwords Exclusion UDF: Applying a User Defined Function (UDF), we meticulously remove movies that consist solely of stopwords. This ensures that the dataset is refined to exclude movies with minimal informational content. Single-Letter Movies Exclusion UDF: Another UDF is employed to eliminate movies with only a single letter in their titles. This step is crucial for maintaining the integrity of the dataset by filtering out entries that may not contribute substantial information or context.</li>
+</ul>
 <p><code>Context Analysis</code> To refine the results further, context analysis was performed. This method assessed the surrounding text of potential movie titles to discern whether the mention was indeed a suggestion. For example, phrases like “I recommend” or “you should watch” preceding a movie title indicated a suggestion.</p>
 <p><code>Data Transformation</code> The identified movie titles were transformed into a structured format suitable for analysis. The transformation involved “exploding” lists of movies found in individual posts into separate records to facilitate counting.</p>
 <p><code>Aggregation</code> Finally, we aggregated the results by counting the frequency of each unique movie title across the dataset. This step was implemented using group-by operations that tallied the number of suggestions per movie. The aggregation stage culminated in a ranked list of movies by the number of times they were suggested. This ranked list provided clear insights into the most popular movie recommendations on Reddit.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/top_suggested_movies.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p><img src="img/top_suggested_movies.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure-2: lollipop plot showing the the top 10 suggested movies on reddit</figcaption><p></p>
 </figure>
 </div>
 <p>Upon analyzing user recommendations on Reddit, “Hereditary” stood out as the most frequently suggested movie. This observation prompted us to delve deeper into whether these highly recommended films were not only popular among users but also well-received in terms of positive sentiment.</p>
@@ -212,21 +194,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="sentiment-analysis-on-rotten-tomatoes-review-data" class="level4">
 <h4 class="anchored" data-anchor-id="sentiment-analysis-on-rotten-tomatoes-review-data">SENTIMENT ANALYSIS ON ROTTEN TOMATOES REVIEW DATA</h4>
-<p>Our journey into sentiment analysis commenced with the comprehensive collection of review text for every movie listed on Rotten Tomatoes. This exhaustive dataset served as the bedrock for our analytical exploration, encapsulating a rich tapestry of opinions from both discerning critics and diverse audience perspectives.</p>
-
-<div> 
-<figure style="width: 100%;" class="figure">
-  <object data="positive_rating_movies.html" width="100%" height="500"></object>
-  <figcaption style=" text-align:center;" class="figure-caption">Table-2: Count of words for anime</figcaption>
+<p>Our journey into sentiment analysis commenced with the comprehensive collection of review text for every movie listed on Rotten Tomatoes. This comprehensive dataset was the foundation for our analysis, containing a wide range of opinions from both expert critics and a variety of moviegoers.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/Sentiment_Flowchart.jpeg" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure-3: Workflow Pipeline for Sentiment Analysis on movie and anime reviews.</figcaption><p></p>
 </figure>
 </div>
-<div> 
-<figure style="width: 100%;" class="figure">
-  <object data="negative_rating_movies.html" width="100%" height="500"></object>
-  <figcaption style=" text-align:center;" class="figure-caption">Table-2: Count of words for anime</figcaption>
-</figure>
-</div>
-<p><code>Data Cleaning Process:</code> Document Conversion: To impart structure to the amassed review text, we employed a sophisticated Document Assembler. This transformative step converted the initially unstructured reviews into a meticulously organized format, laying a robust foundation for the subsequent analytical stages.</p>
+<p><strong>Data Cleaning Process</strong></p>
+<p><code>Document Conversion:</code> To impart structure to the amassed review text, we employed a sophisticated Document Assembler. This transformative step converted the initially unstructured reviews into a meticulously organized format, laying a robust foundation for the subsequent analytical stages.</p>
 <p><code>Tokenization:</code> Embracing the power of a Tokenizer, we meticulously dissected the reviews into individual tokens. This intricate segmentation allowed us to discern the nuanced intricacies within each review, enabling us to capture the essence of expressed opinions at a remarkably granular level.</p>
 <p><code>Normalization:</code> In pursuit of data uniformity, we judiciously normalized all tokens to lowercase using a specialized Normalizer. This meticulous adjustment eradicated potential inconsistencies stemming from variations in letter case, fostering a standardized dataset primed for in-depth analysis.</p>
 <p><code>Lemmatization:</code> Elevating the sophistication of our understanding, a Lemmatizer Model was applied to refine the reviews further. This process intelligently reduced words to their base root form, amplifying the model’s capability to grasp the fundamental meaning and sentiment intricately woven into each review.</p>
@@ -234,7 +210,109 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Sentiment Analysis:</strong></p>
 <p><code>Document Structuring:</code> The pre-processed data was once again converted into a structured document format, preparing it for the advanced stages of sentiment analysis.</p>
 <p><code>Sentence Embeddings:</code> Using the capabilities of the tfhub_use model, we converted the documents into numerical sentence embeddings. This step facilitated a deeper understanding of the semantic content within each review, capturing the intricacies of expressed opinions.</p>
-<p><code>Sentiment Inference:</code> Leveraging the power of the Sentiment DL Model (specifically, sentimentdl_use_twitter), we determined the sentiment of each review. Trained on diverse data, this model enabled precise inference, categorizing sentiments as positive, negative, or neutral.</p>
+<p><code>Sentiment Inference:</code> Leveraging the power of the Sentiment DL Model (specifically, sentimentdl_use_twitter), we determined the sentiment of each review. Trained on diverse data, this model enabled precise inference, categorizing sentiments as positive or negative.</p>
+<p>To refine the sentiment-based rating system, we’ve established a more nuanced metric known as the Weighted Rating (WR). This formula adjusts the movie rating by considering both the volume and the sentiment of the reviews. Here’s how the Weighted Rating is calculated:</p>
+<p><span class="math display">\[
+Weighted Rating (WR) = \frac{v}{v + m} \times R + \frac{m}{v + m} \times C
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><p>WR is the Weighted Rating.</p></li>
+<li><p>R is the average sentiment rating of the movie.</p></li>
+<li><p>v is the number of reviews for the movie.</p></li>
+<li><p>m is the minimum number of reviews required for the movie to be considered in the rating system.</p></li>
+<li><p>Cis the mean sentiment score across all movies included in the report.</p></li>
+</ul>
+<p>For this calculation, we differentiate between positive and negative sentiment scores. These scores reflect the average sentiment of all reviews that were classified as positive or negative, respectively. This distinction allows for a more detailed sentiment analysis in our rating system.</p>
+<p>The mean score of positive sentiment, if ‘C_positive’, is approximately 0.7526, suggesting that on average, movies receive favorable reviews. Conversely, the mean score of negative sentiment, C_negative, is approximately 0.2474, indicating a smaller proportion of reviews are negative.</p>
+<p>The median number of reviews required, m , is set to 4 but can be adjusted to fit different criteria or data sets.</p>
+<p>In the data processing phase, we add two new columns to our data frame:</p>
+<p>1.positive_weighted_rating_df: This column applies the Weighted Rating formula using the average positive sentiment score for each movie, coupled with the mean positive sentiment score across the dataset.</p>
+<p>2.negative_weighted_rating_df: Similarly, this column uses the average negative sentiment score for each movie, integrated with the mean negative sentiment score across the dataset.</p>
+<p>By applying these formulas, we generate a Weighted Rating for each movie that reflects not only the average sentiment of its reviews but also how that sentiment weighs against the broader context of all movies in the report. This approach yields a more balanced and contextualized sentiment rating, distinguishing between movies with a strong consensus of opinion and those with more divided sentiment, regardless of whether that sentiment is positive or negative.</p>
+<p>Displayed below is a comparative graph that delineates the top 10 movies with the highest positive sentiment ratings alongside the top 10 movies with the highest negative sentiment ratings.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="positive_rating_movies.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Figure-4: Bar graph showing the ratings of top 10 movies with highest positive sentiments</figcaption>
+</figure>
+</div>
+<p>The graph presents a selection of the most critically acclaimed films, each of which boasts a remarkable rating exceeding 9.5 on Rotten Tomatoes. These ratings, derived from aggregated critic reviews, underscore a near-unanimous consensus on the exceptional quality of these films, marking them as standout choices for audiences seeking the finest in film entertainment.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="negative_rating_movies.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Figure-5: Bar graph showing the ratings of top 10 movies with highest negative sentiments</figcaption>
+</figure>
+</div>
+<p>The graph above inversely illustrates the relationship between high negative ratings and the prevalence of negative reviews. In this context, a higher rating corresponds to a greater proportion of negative feedback. The chart specifically spotlights the movies that have received the lowest ratings on Rotten Tomatoes, showcasing those that have, unfortunately, not resonated well with critics and audiences alike.</p>
+<p>Through a comprehensive sentiment analysis conducted on the entire dataset, we have been able to distill the films that polarize opinion to the most and least favorably received. This analysis provides insightful contrasts, highlighting not only the critically acclaimed successes but also those films that have elicited less favorable reactions, offering a holistic view of the cinematic landscape as reflected in Rotten Tomatoes’ extensive review compendium.</p>
+<p>The graph below combines two pieces of information: which movies are most often recommended on Reddit, and what reviewers think of them. By bringing these two sets of data together, we can see not just which movies are popular to suggest, but also how well they are received based on their review scores. This way, we get a clearer picture of the most talked-about movies and whether the buzz around them is positive or not.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/review_rating_of_top_movies.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure-6: Lollipop plot showing the review ratings for the top 10 suggested movies on reddit</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Analysis:</strong> Our analysis reveals an intriguing aspect of movie recommendations and ratings. While some films are frequently suggested by people, their ratings do not always align with this high level of recommendation. For instance, ‘Hereditary’, ‘Alien’, and ‘Oldboy’ are often brought up in discussions and recommended, yet their ratings, although positive, aren’t exceptionally high. This discrepancy highlights a deeper layer of audience engagement.</p>
+<p>It suggests that these movies have a unique appeal that resonates with viewers on a level beyond conventional ratings. Perhaps these films offer a distinctive storyline, groundbreaking cinematography, or memorable performances that deeply impact viewers, making them popular recommendations despite not having top-tier ratings. This phenomenon underscores the idea that the true value of a movie in the eyes of its audience can extend beyond numerical ratings and delve into more subjective, personal experiences. These films evidently have a special place in the hearts of their viewers, indicative of a more profound connection that transcends traditional rating metrics.</p>
+</section>
+<section id="anime-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="anime-analysis">ANIME ANALYSIS</h4>
+<p>After analyzing movie data and their reviews, we applied the same approach to Anime by examining discussions on Reddit and gathering review data from MyAnimeList. We used the same techniques, like identifying names using Named Entity Recognition (NER), and analyzing discussion patterns and context, to find out which Anime are most talked about on Reddit. This method can be used for any type of entertainment discussed on Reddit, as long as we can find external review data to compare it with.</p>
+<p>Once we gathered the anime list, we focused on identifying the top 10 anime that are most frequently recommended on Reddit. This helped us pinpoint which anime series are particularly popular and highly recommended within the Reddit community.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="top_anime_suggested.html" width="100%" height="820"></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Figure-7: Radial bar chart representing top 10 suggested anime on Reddit</figcaption>
+</figure>
+</div>
+<p>The graph displays a radial bar chart. Each radial bar corresponds to a specific anime title, and the length of the bar represents the frequency of suggestions on Reddit. The longest bar points towards “Shingeki no Kyojin,” indicating that this anime is the most suggested among the ones listed. Other notable titles include “Steins;Gate” and “Code Geass,” which also have long bars, showing that they are highly recommended within the Reddit community as well. The shortest bars, corresponding to titles like “Meido in Abisu” (likely “Made in Abyss”) and “Monsuta” (“Monster”), suggest that while these series are still among the top 10 suggested, they are recommended less frequently than the others.</p>
+<p>After gathering the external review data, we conducted a detailed analysis to uncover various insights about anime preferences. We categorized the highly rated anime based on their genres, pinpointing which types of anime received the best reviews. Additionally, we identified the most popular anime within each genre, giving us an understanding of which styles and stories resonate the most with audiences.</p>
+<p>We didn’t stop there; we also looked at the overall ratings across all genres to determine which anime series stood out in terms of viewer ratings. By doing this, we created a picture of anime popularity and quality, segmented by genre and overall reception.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="top_rated_anime_all_genre.html" width="100%" height="620"></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Figure-8: Bar graph showing the ratings of top-rated anime titles across all genres.</figcaption>
+</figure>
+</div>
+<p>The above graph visualizes the top-rated anime movies across various genres based on their scores. The bar graph shows a distribution of scores for each anime title, with the rating ranging from 9.00 to 9.23. The color scale, ranging from light to dark shades, emphasizes the rating, providing a visual representation of the rating intensity.</p>
+<p>Titles like “Fullmetal Alchemist Brotherhood,” “Hunter x Hunter 2011,” and “SteinsGate” stand out as the top-rated anime. These titles have achieved exceptionally high rating, indicating their widespread acclaim among viewers. The graph provides additional information upon hovering over the bars, including the title, rating, and associated genres. This interactive feature allows users to explore details for each anime. We further wanted to expand this analysis, by highlighting the frequency of specific genres within the top-rated titles.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="genre_top_rated_anime.html" width="100%" height="620"></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Figure-9: Plot showing the distribution of genre across top-rated anime titles.</figcaption>
+</figure>
+</div>
+<p>The above graph visualizes the distribution of genres among the top-rated titles. Looking at the graph, it’s evident that certain genres are more prevalent among the top-rated anime, particularly Youth and School Life and Drama and Romance tend to be more prevalent among the top-rated anime titles,indicating a significant audience preference for stories revolving around school life and romantic dramas, possibly due to relatable themes or engaging narratives within these genres. The diversity of genres also demonstrates the varied tastes and interests of anime enthusiasts.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="top_animes_score.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Figure-10: Bar graph showing top 10 highly rated anime by genre</figcaption>
+</figure>
+</div>
+<p>The above graph serves as an interactive tool to navigate through the most celebrated anime series, organized by genre, with a selection of 10 distinct genres.</p>
+<p>It’s worth noting that some anime series have a multifaceted appeal, crossing over into multiple genres. Consequently, these versatile shows appear in several genre categories within the graph. This frequent occurrence among the top-tier anime suggests that the most acclaimed series often blend elements from different genres, enhancing their richness and broadening their appeal. The graph’s design likely accounts for this overlap, ensuring that each anime is represented in all the genres it’s associated with, providing a thorough and accurate representation of the anime landscape as per the genre classifications.</p>
+<p>To see the most Popular Anime across each Genre we used popularity score in the dataset to get the anime list popular across different genres.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="top_animes_popularity.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Figure-11: Bar graph showing top 10 popular anime by genre</figcaption>
+</figure>
+</div>
+<p>The data reveals an interesting distinction between the highest-rated anime and those that are most popular. Some shows that didn’t make it to the ‘top anime’ list based on ratings have found a spot on the ‘most popular’ list. This discrepancy highlights a key insight: an anime’s popularity doesn’t always correlate with its critical ratings.</p>
+<p>These popular anime, sourced from MyAnimeList, resonate with a large audience, perhaps because of their engaging storylines, memorable characters, or cultural impact, despite not necessarily receiving the highest scores in reviews. This aspect of popularity, separate from critical acclaim, captures the essence of what viewers are actually watching and talking about.</p>
+<p>In the next step of our analysis, we’ll compare this popularity data from MyAnimeList with the Reddit suggestions data. This comparison will further our understanding of viewer preferences and show how anime trends on Reddit align with the broader viewership statistics from MyAnimeList. Through this, we aim to uncover whether the anime that sparks the most conversation on Reddit are also the ones that are being watched the most according to MyAnimeList’s popularity metrics.</p>
+<hr>
+<p>Moving forward with our analysis, we aim to bridge the gap between recommendation frequency on Reddit and the critical reception of those recommended titles. To facilitate this, the subsequent graph has been crafted to showcase the review ratings of the anime that have been most frequently suggested on Reddit.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/review_rating_of_top_anime.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption class="figure-caption">Figure: Lollipop plot showing the review ratings for the top 10 suggested anime on reddit</figcaption><p></p>
+</figure>
+</div>
+<p>The analysis of the anime series reveals a pattern similar to that observed with movies: being highly rated across various genres does not necessarily equate to being frequently suggested on Reddit. While a select few anime achieve high ratings and are still often recommended, it appears that this is not the norm for most.</p>
+<p>This consistent observation underscores a unique aspect of community-driven platforms like Reddit. Certain anime series may not receive the highest accolades from critics or achieve top scores in every genre, yet they cultivate a dedicated following and generate significant buzz on Reddit. These shows may possess certain qualities—such as compelling storytelling, niche appeal, or a loyal fanbase—that endear them to viewers, making them popular in discussions even if they are not universally acclaimed.</p>
+<p>This phenomenon highlights that some shows are underrated gems, whose value is recognized and celebrated within the Reddit community. Their popularity on such social platforms suggests that there are additional layers of appreciation and enjoyment that standard rating systems may not fully capture. These series resonate with the audience in a way that transcends conventional rankings, cementing their place in the cultural conversation on platforms like Reddit.</p>
 
 
 </section>
