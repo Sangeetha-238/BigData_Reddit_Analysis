@@ -100,3 +100,78 @@ For sentiment analysis, we employed two distinct sentiment models:
 - **ClassifierDL_use_emotion:** Utilizing a classifier approach, this model gauges sentiment by understanding emotional nuances present in the text, providing a comprehensive analysis of sentiment with a focus on emotional context.
 
 By incorporating these advanced sentiment analysis models and employing meticulous text cleaning processes, we aimed to extract nuanced sentiment insights from the Rotten Tomatoes movie review dataset. This multi-faceted approach ensures a robust and comprehensive analysis of sentiment dynamics associated with the movies in our external dataset.
+
+#### Most Suggested Movies on Reddit
+
+The social platform Reddit is a treasure trove of public opinion and preferences, particularly when it comes to movie recommendations. To extract the movies, we've implemented a data extraction and analysis pipeline to identify the most frequently suggested movies across various Reddit threads.
+
+##### Methodology:
+
+- **Named Entity Recognition (NER):** NER was applied to extract movie titles from unstructured text in Reddit discussions.
+
+- **Pattern Matching:** Further refinement was achieved through pattern matching techniques to ensure accurate identification of movie titles.
+
+- **Context Analysis:** The context surrounding extracted entities was analyzed to validate the relevance of identified movie titles.
+
+- **Explode and Aggregate:** The data was transformed through the "explode" operation, breaking down entries into individual suggestions. Aggregation techniques were then employed to count the occurrences of each movie title, providing a quantitative measure.
+We initiated the process by collecting Reddit posts from threads likely to contain movie suggestions. This involved utilizing Reddit's API to fetch posts from subreddits renowned for movie discussions. Upon retrieval, the posts underwent a standard preprocessing stage, which included lowercasing, tokenization, and the removal of stop words and punctuation. This step was crucial to prepare the text data for more sophisticated natural language processing (NLP) tasks.
+
+`Named Entity Recognition (NER)` The cleansed text data was then processed through a Named Entity Recognition (NER) model. NER is an NLP technique that automatically identifies and classifies key information in text, such as the names of people, places, and, pertinent to our task, movies. We utilized a pre-trained NER model tailored to recognize movie titles within a larger corpus.
+
+`Pattern Matching` In parallel to NER, we employed pattern matching algorithms to capture movie mentions that might not be recognized by NER. Pattern matching utilized a combination of keyword searches and lexical patterns that are commonly associated with movie titles.
+
+`Context Analysis` To refine the results further, context analysis was performed. This method assessed the surrounding text of potential movie titles to discern whether the mention was indeed a suggestion. For example, phrases like "I recommend" or "you should watch" preceding a movie title indicated a suggestion.
+
+`Data Transformation` The identified movie titles were transformed into a structured format suitable for analysis. The transformation involved "exploding" lists of movies found in individual posts into separate records to facilitate counting.
+
+`Aggregation` Finally, we aggregated the results by counting the frequency of each unique movie title across the dataset. This step was implemented using group-by operations that tallied the number of suggestions per movie.
+The aggregation stage culminated in a ranked list of movies by the number of times they were suggested. This ranked list provided clear insights into the most popular movie recommendations on Reddit.
+
+![](img/top_suggested_movies.png){width="50%" fig-align="center"}
+
+Upon analyzing user recommendations on Reddit, "Hereditary" stood out as the most frequently suggested movie. This observation prompted us to delve deeper into whether these highly recommended films were not only popular among users but also well-received in terms of positive sentiment.
+
+To assess this, we turned to the extensive review data available on Rotten Tomatoes. Our goal was to determine if the movies recommended on Reddit also lay up high ratings and positive sentiments from critics and audiences alike. To achieve this, we conducted sentiment analysis on the review data, calculating sentiment scores for each film.
+
+The sentiment analysis allowed us to quantify the balance between positive and negative sentiments expressed in the reviews. Subsequently, we devised a comprehensive rating metric that considered both the sentiment scores and overall sentiment polarity. This approach aimed to provide a nuanced understanding of how well-received the movies were, beyond conventional rating systems.
+By correlating the recommendations from Reddit with sentiment scores and ratings on Rotten Tomatoes, our analysis sought to reveal whether the most suggested movies on the platform not only captured the attention of users but also resonated positively with a broader audience, shedding light on the intersection of user preferences and critical acclaim.
+
+#### SENTIMENT ANALYSIS ON ROTTEN TOMATOES REVIEW DATA
+
+Our journey into sentiment analysis commenced with the comprehensive collection of review text for every movie listed on Rotten Tomatoes. This exhaustive dataset served as the bedrock for our analytical exploration, encapsulating a rich tapestry of opinions from both discerning critics and diverse audience perspectives.
+
+```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="positive_rating_movies.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;">Table-2: Count of words for anime</figcaption>
+</figure>
+</div>
+```
+
+```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="negative_rating_movies.html" width="100%" height="500"></object>
+  <figcaption style=" text-align:center;">Table-2: Count of words for anime</figcaption>
+</figure>
+</div>
+```
+
+`Data Cleaning Process:` Document Conversion: To impart structure to the amassed review text, we employed a sophisticated Document Assembler. This transformative step converted the initially unstructured reviews into a meticulously organized format, laying a robust foundation for the subsequent analytical stages.
+
+`Tokenization:` Embracing the power of a Tokenizer, we meticulously dissected the reviews into individual tokens. This intricate segmentation allowed us to discern the nuanced intricacies within each review, enabling us to capture the essence of expressed opinions at a remarkably granular level.
+
+`Normalization:` In pursuit of data uniformity, we judiciously normalized all tokens to lowercase using a specialized Normalizer. This meticulous adjustment eradicated potential inconsistencies stemming from variations in letter case, fostering a standardized dataset primed for in-depth analysis.
+
+`Lemmatization:` Elevating the sophistication of our understanding, a Lemmatizer Model was applied to refine the reviews further. This process intelligently reduced words to their base root form, amplifying the model's capability to grasp the fundamental meaning and sentiment intricately woven into each review.
+
+`Data Transformation:` The meticulously processed data underwent a transformative phase, transitioning into a human-readable format facilitated by a Finisher. This critical step enhanced the interpretability of the dataset, setting the stage for subsequent insightful analyses.
+
+**Sentiment Analysis:**
+
+`Document Structuring:` The pre-processed data was once again converted into a structured document format, preparing it for the advanced stages of sentiment analysis.
+
+`Sentence Embeddings:` Using  the capabilities of the tfhub_use model, we converted the documents into numerical sentence embeddings. This step facilitated a deeper understanding of the semantic content within each review, capturing the intricacies of expressed opinions.
+
+`Sentiment Inference:` Leveraging the power of the Sentiment DL Model (specifically, sentimentdl_use_twitter), we determined the sentiment of each review. Trained on diverse data, this model enabled precise inference, categorizing sentiments as positive, negative, or neutral.
