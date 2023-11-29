@@ -7,11 +7,15 @@ website:
     pinned: true
     left:
       - href: index.qmd
-        text: Home
+        text: Introduction
       - href: eda.qmd
         text: EDA
       - href: nlp.qmd
         text: NLP
+      - href: ml.qmd
+        text: ML
+      - href: conclusion.qmd
+        text: Conclusion
       
   page-footer:
     left: |

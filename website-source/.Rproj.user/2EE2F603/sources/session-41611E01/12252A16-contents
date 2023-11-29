@@ -18,19 +18,10 @@ This analysis aims to discern prevailing trends in Reddit discussions related to
 
 Before delving into detailed text cleaning processes, we conducted a preliminary analysis encompassing both movie and anime-related Reddit communities. Our overarching goal is to ultimately provide insights on Movies, Anime, and TV shows. In this initial phase, we performed a word count analysis on submissions from both movie and anime Reddits. Below are the top words identified, accompanied by their respective counts:
 
-<!-- ```{=html}
-<div> 
-<figure style="width: 100%;">
-  <object data="table_missing_values.html" width="100%" height="500"></object>
-  <figcaption style=" text-align:center;">Table-1: Count of missing values of all the columns for submissions dataset</figcaption>
-</figure>
-</div>
-``` -->
-
 ```{=html}
 <div> 
 <figure style="width: 100%;">
-  <object data="word_count_table_movie.html" width="100%" height="300"></object>
+  <object data="word_count_table_movie.html" width="100%" height="300"; style="display: block;padding-left: 15%";"></object>
   <figcaption style=" text-align:center;">Table-1: Count of words for movies</figcaption>
 </figure>
 </div>
@@ -39,7 +30,7 @@ Before delving into detailed text cleaning processes, we conducted a preliminary
 ```{=html}
 <div> 
 <figure style="width: 100%;">
-  <object data="word_count_table_anime.html" width="100%" height="300"></object>
+  <object data="word_count_table_anime.html" width="100%" height="300"; style="display: block;padding-left: 15%";"></object>
   <figcaption style=" text-align:center;">Table-2: Count of words for anime</figcaption>
 </figure>
 </div>
@@ -56,6 +47,8 @@ Recognizing the unique nature of our analysis, we have decided to explore altern
 By adopting alternative methods tailored to our specific objective, we aim to enhance the precision and relevance of our analysis, ensuring a more effective exploration of the most discussed titles within the Reddit community. This adaptive approach aligns our methodology with the intricacies of the content present in Reddit comments, optimizing our ability to uncover and analyze meaningful movie and anime references.
 
 #### Most Suggested Movies on Reddit
+
+![](img/movie_character_nlp.png){width="15%" fig-align="center"}
 
 The social platform Reddit is a treasure trove of public opinion and preferences, particularly when it comes to movie recommendations. To extract the movies, we've implemented a data extraction and analysis pipeline to identify the most frequently suggested movies across various Reddit threads.
 
@@ -108,6 +101,7 @@ The sentiment analysis allowed us to quantify the balance between positive and n
 By correlating the recommendations from Reddit with sentiment scores and ratings on Rotten Tomatoes, our analysis sought to reveal whether the most suggested movies on the platform not only captured the attention of users but also resonated positively with a broader audience, shedding light on the intersection of user preferences and critical acclaim.
 
 #### SENTIMENT ANALYSIS ON ROTTEN TOMATOES REVIEW DATA
+![](img/rt_title_nlp.png){width="20%" fig-align="center"}
 
 Our journey into sentiment analysis commenced with the comprehensive collection of review text for every movie listed on Rotten Tomatoes. This comprehensive dataset was the foundation for our analysis, containing a wide range of opinions from both expert critics and a variety of moviegoers.
 
@@ -203,6 +197,7 @@ Our analysis reveals an intriguing aspect of movie recommendations and ratings. 
 It suggests that these movies have a unique appeal that resonates with viewers on a level beyond conventional ratings. Perhaps these films offer a distinctive storyline, groundbreaking cinematography, or memorable performances that deeply impact viewers, making them popular recommendations despite not having top-tier ratings. This phenomenon underscores the idea that the true value of a movie in the eyes of its audience can extend beyond numerical ratings and delve into more subjective, personal experiences. These films evidently have a special place in the hearts of their viewers, indicative of a more profound connection that transcends traditional rating metrics.
 
 #### ANIME ANALYSIS
+![](img/anime_character_nlp.png){width="15%" fig-align="center"}
 
 After analyzing movie data and their reviews, we applied the same approach to Anime by examining discussions on Reddit and gathering review data from MyAnimeList. We used the same techniques, like identifying names using Named Entity Recognition (NER), and analyzing discussion patterns and context, to find out which Anime are most talked about on Reddit. This method can be used for any type of entertainment discussed on Reddit, as long as we can find external review data to compare it with.
 
@@ -211,7 +206,7 @@ Once we gathered the anime list, we focused on identifying the top 10 anime that
 ```{=html}
 <div> 
 <figure style="width: 100%;">
-  <object data="top_anime_suggested.html" width="100%" height="820"></object>
+  <object data="top_anime_suggested.html" width="100%" height="820", style="padding-left: 15%;display: block;"></object>
   <figcaption style=" text-align:center;">Figure-7: Radial bar chart representing top 10 suggested anime on Reddit</figcaption>
 </figure>
 </div>
@@ -288,6 +283,16 @@ The analysis of the anime series reveals a pattern similar to that observed with
 This consistent observation underscores a unique aspect of community-driven platforms like Reddit. Certain anime series may not receive the highest accolades from critics or achieve top scores in every genre, yet they cultivate a dedicated following and generate significant buzz on Reddit. These shows may possess certain qualities—such as compelling storytelling, niche appeal, or a loyal fanbase—that endear them to viewers, making them popular in discussions even if they are not universally acclaimed.
 
 This phenomenon highlights that some shows are underrated gems, whose value is recognized and celebrated within the Reddit community. Their popularity on such social platforms suggests that there are additional layers of appreciation and enjoyment that standard rating systems may not fully capture. These series resonate with the audience in a way that transcends conventional rankings, cementing their place in the cultural conversation on platforms like Reddit.
+
+### Executive Summary
+
+This analysis takes a close look at movies and anime discussions on Reddit, exploring what people talk about and how those discussions align with external review ratings. Using Natural Language Processing, we uncovered interesting trends and found that highly recommended movies on Reddit don't always match up with official ratings. The same goes for anime—frequent recommendations on Reddit don't always mean high critical ratings.
+
+What's fascinating is that some movies and anime, even if not universally acclaimed, have a strong fan following on Reddit. This shows that people value different things beyond official ratings. We used sophisticated techniques, like sentiment analysis, to understand how people feel about these shows beyond just numbers.
+
+In the world of movies, we found that even though a movie might not have a super high rating, it can still be talked about a lot and loved by a community. The same goes for anime; what people talk about on Reddit doesn't always match up with what critics say.
+
+Overall, our analysis not only uncovered cool patterns in what people like but also showed how Natural Language Processing can help us understand these preferences better. We used tables and charts to make the findings easy to understand, providing a glimpse into the fascinating world of movies and anime through the eyes of online communities.
 
 
 
