@@ -67,7 +67,7 @@ def main():
     df = spark.read.parquet(args.s3_dataset_path, header=True)
 
     documentAssembler = DocumentAssembler()\
-        .setInputCol("final_text")\
+        .setInputCol("text")\
         .setOutputCol("document")
 
     # Paths to the models
