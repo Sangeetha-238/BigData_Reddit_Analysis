@@ -10,8 +10,12 @@ website:
         text: Introduction
       - href: eda.qmd
         text: EDA
-      - href: nlp.qmd
-        text: NLP
+      - text: NLP
+        menu: 
+          - href: nlp.qmd
+            text: Analysis Report
+          - href: nlp_exec_summary.qmd
+            text: Executive Summary
       - href: ml.qmd
         text: ML
       - href: conclusion.qmd
