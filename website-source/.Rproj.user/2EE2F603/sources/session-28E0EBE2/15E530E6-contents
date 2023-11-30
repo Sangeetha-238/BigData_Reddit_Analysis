@@ -1,0 +1,9 @@
+---
+title: "Machine Learning"
+format:
+  html:
+    toc: false
+    page-layout: full
+---
+
+![](img/hero_ml.gif){width="30%" fig-align="center"}

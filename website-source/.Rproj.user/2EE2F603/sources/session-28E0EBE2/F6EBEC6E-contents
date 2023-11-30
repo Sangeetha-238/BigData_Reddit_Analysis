@@ -1,0 +1,39 @@
+project:
+  type: website
+
+website:
+  search: false
+  navbar:
+    pinned: true
+    left:
+      - href: index.qmd
+        text: Introduction
+      - href: eda.qmd
+        text: EDA
+      - href: nlp.qmd
+        text: NLP
+      - href: ml.qmd
+        text: ML
+      - href: conclusion.qmd
+        text: Conclusion
+      
+  page-footer:
+    left: |
+      Content 2023 by [Project Team 34] <br>
+      All content licensed under a {{< fa brands creative-commons >}}
+      {{< fa brands creative-commons-by >}} {{< fa brands creative-commons-nc >}}
+      [Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
+    right: |
+      Made with [Quarto](https://quarto.org/)<br>
+      [View the source at GitHub](https://github.com/gu-dsan6000/fall-2023-reddit-project-team-34)
+resources: 
+    - "*.html"
+    - "*.js"
+    - "*.css"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
