@@ -1,0 +1,34 @@
+---
+title: "Machine Learning - Executive Summary"
+format:
+  html:
+    toc: false
+    page-layout: full
+---
+
+## Making Sense of Reddit Posts: Classifying Reddit Posts
+
+Our objective was to categorize Reddit posts into two distinct groups: Anime and Movies. We chose a classifier called Random Forest for this. The classifier is adept at discerning patterns and distinguishing between varied types of data. 
+
+At first, we started with a basic model  for our classifier to see how good the model can predict. The initial results were encouraging, suggesting we were on the right track, yet they weren’t exceptional.The classifier could differentiate between Anime and Movies, but it wasn’t always accurate. Realizing the potential for improvement, we fine-tuned the classifier's settings. It's like fine-tuning a musical instrument for the best sound. We adjusted how many decision-making paths it should take, how deep it should look into details, and how it groups information. These adjustments made a big difference.
+
+Post-tuning, the classifier became much more adept at correctly labeling posts as either Anime or Movies. The improvement was evident in its increased accuracy and fewer misclassifications.
+
+## Decoding Reddit's Popular Posts: A Machine Learning Journey
+
+Our goal here was to predict which Reddit posts become popular. This insight is beneficial for everyone on Reddit, from content creators to everyday users. We started by enriching the data with new features like 'Sentiment Score' and 'Emotion', essential for understanding a post's impact. Then, we prepared our data for machine learning by defining 'popular' posts based on the number of comments and balancing our dataset to avoid biases.
+
+Our first model, a Logistic Regression, gave us good initial results but struggled with complex data. So, we switched to a Decision Tree classifier, better suited for Reddit's diverse content. This model proved more effective, showing consistent performance in identifying popular posts.
+
+This project highlighted the importance of choosing the right machine learning model for the task. The Decision Tree classifier, with its ability to handle varied data, was a key player in accurately predicting post popularity on Reddit. It also, gave us insights on what features affect the popularity of the posts, something that reddit users can use to improve their content on reddit.
+
+## Understanding Reddit Post Scores: A Machine Learning Approach
+
+In the third part of our project, we tried to predict how people engage with Reddit posts, would be based on their scores, which are calculated by subtracting downvotes from upvotes. Our aim was to figure out what makes a post engaging to Reddit users. This task was challenging because Reddit's scoring can be tricky – for example, a post with a score of one could either have one person liking it or thousands of likes and almost as many dislikes.
+
+We started with a simple method called Linear Regression to get a basic idea of how scores work. But we soon realized we needed a more detailed approach to really understand Reddit's scoring. So, we switched to using a Decision Tree Regressor, which is better at handling complex data. This model helped us see more clearly what affects a post's score.
+
+However, we found that both models had their limits. The way Reddit calculates scores made it hard for our models to be really accurate. Sometimes the scores didn't give a clear picture of how users felt about a post.
+
+To wrap up, this part of the project showed us how tough it can be to guess the engagement of Reddit posts. It also taught us that choosing the right method and making adjustments to it is key, especially for data as complex as this. Our work here opens up more opportunities to explore social media data, helping us get better at predicting how people interact with content online.
+

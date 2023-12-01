@@ -16,8 +16,12 @@ website:
             text: Analysis Report
           - href: nlp_exec_summary.qmd
             text: Executive Summary
-      - href: ml.qmd
-        text: ML
+      - text: ML
+        menu: 
+          - href: ml.qmd
+            text: Analysis Report
+          - href: ml_exec_summary.qmd
+            text: Executive Summary
       - href: conclusion.qmd
         text: Conclusion
       
