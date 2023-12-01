@@ -47,8 +47,10 @@ def main():
     
     # RandomForestClassifier without hyperparameter tuning
     rf_classifier = RandomForestClassifier(labelCol="subreddit_ix", 
-                                           featuresCol="combined_features")
-    
+                                           featuresCol="combined_features", 
+                                           numTrees=100, 
+                                           maxDepth=10,
+                                           maxBins=64)
     labelConverter = IndexToString(inputCol="prediction", 
                                outputCol="predictedSubreddit", 
                                labels=["anime", "movie"])
@@ -64,9 +66,9 @@ def main():
     # Transform the data with the best model
     test_predictions = pipeline_fit.transform(transformed_test_data)
     
-    train_predictions.write.parquet("s3a://project-group34/project/submissions/RandomForest/default/train_pred/", mode="overwrite")    
-    test_predictions.write.parquet("s3a://project-group34/project/submissions/RandomForest/default/test_pred/", mode="overwrite")
-    pipeline_fit.save("s3a://project-group34/project/submissions/RandomForest/default/model/")
+    train_predictions.write.parquet("s3a://project-group34/project/submissions/RandomForest/numTrees=100_maxDepth=10_maxBins=64/train_pred/", mode="overwrite")    
+    test_predictions.write.parquet("s3a://project-group34/project/submissions/RandomForest/numTrees=100_maxDepth=10_maxBins=64/test_pred/", mode="overwrite")
+    pipeline_fit.save("s3a://project-group34/project/submissions/RandomForest/numTrees=100_maxDepth=10_maxBins=64/model/")
     
     logger.info(f"all done...")
     
