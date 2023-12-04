@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.246">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Samiksha Rajendra Thikekar (st1140)">
 <meta name="author" content="Ramdayal Nirmal Rewaria (rr1220)">
+<meta name="author" content="Samiksha Rajendra Thikekar (st1140)">
 <meta name="author" content="Sangeetha Kanithahalli Ramesh (sk2224)">
 
-<title>Website ?var:topic.name - Reddit Project</title>
+<title>Analysis on Entertainment Reddits</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -27,12 +27,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -43,12 +38,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -72,40 +61,60 @@ background-size: cover;
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Website <strong>?var:topic.name</strong></span>
-    </a>
-  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page">
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./eda.html">
  <span class="menu-text">EDA</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./nlp.html">
- <span class="menu-text">NLP</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-nlp" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">NLP</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-nlp">    
+        <li>
+    <a class="dropdown-item" href="./nlp.html">
+ <span class="dropdown-text">Analysis Report</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./ml.html">
- <span class="menu-text">ML</span></a>
+        <li>
+    <a class="dropdown-item" href="./nlp_exec_summary.html">
+ <span class="dropdown-text">Executive Summary</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ml" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">ML</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-ml">    
+        <li>
+    <a class="dropdown-item" href="./ml.html">
+ <span class="dropdown-text">Analysis Report</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ml_exec_summary.html">
+ <span class="dropdown-text">Executive Summary</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="./summary.html">
- <span class="menu-text">Summary</span></a>
+    <a class="nav-link" href="./conclusion.html">
+ <span class="menu-text">Conclusion</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -113,8 +122,8 @@ background-size: cover;
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Reddit Project</h1>
+    <div class="quarto-title column-page">
+      <h1 class="title">Analysis on Entertainment Reddits</h1>
                       </div>
   </div>
     
@@ -124,8 +133,8 @@ background-size: cover;
       <div>
       <div class="quarto-title-meta-heading">Authors</div>
       <div class="quarto-title-meta-contents">
-               <p>Samiksha Rajendra Thikekar (st1140) </p>
                <p>Ramdayal Nirmal Rewaria (rr1220) </p>
+               <p>Samiksha Rajendra Thikekar (st1140) </p>
                <p>Sangeetha Kanithahalli Ramesh (sk2224) </p>
             </div>
     </div>
@@ -135,12 +144,12 @@ background-size: cover;
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
@@ -159,41 +168,44 @@ background-size: cover;
 <ul>
 <li><strong>r/anime:</strong> This subreddit is dedicated to anime-related discussions, encompassing a wide range of topics, including reviews, recommendations, and general discourse about the anime medium.</li>
 <li><strong>r/television:</strong> This subreddit caters to discussions about television shows, spanning various genres and formats. Users engage in conversations about current and past TV series, share recommendations, and discuss industry news.</li>
-<li><strong>r/televisionsuggestions:</strong> As a subreddit dedicated explicitly to TV show recommendations, this community serves as a hub for users seeking and providing suggestions for what to watch next.</li>
 <li><strong>r/movies:</strong> This subreddit covers a wide range of topics related to films, including discussions about specific movies, industry news, and analyses of cinematic techniques.</li>
 <li><strong>r/Animesuggest:</strong> Similar to r/televisionsuggestions but for anime, this subreddit is dedicated to helping users discover new anime titles based on their preferences.</li>
 <li><strong>r/MovieSuggestions:</strong> Serving as a space specifically for movie recommendations, this subreddit is an ideal place for users seeking personalized suggestions for their next film to watch.</li>
+<li><strong>r/televisionsuggestions:</strong> As a subreddit dedicated explicitly to TV show recommendations, this community serves as a hub for users seeking and providing suggestions for what to watch next.</li>
 </ul>
 <p>By targeting these specific subreddits, the analysis aims to uncover patterns, trends, and user sentiments unique to each community. This focused approach allows for a more nuanced understanding of the entertainment discussions taking place within these distinct corners of the Reddit platform.</p>
 </section>
 <section id="data-overview" class="level3">
 <h3 class="anchored" data-anchor-id="data-overview">Data Overview</h3>
 <p>Diving into a whopping 412 GB of posts and 918 GB of comments, the dataset is like a big storybook with 109 million entries. It’s carefully organized by simplifying things—removing some details, changing time info to something we can understand, and putting it in a format that’s easy to explore, like preparing a canvas before painting. Now, it’s all set up and ready for us to start looking through and discovering what’s inside.</p>
+<p>External dataset: The project utilizes datasets from Kaggle’s “Clapper: Massive Rotten Tomatoes Movies and Reviews” and “MyAnimeList” collections. These datasets offer a rich source of information for analyzing trends, preferences, and sentiments in the domain of movies and anime. This approach aims to delve into the intricacies of viewer engagement and sentiment patterns across diverse content genres, providing a comprehensive understanding of audience behavior in the entertainment industry.</p>
+<p>The Rotten Tomatoes dataset offers a detailed compilation of movie reviews and ratings, while the MyAnimeList dataset provides insights into anime popularity and viewer preferences. Together, these datasets form a robust foundation for cross-platform analysis.</p>
+<p><a href="https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews">Data Source 1</a> <a href="https://www.kaggle.com/datasets/azathoth42/myanimelist">Data Source 2</a></p>
 </section>
 <section id="objective" class="level3">
 <h3 class="anchored" data-anchor-id="objective">Objective</h3>
 <p>Our mission is clear: to decipher the language of entertainment discussions on Reddit, extracting findings that resonate with both seasoned enthusiasts and those new to the subject matter. We will focus on the first two objectives — revealing what the data says and interpreting its significance by providing answers to the following questions.</p>
 <ol type="1">
-<li><p><code>Bussiness Goal:</code> Optimize content strategy by understanding peak engagement times. Knowing when users are most active can guide when to post for maximum visibility and interaction.</p>
-<p><code>Teachnical Proposal:</code> Using EDA, we will conduct a time series analysis on the hour_of_day and day_of_week_str data for each subreddit. By aggregating post frequencies based on these time variables, we can visualize trends and identify peak activity periods. This analysis will provide insights into the most favorable times to post content on each subreddit, helping optimize the content strategy for enhanced user interaction and visibility.</p></li>
-<li><p><code>Bussiness Goal:</code> Identifying key contributors to help recognize influential users and understand their content preferences. This insight is valuable for community management and targeted marketing strategies.</p>
-<p><code>Teachnical Proposal:</code> Using EDA, analyze author data to quantify post frequency and engagement (likes, comments). Apply statistical measures to highlight top contributors and content analysis to understand the themes and types of their posts.</p></li>
-<li><p><code>Bussiness Goal:</code> To understand how media content influences user engagement, guiding content creators on whether to include media elements in their posts.</p>
-<p><code>Teachnical Proposal:</code> Using EDA, we will compare the average score and number of comments between posts with and without media content using statistical methods. This will involve categorizing posts based on the presence of media and analyzing the engagement metrics.</p></li>
-<li><p><code>Bussiness Goal:</code> To Understand popular themes that can guide content creation and marketing strategies, ensuring alignment with audience interests.</p>
-<p><code>Teachnical Proposal:</code> Applying NLP techniques like topic modeling or keyword extraction to the titles and selftext of high-engagement posts. This analysis will identify prevalent themes and topics in popular content.</p></li>
-<li><p><code>Bussiness Goal:</code> Gauging the overall sentiment of posts in each subreddit to inform tone and messaging strategies for engaging with these communities effectively.</p>
-<p><code>Teachnical Proposal:</code> Performing sentiment analysis on the title and selftext of posts. This involves using NLP tools to classify content into sentiment categories (positive, negative, neutral) and comparing these across subreddits.</p></li>
-<li><p><code>Bussiness Goal:</code> Identifying unique lexicon can aid in creating more relatable and targeted content for each subreddit community.</p>
-<p><code>Teachnical Proposal:</code>Use TF-IDF analysis to distinguish words and phrases that are uniquely prevalent in each subreddit. This helps in understanding the distinctive language style of each community.</p></li>
-<li><p><code>Bussiness Goal:</code> Understanding how sentiment affects engagement can help in tailoring content for better reception and interaction.</p>
-<p><code>Teachnical Proposal:</code> Combine sentiment analysis results with engagement metrics (score, comments) to explore correlations. This involves statistical analysis to determine if there’s a significant relationship between sentiment and user engagement.</p></li>
-<li><p><code>Bussiness Goal:</code> This prediction model can guide content creators in optimizing their posts for higher engagement, leading to increased visibility and interaction.</p>
-<p><code>Teachnical Proposal:</code> Developing a predictive model using features like post length, presence of media, time of posting, and NLP-derived text features. Machine learning techniques like regression or classification can be employed to forecast engagement levels.</p></li>
-<li><p><code>Bussiness Goal:</code> Predicting posting time based on content can assist in understanding user behavior patterns and content preferences at different times.</p>
-<p><code>Teachnical Proposal:</code> Creating a model to predict the likely time of posting using features extracted from post content and style. This involves applying classification algorithms to correlate content features with posting times.</p></li>
-<li><p><code>Bussiness Goal:</code> Efficiently categorizing posts can aid in content moderation and ensure appropriate audience targeting.</p>
-<p><code>Teachnical Proposal:</code> Use text data and other relevant features to train a classification model that can distinguish between adult-oriented and general audience content. This involves using NLP techniques for feature extraction and applying classifiers like SVM or logistic regression.</p></li>
+<li><p><code>Business Goal:</code> Optimize content strategy by understanding peak engagement times. Knowing when users are most active can guide when to post for maximum visibility and interaction.</p>
+<p><code>Technical Proposal:</code> Using EDA, we will conduct a time series analysis on the hour_of_day and day_of_week_str data for each subreddit. By aggregating post frequencies based on these time variables, we can visualize trends and identify peak activity periods. This analysis will provide insights into the most favorable times to post content on each subreddit, helping optimize the content strategy for enhanced user interaction and visibility.</p></li>
+<li><p><code>Business Goal:</code> Identifying key contributors to help recognize influential users and understand their content preferences. This insight is valuable for community management and targeted marketing strategies.</p>
+<p><code>Technical Proposal:</code> Using EDA, analyze author data to quantify post frequency and engagement (likes, comments). Apply statistical measures to highlight top contributors and content analysis to understand the themes and types of their posts.</p></li>
+<li><p><code>Business Goal:</code> This seeks to understand how the content influences user engagement, guiding content creators on the most engaging content.</p>
+<p><code>Technical Proposal:</code> Using EDA, we will compare the average score and number of comments between posts with different content using statistical methods.</p></li>
+<li><p><code>Business Goal:</code> To Understand popular themes that can guide content creation and marketing strategies, ensuring alignment with audience interests.</p>
+<p><code>Technical Proposal:</code> Applying NLP techniques like topic modeling or keyword extraction to the titles and selftext of high-engagement posts. This analysis will identify prevalent themes and topics in popular content.</p></li>
+<li><p><code>Business Goal:</code> Gauging the overall sentiment of posts in each subreddit to inform tone and messaging strategies for engaging with these communities effectively.</p>
+<p><code>Technical Proposal:</code> Performing sentiment analysis on the title and selftext of posts. This involves using NLP tools to classify content into sentiment categories (positive, negative, neutral) and comparing these across subreddits.</p></li>
+<li><p><code>Business Goal:</code> Identifying unique lexicon can aid in creating more relatable and targeted content for each subreddit community.</p>
+<p><code>Technical Proposal:</code>Use TF-IDF analysis to distinguish words and phrases that are uniquely prevalent in each subreddit. This helps in understanding the distinctive language style of each community.</p></li>
+<li><p><code>Business Goal:</code> Understanding how sentiment affects engagement can help in tailoring content for better reception and interaction.</p>
+<p><code>Technical Proposal:</code> Combine sentiment analysis results with engagement metrics (score, comments) to explore correlations. This involves statistical analysis to determine if there’s a significant relationship between sentiment and user engagement.</p></li>
+<li><p><code>Business Goal:</code> This prediction model can guide content creators in optimizing their posts for higher engagement, leading to increased visibility and interaction.</p>
+<p><code>Technical Proposal:</code> Developing a predictive model using features like post length, presence of media, time of posting, and NLP-derived text features. Machine learning techniques like regression or classification can be employed to forecast engagement levels.</p></li>
+<li><p><code>Business Goal:</code> Predicting posting time based on content can assist in understanding user behavior patterns and content preferences at different times.</p>
+<p><code>Technical Proposal:</code> Creating a model to predict the likely time of posting using features extracted from post content and style. This involves applying classification algorithms to correlate content features with posting times.</p></li>
+<li><p><code>Business Goal:</code> Efficiently categorizing posts can aid in content moderation and ensure appropriate audience targeting.</p>
+<p><code>Technical Proposal:</code> Use text data and other relevant features to train a classification model that can distinguish between adult-oriented and general audience content. This involves using NLP techniques for feature extraction and applying classifiers like SVM or logistic regression.</p></li>
 </ol>
 
 
@@ -336,8 +348,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Content <strong>?var:course.copyright_year</strong> by [<strong>?var:author.name</strong>] <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
-    <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="?var:course.github">View the source at GitHub</a></div>
+    <div class="nav-footer-left">Content 2023 by [Project Team 34] <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Made with <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/gu-dsan6000/fall-2023-reddit-project-team-34">View the source at GitHub</a></div>
   </div>
 </footer>
 

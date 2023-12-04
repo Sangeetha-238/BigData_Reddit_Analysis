@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Natural Language Processing - Executive Summary</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./eda.html">
+ <span class="menu-text">EDA</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-nlp" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">NLP</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-nlp">    
+        <li>
+    <a class="dropdown-item" href="./nlp.html">
+ <span class="dropdown-text">Analysis Report</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./nlp_exec_summary.html">
+ <span class="dropdown-text">Executive Summary</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ml" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">ML</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-ml">    
+        <li>
+    <a class="dropdown-item" href="./ml.html">
+ <span class="dropdown-text">Analysis Report</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ml_exec_summary.html">
+ <span class="dropdown-text">Executive Summary</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./conclusion.html">
+ <span class="menu-text">Conclusion</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Natural Language Processing - Executive Summary</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/nlp_exe_hero.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<section id="understanding-digital-tastes-in-cinema-and-anime" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-digital-tastes-in-cinema-and-anime">Understanding Digital Tastes in Cinema and Anime:</h3>
+<p>In the age of digital discourse, platforms like Reddit have become crucial in shaping the cultural conversation around entertainment. This section delves into the wealth of data on Reddit to extract what movies and anime are being suggested by users, transcending traditional top-ten lists by incorporating sentiment analysis and popularity metrics.</p>
+<section id="reddits-favorite-films-a-community-perspective" class="level4">
+<h4 class="anchored" data-anchor-id="reddits-favorite-films-a-community-perspective">Reddit’s Favorite Films: A Community Perspective</h4>
+<p>Reddit’s MovieSuggestions subreddit is a lively place where movie buffs share their favorite picks. This isn’t just about what movies make the most money or get the best reviews from critics. It’s about people talking about all kinds of movies they love. You’ll find people talking just as excitedly about big-name movies like “Interstellar” and “Parasite” as they are about less mainstream ones like “Hereditary” and “The Thing.”</p>
+</section>
+<section id="sentiment-over-stars-rethinking-movie-reviews" class="level4">
+<h4 class="anchored" data-anchor-id="sentiment-over-stars-rethinking-movie-reviews">Sentiment Over Stars: Rethinking Movie Reviews</h4>
+<p>Instead of just counting how many thumbs up or stars a movie gets, a deeper look into Rotten Tomatoes reviews was taken to really understand how people feel about these movies. The goal was to figure out the general mood of the reviews — are people happy or unhappy with the movie? From this, a new kind of movie rating was made that doesn’t just look at how many people liked the movie, but also how strongly they felt about it.</p>
+
+<img src="img/top_suggested_movies.png" style="width: 100%;"><figcaption style="text-align: center;">Figure-1 (a)</figcaption><img src="img/review_rating_of_top_movies.png" style="width: 100%;"><figcaption style="text-align: center;">Figure-1 (b)</figcaption><table style="width: 100%; border: none;">
+  <tbody><tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
+      
+      
+  </tr>
+  <tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
+      
+      
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; border: none;">
+      <figcaption style="text-align: center;">Figure-1: Comparative Visualization of Top 10 Suggested Movies on Reddit - 1(a) shows the list of movies while the 1(b) depicts their review ratings</figcaption>
+    </td>
+  </tr>
+</tbody></table>
+<section id="insights" class="level5">
+<h5 class="anchored" data-anchor-id="insights">Insights</h5>
+<p>The study found out that the movies people talk about on Reddit aren’t always the ones with the highest scores from professional reviewers. Movies that get people talking, like “Hereditary,” seem to hold a special place in Reddit users’ hearts. It shows that on Reddit, what really matters is how much a movie gets people to talk and think, and how it connects with them on a personal level.</p>
+<p>Reddit is a place where the charm of a movie comes from many different things. It could be how well it tells its story, how much it makes people feel, or even how it fits in with what’s happening in the world. Reddit users love to find and talk about movies that mean something special to them — whether they’re indie films with a powerful message or big spectacles with lots of special effects.</p>
+<p>This look into Reddit shows how online communities are changing the game when it comes to what makes a movie worth recommending. It’s not just about how many people say a movie is good; it’s also about the discussions and connections that movies start among viewers.</p>
+</section>
+</section>
+<section id="diving-into-anime-favorites" class="level4">
+<h4 class="anchored" data-anchor-id="diving-into-anime-favorites">Diving Into Anime Favorites</h4>
+<p>After taking a close look at movie trends, the same curiosity was turned toward anime. The goal was to see which anime series are getting buzz on Reddit. Just like with movies, the chatter on Reddit was matched with reviews from MyAnimeList, a popular anime community site.</p>
+<p>First, a list of the most-recommended anime on Reddit was made. It showed which anime series are getting the most love and suggestions from the Reddit crowd.</p>
+</section>
+<section id="discovering-anime-hits-and-hidden-gems" class="level4">
+<h4 class="anchored" data-anchor-id="discovering-anime-hits-and-hidden-gems">Discovering Anime Hits and Hidden Gems</h4>
+<p>The top ten anime picks on Reddit were spotlighted in a graphic that looked like a target with bars pointing outwards. The longer the bar, the more people were talking about that anime. “Shingeki no Kyojin,” known as “Attack on Titan,” was a clear favorite, getting the most mentions. Other favorites included “Steins;Gate” and “Code Geass,” which also saw a lot of recommendations. Even lesser-known series like “Made in Abyss” got a spot on the chart, proving that Reddit users have a wide range of interests.</p>
+</section>
+<section id="popularity-vs.-praise" class="level4">
+<h4 class="anchored" data-anchor-id="popularity-vs.-praise">Popularity vs.&nbsp;Praise</h4>
+<p>An interesting trend emerged: the anime that were most popular didn’t always line up with the ones that got the best reviews. This showed that what people watch and talk about isn’t just about how good critics say it is. It’s also about what stories grab them, which characters they can’t forget, and how the anime fits into the culture at large.</p>
+
+<div> 
+          <figure style="width: 100%;" class="figure">
+            <object data="top_anime_suggested.html" width="100%" height="820" ,="" style="padding-left: 15%;display: block;"></object>
+            <figcaption style=" text-align:center;" class="figure-caption">Figure-2 (a)</figcaption>
+          </figure>
+          </div><img src="img/review_rating_of_top_anime.png" style="width: 100%;"><figcaption style="text-align: center;">Figure-2 (b)</figcaption><table style="width: 100%; border: none;">
+  <tbody><tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
+      
+  </tr>
+  <tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
+      
+      
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; border: none;">
+      <figcaption style="text-align: center;">Figure-2: Comparative Visualization of Top 10 Suggested Anime on Reddit - 2(a) shows the list of anime while the 2(b) depicts their review ratings</figcaption>
+    </td>
+  </tr>
+</tbody></table>
+<section id="insights-1" class="level5">
+<h5 class="anchored" data-anchor-id="insights-1">Insights</h5>
+<p>In drawing conclusions from this exploration into anime’s popularity, it becomes evident that platforms like Reddit play a pivotal role in shaping how anime is perceived and appreciated. Here, the measure of an anime’s success transcends traditional critical ratings. It’s not just about the numbers or accolades it receives; instead, it hinges on the stories that linger in the minds of viewers, the characters that become almost real to them, and the emotional journeys these series facilitate.</p>
+<p>Anime series that might not top the critics’ charts have nonetheless carved out their niches within online communities. They initiate discussions, spark debates, and often lead to the formation of dedicated fanbases. These are the shows that might not headline major anime conventions or feature prominently on award lists, but they inspire art, fan fiction, and deep discussions about themes and character development.</p>
+<p>This phenomenon underscores a unique aspect of cultural consumption in the digital age. Communities like Reddit become melting pots of diverse opinions and tastes, where an anime’s worth is gauged not just by its technical excellence or narrative perfection but by its ability to connect, resonate, and stay relevant in the fast-paced online discourse.</p>
+</section>
+</section>
+</section>
+<section id="conclusion-the-heart-of-storytelling-in-movies-and-anime-on-reddit" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion-the-heart-of-storytelling-in-movies-and-anime-on-reddit">Conclusion: The Heart of Storytelling in Movies and Anime on Reddit</h3>
+<p>The insights gathered from this exploration into movies and anime reveal a fascinating shift in how stories are valued and appreciated, especially in online communities like Reddit. In these digital spaces, a film or anime series’ appeal isn’t solely measured by the scores it gets from critics. Instead, it’s about the conversations they spark, the emotions they stir up, and the connections they forge with their audience.</p>
+<p>Movies that stir up lively discussions, such as “Hereditary,” have a unique place in the hearts of Reddit users. It’s not just about being a blockbuster hit or having stunning visuals; it’s about how a story makes people think, feel, and relate to each other. These movies become more than just entertainment; they’re catalysts for conversation, thought, and sometimes, even change.</p>
+<p>Similarly, in the world of anime, success on Reddit goes beyond traditional ratings. The most talked-about series aren’t always the ones that win awards or get perfect scores. They’re the ones that stay with viewers long after the screen goes dark, with characters and narratives that resonate on a deeply personal level. These series often spark in-depth discussions, fan creations, and strong communities of followers who find something special in their stories.</p>
+<p>Both these analysis highlight a broader trend in the digital age: the true value of a movie or anime isn’t just in its technical achievements or expert reviews, but in its power to connect with people. In online forums like Reddit, a diverse tapestry of opinions and tastes comes together, making room for different kinds of stories to be discovered, discussed, and cherished.</p>
+<p>This shift underscores the evolving nature of storytelling and audience engagement. In a world where traditional metrics of success are increasingly intertwined with digital discourse, platforms like Reddit are proving to be crucial spaces where the cultural significance of movies and anime is being redefined. Here, the impact of a story is measured not just in ratings or box office numbers, but in the richness of the discussions it inspires and the community it builds.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content 2023 by [Project Team 34] <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Made with <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/gu-dsan6000/fall-2023-reddit-project-team-34">View the source at GitHub</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

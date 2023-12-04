@@ -17,7 +17,7 @@
 }
 
 /*===================COMMON CSS ===========================*/
-.quarto-title, h3, h1, h2{
+.quarto-title, h3, h1, h2,h4{
   text-align: center;
   color:#FF4301;
   font-family: "RedditSans", Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -34,4 +34,8 @@ code {
 
 ul {
     text-align: justify;
+}
+
+.figure-caption {
+      text-align: center;
 }
