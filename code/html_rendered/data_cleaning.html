@@ -14580,7 +14580,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">spark</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spark</span>
 </pre></div>
 
      </div>
@@ -14654,7 +14654,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"spark.sql.execution.arrow.pyspark.enabled"</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">"spark.sql.execution.arrow.pyspark.enabled"</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14706,7 +14706,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">col</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">when</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">length</span>
@@ -14737,7 +14737,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">datastore</span> <span class="o">=</span> <span class="s1">'azureml://datastores/workspaceblobstore/paths/'</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">datastore</span> <span class="o">=</span> <span class="s1">'azureml://datastores/workspaceblobstore/paths/'</span>
 </pre></div>
 
      </div>
@@ -14778,7 +14778,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">submissions_path</span> <span class="o">=</span> <span class="s1">'filtered-submissions'</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submissions_path</span> <span class="o">=</span> <span class="s1">'filtered-submissions'</span>
 <span class="n">submissions_df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">datastore</span><span class="si">}{</span><span class="n">submissions_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 
@@ -14831,7 +14831,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">PLOT_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"Users/sk2224/fall-2023-reddit-project-team-34/data"</span><span class="p">,</span> <span class="s2">"plots"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">PLOT_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"Users/sk2224/fall-2023-reddit-project-team-34/data"</span><span class="p">,</span> <span class="s2">"plots"</span><span class="p">)</span>
 <span class="n">CSV_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"Users/sk2224/fall-2023-reddit-project-team-34/data"</span><span class="p">,</span> <span class="s2">"csv"</span><span class="p">)</span>
 </pre></div>
 
@@ -14885,7 +14885,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># # List of columns to be dropped</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # List of columns to be dropped</span>
 <span class="c1"># columns_to_drop = [</span>
 <span class="c1">#     'promoted', 'promoted_by', 'promoted_display_name', 'promoted_url',</span>
 <span class="c1">#     'secure_media', 'secure_media_embed', 'thumbnail', 'thumbnail_height', </span>
@@ -14948,7 +14948,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># submissions_row_count = submissions_df.count()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># submissions_row_count = submissions_df.count()</span>
 <span class="c1"># submissions_col_count = len(submissions_df.columns)</span>
 <span class="c1"># print(f"Shape of the submissions dataframe is {submissions_row_count:,}x{submissions_col_count}")</span>
 </pre></div>
@@ -15003,7 +15003,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[62]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># subreddit_count_df = submissions_df.groupBy('subreddit').count().toPandas()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># subreddit_count_df = submissions_df.groupBy('subreddit').count().toPandas()</span>
 </pre></div>
 
      </div>
@@ -15044,7 +15044,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">submissions_df</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s1">'subreddit'</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submissions_df</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s1">'subreddit'</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15107,7 +15107,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[65]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># subreddit_count_df.to_csv(f"{CSV_DIR}/subreddit_count.csv")</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># subreddit_count_df.to_csv(f"{CSV_DIR}/subreddit_count.csv")</span>
 </pre></div>
 
      </div>
@@ -15160,7 +15160,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># get number of partitions</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get number of partitions</span>
 <span class="n">submissions_df</span><span class="o">.</span><span class="n">rdd</span><span class="o">.</span><span class="n">getNumPartitions</span><span class="p">()</span>
 </pre></div>
 
@@ -15228,7 +15228,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># print schema</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># print schema</span>
 <span class="n">submissions_df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
 </pre></div>
 
@@ -15502,7 +15502,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">submissions_df_small</span> <span class="o">=</span> <span class="n">submissions_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">withReplacement</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submissions_df_small</span> <span class="o">=</span> <span class="n">submissions_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">withReplacement</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15543,7 +15543,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># take a subset of columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># take a subset of columns</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">submissions_df_small</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"subreddit"</span><span class="p">,</span> <span class="s2">"author"</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">,</span> <span class="s2">"selftext"</span><span class="p">,</span>
                              <span class="s2">"created_utc"</span><span class="p">,</span> <span class="s2">"num_comments"</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">,</span> 
                              <span class="s2">"over_18"</span><span class="p">,</span> <span class="s2">"media"</span><span class="p">,</span> <span class="s2">"pinned"</span><span class="p">,</span> <span class="s2">"locked"</span><span class="p">,</span> 
@@ -15589,7 +15589,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># take a subset of columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># take a subset of columns</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">submissions_df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"subreddit"</span><span class="p">,</span> <span class="s2">"author"</span><span class="p">,</span> <span class="s2">"title"</span><span class="p">,</span> <span class="s2">"selftext"</span><span class="p">,</span>
                              <span class="s2">"created_utc"</span><span class="p">,</span> <span class="s2">"num_comments"</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">,</span> 
                              <span class="s2">"over_18"</span><span class="p">,</span> <span class="s2">"media"</span><span class="p">,</span> <span class="s2">"pinned"</span><span class="p">,</span> <span class="s2">"locked"</span><span class="p">,</span> 
@@ -15647,7 +15647,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># find missing values</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># find missing values</span>
 <span class="n">missing_vals</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">count</span><span class="p">(</span><span class="n">when</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">isNull</span><span class="p">(),</span> <span class="n">c</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">])</span>
 </pre></div>
 
@@ -15689,7 +15689,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">missing_vals</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">missing_vals</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15747,7 +15747,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># Manually inputting data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Manually inputting data</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">'subreddit'</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
     <span class="s1">'author'</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
@@ -15809,7 +15809,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">missing_vals_pd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">missing_vals_pd</span>
 </pre></div>
 
      </div>
@@ -15921,7 +15921,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># missing_vals_pd = missing_vals.toPandas()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># missing_vals_pd = missing_vals.toPandas()</span>
 </pre></div>
 
      </div>
@@ -15962,7 +15962,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># Convert the DataFrame to long format</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Convert the DataFrame to long format</span>
 <span class="n">df_long</span> <span class="o">=</span> <span class="n">missing_vals_pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">var_name</span><span class="o">=</span><span class="s1">'Column'</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">'Missing Values'</span><span class="p">)</span>
 </pre></div>
 
@@ -16004,7 +16004,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">df_long</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_long</span>
 </pre></div>
 
      </div>
@@ -16163,7 +16163,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">df_long</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">CSV_DIR</span><span class="si">}</span><span class="s2">/num_missing_val.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_long</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">CSV_DIR</span><span class="si">}</span><span class="s2">/num_missing_val.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16227,7 +16227,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># calculate post length</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># calculate post length</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">'post_length'</span><span class="p">,</span> <span class="n">length</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">title</span><span class="p">)</span> <span class="o">+</span> <span class="n">length</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">selftext</span><span class="p">))</span>
 </pre></div>
 
@@ -16281,7 +16281,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># convert to datetime</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert to datetime</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">'created_utc'</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">to_timestamp</span><span class="p">(</span><span class="s1">'created_utc'</span><span class="p">))</span>
 
 <span class="c1"># Extract time-based features</span>
@@ -16354,7 +16354,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># convert missing values to False</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># convert missing values to False</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">'has_media'</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">'media'</span><span class="p">)</span><span class="o">.</span><span class="n">isNotNull</span><span class="p">())</span>
 </pre></div>
 
@@ -16396,7 +16396,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># drop unnecessary columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop unnecessary columns</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="s2">"media"</span><span class="p">,</span> <span class="s2">"created_utc"</span><span class="p">,</span> <span class="s2">"disable_comments"</span><span class="p">,</span> <span class="s2">"distinguished"</span><span class="p">])</span>
 </pre></div>
 
@@ -16438,7 +16438,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -16523,7 +16523,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="c1"># Define the path to your CSV file</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the path to your CSV file</span>
 <span class="n">csv_file_path_1</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">datastore</span><span class="si">}</span><span class="s2">csv/subreddit_count_eda.csv"</span>
 <span class="n">csv_file_path_2</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">datastore</span><span class="si">}</span><span class="s2">csv/num_missing_val_eda.csv"</span>
 <span class="n">csv_file_path_3</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">datastore</span><span class="si">}</span><span class="s2">csv/datetime_counts_eda.csv"</span>
@@ -16572,7 +16572,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython"><pre><span></span><span class="n">df_subreddit_count_pd</span> <span class="o">=</span> <span class="n">df_subreddit_count</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_subreddit_count_pd</span> <span class="o">=</span> <span class="n">df_subreddit_count</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
 <span class="n">df_num_missing_pd</span> <span class="o">=</span> <span class="n">df_num_missing</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
 <span class="n">df_datetime_pd</span> <span class="o">=</span> <span class="n">df_datetime</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
 </pre></div>
@@ -16605,6 +16605,1155 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 </div>
 
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Data-for-Time-analysis">Data for Time analysis<a class="anchor-link" href="#Data-for-Time-analysis">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Setup - Run only once per Kernel App</span>
+<span class="o">%</span><span class="k">conda</span> install openjdk -y
+
+<span class="c1"># install PySpark</span>
+<span class="o">%</span><span class="k">pip</span> install pyspark==3.4.0
+
+<span class="c1"># install spark-nlp</span>
+<span class="o">%</span><span class="k">pip</span> install spark-nlp==5.1.3
+
+<span class="c1"># restart kernel</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s2">"&lt;script&gt;Jupyter.notebook.kernel.restart()&lt;/script&gt;"</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Retrieving notices: ...working... done
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==&gt; WARNING: A newer version of conda exists. &lt;==
+  current version: 23.3.1
+  latest version: 23.11.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+Or to minimize the number of packages updated during conda update use
+
+     conda install conda=23.11.0
+
+
+
+## Package Plan ##
+
+  environment location: /opt/conda
+
+  added / updated specs:
+    - openjdk
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2023.08.22 |       h06a4308_0         123 KB
+    certifi-2023.11.17         |  py310h06a4308_0         158 KB
+    openjdk-11.0.13            |       h87a67e3_0       341.0 MB
+    ------------------------------------------------------------
+                                           Total:       341.3 MB
+
+The following NEW packages will be INSTALLED:
+
+  openjdk            pkgs/main/linux-64::openjdk-11.0.13-h87a67e3_0 
+
+The following packages will be UPDATED:
+
+  ca-certificates    conda-forge::ca-certificates-2023.7.2~ --&gt; pkgs/main::ca-certificates-2023.08.22-h06a4308_0 
+  certifi            conda-forge/noarch::certifi-2023.7.22~ --&gt; pkgs/main/linux-64::certifi-2023.11.17-py310h06a4308_0 
+
+
+
+Downloading and Extracting Packages
+certifi-2023.11.17   | 158 KB    |                                       |   0% 
+ca-certificates-2023 | 123 KB    |                                       |   0% 
+
+openjdk-11.0.13      | 341.0 MB  |                                       |   0% 
+certifi-2023.11.17   | 158 KB    | ##################################### | 100% 
+
+openjdk-11.0.13      | 341.0 MB  | 4                                     |   1% 
+
+openjdk-11.0.13      | 341.0 MB  | ##3                                   |   6% 
+
+openjdk-11.0.13      | 341.0 MB  | ####1                                 |  11% 
+
+openjdk-11.0.13      | 341.0 MB  | ######                                |  16% 
+
+openjdk-11.0.13      | 341.0 MB  | #######9                              |  21% 
+
+openjdk-11.0.13      | 341.0 MB  | #########6                            |  26% 
+
+openjdk-11.0.13      | 341.0 MB  | ###########3                          |  31% 
+
+openjdk-11.0.13      | 341.0 MB  | #############2                        |  36% 
+
+openjdk-11.0.13      | 341.0 MB  | ###############1                      |  41% 
+
+openjdk-11.0.13      | 341.0 MB  | #################                     |  46% 
+
+openjdk-11.0.13      | 341.0 MB  | ##################8                   |  51% 
+
+openjdk-11.0.13      | 341.0 MB  | ####################8                 |  56% 
+
+openjdk-11.0.13      | 341.0 MB  | ######################6               |  61% 
+
+openjdk-11.0.13      | 341.0 MB  | ########################5             |  66% 
+
+openjdk-11.0.13      | 341.0 MB  | ##########################2           |  71% 
+
+openjdk-11.0.13      | 341.0 MB  | ###########################9          |  75% 
+
+openjdk-11.0.13      | 341.0 MB  | #############################8        |  81% 
+
+openjdk-11.0.13      | 341.0 MB  | ###############################7      |  86% 
+
+openjdk-11.0.13      | 341.0 MB  | #################################7    |  91% 
+
+openjdk-11.0.13      | 341.0 MB  | ###################################5  |  96% 
+
+                                                                                
+                                                                                
+
+                                                                                
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+
+Note: you may need to restart the kernel to use updated packages.
+Collecting pyspark==3.4.0
+  Using cached pyspark-3.4.0-py2.py3-none-any.whl
+Collecting py4j==0.10.9.7 (from pyspark==3.4.0)
+  Using cached py4j-0.10.9.7-py2.py3-none-any.whl (200 kB)
+Installing collected packages: py4j, pyspark
+Successfully installed py4j-0.10.9.7 pyspark-3.4.0
+<span class="ansi-yellow-fg">WARNING: Running pip as the &#39;root&#39; user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</span><span class="ansi-yellow-fg">
+</span>
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">23.2.1</span> -&gt; <span class="ansi-green-fg">23.3.1</span>
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> To update, run: <span class="ansi-green-fg">pip install --upgrade pip</span>
+Note: you may need to restart the kernel to use updated packages.
+Collecting spark-nlp==5.1.3
+  Obtaining dependency information for spark-nlp==5.1.3 from https://files.pythonhosted.org/packages/cd/7d/bc0eca4c9ec4c9c1d9b28c42c2f07942af70980a7d912d0aceebf8db32dd/spark_nlp-5.1.3-py2.py3-none-any.whl.metadata
+  Using cached spark_nlp-5.1.3-py2.py3-none-any.whl.metadata (53 kB)
+Using cached spark_nlp-5.1.3-py2.py3-none-any.whl (537 kB)
+Installing collected packages: spark-nlp
+Successfully installed spark-nlp-5.1.3
+<span class="ansi-yellow-fg">WARNING: Running pip as the &#39;root&#39; user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv</span><span class="ansi-yellow-fg">
+</span>
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">23.2.1</span> -&gt; <span class="ansi-green-fg">23.3.1</span>
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> To update, run: <span class="ansi-green-fg">pip install --upgrade pip</span>
+Note: you may need to restart the kernel to use updated packages.
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<script>Jupyter.notebook.kernel.restart()</script>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import pyspark and build Spark session</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+
+<span class="c1"># Import pyspark and build Spark session</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span> \
+    <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">"Spark NLP"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">"local[*]"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.driver.memory"</span><span class="p">,</span><span class="s2">"16G"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.executor.memory"</span><span class="p">,</span> <span class="s2">"12g"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.executor.cores"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.jars.packages"</span><span class="p">,</span> <span class="s2">"com.johnsnowlabs.nlp:spark-nlp_2.12:5.1.3,org.apache.hadoop:hadoop-aws:3.2.2"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span>
+            <span class="s2">"fs.s3a.aws.credentials.provider"</span><span class="p">,</span>
+            <span class="s2">"com.amazonaws.auth.ContainerCredentialsProvider"</span>
+    <span class="p">)</span>\
+    <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">spark</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>3.4.0
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sagemaker</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">lower</span><span class="p">,</span> <span class="n">regexp_replace</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">concat_ws</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">col</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">when</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">to_timestamp</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">dayofweek</span><span class="p">,</span> <span class="n">dayofmonth</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">avg</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql.window</span> <span class="kn">import</span> <span class="n">Window</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">row_number</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">F</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">desc</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">rank</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">length</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Import-Data">Import Data<a class="anchor-link" href="#Import-Data">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="n">bucket</span> <span class="o">=</span> <span class="s2">"project-group34"</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">sagemaker</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="n">output_prefix_data_submissions</span> <span class="o">=</span> <span class="s2">"project/submissions/yyyy=*"</span>
+<span class="n">s3_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"s3a://</span><span class="si">{</span><span class="n">bucket</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">output_prefix_data_submissions</span><span class="si">}</span><span class="s2">"</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"reading comments from </span><span class="si">{</span><span class="n">s3_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">submissions</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="n">s3_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>sagemaker.config INFO - Not applying SDK defaults from location: /etc/xdg/sagemaker/config.yaml
+sagemaker.config INFO - Not applying SDK defaults from location: /root/.config/sagemaker/config.yaml
+reading comments from s3a://project-group34/project/submissions/yyyy=*
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>23/12/06 18:18:23 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-s3a-file-system.properties,hadoop-metrics2.properties
+                                                                                </pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>CPU times: user 54.7 ms, sys: 8.5 ms, total: 63.2 ms
+Wall time: 5.93 s
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>23/12/06 18:18:28 WARN package: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting &#39;spark.sql.debug.maxToStringFields&#39;.
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submissions</span> <span class="o">=</span> <span class="n">submissions</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"subreddit"</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">,</span> <span class="s2">"created_utc"</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submissions</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>                                                                                </pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>+----------+-----+-------------------+
+| subreddit|score|        created_utc|
++----------+-----+-------------------+
+|television|    0|2021-01-27 22:16:47|
+|     anime|    0|2021-01-27 22:17:30|
+|television|    4|2021-01-27 22:17:42|
+|    movies|    0|2021-01-27 22:18:23|
+|     anime|    0|2021-01-27 22:19:23|
++----------+-----+-------------------+
+only showing top 5 rows
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Feature engineering</span>
+<span class="n">submissions</span> <span class="o">=</span> <span class="n">submissions</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">'created_utc'</span><span class="p">,</span> <span class="n">to_timestamp</span><span class="p">(</span><span class="s1">'created_utc'</span><span class="p">))</span>
+<span class="n">submissions</span> <span class="o">=</span> <span class="n">submissions</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">'hour_of_day'</span><span class="p">,</span> <span class="n">hour</span><span class="p">(</span><span class="s1">'created_utc'</span><span class="p">))</span>
+<span class="n">submissions</span> <span class="o">=</span> <span class="n">submissions</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">'day_of_week'</span><span class="p">,</span> <span class="n">dayofweek</span><span class="p">(</span><span class="s1">'created_utc'</span><span class="p">))</span>
+<span class="n">submissions</span> <span class="o">=</span> <span class="n">submissions</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">'day_of_week_str'</span><span class="p">,</span> <span class="n">expr</span><span class="p">(</span><span class="s2">"""</span>
+<span class="s2">    CASE day_of_week </span>
+<span class="s2">        WHEN 1 THEN 'Sunday'</span>
+<span class="s2">        WHEN 2 THEN 'Monday'</span>
+<span class="s2">        WHEN 3 THEN 'Tuesday'</span>
+<span class="s2">        WHEN 4 THEN 'Wednesday'</span>
+<span class="s2">        WHEN 5 THEN 'Thursday'</span>
+<span class="s2">        WHEN 6 THEN 'Friday'</span>
+<span class="s2">        WHEN 7 THEN 'Saturday'</span>
+<span class="s2">    END</span>
+<span class="s2">"""</span><span class="p">))</span>
+<span class="n">submissions</span> <span class="o">=</span> <span class="n">submissions</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">'day_of_month'</span><span class="p">,</span> <span class="n">dayofmonth</span><span class="p">(</span><span class="s1">'created_utc'</span><span class="p">))</span>
+<span class="n">submissions</span> <span class="o">=</span> <span class="n">submissions</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span> <span class="n">month</span><span class="p">(</span><span class="s1">'created_utc'</span><span class="p">))</span>
+<span class="n">submissions</span> <span class="o">=</span> <span class="n">submissions</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span> <span class="n">year</span><span class="p">(</span><span class="s1">'created_utc'</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submissions</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>+----------+-----+-------------------+-----------+-----------+---------------+------------+-----+----+
+| subreddit|score|        created_utc|hour_of_day|day_of_week|day_of_week_str|day_of_month|month|year|
++----------+-----+-------------------+-----------+-----------+---------------+------------+-----+----+
+|television|    0|2021-01-27 22:16:47|         22|          4|      Wednesday|          27|    1|2021|
+|     anime|    0|2021-01-27 22:17:30|         22|          4|      Wednesday|          27|    1|2021|
+|television|    4|2021-01-27 22:17:42|         22|          4|      Wednesday|          27|    1|2021|
+|    movies|    0|2021-01-27 22:18:23|         22|          4|      Wednesday|          27|    1|2021|
+|     anime|    0|2021-01-27 22:19:23|         22|          4|      Wednesday|          27|    1|2021|
++----------+-----+-------------------+-----------+-----------+---------------+------------+-----+----+
+only showing top 5 rows
+
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>                                                                                </pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># EDA on datetime features</span>
+<span class="c1"># Group by subreddit, year, month and calculate average score</span>
+<span class="n">result_df</span> <span class="o">=</span> <span class="n">submissions</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">"subreddit"</span><span class="p">,</span> <span class="s2">"year"</span><span class="p">,</span> <span class="s2">"month"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">avg</span><span class="p">(</span><span class="s2">"score"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"average_score"</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Show the result</span>
+<span class="n">result_df</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>[Stage 3:=======================================================&gt;(99 + 1) / 100]</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>+----------+----+-----+------------------+
+| subreddit|year|month|     average_score|
++----------+----+-----+------------------+
+|    movies|2021|    5| 92.46727404587072|
+|    movies|2021|   10|153.31222485607856|
+|television|2021|    3| 326.3586521987436|
+|television|2021|    6| 278.5865019011407|
+|     anime|2021|    9| 71.18142039717267|
+|television|2021|    7| 317.0394736842105|
+|     anime|2021|   11| 73.64954381660661|
+|    movies|2021|    6| 94.09434323148281|
+|     anime|2021|    5| 76.54447121546112|
+|    movies|2021|   11|137.37378399488745|
+|     anime|2021|   10| 75.65115973454235|
+|     anime|2021|    8| 69.77001127395715|
+|    movies|2021|   12|119.85564542219346|
+|television|2021|    4| 334.8437964891401|
+|     anime|2021|    3|  75.2238120054958|
+|    movies|2021|    4|103.05983768169105|
+|    movies|2021|    8|163.04338364338363|
+|television|2021|   11| 268.8965517241379|
+|    movies|2021|    2|148.40551962604854|
+|     anime|2021|    7|  71.8894794520548|
++----------+----+-----+------------------+
+only showing top 20 rows
+
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>                                                                                </pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_df_pd</span> <span class="o">=</span> <span class="n">result_df</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>                                                                                </pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_df_pd</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"../../data/csv/year_month_day_avgscore_eda.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Hour-of-day-and-Day-of-Week-Data">Hour of day and Day of Week Data<a class="anchor-link" href="#Hour-of-day-and-Day-of-Week-Data">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submissions</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>+----------+-----+-------------------+-----------+-----------+---------------+------------+-----+----+
+| subreddit|score|        created_utc|hour_of_day|day_of_week|day_of_week_str|day_of_month|month|year|
++----------+-----+-------------------+-----------+-----------+---------------+------------+-----+----+
+|television|    0|2021-01-27 22:16:47|         22|          4|      Wednesday|          27|    1|2021|
+|     anime|    0|2021-01-27 22:17:30|         22|          4|      Wednesday|          27|    1|2021|
+|television|    4|2021-01-27 22:17:42|         22|          4|      Wednesday|          27|    1|2021|
+|    movies|    0|2021-01-27 22:18:23|         22|          4|      Wednesday|          27|    1|2021|
+|     anime|    0|2021-01-27 22:19:23|         22|          4|      Wednesday|          27|    1|2021|
++----------+-----+-------------------+-----------+-----------+---------------+------------+-----+----+
+only showing top 5 rows
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Group by subreddit, year, month and calculate average score</span>
+<span class="n">result_df1</span> <span class="o">=</span> <span class="n">submissions</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">"subreddit"</span><span class="p">,</span> <span class="s2">"hour_of_day"</span><span class="p">,</span> <span class="s2">"day_of_week_str"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">avg</span><span class="p">(</span><span class="s2">"score"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"average_score"</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_df1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>[Stage 10:======================================================&gt;(99 + 1) / 100]</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>+----------+-----------+---------------+------------------+
+| subreddit|hour_of_day|day_of_week_str|     average_score|
++----------+-----------+---------------+------------------+
+|television|          0|      Wednesday|243.69258589511753|
+|television|          3|         Friday| 174.2452380952381|
+|     anime|         20|      Wednesday|22.687591240875914|
+|     anime|          0|       Saturday| 46.98122065727699|
+|     anime|          3|         Monday| 72.83072713057076|
+|     anime|          6|         Monday|33.139367816091955|
+|television|          5|         Monday|206.81736526946108|
+|television|          9|         Friday| 253.1782945736434|
+|television|         16|       Thursday|282.18665464382326|
+|    movies|          9|         Friday| 83.85595238095237|
+|    movies|          1|       Thursday|106.02503477051461|
+|     anime|          3|       Thursday|  74.6719936076708|
+|     anime|          9|        Tuesday|175.09882088714207|
+|television|         21|       Saturday|218.06432748538012|
+|     anime|          8|       Saturday| 85.56456456456456|
+|     anime|         16|       Saturday|237.45001649620588|
+|    movies|         12|         Monday| 267.5448065173116|
+|    movies|          1|         Friday|128.71376811594203|
+|     anime|         22|      Wednesday|39.755630630630634|
+|    movies|          8|       Saturday| 92.20946372239747|
++----------+-----------+---------------+------------------+
+only showing top 20 rows
+
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>                                                                                </pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_df1_pd</span> <span class="o">=</span> <span class="n">result_df1</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>                                                                                </pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_df1_pd</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"../../data/csv/daily_weekly_avgscore_eda.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Day-of-Month-Data">Day of Month Data<a class="anchor-link" href="#Day-of-Month-Data">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">submissions</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>+----------+-----+-------------------+-----------+-----------+---------------+------------+-----+----+
+| subreddit|score|        created_utc|hour_of_day|day_of_week|day_of_week_str|day_of_month|month|year|
++----------+-----+-------------------+-----------+-----------+---------------+------------+-----+----+
+|television|    0|2021-01-27 22:16:47|         22|          4|      Wednesday|          27|    1|2021|
+|     anime|    0|2021-01-27 22:17:30|         22|          4|      Wednesday|          27|    1|2021|
+|television|    4|2021-01-27 22:17:42|         22|          4|      Wednesday|          27|    1|2021|
+|    movies|    0|2021-01-27 22:18:23|         22|          4|      Wednesday|          27|    1|2021|
+|     anime|    0|2021-01-27 22:19:23|         22|          4|      Wednesday|          27|    1|2021|
++----------+-----+-------------------+-----------+-----------+---------------+------------+-----+----+
+only showing top 5 rows
+
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>                                                                                </pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Group by subreddit, year, month and calculate average score</span>
+<span class="n">result_df2</span> <span class="o">=</span> <span class="n">submissions</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">"subreddit"</span><span class="p">,</span> <span class="s2">"day_of_month"</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_df2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>[Stage 17:======================================================&gt;(99 + 1) / 100]</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>+----------+------------+-----+
+| subreddit|day_of_month|count|
++----------+------------+-----+
+|    movies|           4|12229|
+|     anime|          27|12959|
+|television|           9| 2893|
+|    movies|          31| 7671|
+|television|           1| 3017|
+|    movies|          30|11524|
+|     anime|          18|13014|
+|     anime|          31| 7972|
+|     anime|          17|12939|
+|     anime|          10|13332|
+|television|          23| 2971|
+|television|          17| 2926|
+|television|          13| 2942|
+|    movies|           9|12423|
+|television|          31| 1818|
+|television|          15| 2857|
+|television|          26| 2721|
+|    movies|          10|12493|
+|television|          29| 2586|
+|    movies|          20|12414|
++----------+------------+-----+
+only showing top 20 rows
+
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>                                                                                </pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_df2_pd</span> <span class="o">=</span> <span class="n">result_df2</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>                                                                                </pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_df2_pd</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"../../data/csv/daily_weekly_count_eda.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div>
