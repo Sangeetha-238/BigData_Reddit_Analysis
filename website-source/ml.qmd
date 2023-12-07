@@ -62,6 +62,8 @@ The concluding steps in data preparation involved schema adjustments and data ty
 
 `Pipeline Definition` A Pipeline was defined incorporating all the stages of string indexing, one-hot encoding, and vector assembly. This approach streamlined the preprocessing steps and ensured consistency across the data.
 
+`Data Split train and test` Following thorough data cleansing, the dataset was partitioned into training and testing sets with an 80-20 split. 
+
 `Pipeline Execution` The preprocessing pipeline was applied to the training and test data. This transformed the data according to the defined stages, ensuring that it was ready for model training and evaluation.
 
 ### Model Training and Evaluation
@@ -138,8 +140,8 @@ To elevate our initial model, we delved into hyperparameter tuning. We experimen
 
 | Model                         | Accuracy Train | Accuracy Test | F1 Score Train | F1 Score Test | Precision Train | Precision Test | Recall Train | Recall Test |
 |-------------------------------|----------------|---------------|----------------|---------------|-----------------|----------------|--------------|-------------|
-| RandomForest Default          | 0.676122       | 0.675532      | 0.642950       | 0.642239      | 0.760997        | 0.760339       | 0.676122     | 0.675532    |
-| RandomForest Hyperparameters  | 0.760637       | 0.759841      | 0.745298       | 0.744455      | 0.829303        | 0.828266       | 0.760637     | 0.759841    |
+| RandomForest Default          | 0.676      | 0.675      | 0.642       | 0.642     | 0.760        | 0.760       | 0.676     | 0.675   |
+| RandomForest Hyperparameters  | 0.760      | 0.759     | 0.745      | 0.744    | 0.829      | 0.828     | 0.760   | 0.759 |
 
 The Hyperparameter tuning for the Random Forest classifier yielded a significant improvement in the model's performance for classifying Reddit posts into 'Anime' or 'Movies'. By adjusting the number of trees ('numTrees'), the depth of each tree ('maxDepth'), and the number of bins ('maxBins'), the model's ability to correctly identify the categories has been notably enhanced.
 
@@ -280,8 +282,8 @@ To address this and capture the complexities of Reddit's data more effectively, 
 
 | Model               | Accuracy Train | Accuracy Test | F1 Score Train | F1 Score Test | Precision Train | Precision Test | Recall Train | Recall Test |
 |---------------------|----------------|---------------|----------------|---------------|-----------------|----------------|--------------|-------------|
-| Logistic Regression | 0.934118       | 0.751146      | 0.934017       | 0.750600      | 0.934704        | 0.751036       | 0.934118     | 0.751146    |
-| Decision Tree       | 0.874378       | 0.872044      | 0.874431       | 0.872105      | 0.874632        | 0.872316       | 0.874378     | 0.872044    |
+| Logistic Regression | 0.934       | 0.751      | 0.934       | 0.750      | 0.934        | 0.751       | 0.934     | 0.751    |
+| Decision Tree       | 0.874       | 0.872      | 0.874       | 0.872      | 0.874        | 0.872       | 0.874     | 0.872    |
 
 The comparison of these two models highlights the importance of choosing the right algorithm for specific data characteristics. The Decision Tree's improved ability to generalize, as evidenced by the more consistent accuracy between training and testing, underscores its suitability for the dynamic and varied content on Reddit. This analysis demonstrates the value of model selection and tuning in the field of popularity prediction on social media platforms.
 

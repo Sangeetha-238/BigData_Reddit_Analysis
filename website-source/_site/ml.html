@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.246">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -171,6 +171,7 @@ ul.task-list li input[type="checkbox"] {
 <p><code>One-Hot Encoding</code> The indexed categories were further encoded using OneHotEncoder. This process transformed the indexed categories into a binary vector representation, a necessary step for handling categorical data in many machine learning algorithms.</p>
 <p><code>Vector Assembler</code> A VectorAssembler was utilized to combine various feature columns into a single vector column. This included both the newly created feature vectors from one-hot encoding and the existing numerical features such as ‘score’, ‘num_comments’, ‘post_length’, ‘hour_of_day’, ‘day_of_week’, ‘day_of_month’, ‘month’, and ‘year’. This assembly created a unified feature vector essential for feeding into the machine learning models.</p>
 <p><code>Pipeline Definition</code> A Pipeline was defined incorporating all the stages of string indexing, one-hot encoding, and vector assembly. This approach streamlined the preprocessing steps and ensured consistency across the data.</p>
+<p><code>Data Split train and test</code> Following thorough data cleansing, the dataset was partitioned into training and testing sets with an 80-20 split.</p>
 <p><code>Pipeline Execution</code> The preprocessing pipeline was applied to the training and test data. This transformed the data according to the defined stages, ensuring that it was ready for model training and evaluation.</p>
 </section>
 <section id="model-training-and-evaluation" class="level3">
@@ -263,25 +264,25 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>RandomForest Default</td>
-<td>0.676122</td>
-<td>0.675532</td>
-<td>0.642950</td>
-<td>0.642239</td>
-<td>0.760997</td>
-<td>0.760339</td>
-<td>0.676122</td>
-<td>0.675532</td>
+<td>0.676</td>
+<td>0.675</td>
+<td>0.642</td>
+<td>0.642</td>
+<td>0.760</td>
+<td>0.760</td>
+<td>0.676</td>
+<td>0.675</td>
 </tr>
 <tr class="even">
 <td>RandomForest Hyperparameters</td>
-<td>0.760637</td>
-<td>0.759841</td>
-<td>0.745298</td>
-<td>0.744455</td>
-<td>0.829303</td>
-<td>0.828266</td>
-<td>0.760637</td>
-<td>0.759841</td>
+<td>0.760</td>
+<td>0.759</td>
+<td>0.745</td>
+<td>0.744</td>
+<td>0.829</td>
+<td>0.828</td>
+<td>0.760</td>
+<td>0.759</td>
 </tr>
 </tbody>
 </table>
@@ -426,25 +427,25 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>Logistic Regression</td>
-<td>0.934118</td>
-<td>0.751146</td>
-<td>0.934017</td>
-<td>0.750600</td>
-<td>0.934704</td>
-<td>0.751036</td>
-<td>0.934118</td>
-<td>0.751146</td>
+<td>0.934</td>
+<td>0.751</td>
+<td>0.934</td>
+<td>0.750</td>
+<td>0.934</td>
+<td>0.751</td>
+<td>0.934</td>
+<td>0.751</td>
 </tr>
 <tr class="even">
 <td>Decision Tree</td>
-<td>0.874378</td>
-<td>0.872044</td>
-<td>0.874431</td>
-<td>0.872105</td>
-<td>0.874632</td>
-<td>0.872316</td>
-<td>0.874378</td>
-<td>0.872044</td>
+<td>0.874</td>
+<td>0.872</td>
+<td>0.874</td>
+<td>0.872</td>
+<td>0.874</td>
+<td>0.872</td>
+<td>0.874</td>
+<td>0.872</td>
 </tr>
 </tbody>
 </table>
