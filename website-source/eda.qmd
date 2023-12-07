@@ -151,10 +151,11 @@ In light of this, the anime subreddit stands out as a unique case study in commu
 ```{=html}
 <div> 
 <figure style="width: 100%;">
-  <object data="Top 10 authors (with top comments).html" width="100%" height="500"></object>
+  <object data="Top_10_authors_with_top_comments.html" width="100%" height="500"></object>
   <figcaption >Figure-6: This bar chart ranks the top 10 authors in the subreddit based on the number of posts they have made and the top comments received</figcaption>
 </figure>
 </div>
+
 ```
 
 #### Top Reddit Posts Authors by Scores Engagement in the subreddit Discussion
