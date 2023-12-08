@@ -4,6 +4,7 @@ project:
 website:
   search: false
   navbar:
+    logo: img/home_icon.png
     pinned: true
     left:
       - href: index.qmd
@@ -24,6 +25,11 @@ website:
             text: Executive Summary
       - href: conclusion.qmd
         text: Conclusion
+    right:
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/gu-dsan6000/fall-2023-reddit-project-team-34
       
   page-footer:
     left: |
