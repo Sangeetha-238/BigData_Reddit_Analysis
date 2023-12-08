@@ -77,6 +77,21 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">EDA</span></a>
   </li>  
   <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-eda" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">EDA</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-eda">    
+        <li>
+    <a class="dropdown-item" href="./eda.html">
+ <span class="dropdown-text">Analysis Report</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./eda_exec_summary.html">
+ <span class="dropdown-text">Executive Summary</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-nlp" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">NLP</span>
     </a>
@@ -333,6 +348,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p>The Hyperparameter tuning for the Random Forest classifier yielded a significant improvement in the model’s performance for classifying Reddit posts into ‘Anime’ or ‘Movies’. By adjusting the number of trees (‘numTrees’), the depth of each tree (‘maxDepth’), and the number of bins (‘maxBins’), the model’s ability to correctly identify the categories has been notably enhanced.</p>
 <p>The confusion matrix post-tuning presents a dramatic decrease in misclassified instances, particularly in distinguishing ‘Movies’ from ‘Anime’. Furthermore, the ROC curve, with an area under the curve (AUC) of 0.95, indicates a superior model performance in differentiating between the two classes as compared to the pre-tuned state, which had an AUC of 0.76. This stark contrast in the AUC values before and after tuning underscores the impact of fine-tuning hyperparameters.</p>
+<p>The source code for this model can be found <a href="project_ml.html">here</a>.</p>
 </section>
 </section>
 </section>
@@ -495,6 +511,7 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <p>The comparison of these two models highlights the importance of choosing the right algorithm for specific data characteristics. The Decision Tree’s improved ability to generalize, as evidenced by the more consistent accuracy between training and testing, underscores its suitability for the dynamic and varied content on Reddit. This analysis demonstrates the value of model selection and tuning in the field of popularity prediction on social media platforms.</p>
+<p>The source code for this model can be found <a href="project_ml3.html">here</a>.</p>
 </section>
 </section>
 </section>
@@ -561,6 +578,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p>Trying to predict the scores of Reddit posts, which are calculated by subtracting downvotes from upvotes, turned out to be quite tough and the results weren’t as good as hoped. One big issue is that the same score can mean very different things. For example, a score of 1 could be because only one person liked the post and nobody disliked it, or it could be that 10,000 people liked it but 9,999 didn’t. This makes it really hard to predict what’s going on with a post just based on its score.</p>
 <p>Also, a score doesn’t always tell the whole story about how users feel about a post. A post with lots of likes and dislikes probably means people have strong opinions about it, while a post with a few likes might have just not been seen by many people. This kind of difference is a big challenge for models like Linear Regression and Decision Trees. These models find it difficult to understand the real reasons behind a post’s score, especially because a score comes from both likes and dislikes. So, while these models can give some general ideas, they aren’t very good at accurately guessing a Reddit post’s score due to how complex and unclear the scoring can be.</p>
+<p>The source code for this model can be found <a href="project_ml2.html">here</a>.</p>
 
 
 </section>
