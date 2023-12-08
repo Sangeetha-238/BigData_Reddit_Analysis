@@ -50,6 +50,8 @@ Recognizing the unique nature of our analysis, we decided to explore alternative
 
 By adopting alternative methods tailored to our specific objective, we aim to enhance the precision and relevance of our analysis, ensuring a more effective exploration of the most discussed titles within the Reddit community. This adaptive approach aligns our methodology with the intricacies of the content present in Reddit comments, optimizing our ability to uncover and analyze meaningful movie and anime references.
 
+The detailed process and code can be found [here](basic_text_analysis.html)
+
 ### Identifying Top Reddit-Recommended Movies
 
 The social platform Reddit is a treasure chest of public opinion and preferences, particularly when it comes to movie recommendations. To extract the movies, we've implemented a data extraction and analysis pipeline to identify the most frequently suggested movies across various Reddit threads.
@@ -284,3 +286,6 @@ The analysis of the anime series reveals a pattern similar to that observed with
 This consistent observation underscores a unique aspect of community-driven platforms like Reddit. Certain anime series may not receive the highest accolades from critics or achieve top scores in every genre, yet they cultivate a dedicated following and generate significant buzz on Reddit. These shows may possess certain qualities—such as compelling storytelling, niche appeal, or a loyal fanbase—that endear them to viewers, making them popular in discussions even if they are not universally acclaimed.
 
 This phenomenon highlights that some shows are underrated gems, whose value is recognized and celebrated within the Reddit community. Their popularity on such social platforms suggests that there are additional layers of appreciation and enjoyment that standard rating systems may not fully capture. These series resonate with the audience in a way that transcends conventional rankings, cementing their place in the cultural conversation on platforms like Reddit.
+
+The detailed process and code for NER can be found [here](project_nlp.html)<br>
+The detailed process and code for Sentiment Analysis can be found [here](sentiment_analysis.html)
