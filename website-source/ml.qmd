@@ -2,7 +2,7 @@
 title: "Machine Learning"
 format:
   html:
-    toc: false
+    toc: true
     page-layout: full
 ---
 
