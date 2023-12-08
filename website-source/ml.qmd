@@ -1,8 +1,9 @@
 ---
-title: "Machine Learning"
+title: "Machine Learning - Technical Analysis Report"
 format:
   html:
     toc: true
+    toc-depth: 2
     page-layout: full
 ---
 

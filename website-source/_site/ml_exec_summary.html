@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -123,6 +123,10 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./discussion.html">
+ <span class="menu-text">Feedback</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-github" role="img">
@@ -150,9 +154,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#making-sense-of-reddit-posts-classifying-reddit-posts" id="toc-making-sense-of-reddit-posts-classifying-reddit-posts" class="nav-link active" data-scroll-target="#making-sense-of-reddit-posts-classifying-reddit-posts">Making Sense of Reddit Posts: Classifying Reddit Posts</a></li>
-  <li><a href="#decoding-reddits-popular-posts-a-machine-learning-journey" id="toc-decoding-reddits-popular-posts-a-machine-learning-journey" class="nav-link" data-scroll-target="#decoding-reddits-popular-posts-a-machine-learning-journey">Decoding Reddit’s Popular Posts: A Machine Learning Journey</a></li>
-  <li><a href="#understanding-reddit-post-scores-a-machine-learning-approach" id="toc-understanding-reddit-post-scores-a-machine-learning-approach" class="nav-link" data-scroll-target="#understanding-reddit-post-scores-a-machine-learning-approach">Understanding Reddit Post Scores: A Machine Learning Approach</a></li>
+  <li><a href="#making-sense-of-reddit-posts-classifying-reddit-posts-into-anime-and-movies" id="toc-making-sense-of-reddit-posts-classifying-reddit-posts-into-anime-and-movies" class="nav-link active" data-scroll-target="#making-sense-of-reddit-posts-classifying-reddit-posts-into-anime-and-movies">Making Sense of Reddit Posts: Classifying Reddit Posts into Anime and Movies</a></li>
+  <li><a href="#decoding-reddits-popular-posts-classifying-reddit-posts-based-on-their-popularity" id="toc-decoding-reddits-popular-posts-classifying-reddit-posts-based-on-their-popularity" class="nav-link" data-scroll-target="#decoding-reddits-popular-posts-classifying-reddit-posts-based-on-their-popularity">Decoding Reddit’s Popular Posts: Classifying Reddit Posts based on their popularity</a></li>
+  <li><a href="#understanding-reddit-post-scores-predicting-reddit-post-scores" id="toc-understanding-reddit-post-scores-predicting-reddit-post-scores" class="nav-link" data-scroll-target="#understanding-reddit-post-scores-predicting-reddit-post-scores">Understanding Reddit Post Scores: Predicting Reddit Post Scores</a></li>
   </ul>
 </nav>
     </div>
@@ -176,20 +180,20 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="making-sense-of-reddit-posts-classifying-reddit-posts" class="level2">
-<h2 class="anchored" data-anchor-id="making-sense-of-reddit-posts-classifying-reddit-posts">Making Sense of Reddit Posts: Classifying Reddit Posts</h2>
+<section id="making-sense-of-reddit-posts-classifying-reddit-posts-into-anime-and-movies" class="level2">
+<h2 class="anchored" data-anchor-id="making-sense-of-reddit-posts-classifying-reddit-posts-into-anime-and-movies">Making Sense of Reddit Posts: Classifying Reddit Posts into Anime and Movies</h2>
 <p>Our objective was to categorize Reddit posts into two distinct groups: Anime and Movies. We chose a classifier called Random Forest for this. The classifier is adept at discerning patterns and distinguishing between varied types of data.</p>
 <p>At first, we started with a basic model for our classifier to see how good the model can predict. The initial results were encouraging, suggesting we were on the right track, yet they weren’t exceptional.The classifier could differentiate between Anime and Movies, but it wasn’t always accurate. Realizing the potential for improvement, we fine-tuned the classifier’s settings. It’s like fine-tuning a musical instrument for the best sound. We adjusted how many decision-making paths it should take, how deep it should look into details, and how it groups information. These adjustments made a big difference.</p>
 <p>Post-tuning, the classifier became much more adept at correctly labeling posts as either Anime or Movies. The improvement was evident in its increased accuracy and fewer misclassifications.</p>
 </section>
-<section id="decoding-reddits-popular-posts-a-machine-learning-journey" class="level2">
-<h2 class="anchored" data-anchor-id="decoding-reddits-popular-posts-a-machine-learning-journey">Decoding Reddit’s Popular Posts: A Machine Learning Journey</h2>
+<section id="decoding-reddits-popular-posts-classifying-reddit-posts-based-on-their-popularity" class="level2">
+<h2 class="anchored" data-anchor-id="decoding-reddits-popular-posts-classifying-reddit-posts-based-on-their-popularity">Decoding Reddit’s Popular Posts: Classifying Reddit Posts based on their popularity</h2>
 <p>Our goal here was to predict which Reddit posts become popular. This insight is beneficial for everyone on Reddit, from content creators to everyday users. We started by enriching the data with new features like ‘Sentiment Score’ and ‘Emotion’, essential for understanding a post’s impact. Then, we prepared our data for machine learning by defining ‘popular’ posts based on the number of comments and balancing our dataset to avoid biases.</p>
 <p>Our first model, a Logistic Regression, gave us good initial results but struggled with complex data. So, we switched to a Decision Tree classifier, better suited for Reddit’s diverse content. This model proved more effective, showing consistent performance in identifying popular posts.</p>
 <p>This project highlighted the importance of choosing the right machine learning model for the task. The Decision Tree classifier, with its ability to handle varied data, was a key player in accurately predicting post popularity on Reddit. It also, gave us insights on what features affect the popularity of the posts, something that reddit users can use to improve their content on reddit.</p>
 </section>
-<section id="understanding-reddit-post-scores-a-machine-learning-approach" class="level2">
-<h2 class="anchored" data-anchor-id="understanding-reddit-post-scores-a-machine-learning-approach">Understanding Reddit Post Scores: A Machine Learning Approach</h2>
+<section id="understanding-reddit-post-scores-predicting-reddit-post-scores" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-reddit-post-scores-predicting-reddit-post-scores">Understanding Reddit Post Scores: Predicting Reddit Post Scores</h2>
 <p>In the third part of our project, we tried to predict how people engage with Reddit posts, would be based on their scores, which are calculated by subtracting downvotes from upvotes. Our aim was to figure out what makes a post engaging to Reddit users. This task was challenging because Reddit’s scoring can be tricky – for example, a post with a score of one could either have one person liking it or thousands of likes and almost as many dislikes.</p>
 <p>We started with a simple method called Linear Regression to get a basic idea of how scores work. But we soon realized we needed a more detailed approach to really understand Reddit’s scoring. So, we switched to using a Decision Tree Regressor, which is better at handling complex data. This model helped us see more clearly what affects a post’s score.</p>
 <p>However, we found that both models had their limits. The way Reddit calculates scores made it hard for our models to be really accurate. Sometimes the scores didn’t give a clear picture of how users felt about a post.</p>

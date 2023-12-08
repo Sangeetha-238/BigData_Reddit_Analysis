@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Feedback Report</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/home_icon.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Introduction</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-eda" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">EDA</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-eda">    
+        <li>
+    <a class="dropdown-item" href="./eda.html">
+ <span class="dropdown-text">Analysis Report</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./eda_exec_summary.html">
+ <span class="dropdown-text">Executive Summary</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-nlp" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">NLP</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-nlp">    
+        <li>
+    <a class="dropdown-item" href="./nlp.html">
+ <span class="dropdown-text">Analysis Report</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./nlp_exec_summary.html">
+ <span class="dropdown-text">Executive Summary</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-ml" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">ML</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-ml">    
+        <li>
+    <a class="dropdown-item" href="./ml.html">
+ <span class="dropdown-text">Analysis Report</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ml_exec_summary.html">
+ <span class="dropdown-text">Executive Summary</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./conclusion.html">
+ <span class="menu-text">Conclusion</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./discussion.html" aria-current="page">
+ <span class="menu-text">Feedback</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-github">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/gu-dsan6000/fall-2023-reddit-project-team-34">
+ <span class="dropdown-text">Source Code</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Feedback Report</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="overall" class="level2">
+<h2 class="anchored" data-anchor-id="overall">Overall</h2>
+<ol type="1">
+<li>You have no links to your source code anywhere which is a problem. However, I do appreciate the narrative structure of the website. The code should be linked and available from the site
+<ul>
+<li>We have now added the link to the source code for every notebook in the Analysis Report of each section in the website.</li>
+</ul></li>
+</ol>
+</section>
+<section id="eda" class="level2">
+<h2 class="anchored" data-anchor-id="eda">EDA</h2>
+<ol type="1">
+<li>Use of the sunburst plot for seeing temporal distribution was consistent, but maybe not successful, since there isn’t enough variation in the colors to see any patterns. A line plot might have done better.
+<ul>
+<li>We decided to incorporate the sunburst plot to describe distribution of posts over time (Hour of Day) since it resonated with the hands of a clock. We agree that the plot is not very successful in conveying the information. The plot showed only the distribution of count of posts over these time periods. In addition to this, we have added another sunburst plot to show the distribution of scores over these time periods. This plot is more successful in conveying the information.</li>
+</ul></li>
+<li>The gray background combined with black lettering in the table theme makes it a little hard to read.
+<ul>
+<li>We have changed the background to a lighter shade of grey.The text was a dark shade of blue gray, and we have changed it to black so that it is more readable.</li>
+</ul></li>
+<li>How did you choose the threshold for “high scores” for Figure 7?
+<ul>
+<li>We have chosen top 10 posts for each subreddit based on their score. The authors of these posts are chosen as the authors who have posts with the top scores.</li>
+</ul></li>
+<li>Except for figure 5, you don’t do any direct comparisons between the characteristics of the three subreddits. Are there more ways of seeing differences between the characteristics of the subreddits?
+<ul>
+<li>The time series analysis of the reddit posts shows how characters of these subreddits are distributed over time. We have also added some meaningful insights of these plots showing the comparison between the subreddits. Additionally, we have also added a comparison of the subreddits based on if the submission post has any media content or not. All of the graphs are trying to explore the difference between the sub reddits.</li>
+</ul></li>
+<li>A table of contents along one side would be useful.
+<ul>
+<li>Table of contents is added to each section of the report.</li>
+</ul></li>
+</ol>
+</section>
+<section id="nlp" class="level2">
+<h2 class="anchored" data-anchor-id="nlp">NLP</h2>
+<ol type="1">
+<li><p>Figure 1 can be better formatted instead of giving a raw screenshot</p>
+<ul>
+<li>We have added a new table showing 5 different samples of TF-IDF from our analysis.</li>
+</ul></li>
+<li><p>Rotten Tomatoes was your external data for this section. Might want to highlight it.</p>
+<ul>
+<li>We have added a description about the 2 external datasets in the Sentiment Analysis section and also in the Anime analysis section to highlight the use of external data.</li>
+</ul></li>
+<li><p>For figures 5 and 6 and 8, you don’t start an axis from 0. This needs to be used carefully, since it re-scales the information. Perhaps might want to consider starting from 0 for Figure 6, so as not to accentuate the small differences between movies.</p>
+<ul>
+<li>The scales of all the graphs have been changed to start from 0.</li>
+</ul></li>
+<li><p>Maybe you could do a more direct comparison between reddit activity/sentiment and RT ratings using bivariate plots.</p>
+<ul>
+<li>The goal was to identify the movies most suggested on the movies and compare them with highest rated and well reviewed movies. We extracted the suggestions provided on reddit and compared them with their reviews provided by Rotten tomatoes. This connects the 2 different databases and provides us valuable information regarding different types of movies and anime suggested by users and their ratings in a real world review rating system. Since we connected these 2 in such a manner, we believed that a bivariate plot would not be necessary.</li>
+</ul></li>
+<li><p>What does a radial bar chart gain you in Figure 7. Perhaps a plain bar chart would suffice</p>
+<ul>
+<li>We had added a radial bar chart to show the top suggested animes. It was added to account for the amount of already present bar charts in the report. Nonetheless, We have changed it to a bar chart to make it more readable.</li>
+</ul></li>
+<li><p>In figure 9, how are the categories determined?</p>
+<ul>
+<li>The external dataset is from a well known database collected from wikipedia and ontaru called MyAnimeList which provided the Reviews of all the Animes along with their genre. There are 95 different genres in anime. We have watched a significant amount of anime which provided us with domain knowledge which made us believe that these genres can be grouped together into 10 different categories. That is how the categories were determined.</li>
+</ul></li>
+<li><p>How much of the executive summary is AI? Please update based on the guidance provided in the Slack message by Prof.&nbsp;Marck on GenAI. This much use of AI is unacceptable, since it’s no longer your own work.</p>
+<ul>
+<li>We have used it for just spell check, grammar and punctuation, and to rephrase the sentences a few times. But when it comes to executive summary, the content is original and is written by the authors, we admit that we have used chat gpt only to use “correct” language, and to make the headings cooler. We have acknowledged the use in the website.</li>
+</ul></li>
+</ol>
+</section>
+<section id="ml" class="level2">
+<h2 class="anchored" data-anchor-id="ml">ML</h2>
+<ol type="1">
+<li>What was your training/test split?
+<ul>
+<li>The training/test split has now been mentioned in the Analysis report and we also changed the section to “Data Pre-Processing for Modeling” for better structure.</li>
+</ul></li>
+<li>Did you use cross validation on the training set to develop and evaluate your models?
+<ul>
+<li>We did not use cross validation, because our dataset is sufficiently large, cross-validation is important when dealing with a smaller data set, the data has all the patterns for the training and so we have not used cross validation.</li>
+</ul></li>
+<li>Did you look at downsampling a number of times for the second model to see the robustness of the results to the downsampling?
+<ul>
+<li>In the second model, downsampling was done to address class imbalance, ensuring a balanced representation of both ‘popular’ and ‘not popular’ classes. While downsampling significantly improved model performance, we did not explicitly conduct multiple iterations of downsampling to assess the robustness. The decision to downsample was based on the aim to reduce the impact of class imbalance on model training and evaluation. In our case the data was stabilized through down sampling. Downsampling multiple times maybe would have improved the model. We could involve exploring the model to different downsampling ratios to see the consistency and performance of the model in future work.</li>
+</ul></li>
+<li>Don’t put more than 3 decimal places in your slides
+<ul>
+<li>We changed the tables and rounded the values to show 3 decimal points.</li>
+</ul></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content 2023 by [Project Team 34] <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Made with <a href="https://quarto.org/">Quarto</a><br> <a href="https://github.com/gu-dsan6000/fall-2023-reddit-project-team-34">View the source at GitHub</a></div>
+  </div>
+</footer>
+
+
+
+</body></html>

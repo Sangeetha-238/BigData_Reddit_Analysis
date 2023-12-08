@@ -2,23 +2,21 @@
 title: "Exploratory Data Analysis"
 format:
   html:
-    toc: TRUE
-    toc_float:
-      collapsed: TRUE
-page-layout: full
+    toc: true
+    page-layout: full
 ---
 
 ![](img/eda.png){width="30%" fig-align="center"}
 
 ## Analysis Report
 
-In this analysis, we utilized Submissions Reddit data stored in an Azure Machine Learning workspace blob store in parquet format, employing PySpark for distributed data processing and Pandas for local data manipulation and analysis.
+In this analysis, we used Submissions Reddit data stored in an Azure Machine Learning workspace blob store in parquet format, employing PySpark for distributed data processing and Pandas for local data manipulation and analysis.
 
 To kick off our exploration of entertainment subreddits, we aimed for a broad understanding of how submissions are distributed across entertainment-related subreddits. To achieve this goal, we created a lollipop graph with post counts of subreddits on the x-axis and different entertainment subreddits on the y-axis.
 
 ![Figure-1: Count of each subreddit in the dataset from 2021-2023](img/subreddit_count_analysis.png){width="100%" fig-align="center"}
 
-From Figure 1, it's evident that the 'anime' subreddit is the most active with 404,298 posts, showcasing a very active community with a strong interest in anime-related content. Following closely is the 'movies' subreddit, also bustling with activity at 382,085 posts. Both 'anime' and 'movie' subreddits outshine the 'television' subreddit in post counts, revealing higher user engagement in these topics. A similar trend can be observed among the subreddits dedicated to suggestions with the 'AnimeSuggestions' subreddit having a higher post count followed by 'MovieSuggestions' and 'televisionsuggestions'. This indicates that there is a substantial interest in community-driven recommendations for anime. The 'MovieSuggestions' subreddit has a moderate number of posts, while 'televisionsuggestions' has the least, reflecting lower user engagement for television recommendations on the Reddit platform.
+From Figure 1, it's evident that the 'anime' subreddit is the most active with 404,298 posts, showcasing a very active community with a strong interest in anime-related content. Following closely is the 'movies' subreddit, with activity at 382,085 posts. Both 'anime' and 'movie' subreddits outshine the 'television' subreddit in post counts, revealing higher user engagement in these topics. A similar trend can be observed among the subreddits dedicated to suggestions with the 'AnimeSuggestions' subreddit having a higher post count followed by 'MovieSuggestions' and 'televisionsuggestions'. This indicates that there is a substantial interest in recommendations for anime. The 'MovieSuggestions' subreddit has a moderate number of posts, while 'televisionsuggestions' has the least, reflecting lower user engagement for television recommendations on the Reddit platform.
 
 Next, we filtered the data to keep only the subset of columns relevant to our analysis. The selected columns include information about the submission, such as the subreddit, author, title, selftext, creation timestamp, number of comments, score, and various other attributes related to the submission's characteristics. After selecting specific columns, we aimed to understand the dataset’s structure and quality. To achieve this, we obtained the count of missing values in each column of the dataset. Table 1 represents a summary of missing values in our dataset, where each row corresponds to a different feature, and the 'Missing Values' column quantifies the number of missing values for each feature.
 
@@ -49,7 +47,7 @@ The following table shows the final columns and their descriptions that were use
 <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF2U4C6yQI&#x2F;view?utm_content=DAF2U4C6yQI&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
 <figcaption style=" text-align:center;">Table-2: Description of key variables in the Reddit data</figcaption>
 ```
-\
+
 Moving forward, we performed data manipulation to generate structured datasets encompassing top comments for specific subreddits, author post counts, and time series analysis. These datasets will serve as a foundation for extracting insights into user engagement, content popularity, temporal evolution, and author contributions on the Reddit platform through the creation of meaningful visualizations.
 
 The detailed process and code can be found [here](data_cleaning.html) for data cleaning and [here](data_manipulation.html) for data manipulation.
@@ -119,7 +117,7 @@ Figure-6 presents the distribution of posts across days of the week and hours of
 <div> 
 <figure style="width: 100%;">
   <object data="sunburst_avgscore_eda.html" width="100%" height="550"></object>
-  <figcaption >Figure-7: Number of posts during the week and time of the day for the subreddits</figcaption>
+  <figcaption >Figure-7: Average Score of posts during the week and time of the day for the subreddits</figcaption>
 </figure>
 </div>
 ```
@@ -143,7 +141,7 @@ Next, we delved into the diverse aspects of user engagement dynamics on Reddit p
 
 Figure 8 illustrates the engagement dynamics of Reddit posts, comparing post length to user engagement across subreddits dedicated to anime, movies, and television. Each dot represents an individual post, with its size corresponding to the score, which is a proxy for the post’s popularity or engagement level.
 
-A cursory analysis reveals a dense clustering of posts with scores under 10,000 across all subreddits, with post lengths predominantly falling below 2000 characters. This suggests that shorter posts are more common, regardless of the subreddit category. Interestingly, there is a visible trend where posts with higher scores tend to have shorter lengths, indicating that more concise posts may resonate better with the audience or are more likely to be engaged with.
+This analysis reveals a dense clustering of posts with scores under 10,000 across all subreddits, with post lengths predominantly falling below 2000 characters. This suggests that shorter posts are more common, regardless of the subreddit category. Interestingly, there is a visible trend where posts with higher scores tend to have shorter lengths, indicating that more concise posts may resonate better with the audience or are more likely to be engaged with.
 
 The larger-sized dots, indicating posts with exceptionally high scores, are predominantly short and are scattered across all three subreddits. This may indicate that highly engaging posts, which are likely to go viral or hit the front page of Reddit, tend to be concise.
 

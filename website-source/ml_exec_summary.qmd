@@ -6,7 +6,7 @@ format:
     page-layout: full
 ---
 
-## Making Sense of Reddit Posts: Classifying Reddit Posts
+## Making Sense of Reddit Posts: Classifying Reddit Posts into Anime and Movies
 
 Our objective was to categorize Reddit posts into two distinct groups: Anime and Movies. We chose a classifier called Random Forest for this. The classifier is adept at discerning patterns and distinguishing between varied types of data. 
 
@@ -14,7 +14,7 @@ At first, we started with a basic model  for our classifier to see how good the 
 
 Post-tuning, the classifier became much more adept at correctly labeling posts as either Anime or Movies. The improvement was evident in its increased accuracy and fewer misclassifications.
 
-## Decoding Reddit's Popular Posts: A Machine Learning Journey
+## Decoding Reddit's Popular Posts: Classifying Reddit Posts based on their popularity
 
 Our goal here was to predict which Reddit posts become popular. This insight is beneficial for everyone on Reddit, from content creators to everyday users. We started by enriching the data with new features like 'Sentiment Score' and 'Emotion', essential for understanding a post's impact. Then, we prepared our data for machine learning by defining 'popular' posts based on the number of comments and balancing our dataset to avoid biases.
 
@@ -22,7 +22,7 @@ Our first model, a Logistic Regression, gave us good initial results but struggl
 
 This project highlighted the importance of choosing the right machine learning model for the task. The Decision Tree classifier, with its ability to handle varied data, was a key player in accurately predicting post popularity on Reddit. It also, gave us insights on what features affect the popularity of the posts, something that reddit users can use to improve their content on reddit.
 
-## Understanding Reddit Post Scores: A Machine Learning Approach
+## Understanding Reddit Post Scores: Predicting Reddit Post Scores
 
 In the third part of our project, we tried to predict how people engage with Reddit posts, would be based on their scores, which are calculated by subtracting downvotes from upvotes. Our aim was to figure out what makes a post engaging to Reddit users. This task was challenging because Reddit's scoring can be tricky – for example, a post with a score of one could either have one person liking it or thousands of likes and almost as many dislikes.
 

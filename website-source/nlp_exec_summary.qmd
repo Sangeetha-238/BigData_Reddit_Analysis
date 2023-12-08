@@ -10,7 +10,7 @@ format:
 
 ### Understanding Digital Tastes in Cinema and Anime:
 
-In the age of digital discourse, platforms like Reddit have become crucial in shaping the cultural conversation around entertainment. This section delves into the wealth of data on Reddit to extract what movies and anime are being suggested by users, transcending traditional top-ten lists by incorporating sentiment analysis and popularity metrics.
+In the age of digital discourse, platforms like Reddit have become crucial in shaping the cultural conversation around entertainment. This section goes into the data on Reddit to extract what movies and anime are being suggested by users, getting traditional top-ten lists by incorporating sentiment analysis and popularity metrics.
 
 #### Reddit's Favorite Films: A Community Perspective
 
@@ -53,7 +53,7 @@ First, a list of the most-recommended anime on Reddit was made. It showed which 
 
 #### Discovering Anime Hits and Hidden Gems
 
-The top ten anime picks on Reddit were spotlighted in a graphic that looked like a target with bars pointing outwards. The longer the bar, the more people were talking about that anime. "Shingeki no Kyojin," known as "Attack on Titan," was a clear favorite, getting the most mentions. Other favorites included "Steins;Gate" and "Code Geass," which also saw a lot of recommendations. Even lesser-known series like "Made in Abyss" got a spot on the chart, proving that Reddit users have a wide range of interests.
+The top ten anime picks on Reddit were showed in a graphic that looked like a target with bars pointing outwards. The longer the bar, the more people were talking about that anime. "Shingeki no Kyojin," known as "Attack on Titan," was a clear favorite, getting the most mentions. Other favorites included "Steins;Gate" and "Code Geass," which also saw a lot of recommendations. Even lesser-known series like "Made in Abyss" got a place, proving that Reddit users have a wide range of interests.
 
 #### Popularity vs. Praise
 
@@ -62,12 +62,8 @@ An interesting trend emerged: the anime that were most popular didn't always lin
 ```{=html}
 <table style="width: 100%; border: none;">
   <tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
-      <div> 
-          <figure style="width: 100%;">
-            <object data="top_anime_suggested.html" width="100%" height="820", style="padding-left: 15%;display: block;"></object>
-            <figcaption style=" text-align:center;">Figure-2 (a)</figcaption>
-          </figure>
-          </div>
+      <img src="img/top_anime_suggested.png" style="width: 100%;">
+      <figcaption style="text-align: center;">Figure-2 (a)</figcaption>
   </tr>
   <tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
       <img src="img/review_rating_of_top_anime.png" style="width: 100%;">
@@ -83,11 +79,11 @@ An interesting trend emerged: the anime that were most popular didn't always lin
 
 ##### Insights
 
-In drawing conclusions from this exploration into anime's popularity, it becomes evident that platforms like Reddit play a pivotal role in shaping how anime is perceived and appreciated. Here, the measure of an anime's success transcends traditional critical ratings. It's not just about the numbers or accolades it receives; instead, it hinges on the stories that linger in the minds of viewers, the characters that become almost real to them, and the emotional journeys these series facilitate.
+In drawing conclusions from this exploration into anime's popularity, it becomes evident that platforms like Reddit play a pivotal role in shaping how anime is perceived and appreciated. Here, the measure of an anime's success rises up from the traditional critical ratings. It's not just about the numbers or awards it receives; instead, it hinges on the stories that roam in the minds of viewers, the characters that become almost real to them, and the emotional journeys these series facilitate.
 
 Anime series that might not top the critics' charts have nonetheless carved out their niches within online communities. They initiate discussions, spark debates, and often lead to the formation of dedicated fanbases. These are the shows that might not headline major anime conventions or feature prominently on award lists, but they inspire art, fan fiction, and deep discussions about themes and character development.
 
-This phenomenon underscores a unique aspect of cultural consumption in the digital age. Communities like Reddit become melting pots of diverse opinions and tastes, where an anime's worth is gauged not just by its technical excellence or narrative perfection but by its ability to connect, resonate, and stay relevant in the fast-paced online discourse.
+This phenomenon reveals a unique aspect of cultural consumption in the digital age. Communities like Reddit become a source of diverse opinions and tastes, where an anime's worth is calculated not just by its technical excellence or narrative perfection but by its ability to connect, resonate, and stay relevant in the fast-paced online world.
 
 ### Conclusion: The Heart of Storytelling in Movies and Anime on Reddit
 
@@ -99,7 +95,7 @@ Similarly, in the world of anime, success on Reddit goes beyond traditional rati
 
 Both these analysis highlight a broader trend in the digital age: the true value of a movie or anime isn't just in its technical achievements or expert reviews, but in its power to connect with people. In online forums like Reddit, a diverse tapestry of opinions and tastes comes together, making room for different kinds of stories to be discovered, discussed, and cherished.
 
-This shift underscores the evolving nature of storytelling and audience engagement. In a world where traditional metrics of success are increasingly intertwined with digital discourse, platforms like Reddit are proving to be crucial spaces where the cultural significance of movies and anime is being redefined. Here, the impact of a story is measured not just in ratings or box office numbers, but in the richness of the discussions it inspires and the community it builds.
+This shift reveals the evolving nature of storytelling and audience engagement. In a world where traditional metrics of success are increasingly intertwined with digital discourse, platforms like Reddit are proving to be crucial spaces where the cultural significance of movies and anime is being redefined. Here, the impact of a story is measured not just in ratings or box office numbers, but in the richness of the discussions it inspires and the community it builds.
 
 
 

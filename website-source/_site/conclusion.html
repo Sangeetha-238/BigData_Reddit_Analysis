@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>conclusion</title>
+<title>CONCLUSION</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,10 +72,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./index.html">
  <span class="menu-text">Introduction</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./eda.html">
- <span class="menu-text">EDA</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-eda" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">EDA</span>
@@ -127,6 +123,10 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./discussion.html">
+ <span class="menu-text">Feedback</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-github" role="img">
@@ -146,37 +146,101 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link active" data-scroll-target="#conclusion">CONCLUSION</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CONCLUSION</h1>
+</div>
 
 
 
-<section id="conclusion" class="level1">
-<h1>CONCLUSION</h1>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
 <p>Our journey began with a deep dive into how Reddit users, especially the newer generation, engage with content on movies and anime. We questioned whether user recommendations align with critical reviews and explored ways content creators can enhance engagement in these Reddit communities.</p>
-<p>As we explored temporal trends across different timeframes, we found no clear cyclic patterns tied to specific times or days. Moving on to user engagement dynamics, we discovered that shorter posts attract more comments, but surprisingly, post length didn’t consistently correlate with scores. Interestingly, posts featuring media content tended to receive higher scores, providing practical insights for content creators aiming to boost engagement in Reddit communities.</p>
-<p>In our NLP analysis, we sought to compare critically acclaimed movies with those most suggested on Reddit. To our surprise, movie recommendations extended beyond highly-rated films. This pattern held true in the anime realm, indicating that users prioritize quality over high ratings.</p>
-<p>Our ML analysis aimed at accurately classifying subreddits (movies or anime) achieved a commendable 75% accuracy. This categorization offers valuable insights for users and advertisers, helping in more engagement strategies.</p>
+<p>As we explored temporal trends across different timeframes, we found no clear cyclic patterns tied to specific times or days. There were some interesting observations like the number of posts in Movie subreddit gained a substantial spike during the start of 2021 which led us to believe that it indicated a release of a big blockbuster and the scores of submissions that are posted late at night tend to be lower as compared to submissions poster during day time.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="time_series_eda.html" width="100%" height="500"></object>
+  <figcaption class="figure-caption">Figure-1: This graph illustrates the normalized post count trends across three subreddits (anime, movies, and television) over a span of two years, from January 2021 to April 2023. The peaks and troughs indicate fluctuations in user engagement and post frequency within the Reddit community.</figcaption>
+</figure>
+</div>
+<p>Moving on to user engagement dynamics, we discovered that shorter posts attract more comments, but surprisingly, post length didn’t consistently correlate with scores. But the posts with media generally tend to have a lower post length. Interestingly, posts featuring media content tended to receive higher scores, providing practical insights for content creators aiming to boost engagement in Reddit communities. The posts with media also had a higher number of comments as compared to posts without media. We also found that the number of comments and scores are positively correlated. This indicates that the posts with more comments tend to have higher scores.</p>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="engagement_with_media.html" width="100%" height="500"></object>
+  <figcaption class="figure-caption">Figure-2: Correlation between post lengths and scores within submissions that have media as well as those that don't have media.</figcaption>
+</figure>
+</div>
+<p>We sought to compare critically acclaimed movies with those most suggested on Reddit. To our surprise, movie recommendations extended beyond highly-rated films. This pattern held true in the anime realm, indicating that users prioritize quality over high ratings. The analysis uncovers how online communities, rather than traditional critics or box office success, are redefining the appreciation of cinema and anime. It demonstrates that on platforms like Reddit, the true value of a film or anime series lies not just in its technical excellence or professional reviews, but in its ability to spark conversations, evoke emotions, and connect with the audience on a personal level. Through sentiment analysis and popularity metrics, the study finds that movies and anime series, which ignite lively discussions and resonate deeply with users, hold a special place in these communities, showcasing a shift in how stories are valued and appreciated in the digital age.</p>
+
+<img src="img/top_suggested_movies.png" style="width: 100%;"><figcaption style="text-align: center;">Figure-3 (a)</figcaption><img src="img/review_rating_of_top_movies.png" style="width: 100%;"><figcaption style="text-align: center;">Figure-3 (b)</figcaption><table style="width: 100%; border: none;">
+  <tbody><tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
+      
+      
+  </tr>
+  <tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
+      
+      
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; border: none;">
+      <figcaption style="text-align: center;">Figure-3: Comparative Visualization of Top 10 Suggested Movies on Reddit - 3(a) shows the list of movies while the 3(b) depicts their review ratings</figcaption>
+    </td>
+  </tr>
+</tbody></table>
+<img src="img/top_anime_suggested.png" style="width: 100%;"><figcaption style="text-align: center;">Figure-4 (a)</figcaption><img src="img/review_rating_of_top_anime.png" style="width: 100%;"><figcaption style="text-align: center;">Figure-4 (b)</figcaption><table style="width: 100%; border: none;">
+  <tbody><tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
+      
+      
+  </tr>
+  <tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
+      
+      
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center; border: none;">
+      <figcaption style="text-align: center;">Figure-4: Comparative Visualization of Top 10 Suggested Anime on Reddit - 4(a) shows the list of anime while the 4(b) depicts their review ratings</figcaption>
+    </td>
+  </tr>
+</tbody></table>
+<p>Along with this, in subreddits of Movie and Anime, the most prevalent words are generally of positive sentiment such as ‘like’ and ‘good’. Along with that these subreddits also have words like ‘watch’, ‘look’ and ‘character’ which indicates that the users are generally discussing about the characters of the movies and anime.</p>
+
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="word_count_table_movie.html" width="100%" height="300" ;="" style="display: block;padding-left: 15%" ;"=""></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Table-1: Count of words for movies</figcaption>
+</figure>
+</div>
+<div> 
+<figure style="width: 100%;" class="figure">
+  <object data="word_count_table_anime.html" width="100%" height="300" ;="" style="display: block;padding-left: 15%" ;"=""></object>
+  <figcaption style=" text-align:center;" class="figure-caption">Table-2: Count of words for anime</figcaption>
+</figure>
+</div>
+<p>Our analysis also aimed at accurately classifying subreddits (movies or anime) achieved a commendable 75% accuracy. This categorization offers valuable insights for users and advertisers, helping in more engagement strategies.</p>
 <p>In the dynamic Reddit ecosystem, predicting post popularity is crucial. Our second model, distinguishing between ‘popular’ and ‘not popular’ submissions, brings benefits like personalized feeds for users and aids moderators in managing content effectively. This enhances the overall user experience, making interactions on the platform more tailored and enjoyable.</p>
 <p>Lastly, predicting post scores helps unravel user preferences. By analyzing factors like content and posting time, we empower content creators and platform managers to enhance engagement. Our journey concludes with a comprehensive understanding of Reddit dynamics, striving to make the platform more captivating and user-friendly.</p>
 <p><br> <br> <br></p>
-<p><strong>Acknoledgement</strong></p>
+<p><strong>Acknowledgement</strong></p>
 <p>We used generative AI to improve spelling, grammar, and phrasing. we also used it to generate some headings. The content, however, is original and is written by the authors.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

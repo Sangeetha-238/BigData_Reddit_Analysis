@@ -1,6 +1,6 @@
 ---
-title: "Analysis on Entertainment Reddits"
-title-block-banner: img/hero_photo.png
+title: "Entertainment Subreddits - <br>A Data Science Approach"
+title-block-banner: img/hero_photo.jpg
 author:
   - Ramdayal Nirmal Rewaria (rr1220)
   - Samiksha Rajendra Thikekar (st1140)
@@ -11,14 +11,15 @@ format:
     page-layout: full
 ---
 
-### Introduction
+
+## Introduction
 
 Reddit functions as a massive virtual gathering where individuals from diverse backgrounds come together to share their stories, photos, and ideas within specialized communities called subreddits. Examining graph 1 below confirms Reddit's popularity in major places like the USA, Canada, the UK, India, and more, where people engage in diverse conversations and shape the platform by voting on content, creating a dynamic and human-driven experience that mirrors the diversity of our online world. Plus, looking at graph 2 below, it's safe to say that a lot of Reddit users are from Gen Z – that's the young crowd. According to the [blog](https://www.redditinc.com/blog/gen-z-on-reddit/), Entertainment is among the top indexing interest groups for Gen Z on Reddit. And since movies, TV series, and anime are often made with them in mind, we thought it'd be cool to take a closer look at what people are posting and talking about on Reddit's big entertainment spots: the movies, television, and anime subreddits.
 
 ::: {layout-ncol=2}
-![graph 1 source: [link](https://www.statista.com/chart/26423/percentage-of-regular-reddit-users-by-country/)](img/intro_country.jpeg){width="50%" fig-align="center"}
+![Source: [Link](https://www.statista.com/chart/26423/percentage-of-regular-reddit-users-by-country/)](img/intro_country.jpeg){width="50%" fig-align="center"}
 
-![graph 2 source: [link](https://www.redditinc.com/blog/gen-z-on-reddit/)](img/intro_genz.png){width="50%" fig-align="center"}
+![Source: [Link](https://www.redditinc.com/blog/gen-z-on-reddit/)](img/intro_genz.png){width="50%" fig-align="center"}
 :::
 
 Additionally, we were curious about what regular folks on Reddit think about the movies, television, and anime compared to what the professional critics say. For this purpose, we combined external dataset which we will discuess about in more detail in our next section.
@@ -32,22 +33,25 @@ Now, let's explore the key subreddits central to this project: r/anime, r/televi
 * **r/MovieSuggestions:** Serving as a space specifically for movie recommendations, this subreddit is an ideal place for users seeking personalized suggestions for their next film to watch.
 * **r/televisionsuggestions:** As a subreddit dedicated explicitly to TV show recommendations, this community serves as a hub for users seeking and providing suggestions for what to watch next.
 
-Our analysis delves into these subreddits, aiming not just to observe trends but to uncover the rhythms, blending data science techniques, visualizations, and machine learning to understand user sentiments and interactions.
+Our analysis examines these subreddits, aiming not just to observe trends but to uncover the rhythms, blending data science techniques, visualizations, and machine learning to understand user sentiments and interactions.
 
 ![](img/intro.gif){width="30%" fig-align="center"}
 
-### Data Overview
+## Data Overview
 
+### Reddit Data
 Diving into a whopping 412 GB of posts and 918 GB of comments, the dataset is like a big storybook with 109 million entries. It's carefully organized by simplifying things—removing some details, changing time info to something we can understand, and putting it in a format that's easy to explore, like preparing a canvas before painting. Now, it's all set up and ready for us to start looking through and discovering what's inside.
 
-External dataset: The project utilizes datasets from Kaggle's "Clapper: Massive Rotten Tomatoes Movies and Reviews" and "MyAnimeList" collections. These datasets offer a rich source of information for analyzing trends, preferences, and sentiments in the domain of movies and anime. This approach aims to delve into the intricacies of viewer engagement and sentiment patterns across diverse content genres, providing a comprehensive understanding of audience behavior in the entertainment industry.
+### External Data 
+
+The project utilizes datasets from Kaggle's "Clapper: Massive Rotten Tomatoes Movies and Reviews" and "MyAnimeList" collections. These datasets offer a rich source of information for analyzing trends, preferences, and sentiments in the domain of movies and anime. This approach aims to delve into the intricacies of viewer engagement and sentiment patterns across diverse content genres, providing a comprehensive understanding of audience behavior in the entertainment industry.
 
 The Rotten Tomatoes dataset offers a detailed compilation of movie reviews and ratings, while the MyAnimeList dataset provides insights into anime popularity and viewer preferences. Together, these datasets form a robust foundation for cross-platform analysis.
 
-[Data Source 1](https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews)
-[Data Source 2](https://www.kaggle.com/datasets/azathoth42/myanimelist)
+[Data Source 1 - Rotten Tomatoes Movie Review](https://www.kaggle.com/datasets/andrezaza/clapper-massive-rotten-tomatoes-movies-and-reviews) <br>
+[Data Source 2 - MyAnimeList Anime Review](https://www.kaggle.com/datasets/azathoth42/myanimelist)
 
-### Objective
+## Objective
 
 Our mission is clear: to decipher the language of entertainment discussions on Reddit, extracting findings that resonate with both seasoned enthusiasts and those new to the subject matter. We will focus on the first two objectives --- revealing what the data says and interpreting its significance by providing answers to the following questions.
 
@@ -59,34 +63,34 @@ Our mission is clear: to decipher the language of entertainment discussions on R
 
     `Technical Proposal:` Using EDA, analyze author data to quantify post frequency and engagement (likes, comments). Apply statistical measures to highlight top contributors and content analysis to understand the themes and types of their posts.
 
-3. `Business Goal:` This seeks to understand how the content influences user engagement, guiding content creators on the most engaging content.
+3. `Business Goal:` Understand how the content influences user engagement, guiding content creators on the most engaging content.
 
-    `Technical Proposal:` Using EDA, we will compare the average score and number of comments between posts with different content using statistical methods.
+    `Technical Proposal:` Using EDA, we will compare different engagement metrics like score, number of comments to see how they vary with the length of the post, presence of media, and other features. This analysis will provide insights into the types of content that drive the most engagement, helping content creators tailor their content to maximize user interaction.
 
-4. `Business Goal:` To Understand popular themes that can guide content creation and marketing strategies, ensuring alignment with audience interests.
+4. `Business Goal:` Discovering emerging trends in movie and anime preferences among online communities to drive innovative content creation.
 
-    `Technical Proposal:` Applying NLP techniques like topic modeling or keyword extraction to the titles and selftext of high-engagement posts. This analysis will identify prevalent themes and topics in popular content.
+    `Technical Proposal:` Utilizing advanced NLP techniques to analyze discussion threads and posts on Reddit. Employing topic modeling and sentiment analysis to identify key themes and emotional responses in discussions about movies and anime. This can highlight what elements (genres, themes, storytelling techniques) are resonating with audiences.
 
-5. `Business Goal:` Gauging the overall sentiment of posts in each subreddit to inform tone and messaging strategies for engaging with these communities effectively.
+5. `Business Goal:` Crafting targeted marketing strategies for films and anime series by understanding the nuances of community preferences and discussions.
 
-    `Technical Proposal:` Performing sentiment analysis on the title and selftext of posts. This involves using NLP tools to classify content into sentiment categories (positive, negative, neutral) and comparing these across subreddits.
+    `Technical Proposal:` Implementing a text analysis pipeline to dissect the language and topics prevalent in movie and anime subreddits. Using machine learning models to parse through large volumes of text data, extracting prevalent keywords, phrases, and sentiment trends. This data can inform marketing language, promotional themes, and engagement strategies.
 
-6. `Business Goal:` Identifying unique lexicon can aid in creating more relatable and targeted content for each subreddit community.
+6. `Business Goal:` Identifying the gap between critic reviews and audience opinions to better align future productions with audience expectations.
 
-    `Technical Proposal:`Use TF-IDF analysis to distinguish words and phrases that are uniquely prevalent in each subreddit. This helps in understanding the distinctive language style of each community.
+    `Technical Proposal:` Comparing sentiment analysis results from professional review aggregators (like Rotten Tomatoes for movies and MyAnimeList for anime) with community-driven platforms (like Reddit). This involves parsing review text and user comments to assess how audience and critic sentiments diverge or align, providing insights into audience preferences and expectations.
 
-7. `Business Goal:` Understanding how sentiment affects engagement can help in tailoring content for better reception and interaction.
+7. `Business Goal:` Enhancing audience engagement by understanding the drivers behind community discussions and recommendations in online platforms.
 
-    `Technical Proposal:` Combine sentiment analysis results with engagement metrics (score, comments) to explore correlations. This involves statistical analysis to determine if there's a significant relationship between sentiment and user engagement.
+    `Technical Proposal:` Implementing a correlation analysis that links engagement metrics (like upvotes, comment counts) on Reddit with specific themes or sentiments expressed in posts. This would involve statistical modeling to understand which topics or sentiments drive the most engagement, helping to tailor content and discussions that resonate more deeply with the audience.
 
-8. `Business Goal:` This prediction model can guide content creators in optimizing their posts for higher engagement, leading to increased visibility and interaction.
+8. `Business Goal:` Enhancing content targeting and user engagement strategies on Reddit by accurately categorizing posts into relevant interest groups such as Anime and Movies.
 
-    `Technical Proposal:` Developing a predictive model using features like post length, presence of media, time of posting, and NLP-derived text features. Machine learning techniques like regression or classification can be employed to forecast engagement levels.
+    `Technical Proposal:` Developing a classifier model using features like post length, presence of media, time of posting, and NLP-derived text features. Machine learning techniques like regression or classification can be employed to classify submissions into categories.
 
-9. `Business Goal:` Predicting posting time based on content can assist in understanding user behavior patterns and content preferences at different times.
+9. `Business Goal:` Maximizing content visibility and user interaction on Reddit by predicting the likelihood of posts becoming popular within the community.
 
-    `Technical Proposal:` Creating a model to predict the likely time of posting using features extracted from post content and style. This involves applying classification algorithms to correlate content features with posting times.
+    `Technical Proposal:` Creating a model to predict the likelihood of a post becoming popular or not using features such as time posted, text related features using TF-IDF, post length and so on. This involves applying classification algorithms to correlate content features with popularity.
 
-10. `Business Goal:` Efficiently categorizing posts can aid in content moderation and ensure appropriate audience targeting.
+10. `Business Goal:` Developing advanced analytics tools for content creators and marketers to understand and leverage the engagement dynamics of Reddit posts.
 
-    `Technical Proposal:` Use text data and other relevant features to train a classification model that can distinguish between adult-oriented and general audience content. This involves using NLP techniques for feature extraction and applying classifiers like SVM or logistic regression.
+    `Technical Proposal:` To tackle the challenges posed by Reddit's scoring system, we recommend a two-pronged approach. Firstly, employing a more complex regression model, such as Decision Tree or Ensemble Regressors, could better handle the intricacies of Reddit scores. Secondly, integrating sentiment analysis and topic modeling into the prediction framework can provide a better view of engagement, capturing not just the quantitative score but also the qualitative aspects of user interaction. This approach will help in creating a more robust tool for analyzing and predicting user engagement on Reddit posts.

@@ -9,8 +9,6 @@ website:
     left:
       - href: index.qmd
         text: Introduction
-      - href: eda.qmd
-        text: EDA
       - text: EDA
         menu: 
           - href: eda.qmd
@@ -32,6 +30,8 @@ website:
       - href: conclusion.qmd
         text: Conclusion
     right:
+      - text: Feedback
+        href: discussion.qmd
       - icon: github
         menu:
           - text: Source Code

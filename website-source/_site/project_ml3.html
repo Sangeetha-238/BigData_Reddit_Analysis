@@ -36,7 +36,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
-.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14465,6 +14464,10 @@ a.anchor-link {
   display: none;
 }
 
+.highlight  {
+  margin: 0.4em;
+}
+
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14474,26 +14477,9 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror.cm-s-jupyter .highlight pre {
-/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
-  padding: var(--jp-code-padding) 4px;
+.CodeMirror pre {
   margin: 0;
-
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  color: inherit;
-
-}
-
-.jp-OutputArea-output pre {
-  line-height: inherit;
-  font-family: inherit;
-}
-
-.jp-RenderedText pre {
-  color: var(--jp-content-font-color1);
-  font-size: var(--jp-code-font-size);
+  padding: 0;
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14537,10 +14523,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 /* Hiding the collapser by default */
 .jp-Collapser {
   display: none;
-}
-
-@page {
-    margin: 0.5in; /* Margin for each printed piece of paper */
 }
 
 @media print {
@@ -14607,7 +14589,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Setup - Run only once per Kernel App</span>
@@ -14621,7 +14603,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <span class="c1"># restart kernel</span>
 <span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
-<span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;script&gt;Jupyter.notebook.kernel.restart()&lt;/script&gt;&quot;</span><span class="p">)</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s2">"&lt;script&gt;Jupyter.notebook.kernel.restart()&lt;/script&gt;"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14635,7 +14617,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14750,9 +14734,11 @@ Note: you may need to restart the kernel to use updated packages.
 </pre>
 </div>
 </div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+
+<div class="jp-OutputArea-child">
+
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
 
 
@@ -14771,7 +14757,7 @@ Note: you may need to restart the kernel to use updated packages.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sagemaker</span>
@@ -14799,7 +14785,9 @@ Note: you may need to restart the kernel to use updated packages.
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14820,7 +14808,7 @@ sagemaker.config INFO - Not applying SDK defaults from location: /root/.config/s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import pyspark and build Spark session</span>
@@ -14828,15 +14816,15 @@ sagemaker.config INFO - Not applying SDK defaults from location: /root/.config/s
 
 <span class="c1"># Import pyspark and build Spark session</span>
 <span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span> \
-    <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;Spark NLP&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&quot;local[*]&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.driver.memory&quot;</span><span class="p">,</span><span class="s2">&quot;16G&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.executor.memory&quot;</span><span class="p">,</span> <span class="s2">&quot;12g&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.executor.cores&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.jars.packages&quot;</span><span class="p">,</span> <span class="s2">&quot;com.johnsnowlabs.nlp:spark-nlp_2.12:5.1.3,org.apache.hadoop:hadoop-aws:3.2.2&quot;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">"Spark NLP"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">"local[*]"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.driver.memory"</span><span class="p">,</span><span class="s2">"16G"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.executor.memory"</span><span class="p">,</span> <span class="s2">"12g"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.executor.cores"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.jars.packages"</span><span class="p">,</span> <span class="s2">"com.johnsnowlabs.nlp:spark-nlp_2.12:5.1.3,org.apache.hadoop:hadoop-aws:3.2.2"</span><span class="p">)</span>\
     <span class="o">.</span><span class="n">config</span><span class="p">(</span>
-            <span class="s2">&quot;fs.s3a.aws.credentials.provider&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;com.amazonaws.auth.ContainerCredentialsProvider&quot;</span>
+            <span class="s2">"fs.s3a.aws.credentials.provider"</span><span class="p">,</span>
+            <span class="s2">"com.amazonaws.auth.ContainerCredentialsProvider"</span>
     <span class="p">)</span>\
     <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 
@@ -14854,7 +14842,9 @@ sagemaker.config INFO - Not applying SDK defaults from location: /root/.config/s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14864,7 +14854,9 @@ sagemaker.config INFO - Not applying SDK defaults from location: /root/.config/s
 </pre>
 </div>
 </div>
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14874,7 +14866,9 @@ sagemaker.config INFO - Not applying SDK defaults from location: /root/.config/s
 </pre>
 </div>
 </div>
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15057,7 +15051,9 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 </pre>
 </div>
 </div>
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15077,7 +15073,7 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sagemaker</span>
@@ -15122,10 +15118,10 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/sentiment_emotion_submissions/&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/sentiment_emotion_submissions/"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15138,7 +15134,7 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
@@ -15155,7 +15151,9 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15192,7 +15190,7 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#check missing values</span>
@@ -15211,7 +15209,9 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15220,7 +15220,9 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 <pre>                                                                                </pre>
 </div>
 </div>
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15245,7 +15247,7 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop rows with any missing values</span>
@@ -15262,7 +15264,7 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">missing_vals</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">count</span><span class="p">(</span><span class="n">when</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">isNull</span><span class="p">(),</span> <span class="n">c</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">])</span>
@@ -15280,7 +15282,9 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15289,7 +15293,9 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 <pre>[Stage 66:===========================================&gt;              (3 + 1) / 4]</pre>
 </div>
 </div>
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15304,7 +15310,9 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 </pre>
 </div>
 </div>
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15323,7 +15331,7 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#convert to pandas dataframe</span>
@@ -15341,7 +15349,9 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15360,11 +15370,11 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#get the statistics of num_comments column</span>
-<span class="n">pandas_df</span><span class="p">[</span><span class="s2">&quot;num_comments&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">pandas_df</span><span class="p">[</span><span class="s2">"num_comments"</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -15378,9 +15388,11 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+
+<div class="jp-OutputArea-child">
+
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
 
 
@@ -15408,11 +15420,11 @@ Name: num_comments, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#calculate the records greater than mean value</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">pandas_df</span><span class="p">[</span><span class="n">pandas_df</span><span class="p">[</span><span class="s2">&quot;num_comments&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">27</span><span class="p">])</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">pandas_df</span><span class="p">[</span><span class="n">pandas_df</span><span class="p">[</span><span class="s2">"num_comments"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">27</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -15426,9 +15438,11 @@ Name: num_comments, dtype: float64</pre>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+
+<div class="jp-OutputArea-child">
+
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
 
 
@@ -15448,11 +15462,11 @@ Name: num_comments, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#creating boxplot</span>
-<span class="n">b_plot</span> <span class="o">=</span> <span class="n">pandas_df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="s1">&#39;num_comments&#39;</span><span class="p">)</span> 
+<span class="n">b_plot</span> <span class="o">=</span> <span class="n">pandas_df</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="s1">'num_comments'</span><span class="p">)</span> 
 <span class="n">b_plot</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -15468,7 +15482,9 @@ Name: num_comments, dtype: float64</pre>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15493,11 +15509,11 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add a new column &#39;is_popular&#39;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">&#39;is_popular&#39;</span><span class="p">,</span> <span class="n">when</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;num_comments&#39;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add a new column 'is_popular'</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s1">'is_popular'</span><span class="p">,</span> <span class="n">when</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s1">'num_comments'</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">otherwise</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15510,11 +15526,11 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Drop num_comments column</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;num_comments&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">"num_comments"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15527,7 +15543,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
@@ -15544,7 +15560,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15581,11 +15599,11 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get count of values in is_popular column by groupBy </span>
-<span class="n">popularity_counts</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">&quot;is_popular&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">popularity_counts</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">"is_popular"</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 
 <span class="c1"># Display the counts</span>
 <span class="n">popularity_counts</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -15602,7 +15620,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15611,7 +15631,9 @@ class="
 <pre>[Stage 70:===========================================&gt;              (3 + 1) / 4]</pre>
 </div>
 </div>
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15627,7 +15649,9 @@ class="
 </pre>
 </div>
 </div>
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15646,7 +15670,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#convert it to pandas</span>
@@ -15664,7 +15688,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15683,16 +15709,16 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot a bar graph</span>
-<span class="n">popularity_counts_pd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;is_popular&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#ff4301&#39;</span><span class="p">,</span> <span class="s1">&#39;#ff4301&#39;</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Target Variable (is_popular)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Target Variable (is_popular)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Popular&#39;</span><span class="p">,</span><span class="s1">&#39;Not Popular&#39;</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../../data/plots/is_popular_distribution.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">popularity_counts_pd</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'bar'</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'is_popular'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'count'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">'#ff4301'</span><span class="p">,</span> <span class="s1">'#ff4301'</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Target Variable (is_popular)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Count'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Distribution of Target Variable (is_popular)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">'Popular'</span><span class="p">,</span><span class="s1">'Not Popular'</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"../../data/plots/is_popular_distribution.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -15707,7 +15733,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15744,12 +15772,12 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Separate the data into two DataFrames based on the &#39;is_popular&#39; value</span>
-<span class="n">popular_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;is_popular&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">not_popular_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;is_popular&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Separate the data into two DataFrames based on the 'is_popular' value</span>
+<span class="n">popular_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"is_popular"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">not_popular_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"is_popular"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15762,7 +15790,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Downsample the majority class (is_popular = 0) to match the count of the minority class (is_popular = 1)</span>
@@ -15780,7 +15808,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15799,7 +15829,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[53]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Combine the downsampled majority class with the minority class</span>
@@ -15816,11 +15846,11 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[65]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check the counts after downsampling</span>
-<span class="n">downsampled_df_table</span><span class="o">=</span><span class="n">downsampled_df</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">&quot;is_popular&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+<span class="n">downsampled_df_table</span><span class="o">=</span><span class="n">downsampled_df</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">"is_popular"</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
 <span class="n">downsampled_df_table</span>
 </pre></div>
 
@@ -15835,7 +15865,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15844,9 +15876,11 @@ class="
 <pre>                                                                                </pre>
 </div>
 </div>
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+
+<div class="jp-OutputArea-child">
+
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[65]:</div>
 
 
 
@@ -15900,16 +15934,16 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot a bar graph</span>
-<span class="n">downsampled_df_table</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;is_popular&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#ff4301&#39;</span><span class="p">,</span> <span class="s1">&#39;#ff4301&#39;</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Target Variable (is_popular)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Target Variable after Down Sampling&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Popular&#39;</span><span class="p">,</span><span class="s1">&#39;Not Popular&#39;</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../../data/plots/is_popular_distribution_downsampled.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">downsampled_df_table</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'bar'</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">'is_popular'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">'count'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">'#ff4301'</span><span class="p">,</span> <span class="s1">'#ff4301'</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Target Variable (is_popular)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Count'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Distribution of Target Variable after Down Sampling'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">'Popular'</span><span class="p">,</span><span class="s1">'Not Popular'</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"../../data/plots/is_popular_distribution_downsampled.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -15924,7 +15958,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15949,7 +15985,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">downsampled_df</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
@@ -15966,7 +16002,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16003,23 +16041,23 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Tokenize text</span>
-<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;words&quot;</span><span class="p">)</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"text"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"words"</span><span class="p">)</span>
 <span class="n">tokenized_df</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">downsampled_df</span><span class="p">)</span>
 
 <span class="c1"># Remove stop words</span>
-<span class="n">remover</span> <span class="o">=</span> <span class="n">StopWordsRemover</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;words&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;filtered_words&quot;</span><span class="p">)</span>
+<span class="n">remover</span> <span class="o">=</span> <span class="n">StopWordsRemover</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"words"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"filtered_words"</span><span class="p">)</span>
 <span class="n">df_no_stopwords</span> <span class="o">=</span> <span class="n">remover</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">tokenized_df</span><span class="p">)</span>
 
 <span class="c1"># Vectorize words</span>
-<span class="n">hashingTF</span> <span class="o">=</span> <span class="n">HashingTF</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;filtered_words&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;rawFeatures&quot;</span><span class="p">)</span>
+<span class="n">hashingTF</span> <span class="o">=</span> <span class="n">HashingTF</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"filtered_words"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"rawFeatures"</span><span class="p">)</span>
 <span class="n">featurizedData</span> <span class="o">=</span> <span class="n">hashingTF</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df_no_stopwords</span><span class="p">)</span>
 
 <span class="c1"># Optionally, use IDF to rescale the feature vectors</span>
-<span class="n">idf</span> <span class="o">=</span> <span class="n">IDF</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;rawFeatures&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;features&quot;</span><span class="p">)</span>
+<span class="n">idf</span> <span class="o">=</span> <span class="n">IDF</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"rawFeatures"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"features"</span><span class="p">)</span>
 <span class="n">rescaledData</span> <span class="o">=</span> <span class="n">idf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">featurizedData</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">featurizedData</span><span class="p">)</span>
 </pre></div>
 
@@ -16034,7 +16072,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16053,11 +16093,11 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#drop columns unwanted columns</span>
-<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="s2">&quot;words&quot;</span><span class="p">,</span> <span class="s2">&quot;filtered_words&quot;</span><span class="p">,</span> <span class="s2">&quot;rawFeatures&quot;</span><span class="p">])</span>
+<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="s2">"words"</span><span class="p">,</span> <span class="s2">"filtered_words"</span><span class="p">,</span> <span class="s2">"rawFeatures"</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -16070,16 +16110,16 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#convert datatype to string</span>
-<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;over_18&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">&quot;over_18&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">))</span>
-<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;is_self&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">&quot;is_self&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">))</span>
-<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;is_video&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">&quot;is_video&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">))</span>
-<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;has_media&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">&quot;has_media&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">))</span>
-<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;is_popular&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">&quot;is_popular&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">))</span>
-<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;emotion&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">&quot;emotion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">))</span>
+<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">"over_18"</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">"over_18"</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">"string"</span><span class="p">))</span>
+<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">"is_self"</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">"is_self"</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">"string"</span><span class="p">))</span>
+<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">"is_video"</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">"is_video"</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">"string"</span><span class="p">))</span>
+<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">"has_media"</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">"has_media"</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">"string"</span><span class="p">))</span>
+<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">"is_popular"</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">"is_popular"</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">"string"</span><span class="p">))</span>
+<span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">"emotion"</span><span class="p">,</span> <span class="n">col</span><span class="p">(</span><span class="s2">"emotion"</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="s2">"string"</span><span class="p">))</span>
 <span class="n">rescaledData</span>
 </pre></div>
 
@@ -16094,9 +16134,11 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+
+<div class="jp-OutputArea-child">
+
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 
 
 
@@ -16116,7 +16158,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Show the updated schema</span>
@@ -16134,7 +16176,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16172,10 +16216,10 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rescaledData</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/cleaned_ML_3/&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;overwrite&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rescaledData</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/cleaned_ML_3/"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"overwrite"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16189,7 +16233,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16221,29 +16267,29 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
 <span class="c1"># Setup the PySpark processor to run the job. Note the instance type and instance count parameters. SageMaker will create these many instances of this type for the spark job.</span>
 <span class="n">role</span> <span class="o">=</span> <span class="n">sagemaker</span><span class="o">.</span><span class="n">get_execution_role</span><span class="p">()</span>
 <span class="n">spark_processor</span> <span class="o">=</span> <span class="n">PySparkProcessor</span><span class="p">(</span>
-    <span class="n">base_job_name</span><span class="o">=</span><span class="s2">&quot;sm-spark-project&quot;</span><span class="p">,</span>
-    <span class="n">framework_version</span><span class="o">=</span><span class="s2">&quot;3.3&quot;</span><span class="p">,</span>
+    <span class="n">base_job_name</span><span class="o">=</span><span class="s2">"sm-spark-project"</span><span class="p">,</span>
+    <span class="n">framework_version</span><span class="o">=</span><span class="s2">"3.3"</span><span class="p">,</span>
     <span class="n">role</span><span class="o">=</span><span class="n">role</span><span class="p">,</span>
     <span class="n">instance_count</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
-    <span class="n">instance_type</span><span class="o">=</span><span class="s2">&quot;ml.m5.xlarge&quot;</span><span class="p">,</span>
+    <span class="n">instance_type</span><span class="o">=</span><span class="s2">"ml.m5.xlarge"</span><span class="p">,</span>
     <span class="n">max_runtime_in_seconds</span><span class="o">=</span><span class="mi">21600</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="c1"># s3 paths</span>
 <span class="n">session</span> <span class="o">=</span> <span class="n">sagemaker</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
-<span class="n">output_prefix_logs</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;spark_logs&quot;</span>
+<span class="n">output_prefix_logs</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"spark_logs"</span>
 
 <span class="n">configuration</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span>
-        <span class="s2">&quot;Classification&quot;</span><span class="p">:</span> <span class="s2">&quot;spark-defaults&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Properties&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;spark.executor.memory&quot;</span><span class="p">:</span> <span class="s2">&quot;12g&quot;</span><span class="p">,</span> <span class="s2">&quot;spark.executor.cores&quot;</span><span class="p">:</span> <span class="s2">&quot;4&quot;</span><span class="p">},</span>
+        <span class="s2">"Classification"</span><span class="p">:</span> <span class="s2">"spark-defaults"</span><span class="p">,</span>
+        <span class="s2">"Properties"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"spark.executor.memory"</span><span class="p">:</span> <span class="s2">"12g"</span><span class="p">,</span> <span class="s2">"spark.executor.cores"</span><span class="p">:</span> <span class="s2">"4"</span><span class="p">},</span>
     <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
@@ -16259,7 +16305,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16298,7 +16346,7 @@ Wall time: 135 ms
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> ./code/preprocess_ml3.py
@@ -16319,65 +16367,65 @@ Wall time: 135 ms
 <span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">length</span>
 
 
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1">,</span><span class="si">%(levelname)s</span><span class="s1">,</span><span class="si">%(module)s</span><span class="s1">,</span><span class="si">%(filename)s</span><span class="s1">,</span><span class="si">%(lineno)d</span><span class="s1">,</span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1">,</span><span class="si">%(levelname)s</span><span class="s1">,</span><span class="si">%(module)s</span><span class="s1">,</span><span class="si">%(filename)s</span><span class="s1">,</span><span class="si">%(lineno)d</span><span class="s1">,</span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;app inputs and outputs&quot;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--s3_dataset_path&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path of dataset in S3&quot;</span><span class="p">)</span>    
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"app inputs and outputs"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--s3_dataset_path"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"Path of dataset in S3"</span><span class="p">)</span>    
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
     <span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span> \
-    <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;Spark ML&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.driver.memory&quot;</span><span class="p">,</span><span class="s2">&quot;16G&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.driver.maxResultSize&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span> \
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.kryoserializer.buffer.max&quot;</span><span class="p">,</span> <span class="s2">&quot;2000M&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.jars.packages&quot;</span><span class="p">,</span> <span class="s2">&quot;com.johnsnowlabs.nlp:spark-nlp_2.12:5.1.3&quot;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">"Spark ML"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.driver.memory"</span><span class="p">,</span><span class="s2">"16G"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.driver.maxResultSize"</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.kryoserializer.buffer.max"</span><span class="p">,</span> <span class="s2">"2000M"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.jars.packages"</span><span class="p">,</span> <span class="s2">"com.johnsnowlabs.nlp:spark-nlp_2.12:5.1.3"</span><span class="p">)</span>\
     <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
     
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spark version: </span><span class="si">{</span><span class="n">spark</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Spark version: </span><span class="si">{</span><span class="n">spark</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     
     <span class="c1"># This is needed to save RDDs which is the only way to write nested Dataframes into CSV format</span>
     <span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
     <span class="n">sc</span><span class="o">.</span><span class="n">_jsc</span><span class="o">.</span><span class="n">hadoopConfiguration</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-        <span class="s2">&quot;mapred.output.committer.class&quot;</span><span class="p">,</span> <span class="s2">&quot;org.apache.hadoop.mapred.FileOutputCommitter&quot;</span>
+        <span class="s2">"mapred.output.committer.class"</span><span class="p">,</span> <span class="s2">"org.apache.hadoop.mapred.FileOutputCommitter"</span>
     <span class="p">)</span>
 
     <span class="c1"># Downloading the data from S3 into a Dataframe</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;going to read </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">s3_dataset_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"going to read </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">s3_dataset_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="n">rescaledData</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">s3_dataset_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;movies&quot;</span><span class="p">,</span> <span class="s2">&quot;anime&quot;</span><span class="p">]</span>
-    <span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;subreddit&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">vals</span><span class="p">))</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"movies"</span><span class="p">,</span> <span class="s2">"anime"</span><span class="p">]</span>
+    <span class="n">rescaledData</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">"subreddit"</span><span class="p">)</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">vals</span><span class="p">))</span>
     
     <span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">,</span> <span class="n">val_data</span> <span class="o">=</span> <span class="n">rescaledData</span><span class="o">.</span><span class="n">randomSplit</span><span class="p">([</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">],</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1140</span><span class="p">)</span>
     
     <span class="c1"># Print the number of records in each dataset</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Number of training records: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">train_data</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Number of testing records: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Number of validation records: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">val_data</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Number of training records: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">train_data</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Number of testing records: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Number of validation records: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">val_data</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
     
-    <span class="n">stringIndexer_over_18</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;over_18&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;over_18_ix&quot;</span><span class="p">)</span>
-    <span class="n">stringIndexer_is_self</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;is_self&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;is_self_ix&quot;</span><span class="p">)</span>
-    <span class="n">stringIndexer_is_video</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;is_video&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;is_video_ix&quot;</span><span class="p">)</span>
-    <span class="n">stringIndexer_has_media</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;has_media&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;has_media_ix&quot;</span><span class="p">)</span>
-    <span class="n">stringIndexer_subreddit</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;subreddit&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;subreddit_ix&quot;</span><span class="p">)</span>
-    <span class="n">stringIndexer_emotion</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;emotion&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;emotion_ix&quot;</span><span class="p">)</span>
-    <span class="n">stringIndexer_is_popular</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;is_popular&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;is_popular_ix&quot;</span><span class="p">)</span>
+    <span class="n">stringIndexer_over_18</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"over_18"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"over_18_ix"</span><span class="p">)</span>
+    <span class="n">stringIndexer_is_self</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"is_self"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"is_self_ix"</span><span class="p">)</span>
+    <span class="n">stringIndexer_is_video</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"is_video"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"is_video_ix"</span><span class="p">)</span>
+    <span class="n">stringIndexer_has_media</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"has_media"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"has_media_ix"</span><span class="p">)</span>
+    <span class="n">stringIndexer_subreddit</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"subreddit"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"subreddit_ix"</span><span class="p">)</span>
+    <span class="n">stringIndexer_emotion</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"emotion"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"emotion_ix"</span><span class="p">)</span>
+    <span class="n">stringIndexer_is_popular</span> <span class="o">=</span> <span class="n">StringIndexer</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"is_popular"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"is_popular_ix"</span><span class="p">)</span>
     
-    <span class="n">onehot_over_18</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;over_18_ix&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;over_18_vec&quot;</span><span class="p">)</span>
-    <span class="n">onehot_is_self</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;is_self_ix&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;is_self_vec&quot;</span><span class="p">)</span>
-    <span class="n">onehot_is_video</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;is_video_ix&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;is_video_vec&quot;</span><span class="p">)</span>
-    <span class="n">onehot_has_media</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;has_media_ix&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;has_media_vec&quot;</span><span class="p">)</span>
-    <span class="n">onehot_has_subreddit</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;subreddit_ix&quot;</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;subreddit_vec&quot;</span><span class="p">)</span>
+    <span class="n">onehot_over_18</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"over_18_ix"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"over_18_vec"</span><span class="p">)</span>
+    <span class="n">onehot_is_self</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"is_self_ix"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"is_self_vec"</span><span class="p">)</span>
+    <span class="n">onehot_is_video</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"is_video_ix"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"is_video_vec"</span><span class="p">)</span>
+    <span class="n">onehot_has_media</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"has_media_ix"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"has_media_vec"</span><span class="p">)</span>
+    <span class="n">onehot_has_subreddit</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"subreddit_ix"</span><span class="p">,</span> <span class="n">outputCol</span><span class="o">=</span><span class="s2">"subreddit_vec"</span><span class="p">)</span>
     
     <span class="n">vectorAssembler_features</span> <span class="o">=</span> <span class="n">VectorAssembler</span><span class="p">(</span>
-                                    <span class="n">inputCols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;emotion_ix&quot;</span><span class="p">,</span><span class="s2">&quot;subreddit_vec&quot;</span><span class="p">,</span><span class="s2">&quot;score&quot;</span><span class="p">,</span><span class="s2">&quot;over_18_vec&quot;</span><span class="p">,</span><span class="s2">&quot;is_self_vec&quot;</span><span class="p">,</span>
-                                               <span class="s2">&quot;is_video_vec&quot;</span><span class="p">,</span><span class="s2">&quot;post_length&quot;</span><span class="p">,</span><span class="s2">&quot;hour_of_day&quot;</span><span class="p">,</span><span class="s2">&quot;day_of_week&quot;</span><span class="p">,</span>
-                                               <span class="s2">&quot;day_of_month&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;has_media_vec&quot;</span><span class="p">,</span> <span class="s2">&quot;features&quot;</span><span class="p">],</span>
-                                    <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;combined_features&quot;</span><span class="p">)</span>
+                                    <span class="n">inputCols</span><span class="o">=</span><span class="p">[</span><span class="s2">"emotion_ix"</span><span class="p">,</span><span class="s2">"subreddit_vec"</span><span class="p">,</span><span class="s2">"score"</span><span class="p">,</span><span class="s2">"over_18_vec"</span><span class="p">,</span><span class="s2">"is_self_vec"</span><span class="p">,</span>
+                                               <span class="s2">"is_video_vec"</span><span class="p">,</span><span class="s2">"post_length"</span><span class="p">,</span><span class="s2">"hour_of_day"</span><span class="p">,</span><span class="s2">"day_of_week"</span><span class="p">,</span>
+                                               <span class="s2">"day_of_month"</span><span class="p">,</span> <span class="s2">"month"</span><span class="p">,</span><span class="s2">"year"</span><span class="p">,</span> <span class="s2">"has_media_vec"</span><span class="p">,</span> <span class="s2">"features"</span><span class="p">],</span>
+                                    <span class="n">outputCol</span><span class="o">=</span><span class="s2">"combined_features"</span><span class="p">)</span>
 
     <span class="c1"># Define the stages for the pipeline</span>
     <span class="n">stages</span> <span class="o">=</span> <span class="p">[</span>
@@ -16406,10 +16454,10 @@ Wall time: 135 ms
     <span class="n">transformed_train_data</span> <span class="o">=</span> <span class="n">pipeline_fit</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
     <span class="n">transformed_test_data</span> <span class="o">=</span> <span class="n">pipeline_fit</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
     
-    <span class="n">transformed_train_data</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/preprocessed_ML/train_3/&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;overwrite&quot;</span><span class="p">)</span>
-    <span class="n">transformed_test_data</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/preprocessed_ML/test_3/&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;overwrite&quot;</span><span class="p">)</span>
+    <span class="n">transformed_train_data</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/preprocessed_ML/train_3/"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"overwrite"</span><span class="p">)</span>
+    <span class="n">transformed_test_data</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/preprocessed_ML/test_3/"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"overwrite"</span><span class="p">)</span>
     
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
@@ -16424,7 +16472,9 @@ Wall time: 135 ms
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16448,17 +16498,17 @@ Wall time: 135 ms
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;project-group34&quot;</span>
-<span class="n">s3_path</span> <span class="o">=</span> <span class="s2">&quot;s3a://project-group34/project/submissions/cleaned_ML_3/&quot;</span>
+<span class="n">bucket</span> <span class="o">=</span> <span class="s2">"project-group34"</span>
+<span class="n">s3_path</span> <span class="o">=</span> <span class="s2">"s3a://project-group34/project/submissions/cleaned_ML_3/"</span>
 
 <span class="c1"># run the job now, the arguments array is provided as command line to the Python script (Spark code in this case).</span>
 <span class="n">spark_processor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">submit_app</span><span class="o">=</span><span class="s2">&quot;./code/preprocess_ml3.py&quot;</span><span class="p">,</span>
+    <span class="n">submit_app</span><span class="o">=</span><span class="s2">"./code/preprocess_ml3.py"</span><span class="p">,</span>
     <span class="n">arguments</span><span class="o">=</span><span class="p">[</span>
-        <span class="s2">&quot;--s3_dataset_path&quot;</span><span class="p">,</span>
+        <span class="s2">"--s3_dataset_path"</span><span class="p">,</span>
         <span class="n">s3_path</span><span class="p">,</span>
     <span class="p">],</span>
-    <span class="n">spark_event_logs_s3_uri</span><span class="o">=</span><span class="s2">&quot;s3://</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/spark_event_logs&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">output_prefix_logs</span><span class="p">),</span>
+    <span class="n">spark_event_logs_s3_uri</span><span class="o">=</span><span class="s2">"s3://</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/spark_event_logs"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">output_prefix_logs</span><span class="p">),</span>
     <span class="n">logs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">configuration</span><span class="o">=</span><span class="n">configuration</span>
 <span class="p">)</span>
@@ -16475,7 +16525,9 @@ Wall time: 135 ms
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16485,7 +16537,9 @@ Wall time: 135 ms
 </pre>
 </div>
 </div>
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16518,7 +16572,7 @@ Wall time: 8min 55s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> ./code/ml_train_lr3.py
@@ -16540,7 +16594,7 @@ Wall time: 8min 55s
 <span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">length</span>
 
 
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1">,</span><span class="si">%(levelname)s</span><span class="s1">,</span><span class="si">%(module)s</span><span class="s1">,</span><span class="si">%(filename)s</span><span class="s1">,</span><span class="si">%(lineno)d</span><span class="s1">,</span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1">,</span><span class="si">%(levelname)s</span><span class="s1">,</span><span class="si">%(module)s</span><span class="s1">,</span><span class="si">%(filename)s</span><span class="s1">,</span><span class="si">%(lineno)d</span><span class="s1">,</span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">))</span>
@@ -16548,33 +16602,33 @@ Wall time: 8min 55s
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 
     <span class="n">spark</span> <span class="o">=</span> <span class="p">(</span><span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span>\
-             <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;PySparkApp&quot;</span><span class="p">)</span>\
-             <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.jars.packages&quot;</span><span class="p">,</span> <span class="s2">&quot;org.apache.hadoop:hadoop-aws:3.2.2&quot;</span><span class="p">)</span>\
+             <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">"PySparkApp"</span><span class="p">)</span>\
+             <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.jars.packages"</span><span class="p">,</span> <span class="s2">"org.apache.hadoop:hadoop-aws:3.2.2"</span><span class="p">)</span>\
              <span class="o">.</span><span class="n">config</span><span class="p">(</span>
-                    <span class="s2">&quot;fs.s3a.aws.credentials.provider&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;com.amazonaws.auth.ContainerCredentialsProvider&quot;</span><span class="p">,</span>
+                    <span class="s2">"fs.s3a.aws.credentials.provider"</span><span class="p">,</span>
+                    <span class="s2">"com.amazonaws.auth.ContainerCredentialsProvider"</span><span class="p">,</span>
                 <span class="p">)</span>\
     <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 <span class="p">)</span>
     
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spark version: </span><span class="si">{</span><span class="n">spark</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Spark version: </span><span class="si">{</span><span class="n">spark</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     
     <span class="c1"># This is needed to save RDDs which is the only way to write nested Dataframes into CSV format</span>
     <span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
     <span class="n">sc</span><span class="o">.</span><span class="n">_jsc</span><span class="o">.</span><span class="n">hadoopConfiguration</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-        <span class="s2">&quot;mapred.output.committer.class&quot;</span><span class="p">,</span> <span class="s2">&quot;org.apache.hadoop.mapred.FileOutputCommitter&quot;</span>
+        <span class="s2">"mapred.output.committer.class"</span><span class="p">,</span> <span class="s2">"org.apache.hadoop.mapred.FileOutputCommitter"</span>
     <span class="p">)</span>
 
     <span class="c1"># Downloading the data from S3 into a Dataframe</span>
-    <span class="n">transformed_train_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/preprocessed_ML/train_3/&quot;</span><span class="p">)</span>
-    <span class="n">transformed_test_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/preprocessed_ML/test_3/&quot;</span><span class="p">)</span>
+    <span class="n">transformed_train_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/preprocessed_ML/train_3/"</span><span class="p">)</span>
+    <span class="n">transformed_test_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/preprocessed_ML/test_3/"</span><span class="p">)</span>
     
     <span class="c1"># RandomForestClassifier without hyperparameter tuning</span>
-    <span class="n">lr_classifier</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="s2">&quot;is_popular_ix&quot;</span><span class="p">,</span> 
-                                           <span class="n">featuresCol</span><span class="o">=</span><span class="s2">&quot;combined_features&quot;</span><span class="p">)</span>
-    <span class="n">labelConverter</span> <span class="o">=</span> <span class="n">IndexToString</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">,</span> 
-                               <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;predictedPopularity&quot;</span><span class="p">,</span> 
-                               <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">])</span>
+    <span class="n">lr_classifier</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="s2">"is_popular_ix"</span><span class="p">,</span> 
+                                           <span class="n">featuresCol</span><span class="o">=</span><span class="s2">"combined_features"</span><span class="p">)</span>
+    <span class="n">labelConverter</span> <span class="o">=</span> <span class="n">IndexToString</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"prediction"</span><span class="p">,</span> 
+                               <span class="n">outputCol</span><span class="o">=</span><span class="s2">"predictedPopularity"</span><span class="p">,</span> 
+                               <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">"0"</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">])</span>
 
     <span class="c1"># Add the best model and labelConverter to the pipeline</span>
     <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">lr_classifier</span><span class="p">,</span> 
@@ -16587,13 +16641,13 @@ Wall time: 8min 55s
     <span class="c1"># Transform the data with the best model</span>
     <span class="n">test_predictions</span> <span class="o">=</span> <span class="n">pipeline_fit</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">transformed_test_data</span><span class="p">)</span>
     
-    <span class="n">train_predictions</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/lr/train_pred_3/&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;overwrite&quot;</span><span class="p">)</span>    
-    <span class="n">test_predictions</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/lr/test_pred_3/&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;overwrite&quot;</span><span class="p">)</span>
-    <span class="n">pipeline_fit</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/lr/model1/&quot;</span><span class="p">)</span>
+    <span class="n">train_predictions</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/lr/train_pred_3/"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"overwrite"</span><span class="p">)</span>    
+    <span class="n">test_predictions</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/lr/test_pred_3/"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"overwrite"</span><span class="p">)</span>
+    <span class="n">pipeline_fit</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/lr/model1/"</span><span class="p">)</span>
     
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;all done...&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"all done..."</span><span class="p">)</span>
     
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
@@ -16608,7 +16662,9 @@ Wall time: 8min 55s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16628,16 +16684,16 @@ Wall time: 8min 55s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;project-group34&quot;</span>
+<span class="n">bucket</span> <span class="o">=</span> <span class="s2">"project-group34"</span>
 
 <span class="c1"># run the job now, the arguments array is provided as command line to the Python script (Spark code in this case).</span>
 <span class="n">spark_processor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">submit_app</span><span class="o">=</span><span class="s2">&quot;./code/ml_train_lr3.py&quot;</span><span class="p">,</span>
-    <span class="n">spark_event_logs_s3_uri</span><span class="o">=</span><span class="s2">&quot;s3://</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/spark_event_logs&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">output_prefix_logs</span><span class="p">),</span>
+    <span class="n">submit_app</span><span class="o">=</span><span class="s2">"./code/ml_train_lr3.py"</span><span class="p">,</span>
+    <span class="n">spark_event_logs_s3_uri</span><span class="o">=</span><span class="s2">"s3://</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/spark_event_logs"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">output_prefix_logs</span><span class="p">),</span>
     <span class="n">logs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">configuration</span><span class="o">=</span><span class="n">configuration</span>
 <span class="p">)</span>
@@ -16654,7 +16710,9 @@ Wall time: 8min 55s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16664,7 +16722,9 @@ Wall time: 8min 55s
 </pre>
 </div>
 </div>
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16719,7 +16779,7 @@ Wall time: 12min 56s
 <span class="kn">from</span> <span class="nn">pyspark.sql.functions</span> <span class="kn">import</span> <span class="n">length</span>
 
 
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1">,</span><span class="si">%(levelname)s</span><span class="s1">,</span><span class="si">%(module)s</span><span class="s1">,</span><span class="si">%(filename)s</span><span class="s1">,</span><span class="si">%(lineno)d</span><span class="s1">,</span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1">,</span><span class="si">%(levelname)s</span><span class="s1">,</span><span class="si">%(module)s</span><span class="s1">,</span><span class="si">%(filename)s</span><span class="s1">,</span><span class="si">%(lineno)d</span><span class="s1">,</span><span class="si">%(message)s</span><span class="s1">'</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">))</span>
@@ -16727,33 +16787,33 @@ Wall time: 12min 56s
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 
     <span class="n">spark</span> <span class="o">=</span> <span class="p">(</span><span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span>\
-             <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;PySparkApp&quot;</span><span class="p">)</span>\
-             <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.jars.packages&quot;</span><span class="p">,</span> <span class="s2">&quot;org.apache.hadoop:hadoop-aws:3.2.2&quot;</span><span class="p">)</span>\
+             <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">"PySparkApp"</span><span class="p">)</span>\
+             <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.jars.packages"</span><span class="p">,</span> <span class="s2">"org.apache.hadoop:hadoop-aws:3.2.2"</span><span class="p">)</span>\
              <span class="o">.</span><span class="n">config</span><span class="p">(</span>
-                    <span class="s2">&quot;fs.s3a.aws.credentials.provider&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;com.amazonaws.auth.ContainerCredentialsProvider&quot;</span><span class="p">,</span>
+                    <span class="s2">"fs.s3a.aws.credentials.provider"</span><span class="p">,</span>
+                    <span class="s2">"com.amazonaws.auth.ContainerCredentialsProvider"</span><span class="p">,</span>
                 <span class="p">)</span>\
     <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 <span class="p">)</span>
     
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spark version: </span><span class="si">{</span><span class="n">spark</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Spark version: </span><span class="si">{</span><span class="n">spark</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     
     <span class="c1"># This is needed to save RDDs which is the only way to write nested Dataframes into CSV format</span>
     <span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
     <span class="n">sc</span><span class="o">.</span><span class="n">_jsc</span><span class="o">.</span><span class="n">hadoopConfiguration</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
-        <span class="s2">&quot;mapred.output.committer.class&quot;</span><span class="p">,</span> <span class="s2">&quot;org.apache.hadoop.mapred.FileOutputCommitter&quot;</span>
+        <span class="s2">"mapred.output.committer.class"</span><span class="p">,</span> <span class="s2">"org.apache.hadoop.mapred.FileOutputCommitter"</span>
     <span class="p">)</span>
 
     <span class="c1"># Downloading the data from S3 into a Dataframe</span>
-    <span class="n">transformed_train_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/preprocessed_ML/train_3/&quot;</span><span class="p">)</span>
-    <span class="n">transformed_test_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/preprocessed_ML/test_3/&quot;</span><span class="p">)</span>
+    <span class="n">transformed_train_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/preprocessed_ML/train_3/"</span><span class="p">)</span>
+    <span class="n">transformed_test_data</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/preprocessed_ML/test_3/"</span><span class="p">)</span>
     
     <span class="c1"># RandomForestClassifier without hyperparameter tuning</span>
-    <span class="n">dt_classifier</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="s2">&quot;is_popular_ix&quot;</span><span class="p">,</span> 
-                                           <span class="n">featuresCol</span><span class="o">=</span><span class="s2">&quot;combined_features&quot;</span><span class="p">)</span>
-    <span class="n">labelConverter</span> <span class="o">=</span> <span class="n">IndexToString</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">,</span> 
-                               <span class="n">outputCol</span><span class="o">=</span><span class="s2">&quot;predictedPopularity&quot;</span><span class="p">,</span> 
-                               <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">])</span>
+    <span class="n">dt_classifier</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="s2">"is_popular_ix"</span><span class="p">,</span> 
+                                           <span class="n">featuresCol</span><span class="o">=</span><span class="s2">"combined_features"</span><span class="p">)</span>
+    <span class="n">labelConverter</span> <span class="o">=</span> <span class="n">IndexToString</span><span class="p">(</span><span class="n">inputCol</span><span class="o">=</span><span class="s2">"prediction"</span><span class="p">,</span> 
+                               <span class="n">outputCol</span><span class="o">=</span><span class="s2">"predictedPopularity"</span><span class="p">,</span> 
+                               <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">"0"</span><span class="p">,</span> <span class="s2">"1"</span><span class="p">])</span>
 
     <span class="c1"># Add the best model and labelConverter to the pipeline</span>
     <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="n">dt_classifier</span><span class="p">,</span> 
@@ -16766,13 +16826,13 @@ Wall time: 12min 56s
     <span class="c1"># Transform the data with the best model</span>
     <span class="n">test_predictions</span> <span class="o">=</span> <span class="n">pipeline_fit</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">transformed_test_data</span><span class="p">)</span>
     
-    <span class="n">train_predictions</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/dt/train_pred_3/&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;overwrite&quot;</span><span class="p">)</span>    
-    <span class="n">test_predictions</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/dt/test_pred_3/&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;overwrite&quot;</span><span class="p">)</span>
-    <span class="n">pipeline_fit</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/dt/model1/&quot;</span><span class="p">)</span>
+    <span class="n">train_predictions</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/dt/train_pred_3/"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"overwrite"</span><span class="p">)</span>    
+    <span class="n">test_predictions</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/dt/test_pred_3/"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"overwrite"</span><span class="p">)</span>
+    <span class="n">pipeline_fit</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/dt/model1/"</span><span class="p">)</span>
     
-    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;all done...&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"all done..."</span><span class="p">)</span>
     
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
@@ -16790,12 +16850,12 @@ Wall time: 12min 56s
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
-<span class="n">bucket</span> <span class="o">=</span> <span class="s2">&quot;project-group34&quot;</span>
+<span class="n">bucket</span> <span class="o">=</span> <span class="s2">"project-group34"</span>
 
 <span class="c1"># run the job now, the arguments array is provided as command line to the Python script (Spark code in this case).</span>
 <span class="n">spark_processor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">submit_app</span><span class="o">=</span><span class="s2">&quot;./code/ml_train_dt3.py&quot;</span><span class="p">,</span>
-    <span class="n">spark_event_logs_s3_uri</span><span class="o">=</span><span class="s2">&quot;s3://</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/spark_event_logs&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">output_prefix_logs</span><span class="p">),</span>
+    <span class="n">submit_app</span><span class="o">=</span><span class="s2">"./code/ml_train_dt3.py"</span><span class="p">,</span>
+    <span class="n">spark_event_logs_s3_uri</span><span class="o">=</span><span class="s2">"s3://</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/spark_event_logs"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span> <span class="n">output_prefix_logs</span><span class="p">),</span>
     <span class="n">logs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">configuration</span><span class="o">=</span><span class="n">configuration</span>
 <span class="p">)</span>
@@ -16823,7 +16883,7 @@ Wall time: 12min 56s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import pyspark and build Spark session</span>
@@ -16831,15 +16891,15 @@ Wall time: 12min 56s
 
 <span class="c1"># Import pyspark and build Spark session</span>
 <span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span> \
-    <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;Spark NLP&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&quot;local[*]&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.driver.memory&quot;</span><span class="p">,</span><span class="s2">&quot;16G&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.executor.memory&quot;</span><span class="p">,</span> <span class="s2">&quot;12g&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.executor.cores&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">)</span>\
-    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.jars.packages&quot;</span><span class="p">,</span> <span class="s2">&quot;com.johnsnowlabs.nlp:spark-nlp_2.12:5.1.3,org.apache.hadoop:hadoop-aws:3.2.2&quot;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">"Spark NLP"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">"local[*]"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.driver.memory"</span><span class="p">,</span><span class="s2">"16G"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.executor.memory"</span><span class="p">,</span> <span class="s2">"12g"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.executor.cores"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.jars.packages"</span><span class="p">,</span> <span class="s2">"com.johnsnowlabs.nlp:spark-nlp_2.12:5.1.3,org.apache.hadoop:hadoop-aws:3.2.2"</span><span class="p">)</span>\
     <span class="o">.</span><span class="n">config</span><span class="p">(</span>
-            <span class="s2">&quot;fs.s3a.aws.credentials.provider&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;com.amazonaws.auth.ContainerCredentialsProvider&quot;</span>
+            <span class="s2">"fs.s3a.aws.credentials.provider"</span><span class="p">,</span>
+            <span class="s2">"com.amazonaws.auth.ContainerCredentialsProvider"</span>
     <span class="p">)</span>\
     <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 
@@ -16857,7 +16917,9 @@ Wall time: 12min 56s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16877,10 +16939,10 @@ Wall time: 12min 56s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transformed_train_lr</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/lr/train_pred_3/&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transformed_train_lr</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/lr/train_pred_3/"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16894,7 +16956,9 @@ Wall time: 12min 56s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16914,10 +16978,10 @@ Wall time: 12min 56s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transformed_test_lr</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/lr/test_pred_3/&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transformed_test_lr</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/lr/test_pred_3/"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16931,7 +16995,9 @@ Wall time: 12min 56s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16950,10 +17016,10 @@ Wall time: 12min 56s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transformed_train_dt</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/dt/train_pred_3/&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transformed_train_dt</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/dt/train_pred_3/"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16967,7 +17033,9 @@ Wall time: 12min 56s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16986,10 +17054,10 @@ Wall time: 12min 56s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transformed_test_dt</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3a://project-group34/project/submissions/dt/test_pred_3/&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">transformed_test_dt</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">"s3a://project-group34/project/submissions/dt/test_pred_3/"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17003,7 +17071,9 @@ Wall time: 12min 56s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17022,10 +17092,10 @@ Wall time: 12min 56s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">evaluator</span> <span class="o">=</span> <span class="n">MulticlassClassificationEvaluator</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="s2">&quot;is_popular_ix&quot;</span><span class="p">,</span> <span class="n">predictionCol</span><span class="o">=</span><span class="s2">&quot;prediction&quot;</span><span class="p">,</span> <span class="n">metricName</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">evaluator</span> <span class="o">=</span> <span class="n">MulticlassClassificationEvaluator</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="s2">"is_popular_ix"</span><span class="p">,</span> <span class="n">predictionCol</span><span class="o">=</span><span class="s2">"prediction"</span><span class="p">,</span> <span class="n">metricName</span><span class="o">=</span><span class="s2">"accuracy"</span><span class="p">)</span>
 <span class="n">accuracy_lr_train</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">transformed_train_lr</span><span class="p">)</span>
 <span class="n">accuracy_lr_test</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">transformed_test_lr</span><span class="p">)</span>
 <span class="n">accuracy_dt_train</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">transformed_train_dt</span><span class="p">)</span>
@@ -17043,7 +17113,9 @@ Wall time: 12min 56s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17062,25 +17134,25 @@ Wall time: 12min 56s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Function to calculate metrics</span>
 <span class="k">def</span> <span class="nf">compute_metrics</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">label_col</span><span class="p">,</span> <span class="n">prediction_col</span><span class="p">):</span>
     <span class="n">evaluator</span> <span class="o">=</span> <span class="n">MulticlassClassificationEvaluator</span><span class="p">(</span><span class="n">labelCol</span><span class="o">=</span><span class="n">label_col</span><span class="p">,</span> <span class="n">predictionCol</span><span class="o">=</span><span class="n">prediction_col</span><span class="p">)</span>
-    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;accuracy&quot;</span><span class="p">})</span>
-    <span class="n">f1</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;f1&quot;</span><span class="p">})</span>
-    <span class="n">precision</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;weightedPrecision&quot;</span><span class="p">})</span>
-    <span class="n">recall</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">&quot;weightedRecall&quot;</span><span class="p">})</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">"accuracy"</span><span class="p">})</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">"f1"</span><span class="p">})</span>
+    <span class="n">precision</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">"weightedPrecision"</span><span class="p">})</span>
+    <span class="n">recall</span> <span class="o">=</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">{</span><span class="n">evaluator</span><span class="o">.</span><span class="n">metricName</span><span class="p">:</span> <span class="s2">"weightedRecall"</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">accuracy</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span>
 
 <span class="c1"># Calculate metrics for the default model</span>
-<span class="n">accuracy_lr_train</span><span class="p">,</span> <span class="n">f1_lr_train</span><span class="p">,</span> <span class="n">precision_lr_train</span><span class="p">,</span> <span class="n">recall_lr_train</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">transformed_train_lr</span><span class="p">,</span> <span class="s2">&quot;is_popular_ix&quot;</span><span class="p">,</span> <span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
-<span class="n">accuracy_lr_test</span><span class="p">,</span> <span class="n">f1_lr_test</span><span class="p">,</span> <span class="n">precision_lr_test</span><span class="p">,</span> <span class="n">recall_lr_test</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">transformed_test_lr</span><span class="p">,</span> <span class="s2">&quot;is_popular_ix&quot;</span><span class="p">,</span> <span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
+<span class="n">accuracy_lr_train</span><span class="p">,</span> <span class="n">f1_lr_train</span><span class="p">,</span> <span class="n">precision_lr_train</span><span class="p">,</span> <span class="n">recall_lr_train</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">transformed_train_lr</span><span class="p">,</span> <span class="s2">"is_popular_ix"</span><span class="p">,</span> <span class="s2">"prediction"</span><span class="p">)</span>
+<span class="n">accuracy_lr_test</span><span class="p">,</span> <span class="n">f1_lr_test</span><span class="p">,</span> <span class="n">precision_lr_test</span><span class="p">,</span> <span class="n">recall_lr_test</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">transformed_test_lr</span><span class="p">,</span> <span class="s2">"is_popular_ix"</span><span class="p">,</span> <span class="s2">"prediction"</span><span class="p">)</span>
 
 <span class="c1"># Calculate metrics for the model with hyperparameters</span>
-<span class="n">accuracy_dt_train</span><span class="p">,</span> <span class="n">f1_dt_train</span><span class="p">,</span> <span class="n">precision_dt_train</span><span class="p">,</span> <span class="n">recall_dt_train</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">transformed_train_dt</span><span class="p">,</span> <span class="s2">&quot;is_popular_ix&quot;</span><span class="p">,</span> <span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
-<span class="n">accuracy_dt_test</span><span class="p">,</span> <span class="n">f1_dt_test</span><span class="p">,</span> <span class="n">precision_dt_test</span><span class="p">,</span> <span class="n">recall_dt_test</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">transformed_test_dt</span><span class="p">,</span> <span class="s2">&quot;is_popular_ix&quot;</span><span class="p">,</span> <span class="s2">&quot;prediction&quot;</span><span class="p">)</span>
+<span class="n">accuracy_dt_train</span><span class="p">,</span> <span class="n">f1_dt_train</span><span class="p">,</span> <span class="n">precision_dt_train</span><span class="p">,</span> <span class="n">recall_dt_train</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">transformed_train_dt</span><span class="p">,</span> <span class="s2">"is_popular_ix"</span><span class="p">,</span> <span class="s2">"prediction"</span><span class="p">)</span>
+<span class="n">accuracy_dt_test</span><span class="p">,</span> <span class="n">f1_dt_test</span><span class="p">,</span> <span class="n">precision_dt_test</span><span class="p">,</span> <span class="n">recall_dt_test</span> <span class="o">=</span> <span class="n">compute_metrics</span><span class="p">(</span><span class="n">transformed_test_dt</span><span class="p">,</span> <span class="s2">"is_popular_ix"</span><span class="p">,</span> <span class="s2">"prediction"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17094,7 +17166,9 @@ Wall time: 12min 56s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17113,20 +17187,20 @@ Wall time: 12min 56s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a DataFrame with the metrics</span>
 <span class="n">metrics_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Logistic Regression&#39;</span><span class="p">,</span> <span class="s1">&#39;Decision Tree&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;Accuracy Train&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">accuracy_lr_train</span><span class="p">,</span> <span class="n">accuracy_dt_train</span><span class="p">],</span>
-    <span class="s1">&#39;Accuracy Test&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">accuracy_lr_test</span><span class="p">,</span> <span class="n">accuracy_dt_test</span><span class="p">],</span>
-    <span class="s1">&#39;F1 Score Train&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">f1_lr_train</span><span class="p">,</span> <span class="n">f1_dt_train</span><span class="p">],</span>
-    <span class="s1">&#39;F1 Score Test&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">f1_lr_test</span><span class="p">,</span> <span class="n">f1_dt_test</span><span class="p">],</span>
-    <span class="s1">&#39;Precision Train&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">precision_lr_train</span><span class="p">,</span> <span class="n">precision_dt_train</span><span class="p">],</span>
-    <span class="s1">&#39;Precision Test&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">precision_lr_test</span><span class="p">,</span> <span class="n">precision_dt_test</span><span class="p">],</span>
-    <span class="s1">&#39;Recall Train&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">recall_lr_train</span><span class="p">,</span> <span class="n">recall_dt_train</span><span class="p">],</span>
-    <span class="s1">&#39;Recall Test&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">recall_lr_test</span><span class="p">,</span> <span class="n">recall_dt_test</span><span class="p">]</span>
+    <span class="s1">'Model'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Logistic Regression'</span><span class="p">,</span> <span class="s1">'Decision Tree'</span><span class="p">],</span>
+    <span class="s1">'Accuracy Train'</span><span class="p">:</span> <span class="p">[</span><span class="n">accuracy_lr_train</span><span class="p">,</span> <span class="n">accuracy_dt_train</span><span class="p">],</span>
+    <span class="s1">'Accuracy Test'</span><span class="p">:</span> <span class="p">[</span><span class="n">accuracy_lr_test</span><span class="p">,</span> <span class="n">accuracy_dt_test</span><span class="p">],</span>
+    <span class="s1">'F1 Score Train'</span><span class="p">:</span> <span class="p">[</span><span class="n">f1_lr_train</span><span class="p">,</span> <span class="n">f1_dt_train</span><span class="p">],</span>
+    <span class="s1">'F1 Score Test'</span><span class="p">:</span> <span class="p">[</span><span class="n">f1_lr_test</span><span class="p">,</span> <span class="n">f1_dt_test</span><span class="p">],</span>
+    <span class="s1">'Precision Train'</span><span class="p">:</span> <span class="p">[</span><span class="n">precision_lr_train</span><span class="p">,</span> <span class="n">precision_dt_train</span><span class="p">],</span>
+    <span class="s1">'Precision Test'</span><span class="p">:</span> <span class="p">[</span><span class="n">precision_lr_test</span><span class="p">,</span> <span class="n">precision_dt_test</span><span class="p">],</span>
+    <span class="s1">'Recall Train'</span><span class="p">:</span> <span class="p">[</span><span class="n">recall_lr_train</span><span class="p">,</span> <span class="n">recall_dt_train</span><span class="p">],</span>
+    <span class="s1">'Recall Test'</span><span class="p">:</span> <span class="p">[</span><span class="n">recall_lr_test</span><span class="p">,</span> <span class="n">recall_dt_test</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="n">metrics_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">metrics_data</span><span class="p">)</span>
@@ -17144,9 +17218,11 @@ Wall time: 12min 56s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+
+<div class="jp-OutputArea-child">
+
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
@@ -17221,13 +17297,13 @@ Wall time: 12min 56s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_pred_lr_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">transformed_test_lr</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;prediction&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()]</span>
-<span class="n">y_orig_lr_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;is_popular_ix&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">transformed_test_lr</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;is_popular_ix&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()]</span>
-<span class="n">y_pred_dt_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">transformed_test_dt</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;prediction&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()]</span>
-<span class="n">y_orig_dt_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;is_popular_ix&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">transformed_test_dt</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;is_popular_ix&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_pred_lr_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'prediction'</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">transformed_test_lr</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"prediction"</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()]</span>
+<span class="n">y_orig_lr_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'is_popular_ix'</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">transformed_test_lr</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"is_popular_ix"</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()]</span>
+<span class="n">y_pred_dt_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'prediction'</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">transformed_test_dt</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"prediction"</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()]</span>
+<span class="n">y_orig_dt_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'is_popular_ix'</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">transformed_test_dt</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"is_popular_ix"</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()]</span>
 </pre></div>
 
      </div>
@@ -17241,7 +17317,9 @@ Wall time: 12min 56s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17260,7 +17338,7 @@ Wall time: 12min 56s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create confusion matrix</span>
@@ -17278,16 +17356,16 @@ Wall time: 12min 56s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot heatmap</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm_lr</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;YlOrBr&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">yticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Not popular&quot;</span><span class="p">,</span> <span class="s2">&quot;Popular&quot;</span><span class="p">],</span> <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Not popular&quot;</span><span class="p">,</span> <span class="s2">&quot;Popular&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Label&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted Label&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix for Logistic Regression Model&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../../data/plots/confusion_matrix_lr_classification.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm_lr</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">"d"</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"YlOrBr"</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">yticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">"Not popular"</span><span class="p">,</span> <span class="s2">"Popular"</span><span class="p">],</span> <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">"Not popular"</span><span class="p">,</span> <span class="s2">"Popular"</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'True Label'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Predicted Label'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Confusion Matrix for Logistic Regression Model'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"../../data/plots/confusion_matrix_lr_classification.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -17302,7 +17380,9 @@ Wall time: 12min 56s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17327,16 +17407,16 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot heatmap</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm_dt</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;YlOrBr&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">yticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Not popular&quot;</span><span class="p">,</span> <span class="s2">&quot;Popular&quot;</span><span class="p">],</span> <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Not popular&quot;</span><span class="p">,</span> <span class="s2">&quot;Popular&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Label&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted Label&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix for Decision Tree Model&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../../data/plots/confusion_matrix_dt_classification.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm_dt</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">"d"</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"YlOrBr"</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">yticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">"Not popular"</span><span class="p">,</span> <span class="s2">"Popular"</span><span class="p">],</span> <span class="n">xticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">"Not popular"</span><span class="p">,</span> <span class="s2">"Popular"</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'True Label'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Predicted Label'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Confusion Matrix for Decision Tree Model'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"../../data/plots/confusion_matrix_dt_classification.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -17351,7 +17431,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17376,25 +17458,25 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Function to extract the probability of the positive class</span>
 <span class="n">get_probability</span> <span class="o">=</span> <span class="n">udf</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">FloatType</span><span class="p">())</span>
 
 <span class="c1"># Add a new column with the probability for the positive class</span>
-<span class="n">roc_data_lr</span> <span class="o">=</span> <span class="n">transformed_test_lr</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;positive_probability&quot;</span><span class="p">,</span> <span class="n">get_probability</span><span class="p">(</span><span class="s2">&quot;probability&quot;</span><span class="p">))</span>
-<span class="n">roc_data_dt</span> <span class="o">=</span> <span class="n">transformed_test_dt</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;positive_probability&quot;</span><span class="p">,</span> <span class="n">get_probability</span><span class="p">(</span><span class="s2">&quot;probability&quot;</span><span class="p">))</span>
+<span class="n">roc_data_lr</span> <span class="o">=</span> <span class="n">transformed_test_lr</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">"positive_probability"</span><span class="p">,</span> <span class="n">get_probability</span><span class="p">(</span><span class="s2">"probability"</span><span class="p">))</span>
+<span class="n">roc_data_dt</span> <span class="o">=</span> <span class="n">transformed_test_dt</span><span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">"positive_probability"</span><span class="p">,</span> <span class="n">get_probability</span><span class="p">(</span><span class="s2">"probability"</span><span class="p">))</span>
 
 <span class="c1"># Collect the data</span>
-<span class="n">roc_data_lr</span> <span class="o">=</span> <span class="n">roc_data_lr</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;positive_probability&quot;</span><span class="p">,</span> <span class="s2">&quot;is_popular_ix&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
-<span class="n">roc_data_dt</span> <span class="o">=</span> <span class="n">roc_data_dt</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;positive_probability&quot;</span><span class="p">,</span> <span class="s2">&quot;is_popular_ix&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+<span class="n">roc_data_lr</span> <span class="o">=</span> <span class="n">roc_data_lr</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"positive_probability"</span><span class="p">,</span> <span class="s2">"is_popular_ix"</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+<span class="n">roc_data_dt</span> <span class="o">=</span> <span class="n">roc_data_dt</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"positive_probability"</span><span class="p">,</span> <span class="s2">"is_popular_ix"</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
 
 <span class="c1"># Probabilities and actual labels</span>
-<span class="n">y_probs_lr</span> <span class="o">=</span> <span class="n">roc_data_lr</span><span class="p">[</span><span class="s1">&#39;positive_probability&#39;</span><span class="p">]</span>
-<span class="n">y_orig_lr</span> <span class="o">=</span> <span class="n">roc_data_lr</span><span class="p">[</span><span class="s1">&#39;is_popular_ix&#39;</span><span class="p">]</span>
-<span class="n">y_probs_dt</span> <span class="o">=</span> <span class="n">roc_data_dt</span><span class="p">[</span><span class="s1">&#39;positive_probability&#39;</span><span class="p">]</span>
-<span class="n">y_orig_dt</span> <span class="o">=</span> <span class="n">roc_data_dt</span><span class="p">[</span><span class="s1">&#39;is_popular_ix&#39;</span><span class="p">]</span>
+<span class="n">y_probs_lr</span> <span class="o">=</span> <span class="n">roc_data_lr</span><span class="p">[</span><span class="s1">'positive_probability'</span><span class="p">]</span>
+<span class="n">y_orig_lr</span> <span class="o">=</span> <span class="n">roc_data_lr</span><span class="p">[</span><span class="s1">'is_popular_ix'</span><span class="p">]</span>
+<span class="n">y_probs_dt</span> <span class="o">=</span> <span class="n">roc_data_dt</span><span class="p">[</span><span class="s1">'positive_probability'</span><span class="p">]</span>
+<span class="n">y_orig_dt</span> <span class="o">=</span> <span class="n">roc_data_dt</span><span class="p">[</span><span class="s1">'is_popular_ix'</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -17408,7 +17490,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17427,7 +17511,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_orig_lr</span><span class="p">,</span> <span class="n">y_probs_lr</span><span class="p">)</span> <span class="c1">#ROC curve points</span>
@@ -17435,15 +17519,15 @@ class="
 
 <span class="c1"># Plotting roc curve</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#ff4301&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ROC curve (area = </span><span class="si">{</span><span class="n">roc_auc_lr</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'#ff4301'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'ROC curve (area = </span><span class="si">{</span><span class="n">roc_auc_lr</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'lightgrey'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ROC Curve for Logistic Regression Model&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../../data/plots/ROC_lr_classification.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'False Positive Rate'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'True Positive Rate'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'ROC Curve for Logistic Regression Model'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"../../data/plots/ROC_lr_classification.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -17458,7 +17542,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17483,7 +17569,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_orig_dt</span><span class="p">,</span> <span class="n">y_probs_dt</span><span class="p">)</span> <span class="c1">#ROC curve points</span>
@@ -17491,15 +17577,15 @@ class="
 
 <span class="c1"># Plottings</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#ff4301&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ROC curve (area = </span><span class="si">{</span><span class="n">roc_auc_dt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'#ff4301'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">'ROC curve (area = </span><span class="si">{</span><span class="n">roc_auc_dt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'lightgrey'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;ROC Curve for Decision Tree Model&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../../data/plots/ROC_dt_classification.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'False Positive Rate'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'True Positive Rate'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'ROC Curve for Decision Tree Model'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">"../../data/plots/ROC_dt_classification.png"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -17514,7 +17600,9 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
+
 <div class="jp-OutputArea-child">
+
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 

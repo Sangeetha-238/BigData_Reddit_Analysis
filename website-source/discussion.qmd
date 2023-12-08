@@ -1,0 +1,69 @@
+---
+title: "Feedback Report"
+format:
+  html:
+    toc: false
+    page-layout: full
+---
+
+## Overall
+
+1. You have no links to your source code anywhere which is a problem. However, I do appreciate the narrative structure of the website. The code should be linked and available from the site
+    - We have now added the link to the source code for every notebook in the Analysis Report of each section in the website.
+
+## EDA
+
+1. Use of the sunburst plot for seeing temporal distribution was consistent, but maybe not successful, since there isn't enough variation in the colors to see any patterns. A line plot might have done better. 
+    - We decided to incorporate the sunburst plot to describe distribution of posts over time (Hour of Day) since it resonated with the hands of a clock. We agree that the plot is not very successful in conveying the information. The plot showed only the distribution of count of posts over these time periods. In addition to this, we have added another sunburst plot to show the distribution of scores over these time periods. This plot is more successful in conveying the information.
+
+2. The gray background combined with black lettering in the table theme makes it a little hard to read.
+    - We have changed the background to a lighter shade of grey.The text was a dark shade of blue gray, and we have changed it to black so that it is more readable.
+
+3. How did you choose the threshold for "high scores" for Figure 7? 
+    - We have chosen top 10 posts for each subreddit based on their score. The authors of these posts are chosen as the authors who have posts with the top scores.
+
+4. Except for figure 5, you don't do any direct comparisons between the characteristics of the three subreddits. Are there more ways of seeing differences between the characteristics of the subreddits?
+    - The time series analysis of the reddit posts shows how characters of these subreddits are distributed over time. We have also added some meaningful insights of these plots showing the comparison between the subreddits. Additionally, we have also added a comparison of the subreddits based on if the submission post has any media content or not. All of the graphs are trying to explore the difference between the sub reddits.
+
+5. A table of contents along one side would be useful.
+    - Table of contents is added to each section of the report.
+
+## NLP
+
+1. Figure 1 can be better formatted instead of giving a raw screenshot
+    - We have added a new table showing 5 different samples of TF-IDF from our analysis.
+
+2. Rotten Tomatoes was your external data for this section. Might want to highlight it. 
+    - We have added a description about the 2 external datasets in the Sentiment Analysis section and also in the Anime analysis section to highlight the use of external data.
+
+3. For figures 5 and 6 and 8, you don't start an axis from 0. This needs to be used carefully, since it re-scales the information. Perhaps might want to consider starting from 0 for  Figure 6, so as not to accentuate the small differences between movies.
+    - The scales of all the graphs have been changed to start from 0.
+
+4. Maybe you could do a more direct comparison between reddit activity/sentiment and RT ratings using bivariate plots.
+    - The goal was to identify the movies most suggested on the movies and compare them with highest rated and well reviewed movies. We extracted the suggestions provided on reddit and compared them with their reviews provided by Rotten tomatoes. This connects the 2 different databases and provides us valuable information regarding different types of movies and anime suggested by users and their ratings in a real world review rating system. Since we connected these 2 in such a manner, we believed that a bivariate plot would not be necessary. 
+
+5. What does a radial bar chart gain you in Figure 7. Perhaps a plain bar chart would suffice
+    - We had added a radial bar chart to show the top suggested animes. It was added to account for the amount of already present bar charts in the report. Nonetheless, We have changed it to a bar chart to make it more readable.
+
+6. In figure 9, how are the categories determined?
+	- The external dataset is from a well known database collected from wikipedia and ontaru called MyAnimeList which provided the Reviews of all the Animes along with their genre. There are 95 different genres in anime. We have watched a significant amount of anime which provided us with domain knowledge which made us believe that these genres can be grouped together into 10 different categories. That is how the categories were determined.
+
+7. How much of the executive summary is AI? Please update based on the guidance provided in the Slack message by Prof. Marck on GenAI. This much use of AI is unacceptable, since it's no longer your own work. 
+
+    - We have used it for just spell check, grammar and punctuation, and to rephrase the sentences a few times. But when it comes to executive summary, the content is original and is written by the authors, we admit that we have used chat gpt only to use “correct” language, and to make the headings cooler. We have acknowledged the use in the website.
+
+## ML 
+
+1. What was your training/test split? 
+    - The training/test split has now been mentioned in the Analysis report and we also changed the section to “Data Pre-Processing for Modeling” for better structure.
+
+2. Did you use cross validation on the training set to develop and evaluate your models? 
+    - We did not use cross validation, because our dataset is sufficiently large, cross-validation is important when dealing with a smaller data set, the data has all the patterns for the training and so we have not used cross validation.
+
+3. Did you look at downsampling a number of times for the second model to see the robustness of the results to the downsampling?
+    - In the second model, downsampling was done to address class imbalance, ensuring a balanced representation of both 'popular' and 'not popular' classes. While downsampling significantly improved model performance, we did not explicitly conduct multiple iterations of downsampling to assess the robustness.
+    The decision to downsample was based on the aim to reduce the impact of class imbalance on model training and evaluation. In our case the data was stabilized through down sampling. Downsampling multiple times maybe would have improved the model. We could involve exploring the model to different downsampling ratios to see the consistency and performance of the model in future work.
+
+4. Don't put more than 3 decimal places in your slides
+    - We changed the tables and rounded the values to show 3 decimal points.
+
