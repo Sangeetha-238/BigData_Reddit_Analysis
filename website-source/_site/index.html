@@ -67,6 +67,11 @@ background-size: cover;
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/home_icon.png" alt="" class="navbar-logo">
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -115,6 +120,21 @@ background-size: cover;
  <span class="menu-text">Conclusion</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-github">    
+        <li>
+    <a class="dropdown-item" href="https://github.com/gu-dsan6000/fall-2023-reddit-project-team-34">
+ <span class="dropdown-text">Source Code</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -156,15 +176,29 @@ background-size: cover;
 
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
-<p>Reddit serves as a colossal online gathering where people, each with unique backgrounds, share stories, photos, and ideas within specialized communities known as subreddits. Users actively shape the platform by voting on content, creating a dynamic and human-driven experience that mirrors the diversity of our online world.</p>
-<p>Venturing into Reddit’s expansive digital realm, our exploration takes us deep into the heart of entertainment discussions. Our focal point is the dedicated subreddit for all things entertainment, where users converge to share, analyze, and celebrate the multifaceted cultural and media landscape. Tasked with revealing the hidden gems within, we utilize a curated subset of the Reddit Archive dataset, encapsulating the spirit of discussions from January to March 2023.</p>
-<p>Within the entertainment subreddit, we don’t merely observe trends; instead, we’re immersed in a vibrant tapestry of discussions. Our analysis aims to uncover the rhythms—echoing trends in popular media and subtle nuances defining user sentiments through a fusion of data science techniques, vivid visualizations, natural language processing and machine learning.</p>
+<p>Reddit functions as a massive virtual gathering where individuals from diverse backgrounds come together to share their stories, photos, and ideas within specialized communities called subreddits. Examining graph 1 below confirms Reddit’s popularity in major places like the USA, Canada, the UK, India, and more, where people engage in diverse conversations and shape the platform by voting on content, creating a dynamic and human-driven experience that mirrors the diversity of our online world. Plus, looking at graph 2 below, it’s safe to say that a lot of Reddit users are from Gen Z – that’s the young crowd. According to the <a href="https://www.redditinc.com/blog/gen-z-on-reddit/">blog</a>, Entertainment is among the top indexing interest groups for Gen Z on Reddit. And since movies, TV series, and anime are often made with them in mind, we thought it’d be cool to take a closer look at what people are posting and talking about on Reddit’s big entertainment spots: the movies, television, and anime subreddits.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/intro.gif" class="img-fluid figure-img" style="width:30.0%"></p>
+<p><img src="img/intro_country.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">graph 1 source: <a href="https://www.statista.com/chart/26423/percentage-of-regular-reddit-users-by-country/">link</a></figcaption><p></p>
 </figure>
 </div>
-<p>For the purpose of this project, the analysis is performed on the subreddits : r/anime, r/television, r/televisionsuggestions, r/movies, r/Animesuggest, r/MovieSuggestions.</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/intro_genz.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">graph 2 source: <a href="https://www.redditinc.com/blog/gen-z-on-reddit/">link</a></figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Additionally, we were curious about what regular folks on Reddit think about the movies, television, and anime compared to what the professional critics say. For this purpose, we combined external dataset which we will discuess about in more detail in our next section.</p>
+<p>Now, let’s explore the key subreddits central to this project: r/anime, r/television, r/televisionsuggestions, r/movies, r/Animesuggest, and r/MovieSuggestions.</p>
 <ul>
 <li><strong>r/anime:</strong> This subreddit is dedicated to anime-related discussions, encompassing a wide range of topics, including reviews, recommendations, and general discourse about the anime medium.</li>
 <li><strong>r/television:</strong> This subreddit caters to discussions about television shows, spanning various genres and formats. Users engage in conversations about current and past TV series, share recommendations, and discuss industry news.</li>
@@ -173,7 +207,12 @@ background-size: cover;
 <li><strong>r/MovieSuggestions:</strong> Serving as a space specifically for movie recommendations, this subreddit is an ideal place for users seeking personalized suggestions for their next film to watch.</li>
 <li><strong>r/televisionsuggestions:</strong> As a subreddit dedicated explicitly to TV show recommendations, this community serves as a hub for users seeking and providing suggestions for what to watch next.</li>
 </ul>
-<p>By targeting these specific subreddits, the analysis aims to uncover patterns, trends, and user sentiments unique to each community. This focused approach allows for a more nuanced understanding of the entertainment discussions taking place within these distinct corners of the Reddit platform.</p>
+<p>Our analysis delves into these subreddits, aiming not just to observe trends but to uncover the rhythms, blending data science techniques, visualizations, and machine learning to understand user sentiments and interactions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/intro.gif" class="img-fluid figure-img" style="width:30.0%"></p>
+</figure>
+</div>
 </section>
 <section id="data-overview" class="level3">
 <h3 class="anchored" data-anchor-id="data-overview">Data Overview</h3>

@@ -13,15 +13,17 @@ format:
 
 ### Introduction
 
-Reddit serves as a colossal online gathering where people, each with unique backgrounds, share stories, photos, and ideas within specialized communities known as subreddits. Users actively shape the platform by voting on content, creating a dynamic and human-driven experience that mirrors the diversity of our online world.
+Reddit functions as a massive virtual gathering where individuals from diverse backgrounds come together to share their stories, photos, and ideas within specialized communities called subreddits. Examining graph 1 below confirms Reddit's popularity in major places like the USA, Canada, the UK, India, and more, where people engage in diverse conversations and shape the platform by voting on content, creating a dynamic and human-driven experience that mirrors the diversity of our online world. Plus, looking at graph 2 below, it's safe to say that a lot of Reddit users are from Gen Z – that's the young crowd. According to the [blog](https://www.redditinc.com/blog/gen-z-on-reddit/), Entertainment is among the top indexing interest groups for Gen Z on Reddit. And since movies, TV series, and anime are often made with them in mind, we thought it'd be cool to take a closer look at what people are posting and talking about on Reddit's big entertainment spots: the movies, television, and anime subreddits.
 
-Venturing into Reddit's expansive digital realm, our exploration takes us deep into the heart of entertainment discussions. Our focal point is the dedicated subreddit for all things entertainment, where users converge to share, analyze, and celebrate the multifaceted cultural and media landscape. Tasked with revealing the hidden gems within, we utilize a curated subset of the Reddit Archive dataset, encapsulating the spirit of discussions from January to March 2023.
+::: {layout-ncol=2}
+![graph 1 source: [link](https://www.statista.com/chart/26423/percentage-of-regular-reddit-users-by-country/)](img/intro_country.jpeg){width="50%" fig-align="center"}
 
-Within the entertainment subreddit, we don't merely observe trends; instead, we're immersed in a vibrant tapestry of discussions. Our analysis aims to uncover the rhythms—echoing trends in popular media and subtle nuances defining user sentiments through a fusion of data science techniques, vivid visualizations, natural language processing and machine learning.
+![graph 2 source: [link](https://www.redditinc.com/blog/gen-z-on-reddit/)](img/intro_genz.png){width="50%" fig-align="center"}
+:::
 
-![](img/intro.gif){width="30%" fig-align="center"}
+Additionally, we were curious about what regular folks on Reddit think about the movies, television, and anime compared to what the professional critics say. For this purpose, we combined external dataset which we will discuess about in more detail in our next section.
 
-For the purpose of this project, the analysis is performed on the subreddits : r/anime, r/television, r/televisionsuggestions, r/movies, r/Animesuggest, r/MovieSuggestions. 
+Now, let's explore the key subreddits central to this project: r/anime, r/television, r/televisionsuggestions, r/movies, r/Animesuggest, and r/MovieSuggestions.
 
 * **r/anime:** This subreddit is dedicated to anime-related discussions, encompassing a wide range of topics, including reviews, recommendations, and general discourse about the anime medium.
 * **r/television:** This subreddit caters to discussions about television shows, spanning various genres and formats. Users engage in conversations about current and past TV series, share recommendations, and discuss industry news.
@@ -30,7 +32,9 @@ For the purpose of this project, the analysis is performed on the subreddits : r
 * **r/MovieSuggestions:** Serving as a space specifically for movie recommendations, this subreddit is an ideal place for users seeking personalized suggestions for their next film to watch.
 * **r/televisionsuggestions:** As a subreddit dedicated explicitly to TV show recommendations, this community serves as a hub for users seeking and providing suggestions for what to watch next.
 
-By targeting these specific subreddits, the analysis aims to uncover patterns, trends, and user sentiments unique to each community. This focused approach allows for a more nuanced understanding of the entertainment discussions taking place within these distinct corners of the Reddit platform.
+Our analysis delves into these subreddits, aiming not just to observe trends but to uncover the rhythms, blending data science techniques, visualizations, and machine learning to understand user sentiments and interactions.
+
+![](img/intro.gif){width="30%" fig-align="center"}
 
 ### Data Overview
 

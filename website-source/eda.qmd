@@ -2,25 +2,24 @@
 title: "Exploratory Data Analysis"
 format:
   html:
-    toc: false
-    page-layout: full
+    toc: true
+    toc-location: right
+page-layout: full
 ---
 
-Exploratory Data Analysis (EDA) plays a pivotal role in our project focused on unraveling the dynamics of the Entertainment subreddit within the vast landscape of Reddit. Think of this page as a magnifying glass, focusing on the intricacies of the colossal dataset. Each entry is a chapter in the evolving story, carefully organized for exploration, much like preparing a canvas before an artist begins to paint.
+![](img/eda.png){width="30%" fig-align="center"}
 
-Join us on this analytical odyssey where every data point is a clue, and every visualization is a window into the nuanced landscape of the Entertainment subreddit. The EDA page is where we decode the language of data, bringing you closer to the stories that lie beneath the surface of this dynamic digital community. Welcome to the realm of Exploratory Data Analysis, where understanding the data is the key to unlocking the richness of our Reddit exploration.
+## Analysis Report
 
-![](img/eda.png){width="50%" fig-align="center"}
+In this analysis, we utilized Submissions Reddit data stored in an Azure Machine Learning workspace blob store in parquet format, employing PySpark for distributed data processing and Pandas for local data manipulation and analysis.
 
-### Number of missing values in the data
+To kick off our exploration of entertainment subreddits, we aimed for a broad understanding of how submissions are distributed across entertainment-related subreddits. To achieve this goal, we created a lollipop graph with post counts of subreddits on the x-axis and different entertainment subreddits on the y-axis.
 
-This table represents a summary of missing values in a dataset extracted from Reddit. Each row corresponds to a different feature in the dataset, and the 'Missing Values' column quantifies the absence of data entries for each feature.
+![Figure-1: Count of each subreddit in the dataset from 2021-2023](img/subreddit_count_analysis.png){width="100%" fig-align="center"}
 
-Columns such as 'author', 'title', 'selftext', 'created_utc', 'num_comments', 'score', 'over_18', 'pinned', and 'locked' show complete data with zero missing values, suggesting they are mandatory fields within the platform's post submission process.
+From Figure 1, it's evident that the 'anime' subreddit is the most active with 404,298 posts, showcasing a very active community with a strong interest in anime-related content. Following closely is the 'movies' subreddit, also bustling with activity at 382,085 posts. Both 'anime' and 'movie' subreddits outshine the 'television' subreddit in post counts, revealing higher user engagement in these topics. A similar trend can be observed among the subreddits dedicated to suggestions with the 'AnimeSuggestions' subreddit having a higher post count followed by 'MovieSuggestions' and 'televisionsuggestions'. This indicates that there is a substantial interest in community-driven recommendations for anime. The 'MovieSuggestions' subreddit has a moderate number of posts, while 'televisionsuggestions' has the least, reflecting lower user engagement for television recommendations on the Reddit platform.
 
-In contrast, a significant number of missing values are observed in the 'disable_comments', 'distinguished', and 'media' columns. This could indicate that these fields are not always applicable or are frequently left blank. For instance, 'distinguished' could denote a special status assigned to certain posts, which would naturally be less common. Similarly, 'media' might be optional or applicable only for certain types of posts.
-
-This table is important for understanding the dataset's structure and quality, and it underlines the need for thorough data cleaning and validation steps before any reliable analysis can be performed.
+Next, we filtered the data to keep only the subset of columns relevant to our analysis. The selected columns include information about the submission, such as the subreddit, author, title, selftext, creation timestamp, number of comments, score, and various other attributes related to the submission's characteristics. After selecting specific columns, we aimed to understand the dataset’s structure and quality. To achieve this, we obtained the count of missing values in each column of the dataset. Table 1 represents a summary of missing values in our dataset, where each row corresponds to a different feature, and the 'Missing Values' column quantifies the number of missing values for each feature.
 
 ```{=html}
 <div> 
@@ -31,181 +30,239 @@ This table is important for understanding the dataset's structure and quality, a
 </div>
 ```
 
-### Analysing the extracted submissions in subreddits
+Table-1 shows that columns such as ‘author’, ‘title’, ‘selftext’, ‘created_utc’, ‘num_comments’, ‘score’, ‘over_18’, ‘pinned’, and ‘locked’ show complete data with zero missing values, suggesting they are mandatory fields in the platform’s post submission process. While, a significant number of missing values are observed in the ‘disable_comments’, ‘distinguished’, and ‘media’ columns. This could indicate that these fields are optional or applicable only to certain posts. This makes sense for instance, ‘distinguished’ could denote a special status assigned to certain posts, which would naturally be less common. Since the columns with the missing values were not relevant to our business goals and also removing missing values from these columns could remove posts with optional features. So we decided to retain the rows with missing values and it would also preserve the completeness of the dataset.
 
-This bar chart provides a comparative analysis of post counts across various entertainment-related subreddits. The 'anime' subreddit has the highest number of posts, with over 400,000 entries, indicative of a very active community with a strong interest in anime-related content. This is followed by the 'movies' subreddit, which also boasts a high level of activity with more than 380,000 posts. Both 'anime' and 'movies' subreddits significantly outpace the 'television' subreddit in terms of post counts, suggesting a comparatively higher user engagement in the former topics.
+Moving further, three new columns were added to the data by transforming the original DataFrame:
 
-Looking at subreddits dedicated to suggestions within these categories (AnimeSuggestions, MovieSuggestions, and televisionsuggestions), there is a clear indication that there is a substantial interest in community-driven recommendations for anime, as the 'AnimeSuggestions' subreddit has a higher post count than both 'MovieSuggestions' and 'televisionsuggestions'. The 'MovieSuggestions' subreddit has a moderate number of posts, while 'televisionsuggestions' has the least, reflecting lower user engagement for television recommendations on this platform.
+- Firstly, we extracted various time-related features like 'hour_of_day', 'day_of_week', 'day_of_month', 'month', and 'year' from the 'created_utc' timestamp. These features can be useful for analyzing trends or patterns in the data based on temporal information.
+- Secondly, we wanted to analyze the overall length of posts, so we added a new column 'post_length' to the data. The values in this column are calculated based on the sum of the lengths of the 'title' and 'selftext' columns for each row.
+- Thirdly, we created a new column called 'has_media' that is set to "True" if a post has media content (like images or videos) and "False" if it doesn't. This makes it easier to identify which posts include some form of media and which do not.
 
-These differences in post counts may reflect varying degrees of popularity, user engagement, and possibly the availability of content in each entertainment medium. The data suggests that within this online community, users are more likely to seek and share recommendations for anime and movies rather than television shows.
+After these transformations were done, the columns like "media," "created_utc," "disable_comments," and "distinguished," which were no longer necessary for our analysis, were dropped.
 
-![Figure-1: Count of each subreddit in the dataset from 2021-2023](img/subreddit_count_analysis.png){width="100%" fig-align="center"}
+The following table shows the final columns and their descriptions that were used for our analysis.
 
-### Time-series Analysis
+```{=html}
+<iframe loading="lazy" style="position: relative; width: 100%; height: 600px; max-height: 80vh; border: none; padding: 0; margin: 0; overflow: hidden;" src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF2U4C6yQI&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+</iframe>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF2U4C6yQI&#x2F;view?utm_content=DAF2U4C6yQI&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
+<figcaption style=" text-align:center;">Table-2: Description of key variables in the Reddit data</figcaption>
+```
+\
+Moving forward, we performed data manipulation to generate structured datasets encompassing top comments for specific subreddits, author post counts, and time series analysis. These datasets will serve as a foundation for extracting insights into user engagement, content popularity, temporal evolution, and author contributions on the Reddit platform through the creation of meaningful visualizations.
 
-#### What is the general trend of posts from 2021-2023?
+The detailed process and code can be found [here](data_cleaning.html) for data cleaning and [here](data_manipulation.html) for data manipulation.
 
-The time-related plots depicting the distribution of posts across the subreddits 'anime', 'movies', and 'television' from 2021 to 2023 reveal a discernible downward trajectory in user engagement and post counts. While the 'anime' subreddit shows a pronounced peak, indicative of a temporary surge in activity, it is followed by a significant decline. This pattern suggests that sustaining high engagement levels over time may be challenging, even when punctuated by periods of heightened activity.
+### Understanding trends in the engagement of posts from 2021-2023
 
-In parallel, the 'movies' and 'television' subreddits exhibit a more gradual decline, implying a slow yet consistent decrease in the number of posts and interactions. This could point to a broader trend of diminishing user participation or could reflect a diversification of discussions across newer platforms or different online communities.
-
-The overarching decline across all three subreddits raises questions about the factors influencing these changes. The possibility of shifting platform dynamics, evolving content consumption patterns, or the rise of alternative entertainment forums could be contributing to this trend. It indicates a potential shift in the digital landscape where traditional subreddit forums may no longer command the same level of attention as before.
-
-This insight suggests an opportunity for subreddit administrators and content creators to re-evaluate their engagement strategies. Exploring innovative content delivery, leveraging interactive media, or tapping into emerging trends could potentially reverse the decline in post counts. As digital platforms continue to evolve, so must the strategies to captivate and maintain active user communities.
+Next, we were curious to see how the general trend in the engagement across prominent subreddits —'anime,' 'movies,' and 'television' evolve over different periods of time. In order to achieve this we firstly decided to analyse how number of posts and the scores varied over the period of two years.
 
 ```{=html}
 <div> 
 <figure style="width: 100%;">
   <object data="time_series_eda.html" width="100%" height="500"></object>
-  <figcaption >Figure-2: This graph illustrates the normalized post count trends across three subreddits (anime, movies, and television) over a span of two years, from January 2021 to April 2023. The peaks and troughs indicate fluctuations in user engagement and post frequency within these online communities.</figcaption>
+  <figcaption >Figure-2: This graph illustrates the normalized post count trends across three subreddits (anime, movies, and television) over a span of two years, from January 2021 to April 2023. The peaks and troughs indicate fluctuations in user engagement and post frequency within the Reddit community.</figcaption>
 </figure>
 </div>
 ```
 
-#### How are scores affected by posting on different days of the month?
-
-The line chart titled "Average Score by Day of Month Across Subreddits" offers a detailed visual of how user engagement varies throughout the month within the subreddits of 'movies', 'anime', and 'television'. The 'movies' subreddit demonstrates the highest variance in average scores, suggesting that certain days of the month may align with the release of popular content, leading to spikes in user interaction and high-scoring posts. In contrast, 'anime' and 'television' subreddits exhibit a more consistent pattern of engagement, with less pronounced peaks and troughs.
-
-The trend across all three subreddits does not show a clear cyclical pattern that could be associated with specific days of the month, indicating that post scores are more likely influenced by content availability and user interest rather than the time of the month. The relative stability in 'anime' and 'television' subreddits could imply a steady production of content that resonates with the audience, leading to a more uniform level of engagement.
-
-This insight into user behavior could be harnessed by content creators and marketers to strategically time their posts to coincide with peak engagement periods identified within the 'movies' subreddit. Moreover, the consistent engagement in the 'anime' and 'television' subreddits suggests a reliable and dedicated audience base, which could be attractive to advertisers and collaborators looking for stable platforms to promote their products or services. Overall, understanding these engagement patterns is crucial for optimizing content delivery and maintaining a vibrant and interactive online community.
+Figure-2 attempts to capture the trend in the number of posts made across the three subreddits over the time period of 2021-2023. To facilitate a more accurate assessment of relative fluctuations in user engagement and post frequency, normalized post counts were used. Overall, the subreddits exhibit a more gradual decline, implying a slow yet consistent decrease in the number of posts and interactions. The overarching decline across all three subreddits raises questions about the factors influencing these changes.However, when comparing the three sections, we can observe that the movies and anime subreddits show a general decrease in the number of posts. On the other hand, the engagement, in terms of posts made, remains relatively constant for the television subreddit. The possibility of shifting platform dynamics, evolving content consumption patterns, or the rise of alternative entertainment forums could be contributing to this trend. It indicates a potential shift in the digital landscape where traditional subreddit forums may no longer command the same level of attention as before. Certain high peaks could possibly correlate to significant new releases in any of the three categories, resulting in increased engagement and discussions on the platform. For instance, we can see a peak starting from March 2021, which could equate to the release of Zack Snyder’s much-hyped movie, Justice League." 
 
 ```{=html}
 <div> 
 <figure style="width: 100%;">
-  <object data="avg_score_eda.html" width="100%" height="500"></object>
-  <figcaption >Figure-3:Average score of posts submitted on different days of the month from 2021-2023</figcaption>
+  <object data="time_series_score_eda.html" width="100%" height="500"></object>
+  <figcaption >Figure-3: This graph illustrates the scores across three subreddits (anime, movies, and television) over a span of two years, from January 2021 to April 2023. The peaks and troughs indicate fluctuations in user engagement and scores within the Reddit community.</figcaption>
 </figure>
 </div>
 ```
 
-#### Analysis of the number of posts during the week 
+Figure 3 shows the trends in changes in the average scores from 2021 to 2023. When comparing Figures 2 and 3, we observe that, in general, scores remain relatively constant for the anime section during this period, despite a considerable fluctuating decline in the number of posts. However, for movies and television, there is a general slight upward trend in scores, in contrast to the step downward trend in the number of posts. This suggests that, for these two categories, the number of posts made is slightly inversely proportional to the rating. This could be due to the availability of fewer posts to view, resulting in an increase in scores for those written during that period.
 
-The sunburst chart provides a vivid depiction of the distribution of posts across days of the week and hours of the day for the subreddits 'anime', 'movies', and 'television'. It reveals the time-specific activity patterns within these communities. For the 'anime' subreddit, there's a notable concentration of activity during certain hours, which may correspond to peak times when users are most active or when new content is typically released. The 'movies' subreddit shows a more spread out activity throughout the week, suggesting a consistent level of engagement without significant peaks or troughs.
-
-This visual suggests that the 'television' subreddit has its own unique pattern of user interaction, potentially reflecting the airing schedule of popular shows or weekly events that drive discussions. Understanding these patterns can help content creators and moderators to optimize their engagement strategies by scheduling posts and discussions during high-activity windows to maximize visibility and interaction.
-
-Overall, these insights highlight the importance of timing in online community engagement. For marketers and content creators, aligning content releases with these observed peaks could enhance user engagement. For platform moderators, it could inform the scheduling of events or AMAs (Ask Me Anything sessions) to ensure higher participation rates. Additionally, this data could assist in the strategic placement of advertisements, ensuring they reach the most active audience segments.
+Next, we wanted to see if there are any trends in the number of posts and average score depending on the time of the month. This was to figure out if there was a day of the month were the number of engagement on the platform were showing a particular trend either high or low.
 
 ```{=html}
 <div> 
 <figure style="width: 100%;">
-  <object data="sunburst_eda.html" width="100%" height="500"></object>
-  <figcaption >Figure-4: Number of posts during the week for the subreddits</figcaption>
+  <object data="day_of_month_count_eda.html" width="100%" height="650"></object>
+  <figcaption >Figure-4: Number of posts submitted on different days of the month from 2021-2023</figcaption>
 </figure>
 </div>
 ```
 
-### User Engagement Analysis
+Figure 4 compares the number of posts across the three subreddits by the day of the month. In this figure, it is challenging to pinpoint any specific day of the month where the number of posts is particularly high. The downward trend at the end of the month is attributed to the variation in the number of days each month, as not every month has 31 days.
 
-#### Comparative Analysis of Post Engagement by Length and Score in Entertainment-Related Subreddits
-This scatter plot illustrates the engagement dynamics of Reddit posts, comparing post length to user engagement across subreddits dedicated to anime, movies, and television. Each dot represents an individual post, with its size corresponding to the score, which is a proxy for the post's popularity or engagement level.
+```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="avg_score_eda.html" width="100%" height="650"></object>
+  <figcaption >Figure-5: Average score of posts submitted on different days of the month from 2021-2023</figcaption>
+</figure>
+</div>
+```
 
-A cursory analysis reveals a dense clustering of posts with scores under 10,000 across all subreddits, with post lengths predominantly falling below 2000 characters. This suggests that shorter posts are more common, regardless of the subreddit category. Interestingly, there is a visible trend where posts with higher scores tend to have shorter lengths, indicating that more concise posts may resonate better with the audience or are more likely to be engaged with.
+When examining Figure 5, which compares the average scores for each day of the month, it is apparent that the scores generally remain constant with occasional bumps in all three categories. However, television shows the highest ratings despite having the fewest number of posts. This observation seems to confirm an inverse relationship between the number of posts and the scores. Furthermore, we aimed to streamline our analysis to understand how trends in the number of posts and scores vary when comparing different days of the week and hours of the day.
 
-The larger-sized dots, indicating posts with exceptionally high scores, are predominantly short and are scattered across all three subreddits. This may indicate that highly engaging posts, which are likely to go viral or hit the front page of Reddit, tend to be succinct.
+```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="sunburst_eda.html" width="100%" height="550"></object>
+  <figcaption >Figure-6: Number of posts during the week and time of the day for the subreddits</figcaption>
+</figure>
+</div>
+```
 
- This insight can inform content creators and marketers about optimal post lengths for audience engagement in different entertainment categories on Reddit.
+Figure-6 presents the distribution of posts across days of the week and hours of the day for the subreddits 'anime,' 'movies,' and 'television.' This visualization suggests that the 'television' subreddit has its own unique pattern of user interaction, potentially reflecting the airing schedule of popular shows or weekly events that drive discussions, especially during the evening hours from 3 PM to 5 PM. Overall, all three subreddits show a more spread-out activity throughout the week, indicating a consistent level of engagement without significant peaks or troughs.
+
+```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="sunburst_avgscore_eda.html" width="100%" height="550"></object>
+  <figcaption >Figure-7: Number of posts during the week and time of the day for the subreddits</figcaption>
+</figure>
+</div>
+```
+
+Figure-7 illustrates the distribution of average scores across days of the week and hours of the day for the subreddits 'anime,' 'movies,' and 'television.' The plot suggests that people are generally more active in reading and voting for posts each day of the week, particularly during the late afternoon hours of 2 PM to 4 PM. This trend is also directly proportional to the number of posts made during those hours.
+
+Overall, we can assert that interaction activities peak on these Reddit threads during the late afternoon hours. These insights underscore the importance of timing in Reddit community engagement. For marketers and content creators, aligning content releases with these observed peaks could enhance user engagement. For platform moderators, it could inform the scheduling of events or AMAs (Ask Me Anything sessions) to ensure higher participation rates. Additionally, this data could assist in the strategic placement of advertisements during specific hours of a particular day, ensuring they reach the most active audience segments.
+
+### Exploring how Reddit post engagement dynamics is influenced by subreddit characteristics.
+
+Next, we delved into the diverse aspects of user engagement dynamics on Reddit posts, investigating variations related to characteristics such as score, post length, number of comments, and the inclusion of media content. To do this analysis we have created a bubble plot comparing the post engagement by Length and Score across the three subreddits. Additionally,the posts with media and those without media within the anime, movies, and television subreddits on Reddit are analysed.
 
 ```{=html}
 <div> 
 <figure style="width: 100%;">
   <object data="engagement_eda.html" width="100%" height="500"></object>
-  <figcaption >Figure-5: Correlation between post lengths and scores within anime, movies, and television subreddits on Reddit.</figcaption>
+  <figcaption >Figure-8: Correlation between post lengths and scores within anime, movies, and television subreddits on Reddit.</figcaption>
 </figure>
 </div>
 ```
 
-#### Top Reddit Authors by Comment Engagement in the subreddit Discussion
+Figure 8 illustrates the engagement dynamics of Reddit posts, comparing post length to user engagement across subreddits dedicated to anime, movies, and television. Each dot represents an individual post, with its size corresponding to the score, which is a proxy for the post’s popularity or engagement level.
 
-The table presents a ranking of authors by the comment volume on their posts in the movie, television and anime subreddits. High comment counts generally indicate that an author’s contributions are well-received, sparking active discussions among the subreddit’s users. This level of engagement typically reflects the community’s interest and the value they find in the content shared by the author.
+A cursory analysis reveals a dense clustering of posts with scores under 10,000 across all subreddits, with post lengths predominantly falling below 2000 characters. This suggests that shorter posts are more common, regardless of the subreddit category. Interestingly, there is a visible trend where posts with higher scores tend to have shorter lengths, indicating that more concise posts may resonate better with the audience or are more likely to be engaged with.
 
-The table not only identifies the most engaging authors in the subreddits but also underscores the importance of creating content that encourages community participation. The data provides valuable insights into user engagement and could be leveraged to understand better what types of posts cultivate active discussions in online communities.
+The larger-sized dots, indicating posts with exceptionally high scores, are predominantly short and are scattered across all three subreddits. This may indicate that highly engaging posts, which are likely to go viral or hit the front page of Reddit, tend to be concise.
+
+This insight can inform content creators and marketers about optimal post lengths for audience engagement in different entertainment categories on Reddit.
+
+```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="engagement_with_media.html" width="100%" height="500"></object>
+  <figcaption >Figure-9: Correlation between post lengths and scores within submissions that have media as well as those that don't have media.</figcaption>
+</figure>
+</div>
+```
+
+Figure 9 illustrates the engagement dynamics of Reddit posts, comparing post length to user engagement within submissions that have media as well as those that don't have media. Each dot represents an individual post, with its size corresponding to the score, which is a proxy for the post’s popularity or engagement level.
+
+From Figure 9, it seems that posts with media tend to have a higher score regardless of post length, as indicated by the concentration of orange dots across all lengths, especially in the higher score region. There are some high-scoring posts without media, but these are less frequent as the score increases. This suggests that including media in a post could potentially lead to higher engagement on Reddit.
+
+We further analysed the percentage of posts with and without media across the three subreddits.
+
+```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="percentage_of_posts_with_media_per_subreddit.html" width="100%" height="500"></object>
+  <figcaption >Figure-10: Grouped bar plot showing the percentage of posts with media and those without media within the anime, movies, and television subreddits on Reddit.</figcaption>
+</figure>
+</div>
+```
+
+From Figure 10 we can see that the percentage of posts with media is significantly higher than those without across all three subreddits.
+The "movies" subreddit has the highest percentage of posts with media (89.75%), followed by "television" (83.64%), and "anime" (82.56%).
+Conversely, the percentage of posts without media is the lowest in the "movies" subreddit (10.25%), which correlates with the earlier observation that media content is prevalent in high-engagement posts. 
+
+Overall, these three graphs gives us insights about engagement on Reddit which suggest that not only is the presence of media a factor, but so is the length of the post. Content creators could use this information to optimize their posts for better engagement by creating concise posts that include media, and targeting their efforts towards subreddits where these types of posts perform well.
+
+### Identify the most engaging and active authors
+
+Furthermore, we wanted to analyze the post counts of authors with top comments and score as well as the post counts of the most active authors for the three subreddits separately as all these subreddits are distinct and warrant their own analysis. This analysis would be beneficial for various purposes, including recognizing community leaders, understanding content popularity, and potentially collaborating with influential contributors to enhance community engagement or promotional activities.
+
+To do so, we first identified the authors of the posts with highest number of comments for the three subreddit separately.
 
 ```{=html}
 <div> 
 <figure style="width: 100%;">
   <object data="table_top_comments.html" width="100%" height="500"></object>
-  <figcaption >Table-2: Ranks of authors from a subreddit based on the number of comments their posts receive, highlighting the most engaging content creators</figcaption>
+  <figcaption >Table-3: Ranks of authors from a subreddit based on the number of comments their posts receive, highlighting the most engaging content creators</figcaption>
 </figure>
 </div>
 ```
 
-#### Leading Content Creators based on top Comments
+Table 3 presents the top 10 posts with the highest number of comments, categorizing them based on movie, television, and anime subreddits. High comment counts typically signify that an author’s contributions resonate well with the community, sparking active discussions among the subreddit’s users. The table not only identifies the most engaging authors across subreddits but also emphasizes the importance of creating content that encourages active participation within the community. Furthermore, this data offers insights into the types of posts that cultivate robust discussions on Reddit.
 
-The bar chart  presents the post counts attributed to the ten most active authors within the subreddits “movies, anime, and television”. These counts are a direct indicator of the quantity of content contributed by individual authors rather than the quality or engagement level of the posts.
-
-The presence of active contributors can be vital for fostering community engagement and providing a steady stream of content for discussion.
-On the other hand, the steep drop in post counts after the third author indicates that there is less parity in content contribution among the top authors. The remaining seven authors in the list show a relatively lower level of activity, with post counts ranging from moderate to minimal. This disparity suggests that a small group of authors may dominate the conversation or content within this subreddit.
-
-The movies subreddit appears to have a few highly active authors who contribute a significant portion of the content. This concentration of activity might influence the diversity of topics and perspectives presented within the community. 
-
-In the television subreddit, the distribution of post counts among the top ten authors reveals a significant skew, with 'MarvelsGrantMan136' and 'Neo2199' being the most active. This pattern suggests that the television subreddit may rely on a small group of dedicated individuals for a substantial portion of its content, which could potentially influence the scope and variety of discussions within the community.
-
-Contrastingly, the anime subreddit presents a unique scenario where bots, rather than human authors, are the primary content contributors. Interestingly, despite—or perhaps because of—the automated nature of their posts, these bot-generated discussions are engaging the community to a greater extent than typical human-authored posts on the platform. This could be attributed to the bots providing timely, consistently formatted, and relevant content that resonates well with the subreddit’s audience.
-
-The high engagement with bot posts in the anime subreddit may also reflect the community's preference for structured information, such as regular updates on anime releases, episode discussions, and well-organized recommendation lists. These automated posts may fulfill the community’s needs more effectively than the more varied human contributions found in other subreddits.
-
-In light of this, the anime subreddit stands out as a unique case study in community engagement on social platforms, showcasing that automated systems, when well-tuned to the audience’s preferences, can play a pivotal role in fostering active online communities. This insight challenges the conventional wisdom that the most engaging content must be human-generated and highlights the potential for bots to contribute meaningfully to online discourse in interest-specific forums.
+Now that we have identified authors receiving highest number of comments on their posts we wanted to look how active these authors have been on reddit. 
 
 ```{=html}
 <div> 
 <figure style="width: 100%;">
   <object data="Top_10_authors_with_top_comments.html" width="100%" height="500"></object>
-  <figcaption >Figure-6: This bar chart ranks the top 10 authors in the subreddit based on the number of posts they have made and the top comments received</figcaption>
+  <figcaption >Figure-11: Bar chart ranking the post counts of authors who have received highest number of comments on their post </figcaption>
 </figure>
 </div>
-
 ```
 
-#### Top Reddit Posts Authors by Scores Engagement in the subreddit Discussion
+Figure-11 presents the post counts attributed to the authors who have received highest number of comments on their post within the movies, anime, and television subreddits. These counts are a direct indicator of the quantity of content contributed by individual authors rather than the quality or engagement level of the posts.
 
-The table shows a list from a subreddit, ranking the top 10 posts by score. 
-For the movie subreddit, the highest-scoring post is an AMA with Tobey Maguire, indicating that interactive sessions with famous actors are highly valued in the community. This is further emphasized by the presence of another AMA with Keanu Reeves in the second position. The third highest post by Nicolas Cage suggests that personal engagement from actors or filmmakers garners significant attention.
+The movies subreddit exhibits a concentration of activity from a few highly active authors, potentially impacting the diversity of topics and perspectives within the community. Notably, authors like "LETS_MAKE_IT_AWKWARD" and "officialtobeymaguire" have achieved top 10 highest comments with only one post on Reddit, showcasing the influence of specific contributors.
 
-Posts regarding industry news and opinions, such as the win of Brendan Fraser at the Academy Awards and a call to prioritize voice actors over celebrities in animated features, reflect the community's interest in both celebrating achievements and critiquing industry trends. A post about a 'Dune' sequel hints at the community's enthusiasm for science fiction and blockbuster franchises.
+Similarly, in the television subreddit, a skewed distribution among the top ten authors, with 'MarvelsGrantMan136' and 'Neo2199' being the most active, suggests a reliance on a small group for a significant portion of content. On the other hand, authors like "ewzetf", "Midnight_OIL_", and "thetanhausergate" achieved top 10 highest comments with fewer than four posts, indicating impactful contributions despite lower post counts.
 
-Notably, there is a discussion on diversity in casting, pointing towards a conscious reflection on representation in movies. The list also shows a mix of content authors, from individual users to likely official accounts like "lionsgate," indicating a blend of community-driven content and industry participation in the subreddit.
+In contrast, the anime subreddit experiences a unique scenario with bots as primary content contributors. Despite their automated nature, these bots engage the community more effectively than typical human-authored posts, potentially due to timely, consistently formatted, and relevant content. This challenges the notion that engaging content must be human-generated, showcasing the potential for well-tuned bots to contribute meaningfully to online discourse.
 
-For the television subreddit, The most popular post highlights a public figure, LeVar Burton, expressing his desire to become the new host of "Jeopardy!", which is indicative of the community's interest in show hostings and personalities associated with them. This is further emphasized by another post where Burton encourages the producers of "Jeopardy!" to consider him for the role, showcasing the community's support for his candidacy.
-
-Other posts indicate strong community interest in television show news and updates, like the revival of "Futurama" and a potential third season for "Mindhunter." The active engagement in these topics suggests that news about television series renewals and continuations is particularly resonant with the audience.
-
-These posts reflect a community that is deeply engaged with the television industry, from show developments and castings to the achievements and remembrances of beloved television figures. The scores provide insight into what type of content the community values and discusses most, which includes industry news, show developments, and the accomplishments and milestones of individuals in television.
-
-Moving to the anime, The top post is about the death of Kentaro Miura, the creator of "Berserk," which underscores the impact that influential figures in the anime industry have on the community. The high score indicates that news about significant personalities, especially those who have made a profound impact on the genre, resonates deeply with the audience.
-
-Several posts relate to announcements of new seasons for popular anime series like "The Devil is a Part-Timer," "Spice and Wolf," and "Konosuba." This suggests that the subreddit is a hub for fans to discuss and share their excitement about continuing series and new developments within their favorite anime.
-
-There is also a post about a prediction tournament for "Best Girl," a common discussion topic in anime communities where fans vote for their favorite female characters. The popularity of such a post indicates that interactive and participatory events are engaging for the community members.
+Furthermore, we aimed to assess what kind of content gets the most number of scores. The Scores are calculated based on the number of upvotes minus the number of downvotes. 
 
 ```{=html}
 <div> 
 <figure style="width: 100%;">
   <object data="table_top_score.html" width="100%" height="300"></object>
-  <figcaption >Table-3: Ranks of authors from a subreddit based on the Scores their posts receive, highlighting the most engaging content creators</figcaption>
+  <figcaption >Table-4: Ranks of authors from a subreddit based on the scores their posts receive, highlighting the most engaging content creators</figcaption>
 </figure>
 </div>
 ```
 
-#### Leading Content Creators based on top Scores
+The table 4 shows a list from each category of subreddit, ranking the top 10 posts by score. For the movie subreddit, the highest-scoring post is an AMA with Keanu Reeves, indicating that interactive sessions with famous actors are highly valued in the community. This is further emphasized by the presence of another AMA with Tobey Maguire in the second position. The third highest post by Nicolas Cage suggests that personal engagement from actors or filmmakers garners significant attention. Posts regarding industry news and opinions, such as the win of Brendan Fraser at the Academy Awards and a call to prioritize voice actors over celebrities in animated features, reflect the community’s interest in both celebrating achievements and critiquing industry trends. A post about a ‘Dune’ sequel hints at the community’s enthusiasm for science fiction and blockbuster franchises.
 
-The bar chart depicts the top 10 authors by post count within the anime, movies, and television subreddits, with a specific focus on those receiving the highest scores, which could be indicative of the popularity of the posts.
+For the television subreddit, the most popular post highlights a public figure, LeVar Burton, expressing his desire to become the new host of “Jeopardy!”, which is indicative of the community’s interest in show hostings and personalities associated with them. This is further emphasized by another post where Burton encourages the producers of “Jeopardy!” to consider him for the role, showcasing the community’s support for his candidacy. Other posts indicate strong community interest in television show news and updates, like the revival of “Futurama” and a potential third season for “Mindhunter.” The active engagement in these topics suggests that news about television series renewals and continuations is particularly resonant with the audience.
 
-'AutoLovepon' leads in the anime subreddit with an exceptionally high post count, indicating a significant impact on the community, likely due to consistent, high-quality content, which could be automated. In the movies subreddit, 'MarvelsGrantMan136' dominates but is followed by a group of authors with notable contributions, reflecting a community with diverse yet influential voices. The television subreddit shows 'MarvelsGrantMan136' leading, with a narrower margin over 'chanma50', suggesting a broader spread of engagement across various authors. These patterns highlight different engagement dynamics, with a single dominant presence in anime and a more varied influence among authors in the movies and television subreddits, offering insights into community preferences and influencer identification.
+Moving to the anime, The top post is about the death of Kentaro Miura, the creator of "Berserk," which underscores the impact that influential figures in the anime industry have on the community. The high score indicates that news about significant personalities, especially those who have made a profound impact on the genre, resonates deeply with the audience. Several posts relate to announcements of new seasons for popular anime series like "The Devil is a Part-Timer," "Spice and Wolf," and "Konosuba." This suggests that the subreddit is a hub for fans to discuss and share their excitement about continuing series and new developments within their favorite anime. There is also a post about a prediction tournament for "Best Girl," a common discussion topic in anime communities where fans vote for their favorite female characters. The popularity of such a post indicates that interactive and participatory events are engaging for the community members.
+
+Now that we have identified authors receiving the highest scores on their posts, we want to examine how active these authors have been on Reddit.
 
 ```{=html}
 <div> 
 <figure style="width: 100%;">
   <object data="top10_authorscore_postcount_eda.html" width="100%" height="500"></object>
-  <figcaption >Figure-7: This bar chart ranks the top 10 authors in the subreddit based on the number of posts they have made and the top scores received</figcaption>
+  <figcaption >Figure-12: Bar chart ranking the post counts of authors who have received highest scores on their post</figcaption>
 </figure>
 </div>
 ```
 
-#### Authors with the highest number of posts
+Figure 12 presents the post counts attributed to the authors who have received top scores on their post within the movies, anime, and television subreddits.
 
-The bar chart provides an overview of the top 10 active authors in the anime, movies, and television subreddits, showing a clear disparity in activity levels across these categories.
+In the movies subreddit, ‘MarvelsGrantMan136’ dominates but is followed by a group of authors with notable contributions, reflecting a community with diverse yet influential voices. 
+The television subreddit shows ‘MarvelsGrantMan136’ leading, with a narrower margin over ‘chanma50’, suggesting a broader spread of engagement across various authors. 
+‘AutoLovepon’ leads in the anime subreddit with an exceptionally high post count, indicating a significant impact on the community, likely due to consistent, high-quality content, which could be automated.
+These patterns highlight different engagement dynamics, with a single dominant presence in anime and a more varied influence among authors in the movies and television subreddits.
+
+Looking at Table 4 and Figure 12, we can also say that high scores don't equate to a high post count. This can be understood by MarvelsGrantMan136's entry, where the author has one of the highest engagement as well as posts; however, lionsgate is the post with the highest engagement but doesn't have even 1/3000 times the number of posts. A similar trend can also be observed for anime and television, and therefore we can conclude that there is no correlation between the author's scores and post count.
+
+Finally, we wanted to identify active authors in the anime, movies, and television subreddits to recognize the authors who consistently engage with and contribute to these communities.
+
+```{=html}
+<div> 
+<figure style="width: 100%;">
+  <object data="Top_author_post.html" width="100%" height="500"></object>
+  <figcaption >Figure-13: This bar chart ranks the top 10 authors in the subreddit based on the number of posts they have made</figcaption>
+</figure>
+</div>
+```
+
+The Figure 13 provides an overview of the top 10 active authors in the anime, movies, and television subreddits, showing a clear disparity in activity levels across these categories.
 
 For the movies subreddit, the top author has an exceptionally high post count, exceeding 20,000, which is significantly higher than the subsequent authors. This could imply a central role in the subreddit, possibly as a source of extensive information or regular discussion threads. However, the drop in post counts among the following authors is stark, indicating a less concentrated field of active contributors and suggesting a more varied source of content within the community.
 
@@ -215,15 +272,26 @@ Moving to the anime subreddit, the leading author, presumably a bot named 'AutoL
 
 In conclusion, these engagement models reflect the unique cultural dynamics of each subreddit, providing valuable insights for content creators, moderators, and marketers on how to approach each community effectively.
 
-```{=html}
-<div> 
-<figure style="width: 100%;">
-  <object data="Top_author_post.html" width="100%" height="500"></object>
-  <figcaption >Figure-8: This bar chart ranks the top 10 authors in the subreddit based on the number of posts they have made</figcaption>
-</figure>
-</div>
-```
+The source code for generating the plots can be found [here](project_eda.html).
 
-### Conclusion for Engagement Analysis:
+## Executive Summary
 
-The comparative analysis of the post counts from the top authors across the anime, movies, and television subreddits reveals distinct patterns of community engagement and content contribution. In the anime subreddit, the dominance of the bot 'AutoLovepon' highlights a preference for structured, automated content, which contrasts sharply with the human-driven contributions in the movies and television subreddits. In movies, a few authors, particularly 'MarvelsGrantMan136', contribute a majority of the content, suggesting a central role in driving discussions and shaping the subreddit's narrative. Conversely, the television subreddit demonstrates a more balanced distribution of post counts among the top authors, indicating a diverse range of discussions and viewpoints. These patterns underscore the varying dynamics of online communities and the different roles that authors, whether human or automated, play in shaping the content and discussions within these digital spaces. This analysis not only provides insights into the unique characteristics of each subreddit but also underscores the importance of understanding audience preferences and engagement styles when creating or moderating content in online communities.
+To summarize, we explored how the subreddits are distributed in our dataset, aiming to understand the balance or imbalance. This analysis helps us notice patterns and strategize for further exploration. We observed a notable size difference between the Anime and Movie subreddits compared to the Television subreddit, this could be because of varying popularity, We've decided to focus our attention on the Anime and Movie Reddit data for our further analysis.
+
+**Does Time matter? **
+
+We noticed a decline in the number of posts across all subreddits, reaching its peak from January to July 2021. While this period coincided with the pandemic when social media usage was likely high, it doesn't provide significant insights for our analysis.Digging more into the temporal aspects, we explored how post counts vary with time of day, day of the week, and more. Intriguingly, we found no distinct cyclic pattern linked to specific days of the month. This implies that post scores are probably shaped by content availability and user interest, rather than the timing within a month. The consistent engagement in 'anime' and 'television' subreddits suggests an ongoing compelling content, this suggests that capturing user attention isn't strongly correlated with specific times, days, or months.
+
+**How to draw attention?**
+
+To keep it short, we compared post length to user engagement across anime, movies, and television subreddits. What we found is that shorter posts, usually under 2000 characters, are more common across all subreddits, especially those with scores under 10,000. Surprisingly, highly engaging posts, often going viral, tend to be concise. So, for content creators and marketers, this insight suggests that brevity might be the key to capturing audience attention in various entertainment categories on Reddit. Addititonally, incorporating media into posts could be an effective strategy for increasing engagement. However, it's important to consider other factors that might influence engagement, such as the time of posting, the specific subreddit community, and the quality of the media content. 
+
+**Top content creators and their engagement with the users**
+
+We identified the most engaging authors in each subreddit based on comments, scores, and post counts. Interestingly, in the television subreddit, the author with the highest score is also the one with the most posts. However, in the movie subreddit, this correlation doesn't hold. Notably, in the anime subreddit, bots are the ones ruling both popularity and engagement.
+
+From this we see that each subreddit has unique engagement dynamics. In the TV subreddit, the top author is both prolific and engaging, but this trend is less clear in movies. The prevalence of bots driving engagement in anime challenges the idea that the most engaging content has to be human-created. It emphasizes the importance of understanding each community's dynamics in assessing author roles in content creation and discussions.
+
+
+
+
