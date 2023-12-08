@@ -2,7 +2,7 @@
 title: "Machine Learning - Executive Summary"
 format:
   html:
-    toc: true
+    toc: false
     page-layout: full
 ---
 

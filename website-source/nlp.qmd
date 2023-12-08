@@ -279,7 +279,7 @@ In the next step of our analysis, we'll compare this popularity data from MyAnim
 
 Moving forward with our analysis, we aim to bridge the gap between recommendation frequency on Reddit and the critical reception of those recommended titles. To facilitate this, the subsequent graph has been crafted to showcase the review ratings of the anime that have been most frequently suggested on Reddit.
 
-![Figure-13: Plot showing the review ratings for the top 10 suggested anime on reddit](img/review_rating_of_top_anime.png){width="100%" height="325" fig-align="center"}
+![Figure-13: Plot showing the review ratings for the top 10 suggested anime on reddit](img/review_rating_of_top_anime.png){width="100%" height="100%" fig-align="center"}
 
 The analysis of the anime series reveals a pattern similar to that observed with movies: being highly rated across various genres does not necessarily equate to being frequently suggested on Reddit. While a select few anime achieve high ratings and are still often recommended, it appears that this is not the norm for most.
 

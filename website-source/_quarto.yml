@@ -4,7 +4,6 @@ project:
 website:
   search: false
   navbar:
-    logo: img/home_icon.png
     pinned: true
     left:
       - href: index.qmd

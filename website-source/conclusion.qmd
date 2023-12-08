@@ -32,40 +32,38 @@ Moving on to user engagement dynamics, we discovered that shorter posts attract 
 We sought to compare critically acclaimed movies with those most suggested on Reddit. To our surprise, movie recommendations extended beyond highly-rated films. This pattern held true in the anime realm, indicating that users prioritize quality over high ratings. The analysis uncovers how online communities, rather than traditional critics or box office success, are redefining the appreciation of cinema and anime. It demonstrates that on platforms like Reddit, the true value of a film or anime series lies not just in its technical excellence or professional reviews, but in its ability to spark conversations, evoke emotions, and connect with the audience on a personal level. Through sentiment analysis and popularity metrics, the study finds that movies and anime series, which ignite lively discussions and resonate deeply with users, hold a special place in these communities, showcasing a shift in how stories are valued and appreciated in the digital age. 
 
 ```{=html}
-<table style="width: 100%; border: none;">
-  <tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
-      <img src="img/top_suggested_movies.png" style="width: 100%;">
-      <figcaption style="text-align: center;">Figure-3 (a)</figcaption>
-  </tr>
-  <tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
-      <img src="img/review_rating_of_top_movies.png" style="width: 100%;">
-      <figcaption style="text-align: center;">Figure-3 (b)</figcaption>
-  </tr>
-  <tr>
-    <td colspan="2" style="text-align: center; border: none;">
-      <figcaption style="text-align: center;">Figure-3: Comparative Visualization of Top 10 Suggested Movies on Reddit - 3(a) shows the list of movies while the 3(b) depicts their review ratings</figcaption>
-    </td>
-  </tr>
-</table>
+
+<div style="display: flex; align-items: flex-end;">
+  <div style="flex: 1; text-align: center;">
+    <img src="img/top_suggested_movies.png" style="width: 100%;">
+    <p style="text-align: center;">Figure-3 (a)</p>
+  </div>
+  <div style="flex: 1; text-align: center;">
+    <img src="img/review_rating_of_top_movies.png" style="width: 100%;">
+    <p style="text-align: center;">Figure-3 (b)</p>
+  </div>
+</div>
+
+<figcaption style="text-align: center;">Figure-3: Comparative Visualization of Top 10 Suggested Movies on Reddit - 3(a) shows the list of movies while the 3(b) depicts their review ratings</figcaption>
+
 ```
+<br>
 
 ```{=html}
-<table style="width: 100%; border: none;">
-  <tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
-      <img src="img/top_anime_suggested.png" style="width: 100%;">
-      <figcaption style="text-align: center;">Figure-4 (a)</figcaption>
-  </tr>
-  <tr style="width: 50%; text-align: center; vertical-align: bottom; border: none;">
-      <img src="img/review_rating_of_top_anime.png" style="width: 100%;">
-      <figcaption style="text-align: center;">Figure-4 (b)</figcaption>
-  </tr>
-  <tr>
-    <td colspan="2" style="text-align: center; border: none;">
-      <figcaption style="text-align: center;">Figure-4: Comparative Visualization of Top 10 Suggested Anime on Reddit - 4(a) shows the list of anime while the 4(b) depicts their review ratings</figcaption>
-    </td>
-  </tr>
-</table>
+<div style="display: flex; align-items: flex-end;">
+  <div style="flex: 1; text-align: center;">
+    <img src="img/top_anime_suggested.png" style="width: 100%;">
+    <p style="text-align: center;">Figure-4 (a)</p>
+  </div>
+  <div style="flex: 1; text-align: center;">
+    <img src="img/review_rating_of_top_anime.png" style="width: 100%;">
+    <p style="text-align: center;">Figure-4 (b)</p>
+  </div>
+</div>
+
+<figcaption style="text-align: center;">Figure-4: Comparative Visualization of Top 10 Suggested Anime on Reddit - 4(a) shows the list of anime while the 4(b) depicts their review ratings</figcaption>
 ```
+<br>
 
 Along with this, in subreddits of Movie and Anime, the most prevalent words are generally of positive sentiment such as 'like' and 'good'. Along with that these subreddits also have words like 'watch', 'look' and 'character' which indicates that the users are generally discussing about the characters of the movies and anime. 
 

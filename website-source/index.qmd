@@ -1,6 +1,6 @@
 ---
-title: "Entertainment Subreddits - <br>A Data Science Approach"
-title-block-banner: img/hero_photo.jpg
+title: "Analysis on Entertainment Subreddits"
+title-block-banner: img/hero_photo.png
 author:
   - Ramdayal Nirmal Rewaria (rr1220)
   - Samiksha Rajendra Thikekar (st1140)

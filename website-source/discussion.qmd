@@ -43,7 +43,7 @@ format:
     - The goal was to identify the movies most suggested on the movies and compare them with highest rated and well reviewed movies. We extracted the suggestions provided on reddit and compared them with their reviews provided by Rotten tomatoes. This connects the 2 different databases and provides us valuable information regarding different types of movies and anime suggested by users and their ratings in a real world review rating system. Since we connected these 2 in such a manner, we believed that a bivariate plot would not be necessary. 
 
 5. What does a radial bar chart gain you in Figure 7. Perhaps a plain bar chart would suffice
-    - We had added a radial bar chart to show the top suggested animes. It was added to account for the amount of already present bar charts in the report. Nonetheless, We have changed it to a bar chart to make it more readable.
+    - We had added a radial bar chart to show the top suggested animes. It was added since there were a lot of bar charts already present in the report. Nonetheless, We have changed it to a bar chart to make it more readable.
 
 6. In figure 9, how are the categories determined?
 	- The external dataset is from a well known database collected from wikipedia and ontaru called MyAnimeList which provided the Reviews of all the Animes along with their genre. There are 95 different genres in anime. We have watched a significant amount of anime which provided us with domain knowledge which made us believe that these genres can be grouped together into 10 different categories. That is how the categories were determined.
