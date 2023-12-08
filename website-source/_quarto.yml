@@ -6,6 +6,8 @@ website:
   navbar:
     pinned: true
     left:
+      - text: Home
+        href: https://ramdayalrewaria.quarto.pub/
       - href: index.qmd
         text: Introduction
       - text: EDA
