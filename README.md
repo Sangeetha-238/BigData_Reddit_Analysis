@@ -1,87 +1,64 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/Z3fDOls0)
-# DSAN 6000 Project
+# Analysis on Entertainment Subreddits
 
-[Review the project overview here](https://gu-dsan.github.io/6000-fall-2023/project/project.html)
+## Introduction
 
-## Milestones
+This project explores the vibrant world of Reddit's entertainment communities. Reddit, a vast virtual gathering place, offers a unique lens through which we can view discussions on movies, television, and anime. Our analysis focuses on understanding the dynamics of these discussions across key subreddits, including r/anime, r/television, r/movies, and others, to unveil the preferences and sentiments of Gen Z and other demographics.
 
-The project will be executed over several milestones, and each one has a specific set of requirements and instructions. These instructions are located on the [course website](https://gu-dsan.github.io/6000-fall-2023/project/project.html)
+## Authors
 
-There are four major milestones (click on each one for the approprate instructions and description):
+- Ramdayal Nirmal Rewaria (rr1220)
+- Samiksha Rajendra Thikekar (st1140)
+- Sangeetha Kanithahalli Ramesh (sk2224)
 
-1. [Milestone 1: Define the questions and Exploratory Data Analysis](https://gu-dsan.github.io/6000-fall-2023/project/eda.html)
-1. [Milestone 2: NLP and external data overlay](https://gu-dsan.github.io/6000-fall-2023/project/eda.html)
-1. [Peer Feedback: Give and receive peer feedback](https://gu-dsan.github.io/6000-fall-2023/project/feedback.html)
-1. [Milestone 3: Machine Learning](https://gu-dsan.github.io/6000-fall-2023/project/eda.html)
-1. [Milestone 4: Final delivery](https://gu-dsan.github.io/6000-fall-2023/project/eda.html)
+## Data Overview
 
-All of your work will be done within this team GitHub repository, and each milestone will be tagged with a specific [release tag](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) by the due date.  
+Leveraging a combined dataset of over 412 GB of posts and 918 GB of comments from Reddit, along with external datasets from Rotten Tomatoes and MyAnimeList, this project delves into a comprehensive analysis to uncover trends, preferences, and sentiments in the entertainment industry.
 
-1. Milestone 1 (EDA): will be tagged `v0.1-eda`
-1. Milestone 2 (NLP): will be tagged `v0.2-nlp`
-1. Milestone 3 (ML): will be tagged `v0.3-ml`
-1. Milestone 4 (Final): will be tagged `v1.0-final`
+## Objectives
 
-## Repository structure
+Our research aims to:
+- Optimize content strategy by identifying peak engagement times on Reddit.
+- Recognize influential users and understand their content preferences.
+- Analyze how different content types influence user engagement.
+- Discover emerging trends in movies and anime preferences.
+- Craft targeted marketing strategies based on community discussions.
+- Identify gaps between critic reviews and audience opinions.
+- Enhance audience engagement by understanding community discussion drivers.
+- Accurately categorize posts into relevant interest groups.
+- Predict post popularity to maximize visibility and interaction.
+- Develop advanced analytics tools for content creators and marketers.
 
-You will work within an **organized** repository and apply coding and development best practices. The repository has the following structure:
+## Methodology
 
-```.
-├── LICENSE
-├── README.md
-├── code/
-├── data/
-├── website/
-└── website-source/
-```
-### Description
+Our approach blends data science techniques, visualizations, and machine learning, including:
+- Time series analysis for identifying peak engagement times.
+- Statistical measures and content analysis for recognizing key contributors.
+- Advanced NLP techniques for sentiment analysis and topic modeling.
+- Machine learning models for post categorization and popularity prediction.
 
-* The `code/` directory is where you will write all of your scripts. You will have a combination of Pyspark and Python notebooks, and one sub-directory per major task area. You may add additional sub-directories as needed to modularize your development.
-* The `data/` directory contains.
-* The `website/` directory where the final website will be built. Any website asset (image, html, etc.) must be added to this directory. **You do not need to serve the website, although you can do so if you wish. However, this naming convention may not work.**
-* The `website-source/` is where you will develop the website using your preferred method. It must render in `website/`.
+## Key Findings
 
-## Code
+- **Temporal Trends:** We observed no distinct cyclic patterns in user engagement across different subreddits. However, notable spikes in the Movie subreddit suggested increased activity around major film releases.
+  
+- **User Engagement Dynamics:** Shorter posts attracted more comments, indicating a preference for concise content. Posts with media content received higher scores and more comments, suggesting that visual media enhances user interaction.
 
-* Your code files must be well organized
-* Do not work in a messy repository and then try to clean it up
-* In notebooks, use Markdown cells to explain what you are doing and the decisions you are making
-* Do not write monolithic Notebooks or scripts
-* Modularize your code (a script should do a single task)
-* Use code comments
-* Use functions to promote code reuse
+- **Correlation Insights:** A positive correlation was found between the number of comments and scores, highlighting that more engaging posts tend to score higher.
 
-## Delivery mechanism
+- **Community vs. Critics:** Our analysis revealed that Reddit users value quality and discussion over traditional metrics of success, such as high ratings. This indicates a shift towards community-driven appreciation of entertainment.
 
-The output of the project will be delivered through a self-contained website in the `website/` subdirectory, having `index.html` as the starting point. You will build the website incrementally over the milestones.
+- **Sentiment Analysis:** The prevalence of positive sentiments in discussions around movies and anime underscores the constructive nature of these communities.
 
-[Read the website requirements.](https://gu-dsan.github.io/6000-fall-2023/project/website.html)
+- **Classification Accuracy:** We achieved a 75% accuracy in classifying posts into movies or anime categories, offering insights into engagement strategies for users and advertisers.
 
-## Evaluation
+- **Predicting Post Popularity:** Our model can distinguish between 'popular' and 'not popular' submissions, enhancing the user experience by tailoring content feeds and aiding moderators.
 
-The project will be evaluated using the following high-level criteria:
+## Conclusion
 
-* Level of analytical rigor at the graduate student level
-* Level of technical approach
-* Quality and clarity of your writing and overall presentation
+This project has provided a comprehensive analysis of entertainment discussions on Reddit, revealing the platform's dynamics and offering valuable insights for content creators, platform managers, and users. We have uncovered the intricate relationship between content engagement and user interaction, highlighting the shift towards a community-driven valuation of entertainment.
 
+## Feedback
 
-### Grading rubric
+We welcome feedback and contributions to our project. Please feel free to open an issue or pull request.
 
-- If a deliverable exceeds the requirements and expectations, that is considered A level work.
-- If a deliverable just meets the requirements and expectations, that is considered A-/B+ level work.
-- If a deliverable does not meet the requirements, that is considered B or lesser level work.
+---
 
-Deductions will be made for any of the following reasons:
-
-- There is lack of analytical rigor:
-    - Analytical decisions are not justified
-    - Analysis is too simplistic
-- Big data files included in the repository
-- Instruction are not followed
-- There are missing sections of the deliverable
-- The overall presentation and/or writing is sloppy
-- There are no comments in your code
-- There are absolute filename links in your code
-- The repository structure is sloppy
-- Files are named incorrectly (wrong extensions, wrong case, etc.)
