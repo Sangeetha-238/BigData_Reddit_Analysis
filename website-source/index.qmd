@@ -2,9 +2,10 @@
 title: "Analysis on Entertainment Subreddits"
 title-block-banner: img/hero_photo.png
 author:
+  - Sangeetha Kanithahalli Ramesh (sk2224)
   - Ramdayal Nirmal Rewaria (rr1220)
   - Samiksha Rajendra Thikekar (st1140)
-  - Sangeetha Kanithahalli Ramesh (sk2224)
+  
 format:
   html:
     toc: false
