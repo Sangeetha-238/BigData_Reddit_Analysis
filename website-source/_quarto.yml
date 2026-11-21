@@ -7,7 +7,7 @@ website:
     pinned: true
     left:
       - text: Home
-        href: https://ramdayalrewaria.quarto.pub/
+        href: https://github.com/Sangeetha-238/BigData_Reddit_Analysis
       - href: index.qmd
         text: Introduction
       - text: EDA
